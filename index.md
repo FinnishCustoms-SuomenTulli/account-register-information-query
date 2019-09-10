@@ -1,10 +1,10 @@
-# Tilirekisterin ja tiedonhakujärjestelmän kyselyrajapintakuvaus
+# Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
 *Dokumentin versio 0.8*
 
 [English translation](https://github.com/FinnishCustoms-SuomenTulli/Tilirekisteri/blob/master/rajapintakuvaus_en.pdf)
 
-[Svensk översättning](https://github.com/FinnishCustoms-SuomenTulli/Tilirekisteri/blob/master/rajapintakuvaus_sv.pdf)
+[Svensk översättning](https://github.com/FinnishCustoms-SuomenTulli/Tilirekisteri/blob/master/rajapintakuvaus_sv.pdf) Tätä rajapintakuvausta noudatetaan soveltuvin osin myös tilirekisterin kyselyrajapinnassa.
 
 Huom. käännösten versiot tulevat pienellä viiveellä suomenkieliseen rajapintakuvaukseen verrattuna.
 
@@ -30,7 +30,7 @@ Versio|Päivämäärä|Kuvaus|Tekijä
   2.1 Pankki- ja maksutilitietojen kysely
 3. [Tietoturva](#tietoturva)  
   3.1 Tunnistaminen 
-4. [Tilirekisterin ja tiedonhakujärjestelmän kyselyrajapinta](#kyselyrajapinta)   
+4. [Tiedonhakujärjestelmän kyselyrajapinta](#kyselyrajapinta)   
 
 ## 1. Johdanto <a name="luku1"></a>
 
@@ -39,7 +39,7 @@ Versio|Päivämäärä|Kuvaus|Tekijä
 Lyhenne tai termi|Selite
 ---|---
 Rajapinta|Standardin mukainen käytäntö tai yhtymäkohta, joka mahdollistaa tietojen siirron laitteiden, ohjelmien tai käyttäjän välillä. 
-WS (Web Service)|Verkkopalvelimessa toimiva ohjelmisto, joka tarjoaa standardoitujen internetyhteyskäytäntöjen avulla palveluja sovellusten käytettäväksi. Tilirekisterin tarjoamia palveluja ovat tietojen toimittaminen, tietopyyntö, ja tietojen kysely. Tiedonhakujärjestelmä tarjoaa palveluna tietojen kyselyn.
+WS (Web Service)|Verkkopalvelimessa toimiva ohjelmisto, joka tarjoaa standardoitujen internetyhteyskäytäntöjen avulla palveluja sovellusten käytettäväksi. Tiedonhakujärjestelmä tarjoaa palveluna tietojen kyselyn.
 Endpoint|Rajapintapalvelu, joka on saatavilla tietyssä verkko-osoitteessa
 
 ### 1.2 Dokumentin tarkoitus ja kattavuus
@@ -56,25 +56,19 @@ Tämä dokumentti on pankki- ja maksutilien valvontajärjestelmän kyselyrajapin
 
 [ISO 20022 head.001.001.01 skeema](https://www.iso20022.org/documents/messages/head/schemas/head.001.001.01.zip)
 
-[TUVE-väylä](https://vm.fi/turvallisuusverkkotoiminta)
-
-[Suomi.fi palveluväylä](https://esuomi.fi/palveluntarjoajille/palveluvayla/)
-
 ### 1.4 Yleiskuvaus
 
-Tulli on perustanut Tilirekisterihankkeen, joka toteuttaa (EU) 2018/843 direktiivin ja sen täytäntöön panemiseksi säädetyn, Suomen lainsäädäntöön perustuvan pankki- ja maksutilien valvontajärjestelmän.
+Tulli on perustanut Tilirekisterihankkeen, joka toteuttaa (EU) 2018/843 direktiivin ja sen täytäntöön panemiseksi säädetyn, Suomen lainsäädäntöön perustuvan pankki- ja maksutilien valvontajärjestelmän. 
 
-Järjestelmä koostuu kahdesta osasta: pankki- ja maksutilirekisteristä sekä tiedonhakujärjestelmästä. 
-
-Tässä dokumentissa kuvataan tilirekisterin ja tiedonhakujärjestelmän kyselyrajapinnat.
+Tässä dokumentissa kuvataan tiedonhakujärjestelmän kyselyrajapinnat.
 
 ## 2. Aktiviteettien kuvaus <a name="luku2"></a>
 
 Tässä luvussa on esitettu pankki- ja maksutilitietojen kysely vuokaavioina.
 
-### 2.1 Pankki- ja maksutilitietojen kysely tilirekisteristä ja tiedonhakujärjestelmästä
+### 2.1 Pankki- ja maksutilitietojen kysely tiedonhakujärjestelmästä
 
-Kuvassa 2.1 on esitetty vuokaaviona pankki- ja maksutilitietojen kysely tilirekisteristä ja tiedonhakujärjestelmästä.
+Kuvassa 2.1 on esitetty vuokaaviona pankki- ja maksutilitietojen kysely tiedonhakujärjestelmästä.
 
 ![Pankki- ja maksutilitietojen kysely](diagrams/flowchart_query.png "Pankki- ja maksutilitietojen kysely")  
 *__Kuva2.1.__ Pankki- ja maksutilitietojen kysely*  
@@ -87,13 +81,11 @@ Kuvasta nähdään, että kyselyrajapinta on asynkroninen. Tietojen kysyminen ta
 
 Tarkentuu.
 
-Tilirekisterin ja Tiedonhakujärjestelmän kyselyrajapinnan hyödyntäjät tunnistetaan VRK:n myöntämillä X.509-sertifikaateilla. Kyselyrajapinnan Sanomat allekirjoitetaan XML-allekirjoituksella. Tarkempi sanomien allekirjoitusten kuvaus lisätään tähän dokumenttiin myöhemmin.
-
-Tilirekisterin rajapintaan on saatavissa pääsy [Suomi.fi palveluväylän](https://esuomi.fi/palveluntarjoajille/palveluvayla/) kautta. Osa tiedon hyödyntäjistä käyttää Tilirekisterin rajapintaa [TUVE-väylän](https://vm.fi/turvallisuusverkkotoiminta) kautta.
+Tiedonhakujärjestelmän kyselyrajapinnan hyödyntäjät tunnistetaan VRK:n myöntämillä X.509-sertifikaateilla. Kyselyrajapinnan Sanomat allekirjoitetaan XML-allekirjoituksella. Tarkempi sanomien allekirjoitusten kuvaus lisätään tähän dokumenttiin myöhemmin.
 
 Mahdollisuus pyyntöjen IP-avaruuden rajoittamiseen tiedonhakujärjestelmässä tarkentuu.
 
-## <a name="kyselyrajapinta"></a> 4. Tiedonhakujärjestelmän ja tilirekisterin kyselyrajapinta
+## <a name="kyselyrajapinta"></a> 4. Tiedonhakujärjestelmän kyselyrajapinta
 
 Kyselyrajapinta toteutetaan SOAP/XML Web Servicenä, josta julkaistaan WSDL.
 
@@ -117,7 +109,7 @@ BAH on oltava aina SOAP bodyn ensimmäinen elementti.
 
 ### 4.3 Kyselyrajapinnan sanomat
 
-Tiedonhakujärjestelmässä ja tilirekisterin kyselyrajapinnassa käytetään [ISO 20022 -sanomia InformationRequestOpeningV01 ja InformationRequestResponseV01](https://www.iso20022.org/full_catalogue.page), joihin liitetään tarvittavat [Supplementary Datat](https://www.iso20022.org/supplementary_data.page).
+Tiedonhakujärjestelmän kyselyrajapinnassa käytetään [ISO 20022 -sanomia InformationRequestOpeningV01 ja InformationRequestResponseV01](https://www.iso20022.org/full_catalogue.page), joihin liitetään tarvittavat [Supplementary Datat](https://www.iso20022.org/supplementary_data.page).
 
 Seuraavassa taulukossa on listattu käytettävät ISO 20022 -sanomat. 
 
@@ -130,7 +122,7 @@ Seuraavassa taulukossa on listattu kyselysanomaan liitettävä Supplementary Dat
 
 |Sanoma-id|Sanoman nimi|Laajennettavan ISO 20022 sanoman id|Tarkoitus ja toiminnallisuus|
 |---|---|---|---|
-|FIN012|InformationRequestFIN012|auth.001.001.01|ISO 20022 sanomalaajennus. Kyselyrajapinnan käyttöoikeuden haltijat käyttävät tätä sanomaa tietojen kyselyyn tilirekisteristä ja tiedonhakurajapinnasta. |
+|FIN012|InformationRequestFIN012|auth.001.001.01|ISO 20022 sanomalaajennus. Kyselyrajapinnan käyttöoikeuden haltijat käyttävät tätä sanomaa tietojen kyselyyn tiedonhakurajapinnasta. |
 
 Seuraavassa taulukossa on listattu vastaussanomaan liitettävät Supplementary Data -sanomalaajennukset.
 
@@ -159,7 +151,7 @@ Seuraavassa taulukossa on esitetty BAH-elementtien käyttö. Elementtien tyypit 
 |BusinessApplicationHeaderV01| | | |
 |CharSet|UnicodeChartsCode|kyllä|"UTF-8"|
 |Fr|Party9Choice|kyllä|Käytetään seuraavasti: Elementti `Fr/OrgId/Id/OrgId/Othr/SchmeNm/Cd` sisältää arvon "COID" ja elementti `Fr/OrgId/Id/OrgId/Othr/Id` sisältää lähettäjän Y-tunnuksen.|
-|To|Party9Choice|kyllä|Käytetään seuraavasti: Elementti `To/OrgId/Id/OrgId/Othr/SchmeNm/Cd` sisältää arvon "COID" ja elementti `To/OrgId/Id/OrgId/Othr/Id` sisältää vastaanottajan Y-tunnuksen (Esim. Tilirekisterissä Tullin Y-tunnus 0245442-8)|
+|To|Party9Choice|kyllä|Käytetään seuraavasti: Elementti `To/OrgId/Id/OrgId/Othr/SchmeNm/Cd` sisältää arvon "COID" ja elementti `To/OrgId/Id/OrgId/Othr/Id` sisältää vastaanottajan Y-tunnuksen (Esim. Tiedonhakujärjestelmässä Y-tunnus 0245442-8)|
 |BizMsgIdr|Max35Text|kyllä|Käyttö standardin mukaisesti.|
 |MsgDefIdr|Max35Text|kyllä|Sisältää sanoma-id:n. Kyselysanomassa käytetään "auth.001.001.01", vastaussanomassa sisältönä on "auth.002.001.01"|
 |BizSvc||ei||
