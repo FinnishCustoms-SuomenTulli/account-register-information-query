@@ -116,7 +116,7 @@ Seuraavassa taulukossa on listattu kyselysanomaan liitettävä Supplementary Dat
 
 |Sanoma-id|Sanoman nimi|Laajennettavan ISO 20022 sanoman id|Tarkoitus ja toiminnallisuus|
 |---|---|---|---|
-|FIN012|InformationRequestFIN012|auth.001.001.01|ISO 20022 sanomalaajennus. Kyselyrajapinnan käyttöoikeuden haltijat käyttävät tätä sanomaa tietojen kyselyyn tiedonhakurajapinnasta. |
+|FIN012|InformationRequestFIN012|auth.001.001.01|ISO 20022 sanomalaajennus. Kyselyrajapinnan toimivaltaiset viranomaiset käyttävät tätä sanomaa tietojen kyselyyn tiedonhakurajapinnasta. |
 
 Seuraavassa taulukossa on listattu vastaussanomaan liitettävät Supplementary Data -sanomalaajennukset.
 
