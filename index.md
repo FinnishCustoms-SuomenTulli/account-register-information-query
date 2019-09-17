@@ -177,18 +177,18 @@ Hakukriteerien esittäminen SearchCriteria1Choice avulla.
 
 |Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
 |:---|:---|:---|:---|
-|&nbsp;&nbsp;&nbsp;&nbsp;Hetu tai henkilötodistuksen tunnistenumero|<Id>|CstmrId/Pty/Id/Prvtld/Othr|Hetu tai henkilötodistuksen tunnistenumero|
-|&nbsp;&nbsp;&nbsp;&nbsp;|<Cd>|CstmrId/Pty/Id/Prvtld/Othr/SchemeNm|SSN, PIC (Person Identification Code), OTHER*|
-|&nbsp;&nbsp;&nbsp;&nbsp;Y-tunnus tai muu oikeushenkilön tunniste|<Id>|CstmrId/Pty/Id/OrgId/Othr|Y-tunnus tai muu oikeushenkilön tunniste|
-|&nbsp;&nbsp;&nbsp;&nbsp;|<Cd>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|Y-tunnus, PRH, NAMESRCH, OTHER*|
-|&nbsp;&nbsp;&nbsp;&nbsp;IBAN|<IBAN>|Acct/Id/Id||
-|&nbsp;&nbsp;&nbsp;&nbsp;Tilin muu yksilöintitunnus|<Id>|Acct/Id/Id/Othr|Tunnus|
-|&nbsp;&nbsp;&nbsp;&nbsp;|<Cd>|Acct/Id/Id/Othr/SchemeNm|OTHER*|
-|&nbsp;&nbsp;&nbsp;&nbsp;Nimi+Kansalaisuus+syntymäaika|<Nm>|Document/InfReqOpng/SchCrit/CstmrId/Pty|Nimi|
-|&nbsp;&nbsp;&nbsp;&nbsp;|<Id>|CstmrId/Pty/Id/OrgId/Othr|Maakoodi|
-|&nbsp;&nbsp;&nbsp;&nbsp;|<Cd>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|NATIONALITY|
-|&nbsp;&nbsp;&nbsp;&nbsp;|<BirthDt>|DoSchCrit/CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth **||
-|&nbsp;&nbsp;&nbsp;&nbsp;|<Nm>|Document/InfReqOpng/SchCrit/CstmrId/Pty|Yrityksen nimi***|
+|Hetu tai henkilötodistuksen tunnistenumero|<Id>|CstmrId/Pty/Id/Prvtld/Othr|Hetu tai henkilötodistuksen tunnistenumero|
+| |<Cd>|CstmrId/Pty/Id/Prvtld/Othr/SchemeNm|SSN, PIC (Person Identification Code), OTHER*|
+|Y-tunnus tai muu oikeushenkilön tunniste|<Id>|CstmrId/Pty/Id/OrgId/Othr|Y-tunnus tai muu oikeushenkilön tunniste|
+| |<Cd>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|Y-tunnus, PRH, NAMESRCH, OTHER*|
+|IBAN|<IBAN>|Acct/Id/Id||
+|Tilin muu yksilöintitunnus|<Id>|Acct/Id/Id/Othr|Tunnus|
+| |<Cd>|Acct/Id/Id/Othr/SchemeNm|OTHER*|
+|Nimi+Kansalaisuus+syntymäaika|<Nm>|Document/InfReqOpng/SchCrit/CstmrId/Pty|Nimi|
+| |<Id>|CstmrId/Pty/Id/OrgId/Othr|Maakoodi|
+| |<Cd>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|NATIONALITY|
+| |<BirthDt>|DoSchCrit/CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth **| |
+|Yrityksen nimi|<Nm>|Document/InfReqOpng/SchCrit/CstmrId/Pty|Yrityksen nimi***|
 
 *) OTHER arvojoukko kuvataan erillisessä taulukossa, Tulli lähettää taulukot Pankki- ja maksutilirekisterin
 osalta yhteisen taulukon ylläpitäjälle
