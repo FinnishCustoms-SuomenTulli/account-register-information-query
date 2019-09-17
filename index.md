@@ -178,24 +178,39 @@ Hakukriteerien esittäminen SearchCriteria1Choice avulla.
 |Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
 |:---|:---|:---|:---|
 |Hetu tai henkilötodistuksen tunnistenumero|\<Id\>|CstmrId/Pty/Id/Prvtld/Othr|Hetu tai henkilötodistuksen tunnistenumero|
-| |\<Cd\>|CstmrId/Pty/Id/Prvtld/Othr/SchemeNm|SSN, PIC (Person Identification Code), OTHER*|
+||\<Cd\>|CstmrId/Pty/Id/Prvtld/Othr/SchemeNm|SSN, PIC (Person Identification Code), OTHER*|
+
+|Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
+|:---|:---|:---|:---|
 |Y-tunnus tai muu oikeushenkilön tunniste|\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Y-tunnus tai muu oikeushenkilön tunniste|
-| |\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|Y-tunnus, PRH, NAMESRCH, OTHER*|
+||\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|Y-tunnus, PRH, NAMESRCH, OTHER*|
+
+|Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
+|:---|:---|:---|:---|
 |IBAN|\<IBAN\>|Acct/Id/Id||
+
+|Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
+|:---|:---|:---|:---|
 |Tilin muu yksilöintitunnus|\<Id\>|Acct/Id/Id/Othr|Tunnus|
-| |\<Cd\>|Acct/Id/Id/Othr/SchemeNm|OTHER*|
-|Nimi+Kansalaisuus+syntymäaika|\<Nm\>|Document/InfReqOpng/SchCrit/CstmrId/Pty|Nimi|
-| |\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Maakoodi|
-| |\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|NATIONALITY|
-| |\<BirthDt\>|DoSchCrit/CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth **| |
-|Yrityksen nimi|\<Nm\>|Document/InfReqOpng/SchCrit/CstmrId/Pty|Yrityksen nimi***|
+||\<Cd\>|Acct/Id/Id/Othr/SchemeNm|OTHER*|
 
 *) OTHER arvojoukko kuvataan erillisessä taulukossa, Tulli lähettää taulukot Pankki- ja maksutilirekisterin
 osalta yhteisen taulukon ylläpitäjälle
 
+|Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
+|:---|:---|:---|:---|
+|Nimi+Kansalaisuus+syntymäaika|\<Nm\>|CstmrId/Pty|Nimi|
+||\<Id\>|CstmrId/Pty/Id/PrvtId/Othr|Maakoodi|
+||\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchemeNm|NATIONALITY|
+||\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth **||
+
 **) Document/InfReqOpng/SchCrit/CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth/CtryOfBirth ja
 Document/InfReqOpng/SchCrit/CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth/CityOfBirth arvoksi asetetaan ”not
 in use”
+
+|Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
+|:---|:---|:---|:---|
+|Yrityksen nimi|\<Nm\>|CstmrId/Pty|Yrityksen nimi***|
 
 ***) Yrityksen nimellä haettaessa on aina annettava Y-tunnus tai muu oikeushenkilön tunniste. Kun
 tehdään pelkkä nimihaku, annetaan arvo 1 ja koodi NAMESRCH.
