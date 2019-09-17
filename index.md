@@ -194,23 +194,23 @@ Hakukriteerien esittäminen SearchCriteria1Choice avulla.
 |Tilin muu yksilöintitunnus|\<Id\>|Acct/Id/Id/Othr|Tunnus|
 ||\<Cd\>|Acct/Id/Id/Othr/SchemeNm|OTHER*|
 
-*) OTHER arvojoukko kuvataan erillisessä taulukossa, Tulli lähettää taulukot Pankki- ja maksutilirekisterin
-osalta yhteisen taulukon ylläpitäjälle
-
 |Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
 |:---|:---|:---|:---|
 |Nimi+Kansalaisuus+syntymäaika|\<Nm\>|CstmrId/Pty|Nimi|
 ||\<Id\>|CstmrId/Pty/Id/PrvtId/Othr|Maakoodi|
 ||\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchemeNm|NATIONALITY|
-||\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth **||
-
-**) Document/InfReqOpng/SchCrit/CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth/CtryOfBirth ja
-Document/InfReqOpng/SchCrit/CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth/CityOfBirth arvoksi asetetaan ”not
-in use”
+||\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth **|Syntymäaika|
 
 |Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
 |:---|:---|:---|:---|
 |Yrityksen nimi|\<Nm\>|CstmrId/Pty|Yrityksen nimi***|
+
+*) OTHER arvojoukko kuvataan erillisessä taulukossa, Tulli lähettää taulukot Pankki- ja maksutilirekisterin
+osalta yhteisen taulukon ylläpitäjälle
+
+**) Document/InfReqOpng/SchCrit/CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth/CtryOfBirth ja
+Document/InfReqOpng/SchCrit/CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth/CityOfBirth arvoksi asetetaan ”not
+in use”
 
 ***) Yrityksen nimellä haettaessa on aina annettava Y-tunnus tai muu oikeushenkilön tunniste. Kun
 tehdään pelkkä nimihaku, annetaan arvo 1 ja koodi NAMESRCH.
