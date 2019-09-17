@@ -168,8 +168,37 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |&nbsp;&nbsp;&nbsp;&nbsp;CnfdtltySts|YesNoIndicator|Kyllä|Aina "true"|
 |&nbsp;&nbsp;&nbsp;&nbsp;DueDt|DueDate1|Ei||
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Ei|Ei huomioida. Skeemassa pakollinen, joten `/Document/InfReqOpng/InvstgtnPrd/Dt/FrDt` ja `ToDt` esim. kuluva pvm|
-|&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Ei|Pakollinen skeemassa. Ei huomioida. Yhdessä kyselyssä voi olla useampia hakutermejä, joten ne on sijoitettu SplmtryData alle|
+|&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Kyllä|Hakukriteeri. Käytettävä aina mahdollisimman täsmällistä hakukriteeriä. Esim. jos ei käytetä Y-tunnusta, vaan käytetään OtherOrganisationIdentification -kenttää, haku ei kohdistu Y-tunnuksiin lainkaan. Ks. [tarkempi erittely](#SearchCriteria1Choice) alla.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Kyllä|Sisältää sanomalaajennuksen [InformationRequestFIN012](#InformationRequestFIN012)|
+
+#### <a name="SearchCriteria1Choice"></a> SearchCriteria1Choice
+
+Hakukriteerien esittäminen SearchCriteria1Choice avulla.
+
+|Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
+|:---|:---|:---|:---|
+|&nbsp;&nbsp;&nbsp;&nbsp;Hetu tai henkilötodistuksen tunnistenumero|<Id>|CstmrId/Pty/Id/Prvtld/Othr|Hetu tai henkilötodistuksen tunnistenumero|
+|&nbsp;&nbsp;&nbsp;&nbsp;|<Cd>|CstmrId/Pty/Id/Prvtld/Othr/SchemeNm|SSN, PIC (Person Identification Code), OTHER*|
+|&nbsp;&nbsp;&nbsp;&nbsp;Y-tunnus tai muu oikeushenkilön tunniste|<Id>|CstmrId/Pty/Id/OrgId/Othr|Y-tunnus tai muu oikeushenkilön tunniste|
+|&nbsp;&nbsp;&nbsp;&nbsp;|<Cd>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|Y-tunnus, PRH, NAMESRCH, OTHER*|
+|&nbsp;&nbsp;&nbsp;&nbsp;IBAN|<IBAN>|Acct/Id/Id||
+|&nbsp;&nbsp;&nbsp;&nbsp;Tilin muu yksilöintitunnus|<Id>|Acct/Id/Id/Othr|Tunnus|
+|&nbsp;&nbsp;&nbsp;&nbsp;|<Cd>|Acct/Id/Id/Othr/SchemeNm|OTHER*|
+|&nbsp;&nbsp;&nbsp;&nbsp;Nimi+Kansalaisuus+syntymäaika|<Nm>|Document/InfReqOpng/SchCrit/CstmrId/Pty|Nimi|
+|&nbsp;&nbsp;&nbsp;&nbsp;|<Id>|CstmrId/Pty/Id/OrgId/Othr|Maakoodi|
+|&nbsp;&nbsp;&nbsp;&nbsp;|<Cd>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|NATIONALITY|
+|&nbsp;&nbsp;&nbsp;&nbsp;|<BirthDt>|DoSchCrit/CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth **||
+|&nbsp;&nbsp;&nbsp;&nbsp;|<Nm>|Document/InfReqOpng/SchCrit/CstmrId/Pty|Yrityksen nimi***|
+
+*) OTHER arvojoukko kuvataan erillisessä taulukossa, Tulli lähettää taulukot Pankki- ja maksutilirekisterin
+osalta yhteisen taulukon ylläpitäjälle
+
+**) Document/InfReqOpng/SchCrit/CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth/CtryOfBirth ja
+Document/InfReqOpng/SchCrit/CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth/CityOfBirth arvoksi asetetaan ”not
+in use”
+
+***) Yrityksen nimellä haettaessa on aina annettava Y-tunnus tai muu oikeushenkilön tunniste. Kun
+tehdään pelkkä nimihaku, annetaan arvo 1 ja koodi NAMESRCH.
 
 ### <a name="InformationRequestFIN012"></a> 4.6 Sanomalaajennus InformationRequestFIN012
 
@@ -179,19 +208,15 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |:---|:---|:---|:---|:---|:---|:---|
 |InformationRequestFIN012| | | | |[auth.001](InformationRequestOpeningV01)|`/Document/InfReqOpng/SplmtryData/Envlp`|
 |&nbsp;&nbsp;&nbsp;&nbsp;AuthorityInquiry|R|[1..1]|[AuthorityInquirySet](#AuthorityInquirySet)|Kyselyyn liittyvät viranomaisen tiedot| |
-|&nbsp;&nbsp;&nbsp;&nbsp;SearchCriteria|R|[1..*]|[SearchCriteriaChoice](#SearchCriteriaChoice)|Hakukriteeri. Käytettävä aina mahdollisimman täsmällistä hakukriteeriä. Esim. jos ei käytetä Y-tunnusta, vaan käytetään OtherOrganisationIdentification-kenttää, haku ei kohdistu Y-tunnuksiin lainkaan. Ks. [tarkempi erittely](#SearchCriteriaChoice) alla.| |
+|&nbsp;&nbsp;&nbsp;&nbsp;AdditionalSearchCriteria|R|[1..*]|[SearchCriteriaChoice](#SearchCriteriaChoice)|Jos tarvitaan esimerkiksi tallelokero hakukriteeriksi, voidaan käyttää tätä elementtiä.| |
 
 #### <a name="AuthorityInquirySet"></a> AuthorityInquirySet
 
 |Nimi|Pakollisuus (RAO)|[min..max]|Tyyppi|Kuvaus|
 |:---|:---|:---|:---|:---|
 |AuthorityInquirySet| | | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;OfficialName|R|[0..1]|Max140Text|Virkamiehen nimi|
-|&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorName|R|[0..1]|Max140Text|Esimiehen nimi|
-
-#### <a name="SearchCriteriaChoice"></a> SearchCriteriaChoice
-
-Tarkentuu
+|&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|R|[0..1]|Max140Text|Viranomaisen (henkilön) tunniste|
+|&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|R|[0..1]|Max140Text|Esimiehen tunniste|
 
 ### <a name="InformationRequestResponseV01"></a> 4.7 InformationRequestResponseV01
 
