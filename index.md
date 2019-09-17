@@ -206,11 +206,11 @@ Hakukriteerien esittäminen SearchCriteria1Choice avulla.
 |Yrityksen nimi|\<Nm\>|CstmrId/Pty|Yrityksen nimi***|
 
 *) OTHER arvojoukko kuvataan erillisessä taulukossa, Tulli lähettää taulukot Pankki- ja maksutilirekisterin
-osalta yhteisen taulukon ylläpitäjälle
+osalta yhteisen taulukon ylläpitäjälle.
 
 **) Document/InfReqOpng/SchCrit/CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth/CtryOfBirth ja
 Document/InfReqOpng/SchCrit/CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth/CityOfBirth arvoksi asetetaan ”not
-in use”
+in use”.
 
 ***) Yrityksen nimellä haettaessa on aina annettava Y-tunnus tai muu oikeushenkilön tunniste. Kun
 tehdään pelkkä nimihaku, annetaan arvo 1 ja koodi NAMESRCH.
