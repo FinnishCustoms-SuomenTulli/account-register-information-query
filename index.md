@@ -329,7 +329,13 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |Customer| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Contract|Contract|kyllä|[1..1]| |
 |&nbsp;&nbsp;&nbsp;&nbsp;Id|PartyIdentification41|kyllä|[1..1]|Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
-|&nbsp;&nbsp;&nbsp;&nbsp;Beneficiaries|PartyIdentification41|kyllä|[0..1]|Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|&nbsp;&nbsp;&nbsp;&nbsp;Beneficiaries|Beneficiaries|kyllä|[0..1]|Ks. [Beneficiaries käyttö](#Beneficiaries_kaytto)|
+
+#### <a name="Beneficiaries_kaytto"></a> Beneficiaries käyttö
+
+|Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
+|:---|:---|:---|:---|:---|
+|Id|PartyIdentification41|kyllä|[0..*]|Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
 
 ### <a name="Id-elementin_kaytto"></a> 4.11 Id-elementin käyttö
 
