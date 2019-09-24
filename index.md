@@ -75,7 +75,7 @@ Kuvasta nähdään, että kyselyrajapinta on asynkroninen. Tietojen kysyminen ta
 
 Tarkentuu.
 
-Tiedonhakujärjestelmän kyselyrajapinnan hyödyntäjät tunnistetaan VRK:n myöntämillä X.509-sertifikaateilla. Kyselyrajapinnan Sanomat allekirjoitetaan XML-allekirjoituksella. Tarkempi sanomien allekirjoitusten kuvaus lisätään tähän dokumenttiin myöhemmin.
+Tiedonhakujärjestelmän kyselyrajapinnan hyödyntäjät tunnistetaan X.509-sertifikaateilla. Kyselyrajapinnan Sanomat allekirjoitetaan XML-allekirjoituksella. Tarkempi sanomien allekirjoitusten kuvaus lisätään tähän dokumenttiin myöhemmin.
 
 Mahdollisuus pyyntöjen IP-avaruuden rajoittamiseen tiedonhakujärjestelmässä tarkentuu.
 
