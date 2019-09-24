@@ -310,7 +310,6 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|BranchAndFinancialInstitutionIdentification4|kyllä|[1..1]|Käytetään seuraavasti: Elementti `SvcrId/FinInstnId/Othr/SchmeNm/Cd` sisältää arvon "COID" ja elementti `SvcrId/FinInstnId/Othr/Id` sisältää lähettäjän Y-tunnuksen.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SdBoxAndPties|O|[0..*]|SafetyDepositBoxAndParties|Tallelokero ja osalliset|
 
-
 ### <a name="InformationResponseFIN013"></a> 4.10 InformationResponseFIN013
 
 Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijaintiin.
@@ -330,18 +329,13 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |Customer| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Contract|Contract|kyllä|[1..1]| |
 |&nbsp;&nbsp;&nbsp;&nbsp;Id|PartyIdentification41|kyllä|[1..1]|Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
-|&nbsp;&nbsp;&nbsp;&nbsp;Beneficiaries|Beneficiaries|kyllä|[0..1]|Kun asiakas on oikeushenkilö, palautetaan myös kaikki edunsaajat.|
+|&nbsp;&nbsp;&nbsp;&nbsp;Beneficiaries|Beneficiaries|kyllä|[0..1]|Edunsaajat, ks. [Beneficiaries käyttö](#Beneficiaries_kaytto)|
 
-#### Beneficiaries käyttö
+#### <a name="Beneficiaries_kaytto"></a> Beneficiaries käyttö
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
-|Beneficaries| | | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;lastName|string|kyllä|[1..1]|sukunimi|
-|&nbsp;&nbsp;&nbsp;&nbsp;firstNames|string|kyllä|[1..1]|etunimet|
-|&nbsp;&nbsp;&nbsp;&nbsp;hetu|string|kyllä|[0..1]|suomalainen henkilötunnus|
-|&nbsp;&nbsp;&nbsp;&nbsp;birthdate|date-time|kyllä|[0..1]|syntymäaika|
-|&nbsp;&nbsp;&nbsp;&nbsp;nationality|string|kyllä|[0..1]|kansalaisuus|
+|Id|PartyIdentification41|kyllä|[1..*]|Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
 
 ### <a name="Id-elementin_kaytto"></a> 4.11 Id-elementin käyttö
 
@@ -356,8 +350,8 @@ Kaikissa sanomissa käytetään vastaavaa oikeushenkilön ja luonnollisen henkil
 |Nimi|Pakollisuus (RAO)|Tyyppi|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
 |Party8Choice|| | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;OrgId|A||[0..1]|OrganisationIdentification6|Käytetään seuraavasti: Elementti `OrgId/Othr/SchmeNm/Prtry` sisältää organisaatiotunnuksen tyyppikoodin ja elementti `OrgId/Id/OrgId/Othr/Id` sisältää tunnuksen. Ks. koodit taulukko alla.|
-|&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|A|PersonIdentification5|[0..1]|Käytetään seuraavasti: Elementti `PrvtId/Othr/SchmeNm/Prtry` sisältää henkilötunnisteen tyyppikoodin. Elementti `PrvtId/Othr/Id` sisältää tunnuksen. Ks. koodit taulukko alla.|
+|&nbsp;&nbsp;&nbsp;&nbsp;OrgId|A|OrganisationIdentification6|[0..1]|Käytetään seuraavasti: Elementti `OrgId/Othr/SchmeNm/Cd` sisältää organisaatiotunnuksen tyyppikoodin ja elementti `OrgId/Id/OrgId/Othr/Id` sisältää tunnuksen. Ks. koodit taulukko alla.|
+|&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|A|PersonIdentification5|[0..1]|Käytetään seuraavasti: Elementti `PrvtId/Othr/SchmeNm/Cd` sisältää henkilötunnisteen tyyppikoodin. Elementti `PrvtId/Othr/Id` sisältää tunnuksen. Ks. koodit taulukko alla.|
 
 OrgId koodit  
 
