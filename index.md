@@ -272,7 +272,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
 |CustomerAccount1| | | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;Id|AccountIdentification4Choice|kyllä|[1..1]|ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|&nbsp;&nbsp;&nbsp;&nbsp;Id|AccountIdentification4Choice|kyllä|[1..1]|Joko IBAN tai muu tilin tunnistetieto, kts. supl.027.001.01 -skeema|
 |&nbsp;&nbsp;&nbsp;&nbsp;Nm||ei|||
 |&nbsp;&nbsp;&nbsp;&nbsp;Sts||ei|||
 |&nbsp;&nbsp;&nbsp;&nbsp;Tp||ei|||
