@@ -242,9 +242,130 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |InformationRequestResponseV01| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;RspnId|Max35Text|Kyllä|[1..1]|Vastaussanoman id|
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|Kyllä|[1..1]|Kyselysanomassa toimitettu Case Id|
-|&nbsp;&nbsp;&nbsp;&nbsp;RspnSts|StatusResponse1Code|Kyllä|[1..1]|Vastaussanoman status|
-|&nbsp;&nbsp;&nbsp;&nbsp;RtrInd|ReturnIndicator1|Kyllä|[3..3]|Vastaussanoman payload. `RtrInd/AuthrtyReqTp/MsgNmId` sisältää sanomalaajennuksen sanmoma-id:n, ja `RtrInd/InvstgtnRslt/Rslt`, sisältää itse sanomalaajennuksen [supl.027.001.01](#supl.027.001.01), [InformationResponseFIN002](#InformationResponseFIN002) tai [InformationResponseFIN013](#InformationResponseFIN013). Sääntö: Jokainen sanomalaajennus esiintyy yhden kerran.|
+|&nbsp;&nbsp;&nbsp;&nbsp;RspnSts|StatusResponse1Code|Kyllä|[1..1]|Vastaussanoman status, "COMP"|
+|&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Kyllä|[1..1]|Kyselysanomassa esiintynyt Document/InfReqOpng/SchCrit sellaisenaan|
+|&nbsp;&nbsp;&nbsp;&nbsp;RtrInd|ReturnIndicator1|Kyllä|[0..*]| ks. ReturnIndicator1 käyttö alla. |
 |&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Ei|[0..0]|-|
+
+#### ReturnIndicator1 käyttö
+
+ReturnIndicator1 sisältää yksittäisen hakutulostyypin esiintymän. 
+
+|XPath|Tyyppi|Kuvaus|
+|:---|:---|:---|
+|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|sisältää sanomalaajennuksen sanmoma-id:n (supl.027.001.01, fin.013.001.01 tai fin.002.001.01)|
+|RtrInd/InvstgtnRslt|InvestigationResult1Choice|palautetaan aina `Rslt` elementti tyyppiä SupplementaryDataEnvelope1, joka sisältää joko [supl.027.001.01](#supl.027.001.01), [InformationResponseFIN002](#InformationResponseFIN002) tai [InformationResponseFIN013](#InformationResponseFIN013).
+
+Jokaista hakutulostyyppiä kohti palautetaan enintään yksi hakutulos-alisanoma (supl.027.001.01, fin.013.001.01 tai fin.002.001.01) per Y-tunnus. 
+
+__Esimerkki 1.__  
+
+Kyselysanomassa esiintynyttä Document/InfReqOpng/SchCrit hakutermiä vastaavia tuloksia on löytynyt kolme kappaletta: yksi asiakkuus ja kaksi tiliä.
+
+Vastaussanomaan liitetään kaksi kappaletta RtrInd-elementtiä:
+
+```
+<!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
+<n1:RtrInd>
+  <n1:AuthrtyReqTp>
+    <n1:MsgNmId>supl.027.001.01</n1:MsgNmId>
+  </n1:AuthrtyReqTp>
+  <n1:InvstgtnRslt>
+    <n1:Rslt>
+      <n2:Document xmlns:n2="urn:iso:std:iso:20022:tech:xsd:supl.027.001.01" ...>
+        <n2:InfRspnSD1>
+          <!-- Hakutuloksen tili #1, tili #2 tiedot -->
+        </n2:InfRspnSD1>
+      </n2:Document>
+    </n1:Rslt>
+  </n1:InvstgtnRslt>
+</n1:RtrInd>
+  <n1:AuthrtyReqTp>
+    <n1:MsgNmId>fin.013.001.01</n1:MsgNmId>
+  </n1:AuthrtyReqTp>
+  <n1:InvstgtnRslt>
+    <n1:Rslt>
+      <n1:Document xmlns:n3="fin.013.001.01" ...">
+      	<n1:InfRspnFin013>
+          <!-- Hakutuloksen asiakkuus #1 tiedot -->
+        </n1:InfRspnFin013>
+      </n1:Document>
+    </n1:Rslt>
+  </n1:InvstgtnRslt>
+</n1:RtrInd>
+```
+
+__Esimerkki 2.__
+
+Rajapinta on koosteinen: yksi rajapinta palauttaa hakutuloksia useiden Y-tunnusten alla.
+
+Kyselysanomassa esiintynyttä Document/InfReqOpng/SchCrit hakutermiä vastaavia tuloksia on löytynyt neljä kappaletta: yksi tili (tili #1) Y-tunnukselle 0190983-0 ja kolme tiliä (tili #2, tili #3, tili #4) Y-tunnukselle 0828972-6.
+
+Vastaussanomaan liitetään kaksi kappaletta RtrInd-elementtiä:
+
+```
+<!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
+<n1:RtrInd>
+  <n1:AuthrtyReqTp>
+    <n1:MsgNmId>supl.027.001.01</n1:MsgNmId>
+  </n1:AuthrtyReqTp>
+  <n1:InvstgtnRslt>
+    <n1:Rslt>
+      <n2:Document xmlns:n2="urn:iso:std:iso:20022:tech:xsd:supl.027.001.01" ...>
+        <n2:InfRspnSD1>
+          <n2:InvstgtnId>a</n2:InvstgtnId>
+            <n2:CreDtTm>
+              <!-- -->
+            </n2:CreDtTm>
+            <n2:AcctSvcrId>
+              <n2:FinInstnId>
+                <n2:Othr>
+                  <n2:Id>0190983-0</n2:Id>
+                  <n2:SchmeNm>
+                    <n2:Cd>Y</n2:Cd>
+                  </n2:SchmeNm>
+                </n2:Othr>
+              </n2:FinInstnId>
+            </n2:AcctSvcrId>
+            <n2:AcctAndPties>
+              <!-- Y-tunnuksen 0190983-0 hakutulokset, tili #1-->
+            </n2:AcctAndPties>
+        </n2:InfRspnSD1>
+      </n2:Document>
+    </n1:Rslt>
+  </n1:InvstgtnRslt>
+</n1:RtrInd>
+<n1:RtrInd>
+  <n1:AuthrtyReqTp>
+    <n1:MsgNmId>supl.027.001.01</n1:MsgNmId>
+  </n1:AuthrtyReqTp>
+  <n1:InvstgtnRslt>
+    <n1:Rslt>
+      <n2:Document xmlns:n2="urn:iso:std:iso:20022:tech:xsd:supl.027.001.01" ...>
+        <n2:InfRspnSD1>
+          <n2:InvstgtnId>a</n2:InvstgtnId>
+          <n2:CreDtTm>
+            <!-- -->
+          </n2:CreDtTm>
+          <n2:AcctSvcrId>
+            <n2:FinInstnId>
+              <n2:Othr>
+                <n2:Id>0828972-6</n2:Id>
+                <n2:SchmeNm>
+                  <n2:Cd>Y</n2:Cd>
+                </n2:SchmeNm>
+              </n2:Othr>
+            </n2:FinInstnId>
+          </n2:AcctSvcrId>
+          <n2:AcctAndPties>
+            <!-- Y-tunnuksen 0828972-6 hakutulokset, tili #2, tili #3, tili #4 -->
+          </n2:AcctAndPties>
+        </n2:InfRspnSD1>
+      </n2:Document>
+    </n1:Rslt>
+  </n1:InvstgtnRslt>
+</n1:RtrInd>
+```
 
 ### <a name="InformationResponseSD1V01"></a> 4.8 InformationResponseSD1V01 supl.027.001.01
 
@@ -255,7 +376,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |InformationResponseSD1V01 supl.027.001.01| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|kyllä|[1..1]|Tutkinnan case-id|
 |&nbsp;&nbsp;&nbsp;&nbsp;CreDtTm|ISODateTime|kyllä|[1..1]|Sanoman luomisaika|
-|&nbsp;&nbsp;&nbsp;&nbsp;AcctSvcrId|BranchAndFinancialInstitutionIdentification4|kyllä|[1..1]|Käytetään seuraavasti: Elementti `AcctSvcrId/FinInstnId/Othr/SchmeNm/Cd` sisältää arvon "COID" ja elementti `AcctSvcrId/FinInstnId/Othr/Id` sisältää lähettäjän Y-tunnuksen.|
+|&nbsp;&nbsp;&nbsp;&nbsp;AcctSvcrId|BranchAndFinancialInstitutionIdentification4|kyllä|[1..1]|Käytetään seuraavasti: Elementti `AcctSvcrId/FinInstnId/Othr/SchmeNm/Cd` sisältää arvon "Y" ja elementti `AcctSvcrId/FinInstnId/Othr/Id` sisältää lähettäjän Y-tunnuksen.|
 |&nbsp;&nbsp;&nbsp;&nbsp;AcctAndPties|AccountAndParties2|kyllä|[1..*]|Ks. taulukko alla|
 
 #### AccountAndParties2 käyttö
