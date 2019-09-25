@@ -1,6 +1,6 @@
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 0.8*
+*Dokumentin versio 0.9*
 
 ## Versiohistoria
 
@@ -12,6 +12,7 @@ Versio|Päivämäärä|Kuvaus|Tekijä
 0.6|31.5.2019|Tarkennuksia rajapintakuvauksen käyttöohjeistukseen|AP|
 0.7|10.6.2019|Tarkennus virtuaalivaluutan tarjoajien osalta|TV|
 0.8|11.9.2019|Rajapintakuvaus jaettu kahdeksi dokumentiksi|AL|
+0.9|25.9.2019|Tarkennuksia auth.002 käyttöön|AP|
 
 ## Sisällysluettelo
 
