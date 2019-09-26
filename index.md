@@ -281,6 +281,7 @@ Vastaussanomaan liitetään kaksi kappaletta RtrInd-elementtiä:
     </n1:Rslt>
   </n1:InvstgtnRslt>
 </n1:RtrInd>
+<n1:RtrInd>
   <n1:AuthrtyReqTp>
     <n1:MsgNmId>fin.013.001.01</n1:MsgNmId>
   </n1:AuthrtyReqTp>
