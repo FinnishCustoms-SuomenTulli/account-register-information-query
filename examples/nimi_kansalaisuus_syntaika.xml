@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+<ApplicationRequest>
+	<ns1:AppHdr xmlns:ns1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:head.001.001.01 ./head.001.001.01.xsd">
+		<ns1:Fr>
+			<ns1:OrgId>
+				<ns1:Id>
+					<ns1:OrgId>
+						<ns1:Othr>
+							<ns1:Id>4873635-9</ns1:Id>
+							<ns1:SchmeNm>
+								<ns1:Cd>COID</ns1:Cd>
+							</ns1:SchmeNm>
+						</ns1:Othr>
+					</ns1:OrgId>
+				</ns1:Id>
+			</ns1:OrgId>
+		</ns1:Fr>
+		<ns1:To>
+			<ns1:OrgId>
+				<ns1:Id>
+					<ns1:OrgId>
+						<ns1:Othr>
+							<ns1:Id>0245442-8</ns1:Id>
+							<ns1:SchmeNm>
+								<ns1:Cd>COID</ns1:Cd>
+							</ns1:SchmeNm>
+						</ns1:Othr>
+					</ns1:OrgId>
+				</ns1:Id>
+			</ns1:OrgId>
+		</ns1:To>
+		<ns1:BizMsgIdr>123</ns1:BizMsgIdr>
+		<ns1:MsgDefIdr>auth.001.001.01</ns1:MsgDefIdr>
+		<ns1:CreDt>2019-09-24T07:31:11Z</ns1:CreDt>
+	</ns1:AppHdr>
+	<ns2:Document xmlns:ns2="urn:iso:std:iso:20022:tech:xsd:auth.001.001.01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:auth.001.001.01 ./auth.001.001.01.xsd">
+		<ns2:InfReqOpng>
+		  <ns2:InvstgtnId>ABC1234</ns2:InvstgtnId>
+		  <ns2:LglMndtBsis>
+			  <ns2:Prgrph>testi</ns2:Prgrph>
+		  </ns2:LglMndtBsis>
+		  <ns2:CnfdtltySts>true</ns2:CnfdtltySts>
+		  <ns2:InvstgtnPrd>
+			<ns2:Dt>
+				<ns2:FrDt>2016-01-01</ns2:FrDt>
+				<ns2:ToDt>2019-05-30</ns2:ToDt>
+			</ns2:Dt>
+		  </ns2:InvstgtnPrd>
+		  <ns2:SchCrit>
+			  <ns2:CstmrId>
+				<ns2:Pty>
+					<ns2:Nm>Matti Meikäläinen</ns2:Nm>
+				  <ns2:Id>
+					<ns2:PrvtId>
+					  <ns2:DtAndPlcOfBirth>
+						<ns2:BirthDt>1998-02-03</ns2:BirthDt>
+						<ns2:CityOfBirth>not in use</ns2:CityOfBirth>
+						<ns2:CtryOfBirth>XX</ns2:CtryOfBirth>
+					</ns2:DtAndPlcOfBirth>
+					<ns2:Othr>
+						<ns2:Id>FI</ns2:Id>
+						<ns2:SchmeNm>
+							<ns2:Cd>NATI</ns2:Cd>
+						</ns2:SchmeNm>
+					</ns2:Othr>
+					</ns2:PrvtId>
+				  </ns2:Id>
+				</ns2:Pty>
+				<ns2:AuthrtyReq>
+					<ns2:Tp>
+						<ns2:MsgNmId>auth.001.001.01</ns2:MsgNmId>
+					</ns2:Tp>
+					<ns2:InvstgtdRoles>
+						<ns2:Cd>OWNE</ns2:Cd>
+					</ns2:InvstgtdRoles>
+				</ns2:AuthrtyReq>
+			  </ns2:CstmrId>
+		   </ns2:SchCrit>
+		  <ns2:SplmtryData>
+			  <ns2:Envlp>
+				<ns2:AuthorityInquiry>
+					 <ns2:OfficialName>Viranomaisen nimi</ns2:OfficialName>
+					 <ns2:OfficialSuperiorName>Esimiehen nimi</ns2:OfficialSuperiorName>
+			</ns2:AuthorityInquiry>
+				</ns2:Envlp>
+		  </ns2:SplmtryData>
+		</ns2:InfReqOpng>
+	</ns2:Document>
+</ApplicationRequest>
+</soapenv:Body>
+</soapenv:Envelope>
