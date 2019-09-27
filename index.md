@@ -1,6 +1,6 @@
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 0.9*
+*Dokumentin versio 0.10*
 
 ## Versiohistoria
 
@@ -13,18 +13,13 @@ Versio|Päivämäärä|Kuvaus|Tekijä
 0.7|10.6.2019|Tarkennus virtuaalivaluutan tarjoajien osalta|TV|
 0.8|11.9.2019|Rajapintakuvaus jaettu kahdeksi dokumentiksi|AL|
 0.9|25.9.2019|Tarkennuksia auth.002 käyttöön|AP|
+0.10|27.9.2019|Päivitetty kuvaus pankki- ja maksutilitietojen kyselystä tiedonhakujärjestelmästä|AP|
 
 ## Sisällysluettelo
 
 1. [Johdanto](#luku1)  
-  1.1 Termit ja lyhenteet  
-  1.2 Dokumentin tarkoitus ja kattavuus  
-  1.3 Viittaukset  
-  1.4 Yleiskuvaus  
-2. [Aktiviteettien kuvaus](#luku2)  
-  2.1 Pankki- ja maksutilitietojen kysely
+2. [Pankki- ja maksutilitietojen kysely tiedonhakujärjestelmästä](#luku2)  
 3. [Tietoturva](#tietoturva)  
-  3.1 Tunnistaminen 
 4. [Tiedonhakujärjestelmän kyselyrajapinta](#kyselyrajapinta)   
 
 ## 1. Johdanto <a name="luku1"></a>
@@ -57,11 +52,9 @@ Tulli on perustanut Tilirekisterihankkeen, joka toteuttaa (EU) 2018/843 direktii
 
 Tässä dokumentissa kuvataan tiedonhakujärjestelmän kyselyrajapinnat.
 
-## 2. Aktiviteettien kuvaus <a name="luku2"></a>
+## 2. Pankki- ja maksutilitietojen kysely tiedonhakujärjestelmästä <a name="luku2"></a>
 
-Tässä luvussa on esitettu pankki- ja maksutilitietojen kysely vuokaavioina.
-
-### 2.1 Pankki- ja maksutilitietojen kysely tiedonhakujärjestelmästä
+Tässä luvussa on kuvattu pankki- ja maksutilitietojen kysely tiedonhakujärjestelmästä.
 
 Kuvassa 2.1 on esitetty vuokaaviona pankki- ja maksutilitietojen kysely tiedonhakujärjestelmästä.
 
