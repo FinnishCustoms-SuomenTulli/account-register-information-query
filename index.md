@@ -51,6 +51,12 @@ Tämä dokumentti on pankki- ja maksutilien valvontajärjestelmän kyselyrajapin
 
 [ISO 20022 head.001.001.01 skeema](https://www.iso20022.org/documents/messages/head/schemas/head.001.001.01.zip)
 
+[fin.002.001.01](schemas/fin.002.001.01.xsd)
+
+[fin.012.001.01](schemas/fin.012.001.01.xsd)
+
+[fin.013.001.01](schemas/fin.013.001.01.xsd)
+
 ### 1.4 Yleiskuvaus
 
 Tulli on perustanut Tilirekisterihankkeen, joka toteuttaa (EU) 2018/843 direktiivin ja sen täytäntöön panemiseksi säädetyn, Suomen lainsäädäntöön perustuvan pankki- ja maksutilien valvontajärjestelmän. 
