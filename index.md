@@ -1,6 +1,6 @@
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 0.9*
+*Dokumentin versio 0.10*
 
 ## Versiohistoria
 
@@ -13,18 +13,13 @@ Versio|Päivämäärä|Kuvaus|Tekijä
 0.7|10.6.2019|Tarkennus virtuaalivaluutan tarjoajien osalta|TV|
 0.8|11.9.2019|Rajapintakuvaus jaettu kahdeksi dokumentiksi|AL|
 0.9|25.9.2019|Tarkennuksia auth.002 käyttöön|AP|
+0.10|27.9.2019|Päivitetty kuvaus pankki- ja maksutilitietojen kyselystä tiedonhakujärjestelmästä|AP|
 
 ## Sisällysluettelo
 
 1. [Johdanto](#luku1)  
-  1.1 Termit ja lyhenteet  
-  1.2 Dokumentin tarkoitus ja kattavuus  
-  1.3 Viittaukset  
-  1.4 Yleiskuvaus  
-2. [Aktiviteettien kuvaus](#luku2)  
-  2.1 Pankki- ja maksutilitietojen kysely
+2. [Pankki- ja maksutilitietojen kysely tiedonhakujärjestelmästä](#luku2)  
 3. [Tietoturva](#tietoturva)  
-  3.1 Tunnistaminen 
 4. [Tiedonhakujärjestelmän kyselyrajapinta](#kyselyrajapinta)   
 
 ## 1. Johdanto <a name="luku1"></a>
@@ -63,26 +58,69 @@ Tulli on perustanut Tilirekisterihankkeen, joka toteuttaa (EU) 2018/843 direktii
 
 Tässä dokumentissa kuvataan tiedonhakujärjestelmän kyselyrajapinnat.
 
-## 2. Aktiviteettien kuvaus <a name="luku2"></a>
+## 2. Pankki- ja maksutilitietojen kysely tiedonhakujärjestelmästä <a name="luku2"></a>
 
-Tässä luvussa on esitettu pankki- ja maksutilitietojen kysely vuokaavioina.
-
-### 2.1 Pankki- ja maksutilitietojen kysely tiedonhakujärjestelmästä
+Tässä luvussa on kuvattu pankki- ja maksutilitietojen kysely tiedonhakujärjestelmästä.
 
 Kuvassa 2.1 on esitetty vuokaaviona pankki- ja maksutilitietojen kysely tiedonhakujärjestelmästä.
 
 ![Pankki- ja maksutilitietojen kysely](diagrams/flowchart_query.png "Pankki- ja maksutilitietojen kysely")  
 *__Kuva2.1.__ Pankki- ja maksutilitietojen kysely*  
 
-Kuvasta nähdään, että kyselyrajapinta on asynkroninen. Tietojen kysyminen tapahtuu kahdella SOAP-sanomalla. Ensimmäisessä sanomassa lähetetään kyselyparametrit ja muut vaaditut tiedot. Vaadittavat tiedot on listattu luvussa 4. Ensimmäisen sanoman vastaussanoma sisältää kyselytunnisteen, jonka perusteella vastaus on noudettavissa määrätyn ajan kuluttua.
+Kuvasta nähdään, että kyselyrajapinta mahdollistaa sekä vastauksen palauttamisen heti synkronisesti, tai vaihtoehtoisesti asynkronisesti. 
+
+Taulukossa 2.1. on esitetty vuokaavion muuttujien merkitys. 
+
+*__Taulukko 2.1.__ Vuokaavion muuttujat*
+
+|Muuttuja|Kuvaus|
+|:--|:--|
+|DELAY_1|Kyselyn request #1 sallittu maksimiviive, "välittömästi"|
+|DELAY_2|Pollausväli, viive joka clientin on odotettava ennen seuraavaa kyselyä|
+|RETRY_LIMIT|Kuinka monta pollausta (request #2) on sallittua tehdä|
+
+Taulukossa 2.1. esitettyjen muuttujien kulloinkin voimassa olevat arvot kerrotaan liitedokumentaatiossa.
+
+Kyselyn vuo kulkee seuravasti.
+1. Client lähettää kyselysanoman
+2. Server joko  
+  a. Palauttaa vastaussanoman, joka sisältää hakutuloksen ja koodin *COMP*, muuttujassa *DELAY_1* määritellyn viiveen sisällä ("välittömästi"), tai  
+  b. palauttaa vastaussanoman, joka sisältää koodin *NRES* 
+3. Client tarkistaa onko vastaussanomassa koodi *COMP* vai *NRES*
+4. Jos koodi on *COMP*, siirrytään kohtaan 10.
+5. Koodi on *NRES*. Client odottaa *DELAY_2* muuttujan määrittämän ajan ja tekee sen jälkeen kyselyn request #2
+6. Server, joko  
+  a. Palauttaa hakutuloksen ja koodin *COMP*, muuttujassa *DELAY_1* määritellyn viiveen sisällä ("välittömästi"), tai  
+  b. palauttaa vastaussanoman, joka sisältää koodin *NRES* 
+7. Client tarkistaa onko vastaussanomassa koodi *COMP* vai *NRES*
+8. Jos koodi on *COMP*, siirrytään kohtaan 10.
+9. Koodi on *NRES*. Jos *RETRY_LIMIT* ei ole saavutettu, siirrytään kohtaan 5.  
+10. Loppu.
+ 
+Taulukossa 2.2. on kuvattu StatusResponse1Code arvojen käyttö
+
+*__Taulukko 2.2.__ StatusResponse1Code arvojen käyttö*
+
+|Koodi|Nimi|Määritelmä|Kuvaus|
+|:--|:--|:--|:--|
+|COMP|CompleteResponse|Response is complete.|Vastaussanoma sisältää hakutulokset|
+|NRES|NoResponseYet|Response not provided yet.|Vastaussanoma ei sisällä hakutuloksia, tee uusi kysely myöhemmin.|
+|PART|PartialResponse|Response is partially provided.|Ei käytössä|
 
 ## <a name="tietoturva"></a> 3. Tietoturva
   
 ### 3.1 Tunnistaminen
 
-Tarkentuu.
+Taulukossa 3.1. on esitetty varmenteet tiedonhakujärjestelmässä.
 
-Tiedonhakujärjestelmän kyselyrajapinnan hyödyntäjät tunnistetaan X.509-sertifikaateilla. Kyselyrajapinnan Sanomat allekirjoitetaan XML-allekirjoituksella. Tarkempi sanomien allekirjoitusten kuvaus lisätään tähän dokumenttiin myöhemmin.
+*__Taulukko 3.1.__ Tiedonhakujärjestelmän varmenteet*
+
+|Standardi|Sertifikaatin nimi|Käyttötarkoitus|
+|:--|:--|:--|
+|X.509|Tiedonhakujärjestelmän tietoliikennesertifikaatti|Rajapinnan hyödyntäjän tunnistaminen|
+|X.509|Tiedonhakujärjestelmän allekirjoitussertifikaatti|Sanoman allekirjoittaminen,sanoman muuttumattomuuden varmistaminen|
+
+Tiedonhakujärjestelmän kyselyrajapinnan hyödyntäjät tunnistetaan X.509-sertifikaateilla (Tietoliikennesertifikaatti). Kyselyrajapinnan Sanomat allekirjoitetaan XML-allekirjoituksella (Allekirjoitussertifikaatti). Tarkempi sanomien allekirjoitusten kuvaus lisätään tähän dokumenttiin myöhemmin.
 
 Mahdollisuus pyyntöjen IP-avaruuden rajoittamiseen tiedonhakujärjestelmässä tarkentuu.
 
@@ -102,9 +140,9 @@ SOAP body koostuu aina kahdesta osasta, ISO 20022 Business Application Headerist
 
 Business Application Header sanoman tiedot on esitetty seuraavassa taulukossa.
 
-|Sanoma-id|Sanoman nimi|
-|:---|:---|
-|head.001.001.01|Business Application Header|
+|Sanoma-id|Sanoman nimi|Sovellusohje|
+|:---|:---|:--|
+|[head.001.001.01](https://www.iso20022.org/documents/messages/head/schemas/head.001.001.01.zip)|Business Application Header|[MUG](https://www.iso20022.org/documents/general/BAHMUG.zip)|
 
 BAH on oltava aina SOAP bodyn ensimmäinen elementti.
 
@@ -123,7 +161,7 @@ Seuraavassa taulukossa on listattu kyselysanomaan liitettävä Supplementary Dat
 
 |Sanoma-id|Sanoman nimi|Laajennettavan ISO 20022 sanoman id|Tarkoitus ja toiminnallisuus|
 |---|---|---|---|
-|FIN012|InformationRequestFIN012|auth.001.001.01|ISO 20022 sanomalaajennus. Kyselyrajapinnan toimivaltaiset viranomaiset käyttävät tätä sanomaa tietojen kyselyyn tiedonhakurajapinnasta. |
+|FIN012|InformationRequestFIN012|auth.001.001.01|ISO 20022 sanomalaajennus. Kyselyrajapinnan toimivaltaiset viranomaiset käyttävät tätä sanomaa tietojen kyselyyn tiedonhakurajapinnasta. Sisältää kyselyn tekevän henkilön ja henkilön esimiehen tunnisteet. Mahdollistaa auth.001.001.01 puuttuvien hakukriteerien käytön (esim. tallelokero, toistaiseksi ei käytössä)|
 
 Seuraavassa taulukossa on listattu vastaussanomaan liitettävät Supplementary Data -sanomalaajennukset.
 
@@ -486,16 +524,16 @@ OrgId koodit
 
 |Koodi|Kuvaus|
 |:---|:---|
-|YTUN|Y-tunnus|
-|PRHY|Yhdistysrekisterinumero|
-|OTHR|Muu yritystunnus, tässä tapauksessa annettava lisäksi maakoodi elementissä `OrgId/Othr/Issr`|
+|Y|Y-tunnus|
+|PRH|Yhdistysrekisterinumero|
+|*|Muu yritystunnus, lista koodeista tullin toimittamassa erillisessä dokumentissa|
 
 PrvtId koodit  
 
 |Koodi|Kuvaus|
 |:---|:---|
-|HETU|Suomalainen henkilötunnus|
-|PIDE|Muu henkilön tunnistusasiakirjan id|
+|PIC|Suomalainen henkilötunnus|
+|OTHR|Muu henkilön tunnistusasiakirjan id|
 
 ### 4.12 Kyselyrajapinnan WS-sanomaliikenteen skenaariot
 
