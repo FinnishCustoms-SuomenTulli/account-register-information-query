@@ -34,7 +34,7 @@ Endpoint|Rajapintapalvelu, joka on saatavilla tietyssä verkko-osoitteessa
 
 ### 1.2 Dokumentin tarkoitus ja kattavuus
 
-Tämä dokumentti on pankki- ja maksutilien valvontajärjestelmän kyselyrajapinnan rajapintakuvaus.
+Tämä dokumentti on osa Tullin julkaisemaa määräystä pankki- ja maksutilien valvontajärjestelmästä. Dokumentin tarkoitus on antaa ohjeet tiedonhakujärjestelmän kyselyrajapinnasta. Tätä dokumenttia täydentää tiedonhakujärjestelmän käyttöönoton ja ylläpidon ohje.
 
 ### 1.3 Viittaukset
 
@@ -123,6 +123,10 @@ Taulukossa 3.1. on esitetty varmenteet tiedonhakujärjestelmässä.
 Tiedonhakujärjestelmän kyselyrajapinnan hyödyntäjät tunnistetaan X.509-sertifikaateilla (Tietoliikennesertifikaatti). Kyselyrajapinnan Sanomat allekirjoitetaan XML-allekirjoituksella (Allekirjoitussertifikaatti). Tarkempi sanomien allekirjoitusten kuvaus lisätään tähän dokumenttiin myöhemmin.
 
 Mahdollisuus pyyntöjen IP-avaruuden rajoittamiseen tiedonhakujärjestelmässä tarkentuu.
+
+### 3.2 Tietoliikenteen suojaus
+
+Tietoliikenne tulee suojata (salaus ja vastapuolen tunnistus) x.509 varmenteita käyttäen. Yhteydenottaja tunnistetaan asiakas(client) -varmenteen avulla. Tietojärjestelmän tulee hyväksyä yhteys toimivaltaiselta viranomaiselta seuraavin edellytyksin: <br />a) Toimivaltaisen viranomaisen asiakas(client) -varmenteen on myöntänyt VRK, <br />b) varmenne on voimassa, eikä esiinnyt VRK:n sulkulistalla ja <br />c) varmenteen Subject-kentän serialNumber attribuuttina on tunnus, joka muodostuu kirjaimista "FI" ja toimivaltaisen viranomaisen tai sen puolesta toimivan valtion palvelukeskuksen y-tunnuksen numero-osasta ilman väliviivaa (ALV tunnuksen muotoinen tunnus), esim, Tullin varmenteessa tulee lukea "Subject : CN=ws.tulli.fi, serialNumber=FI02454428, 0=Tulli, L=Helsinki"
 
 ## <a name="kyselyrajapinta"></a> 4. Tiedonhakujärjestelmän kyselyrajapinta
 
