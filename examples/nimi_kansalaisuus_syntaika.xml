@@ -11,7 +11,7 @@
 						<ns1:Othr>
 							<ns1:Id>4873635-9</ns1:Id>
 							<ns1:SchmeNm>
-								<ns1:Cd>COID</ns1:Cd>
+								<ns1:Cd>Y</ns1:Cd>
 							</ns1:SchmeNm>
 						</ns1:Othr>
 					</ns1:OrgId>
@@ -25,7 +25,7 @@
 						<ns1:Othr>
 							<ns1:Id>0245442-8</ns1:Id>
 							<ns1:SchmeNm>
-								<ns1:Cd>COID</ns1:Cd>
+								<ns1:Cd>Y</ns1:Cd>
 							</ns1:SchmeNm>
 						</ns1:Othr>
 					</ns1:OrgId>
@@ -74,7 +74,7 @@
 						<ns2:MsgNmId>auth.001.001.01</ns2:MsgNmId>
 					</ns2:Tp>
 					<ns2:InvstgtdRoles>
-						<ns2:Cd>OWNE</ns2:Cd>
+						<ns2:Cd>ALLP</ns2:Cd>
 					</ns2:InvstgtdRoles>
 				</ns2:AuthrtyReq>
 			  </ns2:CstmrId>
