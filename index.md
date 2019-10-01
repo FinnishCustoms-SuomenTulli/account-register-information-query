@@ -14,6 +14,7 @@ Versio|Päivämäärä|Kuvaus|Tekijä
 0.8|11.9.2019|Rajapintakuvaus jaettu kahdeksi dokumentiksi|AL|
 0.9|25.9.2019|Tarkennuksia auth.002 käyttöön|AP|
 0.10|27.9.2019|Päivitetty kuvaus pankki- ja maksutilitietojen kyselystä tiedonhakujärjestelmästä|AP|
+0.11|1.10.2019|Lisätty kuvaus oikeushenkilön rekisteröitymispäivän palauttamisesta hakutulosten yhteydessä.|AP|
 
 ## Sisällysluettelo
 
@@ -461,7 +462,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |:---|:---|:---|:---|:---|
 |AccountRole1| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|[1..*]|ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
-|&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|[1..1]|Käytetään `OwnrTp/Prtry/SchmeNm` arvolla "ROLETYPE", sekä `OwnrTp/Prtry/Id`, jossa arvot "POWN" (omistaja), "ACCE" (käyttöoikeus) tai "BENE" (edunsaaja)|
+|&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|[1..1]|Käytetään `OwnrTp/Prtry/SchmeNm/Cd` arvolla "RLTP", sekä `OwnrTp/Prtry/Id`, jossa arvot "POWN" (omistaja), "ACCE" (käyttöoikeus) tai "BENE" (edunsaaja)|
 |&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|[1..1]|Roolin alkamispäivämäärä|
 |&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|[0..1]|Roolin päättymispäivämäärä|
 
@@ -517,7 +518,7 @@ Kaikissa sanomissa käytetään vastaavaa oikeushenkilön ja luonnollisen henkil
 |Nimi|Pakollisuus (RAO)|Tyyppi|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
 |Party8Choice|| | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;OrgId|A|OrganisationIdentification6|[0..1]|Käytetään seuraavasti: Elementti `OrgId/Othr/SchmeNm/Cd` sisältää organisaatiotunnuksen tyyppikoodin ja elementti `OrgId/Id/OrgId/Othr/Id` sisältää tunnuksen. Ks. koodit taulukko alla.|
+|&nbsp;&nbsp;&nbsp;&nbsp;OrgId|A|OrganisationIdentification6|[0..1]|Käytetään seuraavasti: Elementti `OrgId/Othr/SchmeNm/Cd` sisältää organisaatiotunnuksen tyyppikoodin ja elementti `OrgId/Id/OrgId/Othr/Id` sisältää tunnuksen. Ks. koodit taulukko alla. Lisäksi voidaan kyselyvastauksen yhteydessä palauttaa oikeushenkilön rekisteröitysmispäivämäärä ks. [esimerkki](#rgdt) alla|
 |&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|A|PersonIdentification5|[0..1]|Käytetään seuraavasti: Elementti `PrvtId/Othr/SchmeNm/Cd` sisältää henkilötunnisteen tyyppikoodin. Elementti `PrvtId/Othr/Id` sisältää tunnuksen. Ks. koodit taulukko alla.|
 
 OrgId koodit  
@@ -534,6 +535,30 @@ PrvtId koodit
 |:---|:---|
 |PIC|Suomalainen henkilötunnus|
 |OTHR|Muu henkilön tunnistusasiakirjan id|
+
+#### <a href="#rgdt"></a> Esimerkki oikeushenkilön rekisteröitymispäivän palauttamisesta
+
+Oikeushenkilön rekisteröitymispäivämäärä palautetaan tunniste-elementin (esim. Y-tunnus) rinnakkaisena Othr-elementtinä:
+
+Id-elementissä palautetaan rekisteröitymispäivämäärä. SchemeNm/Cd-elementissä palautetaan koodi RGDT, Issr-elementissä palautetaan rekisteriviranomaisen nimi.
+
+```
+<OrgId>
+  <Othr>
+    <Id>1234567-8</Id>
+    <SchmeNm>
+      <Cd>Y</Cd>
+    </SchmeNm>
+  </Othr>
+  <Othr>
+    <Id>2000-01-01</Id>
+    <SchmeNm>
+      <Cd>RGDT</Cd>
+    </SchmeNm>
+    <Issr>Verohallinto</Issr>
+  </Othr>
+</OrgId>
+```
 
 ### 4.12 Kyselyrajapinnan WS-sanomaliikenteen skenaariot
 
