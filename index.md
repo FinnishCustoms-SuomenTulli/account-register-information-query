@@ -81,7 +81,7 @@ Taulukossa 2.1. on esitetty vuokaavion muuttujien merkitys.
 
 Taulukossa 2.1. esitettyjen muuttujien kulloinkin voimassa olevat arvot kerrotaan liitedokumentaatiossa.
 
-Kyselyn vuo kulkee seuravasti.
+Kyselyn vuo kulkee seuraavasti:
 1. Client lähettää kyselysanoman
 2. Server joko  
   a. Palauttaa vastaussanoman, joka sisältää hakutuloksen ja koodin *COMP*, muuttujassa *DELAY_1* määritellyn viiveen sisällä ("välittömästi"), tai  
@@ -298,7 +298,7 @@ ReturnIndicator1 sisältää yksittäisen hakutulostyypin esiintymän.
 
 |XPath|Tyyppi|Kuvaus|
 |:---|:---|:---|
-|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|sisältää sanomalaajennuksen sanmoma-id:n (supl.027.001.01, fin.013.001.01 tai fin.002.001.01)|
+|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|sisältää sanomalaajennuksen sanoma-id:n (supl.027.001.01, fin.013.001.01 tai fin.002.001.01)|
 |RtrInd/InvstgtnRslt|InvestigationResult1Choice|palautetaan aina `Rslt` elementti tyyppiä SupplementaryDataEnvelope1, joka sisältää joko [supl.027.001.01](#supl.027.001.01), [InformationResponseFIN002](#InformationResponseFIN002) tai [InformationResponseFIN013](#InformationResponseFIN013).
 
 Jokaista hakutulostyyppiä kohti palautetaan enintään yksi hakutulos-alisanoma (supl.027.001.01, fin.013.001.01 tai fin.002.001.01) per Y-tunnus. 
@@ -526,7 +526,7 @@ OrgId koodit
 |:---|:---|
 |Y|Y-tunnus|
 |PRH|Yhdistysrekisterinumero|
-|*|Muu yritystunnus, lista koodeista tullin toimittamassa erillisessä dokumentissa|
+|*|Muu yritystunnus, lista koodeista Tullin toimittamassa erillisessä dokumentissa|
 
 PrvtId koodit  
 
