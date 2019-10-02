@@ -536,7 +536,7 @@ PrvtId koodit
 |PIC|Suomalainen henkilötunnus|
 |OTHR|Muu henkilön tunnistusasiakirjan id|
 
-#### <a name="#rgdt"></a> Esimerkki oikeushenkilön rekisteröitymispäivän palauttamisesta
+#### <a name="rgdt"></a> Esimerkki oikeushenkilön rekisteröitymispäivän palauttamisesta
 
 Oikeushenkilön rekisteröitymispäivämäärä palautetaan tunniste-elementin (esim. Y-tunnus) rinnakkaisena Othr-elementtinä:
 
