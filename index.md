@@ -33,7 +33,7 @@ Lyhenne tai termi|Selite
 Rajapinta|Standardin mukainen käytäntö tai yhtymäkohta, joka mahdollistaa tietojen siirron laitteiden, ohjelmien tai käyttäjän välillä. 
 WS (Web Service)|Verkkopalvelimessa toimiva ohjelmisto, joka tarjoaa standardoitujen internetyhteyskäytäntöjen avulla palveluja sovellusten käytettäväksi. Tiedonhakujärjestelmä tarjoaa palveluna tietojen kyselyn.
 Endpoint|Rajapintapalvelu, joka on saatavilla tietyssä verkko-osoitteessa
-PKI | Julkisen avaimen tekniikka. Julkisen avaimen tekniikkaan perustuva sähköinen allekirjoitus luodaan siten, että allekirjoitettavasta tiedosta muodostetaan (tiivistealgoritmilla) tiiviste, joka salataan avainparin yksityisellä avaimella. Salattu tiiviste tallennetaan allekirjoitetun tiedon tai sähköisen asia-kirjan yhteyteen tai välitetään muulla tavoin tiedon vastaanottajalle. Vastaanottaja purkaa tiivisteen salauksen avainparin julkisella avaimella, muodostaa uudelleen viestin tai asiakirjan tiedoista tiivisteen ja vertaa sitä allekirjoitukseen liitettyyn tiivisteeseen. Viestin sisältö on muuttumaton, mikäli tiivisteet ovat samat. (Sähköisen asioinnin tietoturvallisuus -ohje)|
+PKI | Julkisen avaimen tekniikka. Julkisen avaimen tekniikkaan perustuva sähköinen allekirjoitus luodaan siten, että allekirjoitettavasta tiedosta muodostetaan (tiivistealgoritmilla) tiiviste, joka salataan avainparin yksityisellä avaimella. Salattu tiiviste tallennetaan allekirjoitetun tiedon tai sähköisen asiakirjan yhteyteen tai välitetään muulla tavoin tiedon vastaanottajalle. Vastaanottaja purkaa tiivisteen salauksen avainparin julkisella avaimella, muodostaa uudelleen viestin tai asiakirjan tiedoista tiivisteen ja vertaa sitä allekirjoitukseen liitettyyn tiivisteeseen. Viestin sisältö on muuttumaton, mikäli tiivisteet ovat samat. (Sähköisen asioinnin tietoturvallisuus -ohje)|
 
 ### 1.2 Dokumentin tarkoitus ja kattavuus
 
@@ -125,7 +125,7 @@ Taulukossa 3.1. on esitetty varmenteet tiedonhakujärjestelmässä.
 |X.509|Tiedonhakujärjestelmän tietoliikennesertifikaatti|Rajapinnan hyödyntäjän tunnistaminen|
 |X.509|Tiedonhakujärjestelmän allekirjoitussertifikaatti|Sanoman allekirjoittaminen,sanoman muuttumattomuuden varmistaminen|
 
-Tiedonhakujärjestelmän kyselyrajapinnan hyödyntäjät tunnistetaan X.509-sertifikaateilla (Tietoliikennesertifikaatti). Kyselyrajapinnan Sanomat allekirjoitetaan XML-allekirjoituksella (Allekirjoitussertifikaatti). 
+Tiedonhakujärjestelmän kyselyrajapinnan hyödyntäjät tunnistetaan X.509-sertifikaateilla (Tietoliikennesertifikaatti). Kyselyrajapinnan sanomat allekirjoitetaan XML-allekirjoituksella (Allekirjoitussertifikaatti). 
 
 #### <a name="xml-sig"></a> XML-allekirjoituksen muodostaminen
 
