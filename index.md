@@ -30,11 +30,12 @@ Lyhenne tai termi|Selite
 ---|---
 Rajapinta|Standardin mukainen käytäntö tai yhtymäkohta, joka mahdollistaa tietojen siirron laitteiden, ohjelmien tai käyttäjän välillä. 
 WS (Web Service)|Verkkopalvelimessa toimiva ohjelmisto, joka tarjoaa standardoitujen internetyhteyskäytäntöjen avulla palveluja sovellusten käytettäväksi. Tiedonhakujärjestelmä tarjoaa palveluna tietojen kyselyn.
-Endpoint|Rajapintapalvelu, joka on saatavilla tietyssä verkko-osoitteessa
+Endpoint|Rajapintapalvelu, joka on saatavilla tietyssä verkko-osoitteessa.|
+WSDL| (Web Service Description Language) Rakenteellinen kuvauskieli, jolla kuvataan web palvelun tarjoamat toiminnallisuudet.
 
 ### 1.2 Dokumentin tarkoitus ja kattavuus
 
-Tämä dokumentti on pankki- ja maksutilien valvontajärjestelmän kyselyrajapinnan rajapintakuvaus.
+Tämä dokumentti on osa Tullin julkaisemaa määräystä pankki- ja maksutilien valvontajärjestelmästä. Dokumentin tarkoitus on antaa ohjeet tiedonhakujärjestelmän kyselyrajapinnasta. Tätä dokumenttia täydentää tiedonhakujärjestelmän käyttöönoton ja ylläpidon ohje.
 
 ### 1.3 Viittaukset
 
@@ -120,9 +121,9 @@ Taulukossa 3.1. on esitetty varmenteet tiedonhakujärjestelmässä.
 |X.509|Tiedonhakujärjestelmän tietoliikennesertifikaatti|Rajapinnan hyödyntäjän tunnistaminen|
 |X.509|Tiedonhakujärjestelmän allekirjoitussertifikaatti|Sanoman allekirjoittaminen,sanoman muuttumattomuuden varmistaminen|
 
-Tiedonhakujärjestelmän kyselyrajapinnan hyödyntäjät tunnistetaan X.509-sertifikaateilla (Tietoliikennesertifikaatti). Kyselyrajapinnan Sanomat allekirjoitetaan XML-allekirjoituksella (Allekirjoitussertifikaatti). Tarkempi sanomien allekirjoitusten kuvaus lisätään tähän dokumenttiin myöhemmin.
+Tiedonhakujärjestelmän kyselyrajapinnan hyödyntäjät tunnistetaan X.509-sertifikaateilla (Tietoliikennesertifikaatti). Kyselyrajapinnan sanomat allekirjoitetaan XML-allekirjoituksella (Allekirjoitussertifikaatti). Tarkempi sanomien allekirjoitusten kuvaus lisätään tähän dokumenttiin myöhemmin.
 
-Mahdollisuus pyyntöjen IP-avaruuden rajoittamiseen tiedonhakujärjestelmässä tarkentuu.
+Mahdollisuus pyyntöjen IP-avaruuden rajoittamiseen tiedonhakujärjestelmässä tarkennetaan myöhemmin.
 
 ## <a name="kyselyrajapinta"></a> 4. Tiedonhakujärjestelmän kyselyrajapinta
 
@@ -138,7 +139,7 @@ SOAP body koostuu aina kahdesta osasta, ISO 20022 Business Application Headerist
 
 ### 4.2 Business Application Header (BAH) 
 
-Business Application Header sanoman tiedot on esitetty seuraavassa taulukossa.
+Business Application Header -sanoman tiedot on esitetty seuraavassa taulukossa.
 
 |Sanoma-id|Sanoman nimi|Sovellusohje|
 |:---|:---|:--|
