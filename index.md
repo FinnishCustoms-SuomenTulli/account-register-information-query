@@ -232,6 +232,8 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |:---|:---|:---|
 |\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Y-tunnus tai muu oikeushenkilön tunniste|
 |\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|"Y" (Y-tunnus), "PRH" (Yhdistysrekisterinumero), OTHER*|
+|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
+|\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
 
 #### <a name=""></a> Haku yrityksen nimellä
@@ -241,6 +243,8 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |\<Id\>|CstmrId/Pty/Nm|Yrityksen nimi|
 |\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Arvoksi asetetaan "1"|
 |\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|"NAME"|
+|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
+|\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
 
 #### <a name=""></a> Haku IBANilla
@@ -264,6 +268,8 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |\<Id\>|CstmrId/Pty/Id/PrvtId/Othr|Maakoodi|
 |\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchemeNm|"NATI"|
 |\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth|Syntymäaika. `CtryOfBirth` arvoksi asetetaan "XX" ja `CityOfBirth` arvoksi asetetaan ”not in use”|
+|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
+|\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
 *) OTHER arvojoukko kuvataan erillisessä taulukossa, Tulli lähettää taulukot Pankki- ja maksutilirekisterin
 osalta yhteisen taulukon ylläpitäjälle.
