@@ -1,6 +1,6 @@
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 0.10*
+*Dokumentin versio 0.12*
 
 ## Versiohistoria
 
@@ -15,6 +15,7 @@ Versio|Päivämäärä|Kuvaus|Tekijä
 0.9|25.9.2019|Tarkennuksia auth.002 käyttöön|AP|
 0.10|27.9.2019|Päivitetty kuvaus pankki- ja maksutilitietojen kyselystä tiedonhakujärjestelmästä|AP|
 0.11|1.10.2019|Lisätty kuvaus oikeushenkilön rekisteröitymispäivän palauttamisesta hakutulosten yhteydessä.|AP|
+0.12|8.10.2019|Lisätty ohje XML-allekirjoituksen muodotamiseen|AP|
 
 ## Sisällysluettelo
 
