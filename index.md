@@ -14,6 +14,7 @@ Versio|Päivämäärä|Kuvaus|Tekijä
 0.8|11.9.2019|Rajapintakuvaus jaettu kahdeksi dokumentiksi|AL|
 0.9|25.9.2019|Tarkennuksia auth.002 käyttöön|AP|
 0.10|27.9.2019|Päivitetty kuvaus pankki- ja maksutilitietojen kyselystä tiedonhakujärjestelmästä|AP|
+0.11|1.10.2019|Lisätty kuvaus oikeushenkilön rekisteröitymispäivän palauttamisesta hakutulosten yhteydessä.|AP|
 
 ## Sisällysluettelo
 
@@ -81,7 +82,7 @@ Taulukossa 2.1. on esitetty vuokaavion muuttujien merkitys.
 
 Taulukossa 2.1. esitettyjen muuttujien kulloinkin voimassa olevat arvot kerrotaan liitedokumentaatiossa.
 
-Kyselyn vuo kulkee seuravasti.
+Kyselyn vuo kulkee seuraavasti:
 1. Client lähettää kyselysanoman
 2. Server joko  
   a. Palauttaa vastaussanoman, joka sisältää hakutuloksen ja koodin *COMP*, muuttujassa *DELAY_1* määritellyn viiveen sisällä ("välittömästi"), tai  
@@ -193,8 +194,8 @@ Seuraavassa taulukossa on esitetty BAH-elementtien käyttö. Elementtien tyypit 
 |:---|:---|:---|:---|
 |BusinessApplicationHeaderV01| | | |
 |CharSet|UnicodeChartsCode|kyllä|"UTF-8"|
-|Fr|Party9Choice|kyllä|Käytetään seuraavasti: Elementti `Fr/OrgId/Id/OrgId/Othr/SchmeNm/Cd` sisältää arvon "COID" ja elementti `Fr/OrgId/Id/OrgId/Othr/Id` sisältää lähettäjän Y-tunnuksen.|
-|To|Party9Choice|kyllä|Käytetään seuraavasti: Elementti `To/OrgId/Id/OrgId/Othr/SchmeNm/Cd` sisältää arvon "COID" ja elementti `To/OrgId/Id/OrgId/Othr/Id` sisältää vastaanottajan Y-tunnuksen (Esim. Tiedonhakujärjestelmässä Y-tunnus 0245442-8)|
+|Fr|Party9Choice|kyllä|Käytetään seuraavasti: Elementti `Fr/OrgId/Id/OrgId/Othr/SchmeNm/Cd` sisältää arvon "Y" ja elementti `Fr/OrgId/Id/OrgId/Othr/Id` sisältää lähettäjän Y-tunnuksen.|
+|To|Party9Choice|kyllä|Käytetään seuraavasti: Elementti `To/OrgId/Id/OrgId/Othr/SchmeNm/Cd` sisältää arvon "Y" ja elementti `To/OrgId/Id/OrgId/Othr/Id` sisältää vastaanottajan Y-tunnuksen (Esim. Tiedonhakujärjestelmässä Y-tunnus 0245442-8)|
 |BizMsgIdr|Max35Text|kyllä|Käyttö standardin mukaisesti.|
 |MsgDefIdr|Max35Text|kyllä|Sisältää sanoma-id:n. Kyselysanomassa käytetään "auth.001.001.01", vastaussanomassa sisältönä on "auth.002.001.01"|
 |BizSvc||ei||
@@ -220,49 +221,56 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Kyllä|Hakukriteeri. Käytettävä aina mahdollisimman täsmällistä hakukriteeriä. Esim. jos ei käytetä Y-tunnusta, vaan käytetään OtherOrganisationIdentification -kenttää, haku ei kohdistu Y-tunnuksiin lainkaan. Ks. [tarkempi erittely](#SearchCriteria1Choice) alla.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Kyllä|Sisältää sanomalaajennuksen [InformationRequestFIN012](#InformationRequestFIN012)|
 
-#### <a name="SearchCriteria1Choice"></a> SearchCriteria1Choice
+#### <a name="SearchCriteria1Choice"></a> Haku henkilötunnuksella tai henkilötodistuksen tunnistenumerolla
 
-Hakukriteerien esittäminen SearchCriteria1Choice avulla.
+|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
+|:---|:---|:---|
+|\<Id\>|CstmrId/Pty/Id/Prvtld/Othr|Hetu tai henkilötodistuksen tunnistenumero|
+|\<Cd\>|CstmrId/Pty/Id/Prvtld/Othr/SchemeNm|"PIC" (Person Identification Code, hetu), "OTHR" (Muu henkilötodistuksen tunnistenumero)|
+|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
+|\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
-|Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
-|:---|:---|:---|:---|
-|Hetu tai henkilötodistuksen tunnistenumero|\<Id\>|CstmrId/Pty/Id/Prvtld/Othr|Hetu tai henkilötodistuksen tunnistenumero|
-||\<Cd\>|CstmrId/Pty/Id/Prvtld/Othr/SchemeNm|SSN, PIC (Person Identification Code), OTHER*|
+#### <a name=""></a> Haku Y-tunnuksella tai muulla oikeushenkilön tunnisteella
 
-|Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
-|:---|:---|:---|:---|
-|Y-tunnus tai muu oikeushenkilön tunniste|\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Y-tunnus tai muu oikeushenkilön tunniste|
-||\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|Y-tunnus, PRH, NAMESRCH, OTHER*|
+|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
+|:---|:---|:---|
+|\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Y-tunnus tai muu oikeushenkilön tunniste|
+|\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|"Y" (Y-tunnus), "PRH" (Yhdistysrekisterinumero), OTHER*|
+
+
+#### <a name=""></a> Haku yrityksen nimellä
+
+|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
+|:---|:---|:---|
+|\<Id\>|CstmrId/Pty/Nm|Yrityksen nimi|
+|\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Arvoksi asetetaan "1"|
+|\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|"NAME"|
+
+
+#### <a name=""></a> Haku IBANilla
 
 |Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
 |:---|:---|:---|:---|
 |IBAN|\<IBAN\>|Acct/Id/Id||
+
+#### <a name=""></a> Haku muulla tilin yksilöintitunnuksella
 
 |Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
 |:---|:---|:---|:---|
 |Tilin muu yksilöintitunnus|\<Id\>|Acct/Id/Id/Othr|Tunnus|
 ||\<Cd\>|Acct/Id/Id/Othr/SchemeNm|OTHER*|
 
-|Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
-|:---|:---|:---|:---|
-|Nimi+Kansalaisuus+syntymäaika|\<Nm\>|CstmrId/Pty|Nimi|
-||\<Id\>|CstmrId/Pty/Id/PrvtId/Othr|Maakoodi|
-||\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchemeNm|NATIONALITY|
-||\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth **|Syntymäaika|
+#### <a name=""></a> Haku luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä
 
-|Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
-|:---|:---|:---|:---|
-|Yrityksen nimi|\<Nm\>|CstmrId/Pty|Yrityksen nimi***|
+|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
+|:---|:---|:---|
+|\<Nm\>|CstmrId/Pty|Nimi|
+|\<Id\>|CstmrId/Pty/Id/PrvtId/Othr|Maakoodi|
+|\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchemeNm|"NATI"|
+|\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth|Syntymäaika. `CtryOfBirth` arvoksi asetetaan "XX" ja `CityOfBirth` arvoksi asetetaan ”not in use”|
 
 *) OTHER arvojoukko kuvataan erillisessä taulukossa, Tulli lähettää taulukot Pankki- ja maksutilirekisterin
 osalta yhteisen taulukon ylläpitäjälle.
-
-**) Document/InfReqOpng/SchCrit/CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth/CtryOfBirth ja
-Document/InfReqOpng/SchCrit/CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth/CityOfBirth arvoksi asetetaan ”not
-in use”.
-
-***) Yrityksen nimellä haettaessa on aina annettava Y-tunnus tai muu oikeushenkilön tunniste. Kun
-tehdään pelkkä nimihaku, annetaan arvo 1 ja koodi NAMESRCH.
 
 ### <a name="InformationRequestFIN012"></a> 4.6 Sanomalaajennus InformationRequestFIN012
 
@@ -302,7 +310,7 @@ ReturnIndicator1 sisältää yksittäisen hakutulostyypin esiintymän.
 
 |XPath|Tyyppi|Kuvaus|
 |:---|:---|:---|
-|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|sisältää sanomalaajennuksen sanmoma-id:n (supl.027.001.01, fin.013.001.01 tai fin.002.001.01)|
+|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|sisältää sanomalaajennuksen sanoma-id:n (supl.027.001.01, fin.013.001.01 tai fin.002.001.01)|
 |RtrInd/InvstgtnRslt|InvestigationResult1Choice|palautetaan aina `Rslt` elementti tyyppiä SupplementaryDataEnvelope1, joka sisältää joko [supl.027.001.01](#supl.027.001.01), [InformationResponseFIN002](#InformationResponseFIN002) tai [InformationResponseFIN013](#InformationResponseFIN013).
 
 Jokaista hakutulostyyppiä kohti palautetaan enintään yksi hakutulos-alisanoma (supl.027.001.01, fin.013.001.01 tai fin.002.001.01) per Y-tunnus. 
@@ -465,7 +473,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |:---|:---|:---|:---|:---|
 |AccountRole1| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|[1..*]|ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
-|&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|[1..1]|Käytetään `OwnrTp/Prtry/SchmeNm` arvolla "ROLETYPE", sekä `OwnrTp/Prtry/Id`, jossa arvot "POWN" (omistaja), "ACCE" (käyttöoikeus) tai "BENE" (edunsaaja)|
+|&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|[1..1]|Käytetään `OwnrTp/Prtry/SchmeNm/Cd` arvolla "RLTP", sekä `OwnrTp/Prtry/Id`, jossa arvot "POWN" (omistaja), "ACCE" (käyttöoikeus) tai "BENE" (edunsaaja)|
 |&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|[1..1]|Roolin alkamispäivämäärä|
 |&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|[0..1]|Roolin päättymispäivämäärä|
 
@@ -478,7 +486,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |InformationResponseFIN002| | | | |[auth.002](InformationRequestResponseV01)|/Document/InfReqRspn/RtrInd/InvstgtnRslt/Rslt|
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|kyllä|[1..1]|Tutkinnan case-id|
 |&nbsp;&nbsp;&nbsp;&nbsp;CreDtTm|ISODateTime|kyllä|[1..1]|Sanoman luomisaika|
-|&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|BranchAndFinancialInstitutionIdentification4|kyllä|[1..1]|Käytetään seuraavasti: Elementti `SvcrId/FinInstnId/Othr/SchmeNm/Cd` sisältää arvon "COID" ja elementti `SvcrId/FinInstnId/Othr/Id` sisältää lähettäjän Y-tunnuksen.|
+|&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|BranchAndFinancialInstitutionIdentification4|kyllä|[1..1]|Käytetään seuraavasti: Elementti `SvcrId/FinInstnId/Othr/SchmeNm/Cd` sisältää arvon "Y" ja elementti `SvcrId/FinInstnId/Othr/Id` sisältää lähettäjän Y-tunnuksen.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SdBoxAndPties|O|[0..*]|SafetyDepositBoxAndParties|Tallelokero ja osalliset|
 
 ### <a name="InformationResponseFIN013"></a> 4.10 InformationResponseFIN013
@@ -490,7 +498,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |InformationResponseFIN013| | | | |[auth.002](InformationRequestResponseV01)|/Document/InfReqRspn/RtrInd/InvstgtnRslt/Rslt|
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|kyllä|[1..1]|Tutkinnan case-id|
 |&nbsp;&nbsp;&nbsp;&nbsp;CreDtTm|ISODateTime|kyllä|[1..1]|Sanoman luomisaika|
-|&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|BranchAndFinancialInstitutionIdentification4|kyllä|[1..1]|Käytetään seuraavasti: Elementti `SvcrId/FinInstnId/Othr/SchmeNm/Cd` sisältää arvon "COID" ja elementti `SvcrId/FinInstnId/Othr/Id` sisältää lähettäjän Y-tunnuksen.|
+|&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|BranchAndFinancialInstitutionIdentification4|kyllä|[1..1]|Käytetään seuraavasti: Elementti `SvcrId/FinInstnId/Othr/SchmeNm/Cd` sisältää arvon "Y" ja elementti `SvcrId/FinInstnId/Othr/Id` sisältää lähettäjän Y-tunnuksen.|
 |&nbsp;&nbsp;&nbsp;&nbsp;Customer|O|[0..*]|Customer|Asiakas. Luonnollinen henkilö tai yritys. Ks. Customer-elementin käyttö taulukko alla|
 
 #### Customer-elementin käyttö
@@ -521,7 +529,7 @@ Kaikissa sanomissa käytetään vastaavaa oikeushenkilön ja luonnollisen henkil
 |Nimi|Pakollisuus (RAO)|Tyyppi|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
 |Party8Choice|| | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;OrgId|A|OrganisationIdentification6|[0..1]|Käytetään seuraavasti: Elementti `OrgId/Othr/SchmeNm/Cd` sisältää organisaatiotunnuksen tyyppikoodin ja elementti `OrgId/Id/OrgId/Othr/Id` sisältää tunnuksen. Ks. koodit taulukko alla.|
+|&nbsp;&nbsp;&nbsp;&nbsp;OrgId|A|OrganisationIdentification6|[0..1]|Käytetään seuraavasti: Elementti `OrgId/Othr/SchmeNm/Cd` sisältää organisaatiotunnuksen tyyppikoodin ja elementti `OrgId/Othr/Id` sisältää tunnuksen. Ks. koodit taulukko alla. Lisäksi voidaan kyselyvastauksen yhteydessä palauttaa oikeushenkilön rekisteröitysmispäivämäärä ks. [esimerkki](#rgdt) alla|
 |&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|A|PersonIdentification5|[0..1]|Käytetään seuraavasti: Elementti `PrvtId/Othr/SchmeNm/Cd` sisältää henkilötunnisteen tyyppikoodin. Elementti `PrvtId/Othr/Id` sisältää tunnuksen. Ks. koodit taulukko alla.|
 
 OrgId koodit  
@@ -530,7 +538,7 @@ OrgId koodit
 |:---|:---|
 |Y|Y-tunnus|
 |PRH|Yhdistysrekisterinumero|
-|*|Muu yritystunnus, lista koodeista tullin toimittamassa erillisessä dokumentissa|
+|*|Muu yritystunnus, lista koodeista Tullin toimittamassa erillisessä dokumentissa|
 
 PrvtId koodit  
 
@@ -538,6 +546,30 @@ PrvtId koodit
 |:---|:---|
 |PIC|Suomalainen henkilötunnus|
 |OTHR|Muu henkilön tunnistusasiakirjan id|
+
+#### <a name="rgdt"></a> Esimerkki oikeushenkilön rekisteröitymispäivän palauttamisesta
+
+Oikeushenkilön rekisteröitymispäivämäärä palautetaan tunniste-elementin (esim. Y-tunnus) rinnakkaisena Othr-elementtinä:
+
+Id-elementissä palautetaan rekisteröitymispäivämäärä. SchemeNm/Cd-elementissä palautetaan koodi RGDT, Issr-elementissä palautetaan rekisteriviranomaisen nimi.
+
+```
+<OrgId>
+  <Othr>
+    <Id>1234567-8</Id>
+    <SchmeNm>
+      <Cd>Y</Cd>
+    </SchmeNm>
+  </Othr>
+  <Othr>
+    <Id>2000-01-01</Id>
+    <SchmeNm>
+      <Cd>RGDT</Cd>
+    </SchmeNm>
+    <Issr>Verohallinto</Issr>
+  </Othr>
+</OrgId>
+```
 
 ### 4.12 Kyselyrajapinnan WS-sanomaliikenteen skenaariot
 
