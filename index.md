@@ -124,7 +124,7 @@ Taulukossa 3.1. on esitetty varmenteet tiedonhakujärjestelmässä.
 |Standardi|Sertifikaatin nimi|Käyttötarkoitus|
 |:--|:--|:--|
 |X.509 (versio 3)|Tiedonhakujärjestelmän tietoliikennesertifikaatti|Rajapinnan hyödyntäjän ja ilmoitusvelvollisen tai ilmoitusvelvollisen valtuuttaman tahon tunnistaminen|
-|X.509 (versio 3)|Tiedonhakujärjestelmän allekirjoitussertifikaatti|Sanoman allekirjoittaminen,sanoman muuttumattomuuden varmistaminen|
+|X.509 (versio 3)|Tiedonhakujärjestelmän allekirjoitussertifikaatti|Sanoman allekirjoittaminen, sanoman muuttumattomuuden varmistaminen|
 
 Tiedonhakujärjestelmän kyselyrajapinnan hyödyntäjät sekä ilmoitusvelvolliset tai ilmoitusvelvollisen valtuuttamat tahot tunnistetaan X.509-sertifikaateilla (Tietoliikennesertifikaatti). Kyselyrajapinnan kysely- ja vastaussanomat allekirjoitetaan XML-allekirjoituksella (Allekirjoitussertifikaatti).
 
@@ -175,7 +175,7 @@ Mahdollisuus pyyntöjen IP-avaruuden rajoittamiseen tiedonhakujärjestelmässä 
 
 Tiedonhakujärjestelmän kyselyrajapinnan yhteydet on suojattava TLS-salauksella käyttäen TLS-protokollan versiota 1.2 tai korkeampaa. Yhteyden molemmat päät tunnistetaan yllä kuvatuilla palvelinvarmenteilla käyttäen kaksisuuntaista kättelyä. Yhteys on muodostettava käyttäen ephemeral Diffie-Hellman (DHE) avaintenvaihtoa, jossa jokaiselle sessiolle luodaan uusi uniikki yksityinen salausavain. Tämän menettelyn tarkoituksena on taata salaukselle forward secrecy -ominaisuus, jotta salausavaimen paljastuminen ei jälkikäteen johtaisi salattujen tietojen paljastumiseen.
 
-TLS-salauksessa käytettyjen kryptografisten algoritmien on vastattava kryptografiselta vahvuudeltaan vähintään Viestintäviraston määrittelemiä kryptografisia vahvuusvaatimuksia kansalliselle suojaustasolle ST IV. Tämänhetkiset vahvuusvaatimukset on kuvattu dokumentissa [https://www.kyberturvallisuuskeskus.fi/sites/default/files/media/regulation/ohje-kryptografiset-vahvuusvaatimukset-kansalliset-suojaustasot.pdf] (Dnro: 190/651/2015).
+TLS-salauksessa käytettyjen kryptografisten algoritmien on vastattava kryptografiselta vahvuudeltaan vähintään Viestintäviraston määrittelemiä kryptografisia vahvuusvaatimuksia kansalliselle suojaustasolle ST IV. Tämänhetkiset vahvuusvaatimukset on kuvattu dokumentissa https://www.kyberturvallisuuskeskus.fi/sites/default/files/media/regulation/ohje-kryptografiset-vahvuusvaatimukset-kansalliset-suojaustasot.pdf (Dnro: 190/651/2015).
 
 ### 3.3 Sallittu HTTP-versio
 
