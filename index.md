@@ -123,10 +123,29 @@ Taulukossa 3.1. on esitetty varmenteet tiedonhakujärjestelmässä.
 
 |Standardi|Sertifikaatin nimi|Käyttötarkoitus|
 |:--|:--|:--|
-|X.509|Tiedonhakujärjestelmän tietoliikennesertifikaatti|Rajapinnan hyödyntäjän tunnistaminen|
-|X.509|Tiedonhakujärjestelmän allekirjoitussertifikaatti|Sanoman allekirjoittaminen,sanoman muuttumattomuuden varmistaminen|
+|X.509 (versio 3)|Tiedonhakujärjestelmän tietoliikennesertifikaatti|Rajapinnan hyödyntäjän ja ilmoitusvelvollisen tai ilmoitusvelvollisen valtuuttaman tahon tunnistaminen|
+|X.509 (versio 3)|Tiedonhakujärjestelmän allekirjoitussertifikaatti|Sanoman allekirjoittaminen,sanoman muuttumattomuuden varmistaminen|
 
-Tiedonhakujärjestelmän kyselyrajapinnan hyödyntäjät tunnistetaan X.509-sertifikaateilla (Tietoliikennesertifikaatti). Kyselyrajapinnan sanomat allekirjoitetaan XML-allekirjoituksella (Allekirjoitussertifikaatti). 
+Tiedonhakujärjestelmän kyselyrajapinnan hyödyntäjät sekä ilmoitusvelvolliset tai ilmoitusvelvollisen valtuuttamat tahot tunnistetaan X.509-sertifikaateilla (Tietoliikennesertifikaatti). Kyselyrajapinnan kysely- ja vastaussanomat allekirjoitetaan XML-allekirjoituksella (Allekirjoitussertifikaatti).
+
+#### Allekirjoitusvarmenne
+
+Lähtevät sanomat on automaattisesti allekirjoitettava käyttäen x.509 järjestelmäallekirjoitusvarmennetta, jonka Subject-kentän serialNumber attribuuttina on ko. ilmoitusvelvollisen tai ilmoitusvelvollisen valtuuttaman tahon y-tunnus tai ALV tunnus. Ilmoitusvelvollisen valtuuttamalla taholla tarkoitetaan esim. palvelukeskusta, jonka ilmoitusvelvollinen on valtuuttanut puolestaan huolehtimaan ilmoitusten muodostamisesta ja/tai lähettämisestä.
+Saapuvien sanomien allekirjoitus on tarkistettava. Toimivaltaisen viranomaisen allekirjoituksen hyväksyminen edellyttää, että  
+a) allekirjoitusvarmenne on VRK:n myöntämä, voimassa, eikä esiinny VRK:n ylläpitämällä sulkulistalla  
+b) varmenteen Subject-kentän serialNumber attribuuttina on tunnus, joka muodostuu kirjaimista "FI" ja sanoman lähettäneen toimivaltaisen viranomaisen y-tunnuksen numero-osasta ilman väliviivaa (ALV tunnuksen muotoinen tunnus).
+
+#### Tietoliikennevarmenne
+
+Tietoliikenne on suojattava (salaus ja vastapuolen tunnistus) x.509 varmenteita käyttäen. Yhteydenottaja tunnistetaan asiakasvarmenteen avulla. Tietojärjestelmän on hyväksyttävä yhteys toimivaltaiselta viranomaiselta seuraavin edellytyksin:  
+a) Toimivaltaisen viranomaisen asiakasvarmenteen on myöntänyt VRK  
+b) varmenne on voimassa, eikä esiinny VRK:n sulkulistalla  
+c) varmenteen Subject-kentän serialNumber attribuuttina on tunnus, joka muodostuu kirjaimista "FI" ja toimivaltaisen viranomaisen tai sen puolesta toimivan valtion palvelukeskuksen y-tunnuksen numero-osasta ilman väliviivaa (ALV tunnuksen muotoinen tunnus).
+
+Ilmoitusvelvollinen tai ilmoitusvelvollisen valtuuttama taho tunnistetaan palvelinvarmenteen avulla. Tietojärjestelmän on hyväksyttävä yhteys ilmoitusvelvolliselle seuraavin edellytyksin:  
+a) ilmoitusvelvollisen palvelinvarmenteen on myöntänyt VRK  
+b) varmenne on voimassa, eikä esiinny VRK:n sulkulistalla  
+c) varmenteen Subject-kentän serialNumber attribuuttina on kyseisen ilmoitusvelvollisen tai ilmoitusvelvollisen valtuuttaman tahon y-tunnus tai ALV tunnus.
 
 #### <a name="xml-sig"></a> XML-allekirjoituksen muodostaminen
 
@@ -142,23 +161,37 @@ Esimerkki 3.1. Esimerkki SignedInfo
   <Transforms>
    <Transform Algorithm=”http://www.w3.org/2001/10/xml-exc-c14n#"/>
   </Transforms>
-  <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256"/>
+  <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256"/>
   <DigestValue>...</DigestValue>
  </Reference>
 </SignedInfo>
 ```
 
-Allekirjoitusalgoritmi on siis RSA-SHA256 ja C14N on Exclusive XML Canonicalization. Reference URI on "", eli koko dokumentti allekirjoitetaan.
+Allekirjoitusalgoritmi on siis RSA-SHA256 ja C14N on Exclusive XML Canonicalization. Reference URI on "", eli koko dokumentti allekirjoitetaan. Allekirjoitusta muodostettaessa laskettavien tiivisteiden (Digest) muodostamiseen tulee käyttää SHA256 -algoritmia.
 
 Mahdollisuus pyyntöjen IP-avaruuden rajoittamiseen tiedonhakujärjestelmässä tarkennetaan myöhemmin.
 
-### 3.2 Tietoliikenteen suojaus
+### 3.2 Yhteyksien suojaaminen
 
-Tietoliikenne tulee suojata (salaus ja vastapuolen tunnistus) x.509 varmenteita käyttäen. Yhteydenottaja tunnistetaan asiakas(client) -varmenteen avulla. Tietojärjestelmän tulee hyväksyä yhteys toimivaltaiselta viranomaiselta seuraavin edellytyksin: <br />a) Toimivaltaisen viranomaisen asiakas(client) -varmenteen on myöntänyt VRK, <br />b) varmenne on voimassa, eikä esiinnyt VRK:n sulkulistalla ja <br />c) varmenteen Subject-kentän serialNumber attribuuttina on tunnus, joka muodostuu kirjaimista "FI" ja toimivaltaisen viranomaisen tai sen puolesta toimivan valtion palvelukeskuksen y-tunnuksen numero-osasta ilman väliviivaa (ALV tunnuksen muotoinen tunnus), esim, Tullin varmenteessa tulee lukea "Subject : CN=ws.tulli.fi, serialNumber=FI02454428, 0=Tulli, L=Helsinki"
+Tiedonhakujärjestelmän kyselyrajapinnan yhteydet on suojattava TLS-salauksella käyttäen TLS-protokollan versiota 1.2 tai korkeampaa. Yhteyden molemmat päät tunnistetaan yllä kuvatuilla palvelinvarmenteilla käyttäen kaksisuuntaista kättelyä. Yhteys on muodostettava käyttäen ephemeral Diffie-Hellman (DHE) avaintenvaihtoa, jossa jokaiselle sessiolle luodaan uusi uniikki yksityinen salausavain. Tämän menettelyn tarkoituksena on taata salaukselle forward secrecy -ominaisuus, jotta salausavaimen paljastuminen ei jälkikäteen johtaisi salattujen tietojen paljastumiseen.
+
+TLS-salauksessa käytettyjen kryptografisten algoritmien on vastattava kryptografiselta vahvuudeltaan vähintään Viestintäviraston määrittelemiä kryptografisia vahvuusvaatimuksia kansalliselle suojaustasolle ST IV. Tämänhetkiset vahvuusvaatimukset on kuvattu dokumentissa [https://www.kyberturvallisuuskeskus.fi/sites/default/files/media/regulation/ohje-kryptografiset-vahvuusvaatimukset-kansalliset-suojaustasot.pdf] (Dnro: 190/651/2015).
+
+### 3.3 Sallittu HTTP-versio
+
+Tiedonhakujärjestelmän kyselyrajapinnan yhteydet käyttävät HTTP-protokollan versiota 1.1.
+
+### 3.4 Tietoturvapoikkeamien ilmoitusvelvollisuus
+
+Mikäli tiedonhakujärjestelmän toteuttajan varmenteet tai näiden salaiset avaimet vaarantuvat on tästä ilmoitettava välittömästi varmenteen myöntäjälle ja niille toimivaltaisille viranomaisille, jotka hyödyntävät tiedonhakujärjestelmää. Toimivaltaisille viranomaisille on ilmoitettava myös, jos tiedonhakujärjestelmässä havaitaan tietoturvapoikkeama
+
+Mikäli tiedonhakujärjestelmää hyödyntävän toimivaltaisen viranomaisen varmenteet tai näiden salaiset avaimet vaarantuvat on tästä ilmoitettava välittömästi varmenteen myöntäjälle ja niille tiedonhakujärjestelmän toteuttajille, joiden toteutusta tiedonhakujärjestelmästä kyseinen toimivaltainen viranomainen hyödyntää.
 
 ## <a name="kyselyrajapinta"></a> 4. Tiedonhakujärjestelmän kyselyrajapinta
 
 Kyselyrajapinta toteutetaan SOAP/XML Web Servicenä, josta julkaistaan WSDL.
+
+SOAP-protokollasta käytetään versiota 1.1.
 
 Sanomissa käytetään ISO 20022 koodistoviittauksia. Koodistoviittaukset löytyvät ISO 20022 sivulta [External Code Sets](https://www.iso20022.org/external_code_list.page).
 
