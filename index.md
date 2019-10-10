@@ -1,6 +1,6 @@
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 0.10*
+*Dokumentin versio 0.12*
 
 ## Versiohistoria
 
@@ -15,6 +15,7 @@ Versio|Päivämäärä|Kuvaus|Tekijä
 0.9|25.9.2019|Tarkennuksia auth.002 käyttöön|AP|
 0.10|27.9.2019|Päivitetty kuvaus pankki- ja maksutilitietojen kyselystä tiedonhakujärjestelmästä|AP|
 0.11|1.10.2019|Lisätty kuvaus oikeushenkilön rekisteröitymispäivän palauttamisesta hakutulosten yhteydessä.|AP|
+0.12|8.10.2019|Lisätty ohje XML-allekirjoituksen muodotamiseen|AP|
 
 ## Sisällysluettelo
 
@@ -31,8 +32,9 @@ Lyhenne tai termi|Selite
 ---|---
 Rajapinta|Standardin mukainen käytäntö tai yhtymäkohta, joka mahdollistaa tietojen siirron laitteiden, ohjelmien tai käyttäjän välillä. 
 WS (Web Service)|Verkkopalvelimessa toimiva ohjelmisto, joka tarjoaa standardoitujen internetyhteyskäytäntöjen avulla palveluja sovellusten käytettäväksi. Tiedonhakujärjestelmä tarjoaa palveluna tietojen kyselyn.
-Endpoint|Rajapintapalvelu, joka on saatavilla tietyssä verkko-osoitteessa.|
-WSDL| (Web Service Description Language) Rakenteellinen kuvauskieli, jolla kuvataan web palvelun tarjoamat toiminnallisuudet.|
+Endpoint|Rajapintapalvelu, joka on saatavilla tietyssä verkko-osoitteessa
+WSDL| (Web Service Description Language) Rakenteellinen kuvauskieli, jolla kuvataan web palvelun tarjoamat toiminnallisuudet.
+PKI | Julkisen avaimen tekniikka. Julkisen avaimen tekniikkaan perustuva sähköinen allekirjoitus luodaan siten, että allekirjoitettavasta tiedosta muodostetaan (tiivistealgoritmilla) tiiviste, joka salataan avainparin yksityisellä avaimella. Salattu tiiviste tallennetaan allekirjoitetun tiedon tai sähköisen asiakirjan yhteyteen tai välitetään muulla tavoin tiedon vastaanottajalle. Vastaanottaja purkaa tiivisteen salauksen avainparin julkisella avaimella, muodostaa uudelleen viestin tai asiakirjan tiedoista tiivisteen ja vertaa sitä allekirjoitukseen liitettyyn tiivisteeseen. Viestin sisältö on muuttumaton, mikäli tiivisteet ovat samat. (Sähköisen asioinnin tietoturvallisuus -ohje)|
 
 ### 1.2 Dokumentin tarkoitus ja kattavuus
 
@@ -53,6 +55,8 @@ Tämä dokumentti on osa Tullin julkaisemaa määräystä pankki- ja maksutilien
 [fin.012.001.01](schemas/fin.012.001.01.xsd)
 
 [fin.013.001.01](schemas/fin.013.001.01.xsd)
+
+[Sähköisen asioinnin tietoturvallisuus -ohje](http://julkaisut.valtioneuvosto.fi/bitstream/handle/10024/80012/VM_25_2017.pdf)
 
 ### 1.4 Yleiskuvaus
 
@@ -122,7 +126,29 @@ Taulukossa 3.1. on esitetty varmenteet tiedonhakujärjestelmässä.
 |X.509|Tiedonhakujärjestelmän tietoliikennesertifikaatti|Rajapinnan hyödyntäjän tunnistaminen|
 |X.509|Tiedonhakujärjestelmän allekirjoitussertifikaatti|Sanoman allekirjoittaminen,sanoman muuttumattomuuden varmistaminen|
 
-Tiedonhakujärjestelmän kyselyrajapinnan hyödyntäjät tunnistetaan X.509-sertifikaateilla (Tietoliikennesertifikaatti). Kyselyrajapinnan sanomat allekirjoitetaan XML-allekirjoituksella (Allekirjoitussertifikaatti). Tarkempi sanomien allekirjoitusten kuvaus lisätään tähän dokumenttiin myöhemmin.
+Tiedonhakujärjestelmän kyselyrajapinnan hyödyntäjät tunnistetaan X.509-sertifikaateilla (Tietoliikennesertifikaatti). Kyselyrajapinnan sanomat allekirjoitetaan XML-allekirjoituksella (Allekirjoitussertifikaatti). 
+
+#### <a name="xml-sig"></a> XML-allekirjoituksen muodostaminen
+
+Allekirjoituksen tyyppi on __enveloped signature__. Signature-elementti sijoitetaan [BAHin](#BusinessApplicationHeaderV01) Sgntr-elementin alle.
+
+Esimerkki 3.1. Esimerkki SignedInfo
+```
+<SignedInfo>
+ <CanonicalizationMethod Algorithm=”http://www.w3.org/2001/10/xml-exc-c14n#"/>
+ <SignatureMethod
+  Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256"/>
+ <Reference URI="">
+  <Transforms>
+   <Transform Algorithm=”http://www.w3.org/2001/10/xml-exc-c14n#"/>
+  </Transforms>
+  <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256"/>
+  <DigestValue>...</DigestValue>
+ </Reference>
+</SignedInfo>
+```
+
+Allekirjoitusalgoritmi on siis RSA-SHA256 ja C14N on Exclusive XML Canonicalization. Reference URI on "", eli koko dokumentti allekirjoitetaan.
 
 Mahdollisuus pyyntöjen IP-avaruuden rajoittamiseen tiedonhakujärjestelmässä tarkennetaan myöhemmin.
 
@@ -204,7 +230,7 @@ Seuraavassa taulukossa on esitetty BAH-elementtien käyttö. Elementtien tyypit 
 |CpyDplct||ei| |
 |PssblDplct| |ei| |
 |Prty| |ei| |
-|Sgntr| |kyllä|Business messagen lähettäjän XMl-allekirjoitus. Tarkentuu.|
+|Sgntr| |kyllä|Business messagen lähettäjän muodostama XML-allekirjoitus. Ks. [XML-allekirjoituksen muodostaminen](#xml-sig)|
 |Rltd|BusinessApplicationHeader1|kyllä|Käytössä vastaussanomassa, sisältää kyselysanoman sisältämän BAH:in.|
 
 ### <a name="InformationRequestOpeningV01"></a> 4.5 InformationRequestOpeningV01
@@ -237,6 +263,8 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |:---|:---|:---|
 |\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Y-tunnus tai muu oikeushenkilön tunniste|
 |\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|"Y" (Y-tunnus), "PRH" (Yhdistysrekisterinumero), OTHER*|
+|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
+|\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
 
 #### <a name=""></a> Haku yrityksen nimellä
@@ -246,6 +274,8 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |\<Id\>|CstmrId/Pty/Nm|Yrityksen nimi|
 |\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Arvoksi asetetaan "1"|
 |\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|"NAME"|
+|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
+|\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
 
 #### <a name=""></a> Haku IBANilla
@@ -269,6 +299,8 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |\<Id\>|CstmrId/Pty/Id/PrvtId/Othr|Maakoodi|
 |\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchemeNm|"NATI"|
 |\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth|Syntymäaika. `CtryOfBirth` arvoksi asetetaan "XX" ja `CityOfBirth` arvoksi asetetaan ”not in use”|
+|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
+|\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
 *) OTHER arvojoukko kuvataan erillisessä taulukossa, Tulli lähettää taulukot Pankki- ja maksutilirekisterin
 osalta yhteisen taulukon ylläpitäjälle.
@@ -279,7 +311,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 
 |Nimi|Pakollisuus (RAO)|[min..max]|Tyyppi|Kuvaus|Liitetään sanomaan|XPath|
 |:---|:---|:---|:---|:---|:---|:---|
-|InformationRequestFIN012| | | | |[auth.001](InformationRequestOpeningV01)|`/Document/InfReqOpng/SplmtryData/Envlp`|
+|InformationRequestFIN012| | | | |[auth.001](#InformationRequestOpeningV01)|`/Document/InfReqOpng/SplmtryData/Envlp`|
 |&nbsp;&nbsp;&nbsp;&nbsp;AuthorityInquiry|R|[1..1]|[AuthorityInquirySet](#AuthorityInquirySet)|Kyselyyn liittyvät viranomaisen tiedot| |
 |&nbsp;&nbsp;&nbsp;&nbsp;AdditionalSearchCriteria|R|[1..*]|[SearchCriteriaChoice](#SearchCriteriaChoice)|Jos tarvitaan esimerkiksi tallelokero hakukriteeriksi, voidaan käyttää tätä elementtiä.| |
 
@@ -484,7 +516,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 
 |Nimi|Pakollisuus (RAO)|[min..max]|Tyyppi|Index|Liitetään sanomaan|XPath|
 |:---|:---|:---|:---|:---|:---|:---|
-|InformationResponseFIN002| | | | |[auth.002](InformationRequestResponseV01)|/Document/InfReqRspn/RtrInd/InvstgtnRslt/Rslt|
+|InformationResponseFIN002| | | | |[auth.002](#InformationRequestResponseV01)|/Document/InfReqRspn/RtrInd/InvstgtnRslt/Rslt|
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|kyllä|[1..1]|Tutkinnan case-id|
 |&nbsp;&nbsp;&nbsp;&nbsp;CreDtTm|ISODateTime|kyllä|[1..1]|Sanoman luomisaika|
 |&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|BranchAndFinancialInstitutionIdentification4|kyllä|[1..1]|Käytetään seuraavasti: Elementti `SvcrId/FinInstnId/Othr/SchmeNm/Cd` sisältää arvon "Y" ja elementti `SvcrId/FinInstnId/Othr/Id` sisältää lähettäjän Y-tunnuksen.|
@@ -496,7 +528,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 
 |Nimi|Pakollisuus (RAO)|[min..max]|Tyyppi|Index|Liitetään sanomaan|XPath|
 |:---|:---|:---|:---|:---|:---|:---|
-|InformationResponseFIN013| | | | |[auth.002](InformationRequestResponseV01)|/Document/InfReqRspn/RtrInd/InvstgtnRslt/Rslt|
+|InformationResponseFIN013| | | | |[auth.002](#InformationRequestResponseV01)|/Document/InfReqRspn/RtrInd/InvstgtnRslt/Rslt|
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|kyllä|[1..1]|Tutkinnan case-id|
 |&nbsp;&nbsp;&nbsp;&nbsp;CreDtTm|ISODateTime|kyllä|[1..1]|Sanoman luomisaika|
 |&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|BranchAndFinancialInstitutionIdentification4|kyllä|[1..1]|Käytetään seuraavasti: Elementti `SvcrId/FinInstnId/Othr/SchmeNm/Cd` sisältää arvon "Y" ja elementti `SvcrId/FinInstnId/Othr/Id` sisältää lähettäjän Y-tunnuksen.|
