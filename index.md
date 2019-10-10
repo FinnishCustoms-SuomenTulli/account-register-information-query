@@ -500,34 +500,34 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
 |AccountRole1| | | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|[1..*]|ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
-|&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|[1..1]|Käytetään `OwnrTp/Prtry/SchmeNm/Cd` arvolla "RLTP", sekä `OwnrTp/Prtry/Id`, jossa arvot "POWN" (omistaja), "ACCE" (käyttöoikeus) tai "BENE" (edunsaaja)|
-|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|[1..1]|Roolin alkamispäivämäärä|
-|&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|[0..1]|Roolin päättymispäivämäärä|
+|&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|kyllä|[1..*]|ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|kyllä|[1..1]|Käytetään `OwnrTp/Prtry/SchmeNm/Cd` arvolla "RLTP", sekä `OwnrTp/Prtry/Id`, jossa arvot "POWN" (omistaja), "ACCE" (käyttöoikeus) tai "BENE" (edunsaaja)|
+|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|kyllä|[1..1]|Roolin alkamispäivämäärä|
+|&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|kyllä|[0..1]|Roolin päättymispäivämäärä|
 
 ### <a name="InformationResponseFIN002"></a> 4.9 InformationResponseFIN002
 
 Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijaintiin.
 
-|Nimi|Pakollisuus (RAO)|[min..max]|Tyyppi|Index|Liitetään sanomaan|XPath|
-|:---|:---|:---|:---|:---|:---|:---|
-|InformationResponseFIN002| | | | |[auth.002](#InformationRequestResponseV01)|/Document/InfReqRspn/RtrInd/InvstgtnRslt/Rslt|
-|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|kyllä|[1..1]|Tutkinnan case-id|
-|&nbsp;&nbsp;&nbsp;&nbsp;CreDtTm|ISODateTime|kyllä|[1..1]|Sanoman luomisaika|
-|&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|BranchAndFinancialInstitutionIdentification4|kyllä|[1..1]|Käytetään seuraavasti: Elementti `SvcrId/FinInstnId/Othr/SchmeNm/Cd` sisältää arvon "Y" ja elementti `SvcrId/FinInstnId/Othr/Id` sisältää lähettäjän Y-tunnuksen.|
-|&nbsp;&nbsp;&nbsp;&nbsp;SdBoxAndPties|O|[0..*]|SafetyDepositBoxAndParties|Tallelokero ja osalliset|
+|Nimi|Pakollisuus (RAO)|[min..max]|Tyyppi|Käytetään|Kuvaus|Liitetään sanomaan|XPath|
+|:---|:---|:---|:---|:---|:---|:---|:---|
+|InformationResponseFIN002| | | | | |[auth.002](#InformationRequestResponseV01)|/Document/InfReqRspn/RtrInd/InvstgtnRslt/Rslt|
+|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|R|[1..1]|Max35Text|kyllä|Tutkinnan case-id|
+|&nbsp;&nbsp;&nbsp;&nbsp;CreDtTm|R|[1..1]|ISODateTime|kyllä|Sanoman luomisaika|
+|&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|R|[1..1]|BranchAndFinancialInstitutionIdentification4|kyllä|Käytetään seuraavasti: Elementti `SvcrId/FinInstnId/Othr/SchmeNm/Cd` sisältää arvon "Y" ja elementti `SvcrId/FinInstnId/Othr/Id` sisältää lähettäjän Y-tunnuksen.|
+|&nbsp;&nbsp;&nbsp;&nbsp;SdBoxAndPties|O|[0..*]|SafetyDepositBoxAndParties|kyllä|Tallelokero ja osalliset|
 
 ### <a name="InformationResponseFIN013"></a> 4.10 InformationResponseFIN013
 
 Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijaintiin.
 
-|Nimi|Pakollisuus (RAO)|[min..max]|Tyyppi|Index|Liitetään sanomaan|XPath|
-|:---|:---|:---|:---|:---|:---|:---|
-|InformationResponseFIN013| | | | |[auth.002](#InformationRequestResponseV01)|/Document/InfReqRspn/RtrInd/InvstgtnRslt/Rslt|
-|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|kyllä|[1..1]|Tutkinnan case-id|
-|&nbsp;&nbsp;&nbsp;&nbsp;CreDtTm|ISODateTime|kyllä|[1..1]|Sanoman luomisaika|
-|&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|BranchAndFinancialInstitutionIdentification4|kyllä|[1..1]|Käytetään seuraavasti: Elementti `SvcrId/FinInstnId/Othr/SchmeNm/Cd` sisältää arvon "Y" ja elementti `SvcrId/FinInstnId/Othr/Id` sisältää lähettäjän Y-tunnuksen.|
-|&nbsp;&nbsp;&nbsp;&nbsp;Customer|O|[0..*]|Customer|Asiakas. Luonnollinen henkilö tai yritys. Ks. Customer-elementin käyttö taulukko alla|
+|Nimi|Pakollisuus (RAO)|Käytetään|[min..max]|Tyyppi|Kuvaus|Liitetään sanomaan|XPath|
+|:---|:---|:---|:---|:---|:---|:---|:---|
+|InformationResponseFIN013| | | | | |[auth.002](#InformationRequestResponseV01)|/Document/InfReqRspn/RtrInd/InvstgtnRslt/Rslt|
+|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|R|kyllä|[1..1]|Max35Text|Tutkinnan case-id|
+|&nbsp;&nbsp;&nbsp;&nbsp;CreDtTm|R|kyllä|[1..1]|ISODateTime|Sanoman luomisaika|
+|&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|R|kyllä|[1..1]|BranchAndFinancialInstitutionIdentification4|Käytetään seuraavasti: Elementti `SvcrId/FinInstnId/Othr/SchmeNm/Cd` sisältää arvon "Y" ja elementti `SvcrId/FinInstnId/Othr/Id` sisältää lähettäjän Y-tunnuksen.|
+|&nbsp;&nbsp;&nbsp;&nbsp;Customer|O|kyllä|[0..*]|Customer|Asiakas. Luonnollinen henkilö tai yritys. Ks. Customer-elementin käyttö taulukko alla|
 
 #### Customer-elementin käyttö
 
