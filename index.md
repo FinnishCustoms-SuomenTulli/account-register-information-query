@@ -1,6 +1,6 @@
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 0.12*
+*Dokumentin versio 0.13*
 
 ## Versiohistoria
 
@@ -16,6 +16,7 @@ Versio|Päivämäärä|Kuvaus|Tekijä
 0.10|27.9.2019|Päivitetty kuvaus pankki- ja maksutilitietojen kyselystä tiedonhakujärjestelmästä|AP|
 0.11|1.10.2019|Lisätty kuvaus oikeushenkilön rekisteröitymispäivän palauttamisesta hakutulosten yhteydessä.|AP|
 0.12|8.10.2019|Lisätty ohje XML-allekirjoituksen muodotamiseen|AP|
+0.13|18.10.2019|Tekstimuutoksia varmenteiden osalta|TV|
 
 ## Sisällysluettelo
 
@@ -121,31 +122,51 @@ Taulukossa 3.1. on esitetty varmenteet tiedonhakujärjestelmässä.
 
 *__Taulukko 3.1.__ Tiedonhakujärjestelmän varmenteet*
 
-|Standardi|Sertifikaatin nimi|Käyttötarkoitus|
+|Standardi|Varmenteen nimi|Käyttötarkoitus|
 |:--|:--|:--|
-|X.509 (versio 3)|Tiedonhakujärjestelmän tietoliikennesertifikaatti|Rajapinnan hyödyntäjän ja ilmoitusvelvollisen tai ilmoitusvelvollisen valtuuttaman tahon tunnistaminen|
-|X.509 (versio 3)|Tiedonhakujärjestelmän allekirjoitussertifikaatti|Sanoman allekirjoittaminen, sanoman muuttumattomuuden varmistaminen|
+|X.509 (versio 3)|Tiedonhakujärjestelmän tietoliikennevarmenne|Rajapinnan hyödyntäjän ja ilmoitusvelvollisen tai ilmoitusvelvollisen valtuuttaman tahon tunnistaminen|
+|X.509 (versio 3)|Tiedonhakujärjestelmän allekirjoitusvarmenne|Sanoman allekirjoittaminen, sanoman muuttumattomuuden varmistaminen, ilmoitusvelvollisen tunnistaminen|
 
-Tiedonhakujärjestelmän kyselyrajapinnan hyödyntäjät sekä ilmoitusvelvolliset tai ilmoitusvelvollisen valtuuttamat tahot tunnistetaan X.509-sertifikaateilla (Tietoliikennesertifikaatti). Kyselyrajapinnan kysely- ja vastaussanomat allekirjoitetaan XML-allekirjoituksella (Allekirjoitussertifikaatti).
+Tiedonhakujärjestelmän kyselyrajapinnan hyödyntäjät sekä ilmoitusvelvolliset tai ilmoitusvelvollisen valtuuttamat tahot tunnistetaan X.509-varmenteilla (Tietoliikennevarmenne). Kyselyrajapinnan kysely- ja vastaussanomat allekirjoitetaan XML-allekirjoituksella (Allekirjoitusvarmenne).
 
-#### Allekirjoitusvarmenne
+#### Lähtevän sanoman allekirjoitusvarmenne
 
-Lähtevät sanomat on automaattisesti allekirjoitettava käyttäen x.509 järjestelmäallekirjoitusvarmennetta, jonka Subject-kentän serialNumber attribuuttina on ko. ilmoitusvelvollisen tai ilmoitusvelvollisen valtuuttaman tahon y-tunnus tai ALV tunnus. Ilmoitusvelvollisen valtuuttamalla taholla tarkoitetaan esim. palvelukeskusta, jonka ilmoitusvelvollinen on valtuuttanut puolestaan huolehtimaan ilmoitusten muodostamisesta ja/tai lähettämisestä.
-Saapuvien sanomien allekirjoitus on tarkistettava. Toimivaltaisen viranomaisen allekirjoituksen hyväksyminen edellyttää, että  
-a) allekirjoitusvarmenne on VRK:n myöntämä, voimassa, eikä esiinny VRK:n ylläpitämällä sulkulistalla  
-b) varmenteen Subject-kentän serialNumber attribuuttina on tunnus, joka muodostuu kirjaimista "FI" ja sanoman lähettäneen toimivaltaisen viranomaisen y-tunnuksen numero-osasta ilman väliviivaa (ALV tunnuksen muotoinen tunnus).
+Lähtevät sanomat on automaattisesti allekirjoitettava käyttäen x.509 palvelinvarmennetta, josta käy ilmi ko. ilmoitusvelvollisen y-tunnus tai ALV tunnus. Allekirjoituksen hyväksyminen edellyttää, että
 
-#### Tietoliikennevarmenne
+joko
+a) varmenne on VRK:n myöntämä, voimassa, eikä esiinny VRK:n ylläpitämällä sulkulistalla ja varmenteen kohteen serialNumber attribuuttina on kyseisen ilmoitusvelvollisen y-tunnus tai ALV tunnus
 
-Tietoliikenne on suojattava (salaus ja vastapuolen tunnistus) x.509 varmenteita käyttäen. Yhteydenottaja tunnistetaan asiakasvarmenteen avulla. Tietojärjestelmän on hyväksyttävä yhteys toimivaltaiselta viranomaiselta seuraavin edellytyksin:  
-a) Toimivaltaisen viranomaisen asiakasvarmenteen on myöntänyt VRK  
-b) varmenne on voimassa, eikä esiinny VRK:n sulkulistalla  
-c) varmenteen Subject-kentän serialNumber attribuuttina on tunnus, joka muodostuu kirjaimista "FI" ja toimivaltaisen viranomaisen tai sen puolesta toimivan valtion palvelukeskuksen y-tunnuksen numero-osasta ilman väliviivaa (ALV tunnuksen muotoinen tunnus).
+tai
+b) varmenne on eIDAS-hyväksytty sivustojen tunnistamisvarmenne, voimassa, eikä esiinny varmenteen tarjoajan ylläpitämällä ajantasaisella sulkulistalla ja varmenteen kohteen organizationIdentifier-attribuuttina on kyseisen ilmoitusvelvollisen y-tunnus tai ALV tunnus.
 
-Ilmoitusvelvollinen tai ilmoitusvelvollisen valtuuttama taho tunnistetaan palvelinvarmenteen avulla. Tietojärjestelmän on hyväksyttävä yhteys ilmoitusvelvolliselle seuraavin edellytyksin:  
-a) ilmoitusvelvollisen palvelinvarmenteen on myöntänyt VRK  
-b) varmenne on voimassa, eikä esiinny VRK:n sulkulistalla  
-c) varmenteen Subject-kentän serialNumber attribuuttina on kyseisen ilmoitusvelvollisen tai ilmoitusvelvollisen valtuuttaman tahon y-tunnus tai ALV tunnus.
+#### Saapuvan sanoman allekirjoitusvarmenne
+
+Saapuvien sanomien allekirjoitus on tarkistettava. Toimivaltaisen viranomaisen allekirjoituksen hyväksyminen edellyttää, että
+a) varmenne on VRK:n myöntämä, voimassa, eikä esiinny VRK:n ylläpitämällä sulkulistalla
+b) varmenteen kohteen serialNumber attribuuttina on tunnus, joka muodostuu kirjaimista “FI” ja sanoman lähettäneen toimivaltaisen viranomaisen y-tunnuksen numero-osasta ilman väliviivaa (ALV tunnuksen muotoinen tunnus).
+
+#### Yhteydenottajan tietoliikennevarmenne
+
+Kyseisen ilmoitusvelvollisen tai ilmoitusvelvollisen valtuuttaman tahon y-tunnus tai ALV tunnus.
+
+Yhteydenottaja tunnistetaan palvelinvarmenteen avulla. Tietojärjestelmän on hyväksyttävä yhteys toimivaltaiselta viranomaiselta seuraavin edellytyksin:
+a) Toimivaltaisen viranomaisen varmenteen on myöntänyt VRK
+b) varmenne on voimassa, eikä esiinny VRK:n sulkulistalla
+c) varmenteen kohteen serialNumber attribuuttina on tunnus, joka muodostuu kirjaimista “FI” ja toimivaltaisen viranomaisen tai sen puolesta toimivan valtion palvelukeskuksen y-tunnuksen numero-osasta ilman väliviivaa (ALV tunnuksen muotoinen tunnus).
+
+#### Ilmoitusvelvollisen tai ilmoitusvelvollisen valtuuttaman tahon tietoliikennevarmenne
+
+Ilmoitusvelvollinen tai ilmoitusvelvollisen valtuuttama taho tunnistetaan palvelinvarmenteen avulla. Ilmoitusvelvollisen valtuuttamalla taholla tarkoitetaan esim. palvelukeskusta, jonka ilmoitusvelvollinen on valtuuttanut puolestaan huolehtimaan ilmoitusten muodostamisesta ja/tai lähettämisestä.
+
+Tietojärjestelmän on hyväksyttävä yhteys ilmoitusvelvolliselle seuraavin edellytyksin:
+
+joko
+a) palvelinvarmenteen on myöntänyt VRK, varmenne on voimassa, eikä esiinny VRK:n sulkulistalla, varmenteen kohteen serialNumber attribuuttina on kyseisen ilmoitusvelvollisen tai ilmoitusvelvollisen valtuuttaman tahon y-tunnus tai ALV tunnus
+
+tai
+b) palvelinvarmenne on eIDAS-hyväksytty sivustojen tunnistamisvarmenne, voimassa, eikä esiinny varmenteen tarjoajan ylläpitämällä ajantasaisella sulkulistalla ja varmenteen kohteen organizationIdentifier-attribuuttina on kyseisen ilmoitusvelvollisen tai ilmoitusvelvollisen valtuuttaman tahon y-tunnus tai ALV tunnus.
+
+Mikäli ilmoitusvelvollisen tietoliikennevarmenteessa ja lähtevän sanoman allekirjoitusvarmenteessa käytetään samaa y-tunnusta tai ALV tunnusta, voidaan kumpaankin tarkoitukseen käyttää samaa varmennetta.
 
 #### <a name="xml-sig"></a> XML-allekirjoituksen muodostaminen
 
