@@ -145,10 +145,10 @@ b) varmenne on eIDAS-hyväksytty sivustojen tunnistamisvarmenne, voimassa, eikä
 
 Saapuvien sanomien allekirjoitus on tarkistettava. Toimivaltaisen viranomaisen allekirjoituksen hyväksyminen edellyttää, että
 
-```
 a) varmenne on VRK:n myöntämä, voimassa, eikä esiinny VRK:n ylläpitämällä sulkulistalla
+
 b) varmenteen kohteen serialNumber attribuuttina on tunnus, joka muodostuu kirjaimista “FI” ja sanoman lähettäneen toimivaltaisen viranomaisen y-tunnuksen numero-osasta ilman väliviivaa (ALV tunnuksen muotoinen tunnus).
-```
+
 #### Yhteydenottajan tietoliikennevarmenne
 
 Kyseisen ilmoitusvelvollisen tai ilmoitusvelvollisen valtuuttaman tahon y-tunnus tai ALV tunnus.
