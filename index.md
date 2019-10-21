@@ -1,22 +1,12 @@
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 0.13*
+*Dokumentin versio 1.0*
 
 ## Versiohistoria
 
 Versio|Päivämäärä|Kuvaus|Tekijä
 ---|---|---|---
-0.3|26.4.2019|Alustava versio|AP,TV
-0.4|9.5.2019|Sanomarakenne päivitetty alustavasti ISO 20022 mukaillen|AP|
-0.5|22.5.2019|Päivityksiä standardinmukaisuuteen liittyen|AP|
-0.6|31.5.2019|Tarkennuksia rajapintakuvauksen käyttöohjeistukseen|AP|
-0.7|10.6.2019|Tarkennus virtuaalivaluutan tarjoajien osalta|TV|
-0.8|11.9.2019|Rajapintakuvaus jaettu kahdeksi dokumentiksi|AL|
-0.9|25.9.2019|Tarkennuksia auth.002 käyttöön|AP|
-0.10|27.9.2019|Päivitetty kuvaus pankki- ja maksutilitietojen kyselystä tiedonhakujärjestelmästä|AP|
-0.11|1.10.2019|Lisätty kuvaus oikeushenkilön rekisteröitymispäivän palauttamisesta hakutulosten yhteydessä.|AP|
-0.12|8.10.2019|Lisätty ohje XML-allekirjoituksen muodotamiseen|AP|
-0.13|18.10.2019|Tekstimuutoksia varmenteiden osalta|TV|
+1.0|21.10.2019|Versio 1.0||
 
 ## Sisällysluettelo
 
