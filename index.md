@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.1*
+*Dokumentin versio 1.0.2*
 
 ## Versiohistoria
 
@@ -14,6 +14,7 @@ Versio|Päivämäärä|Kuvaus
 ---|---|---
 1.0|21.10.2019|Versio 1.0|
 1.0.1|1.11.2019|Päivitetty Investigation Period (InvstgtnPrd, kappale 4.5) käytettäväksi tiedoksi.|
+1.0.2|1.11.2019|Lisätty WSDL|
 
 ## Sisällysluettelo
 
@@ -39,6 +40,8 @@ PKI | Julkisen avaimen tekniikka. Julkisen avaimen tekniikkaan perustuva sähkö
 Tämä dokumentti on osa Tullin julkaisemaa määräystä pankki- ja maksutilien valvontajärjestelmästä. Dokumentin tarkoitus on antaa ohjeet tiedonhakujärjestelmän kyselyrajapinnasta. Tätä dokumenttia täydentää tiedonhakujärjestelmän käyttöönoton ja ylläpidon ohje.
 
 ### 1.3 Viittaukset
+
+[Tiedonhakujärejstelmän WSDL](wsdl/data-retrieval-system-wsdl.xml)
 
 [ISO 20022 External Code Sets](https://www.iso20022.org/external_code_list.page)
 
@@ -207,7 +210,7 @@ Mikäli tiedonhakujärjestelmää hyödyntävän toimivaltaisen viranomaisen var
 
 ## <a name="kyselyrajapinta"></a> 4. Tiedonhakujärjestelmän kyselyrajapinta
 
-Kyselyrajapinta toteutetaan SOAP/XML Web Servicenä, josta julkaistaan WSDL.
+Kyselyrajapinta toteutetaan SOAP/XML Web Servicenä, josta julkaistaan [WSDL](wsdl/data-retrieval-system-wsdl.xml).
 
 SOAP-protokollasta käytetään versiota 1.1.
 
