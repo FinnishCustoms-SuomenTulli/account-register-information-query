@@ -6,13 +6,14 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0*
+*Dokumentin versio 1.0.1*
 
 ## Versiohistoria
 
 Versio|Päivämäärä|Kuvaus|Tekijä
 ---|---|---|---
 1.0|21.10.2019|Versio 1.0||
+1.0.1|1.11.2019|Päivitetty Investigation Period (InvstgtnPrd, kappale 4.5) käytettäväksi tiedoksi.||
 
 ## Sisällysluettelo
 
