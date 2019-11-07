@@ -41,7 +41,7 @@ Tämä dokumentti on osa Tullin julkaisemaa määräystä pankki- ja maksutilien
 
 ### 1.3 Viittaukset
 
-[Tiedonhakujärejstelmän WSDL](wsdl/data-retrieval-system-wsdl.xml)
+[Tiedonhakujärjestelmän WSDL](wsdl/data-retrieval-system-wsdl.xml)
 
 [ISO 20022 External Code Sets](https://www.iso20022.org/external_code_list.page)
 
