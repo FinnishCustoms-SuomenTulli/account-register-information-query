@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.2*
+*Dokumentin versio 1.0.4*
 
 ## Versiohistoria
 
@@ -15,6 +15,8 @@ Versio|Päivämäärä|Kuvaus
 1.0|21.10.2019|Versio 1.0|
 1.0.1|1.11.2019|Päivitetty Investigation Period (InvstgtnPrd, kappale 4.5) käytettäväksi tiedoksi.|
 1.0.2|1.11.2019|Lisätty WSDL|
+1.0.3|27.11.2019|Korjattu Ccy-elementin pakollisuustieto|
+1.0.4|27.11.2019|Lisätty ohjeet ja skeema kiistanalaisten tietojen ilmoittamisesta|
 
 ## Sisällysluettelo
 
