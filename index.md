@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.2*
+*Dokumentin versio 1.0.3*
 
 ## Versiohistoria
 
@@ -15,6 +15,7 @@ Versio|Päivämäärä|Kuvaus
 1.0|21.10.2019|Versio 1.0|
 1.0.1|1.11.2019|Päivitetty Investigation Period (InvstgtnPrd, kappale 4.5) käytettäväksi tiedoksi.|
 1.0.2|1.11.2019|Lisätty WSDL|
+1.0.3|27.11.2019|Korjattu Ccy-elementin pakollisuustieto|
 
 ## Sisällysluettelo
 
@@ -542,7 +543,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |&nbsp;&nbsp;&nbsp;&nbsp;Nm||ei|||
 |&nbsp;&nbsp;&nbsp;&nbsp;Sts||ei|||
 |&nbsp;&nbsp;&nbsp;&nbsp;Tp||ei|||
-|&nbsp;&nbsp;&nbsp;&nbsp;Ccy||ei|||
+|&nbsp;&nbsp;&nbsp;&nbsp;Ccy||kyllä|[1..1]|"EUR"|
 |&nbsp;&nbsp;&nbsp;&nbsp;MnthlyPmtVal||ei|||
 |&nbsp;&nbsp;&nbsp;&nbsp;MnthlyRcvdVal||ei|||
 |&nbsp;&nbsp;&nbsp;&nbsp;MnthlyTxNb||ei|||
