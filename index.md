@@ -696,7 +696,7 @@ Seuraamus|Palautetaan SOAP Fault ks. taulukko alla|
 
 
 *__Taulukko 4.12.1:__ Virhekoodit*
-<table class="confluenceTable wrapped"><colgroup><col /><col /><col /><col /></colgroup><tbody><tr><th class="confluenceTh">Virhetilanne</th><th class="confluenceTh">faultcode</th><th class="confluenceTh" colspan="1">faultstring</th><th class="confluenceTh" colspan="1">detail</th></tr><tr><td class="confluenceTd">Asynkronisesti aloitettu kysely on kadonnut</td><td class="confluenceTd">SOAP-ENV:Server</td><td class="confluenceTd" colspan="1">The query has been lost. Please re-send initial query.</td><td class="confluenceTd" colspan="1"><br /></td></tr><tr><td class="confluenceTd">XML-allekirjoitus on virheellinen</td><td class="confluenceTd">SOAP-ENV:Client</td><td class="confluenceTd" colspan="1">The provided signature is invalid.</td><td class="confluenceTd" colspan="1"><br /></td></tr><tr><td class="confluenceTd">Sanomassa on validointivirheit&auml;</td><td class="confluenceTd">SOAP-ENV:Client</td><td class="confluenceTd" colspan="1">Bad Request.</td><td class="confluenceTd" colspan="1"><p>1 kpl ValidationError-elementti&auml; per validointivirhe esim.</p><p><code>&lt;ValidationError&gt;</code><code>Validaatiovirheen kuvuas&lt;/ValidationError&gt;</code></p></td></tr><tr><td class="confluenceTd" colspan="1">Muu sis&auml;inen virhe</td><td class="confluenceTd" colspan="1">SOAP-ENV:Server</td><td class="confluenceTd" colspan="1">Internal Server Error.</td><td class="confluenceTd" colspan="1"><br /></td></tr></tbody></table>
+<table class="confluenceTable wrapped"><colgroup><col /><col /><col /><col /></colgroup><tbody><tr><th class="confluenceTh">Virhetilanne</th><th class="confluenceTh">faultcode</th><th class="confluenceTh" colspan="1">faultstring</th><th class="confluenceTh" colspan="1">detail</th></tr><tr><td class="confluenceTd">Asynkronisesti aloitettu kysely on kadonnut</td><td class="confluenceTd">SOAP-ENV:Server</td><td class="confluenceTd" colspan="1">The query has been lost. Please re-send initial query.</td><td class="confluenceTd" colspan="1"><br /></td></tr><tr><td class="confluenceTd">XML-allekirjoitus on virheellinen</td><td class="confluenceTd">SOAP-ENV:Client</td><td class="confluenceTd" colspan="1">The provided signature is invalid.</td><td class="confluenceTd" colspan="1"><br /></td></tr><tr><td class="confluenceTd">Sanomassa on validointivirheit&auml;</td><td class="confluenceTd">SOAP-ENV:Client</td><td class="confluenceTd" colspan="1">Bad Request.</td><td class="confluenceTd" colspan="1"><p>1 kpl ValidationError-elementti&auml; per validointivirhe esim.</p><p><code>&lt;ValidationError&gt;</code><code>Validaatiovirheen kuvaus&lt;/ValidationError&gt;</code></p></td></tr><tr><td class="confluenceTd" colspan="1">Muu sis&auml;inen virhe</td><td class="confluenceTd" colspan="1">SOAP-ENV:Server</td><td class="confluenceTd" colspan="1">Internal Server Error.</td><td class="confluenceTd" colspan="1"><br /></td></tr></tbody></table>
 
 ### <a name="4-13"></a> 4.13 Kiistanalaisten tietojen palauttaminen
 
@@ -719,10 +719,11 @@ Kyselyvastauksessa esitetyistä tiedoista osa voi olla kiistanalaisia. Tällöin
 ```
 
 *__Taulukko 4.13.1:__ Kiistanalaisten tietojen id-koodit*
+
 |Koodi|Kuvaus|
 |:---|:---|
 |PIC|Henkilötunnus|
-|Y|Y-tunus|
+|Y|Y-tunnus|
 |ORG|Muu oikeushenkilön tunniste|
 |PRH|Yhdistysrekisterinumero|
 |ACCT|Tilin tunniste esim. IBAN|
