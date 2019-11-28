@@ -690,7 +690,7 @@ Seuraamus|Palautetaan head.001.001.01 ja auth.002.001.01 sanomat ja mahdolliset 
 
 | | |
 |---|---|  
-Kuvaus|Sanoma käsiteltiin kokonaisuudessaan onnistuneesti.  
+Kuvaus|Virheellinen sanoma.  
 HTTP status code|500
 Seuraamus|Palautetaan SOAP Fault ks. taulukko alla|
 
@@ -729,7 +729,7 @@ Kyselyvastauksessa esitetyistä tiedoista osa voi olla kiistanalaisia. Tällöin
 |ACCT|Tilin tunniste esim. IBAN|
 |SDBX|Tallelokeron tunniste|
 |NAME+NATI+BDAT|Erikoistapaus, kun henkilötunnusta ei ole tiedossa. Tällöin on palautettava koko nimi, kansalaisuus ja syntymäaika ks. esimerkki alla|
-
+ 
 *__Listaus 4.13.2:__ Esimerkki kiistanalaisten tietojen ilmoittamisesta Supplementary Datassa. Erikoistapaus, kun henkilötunnusta ei ole tiedossa. Tällöin on palautettava koko nimi, kansalaisuus ja syntymäaika.*
 ```
 <Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="disputed.xsd">
