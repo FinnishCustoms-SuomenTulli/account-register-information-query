@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.3*
+*Dokumentin versio 1.0.4*
 
 ## Versiohistoria
 
@@ -16,6 +16,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.1|1.11.2019|Päivitetty Investigation Period (InvstgtnPrd, kappale 4.5) käytettäväksi tiedoksi.|
 1.0.2|1.11.2019|Lisätty WSDL|
 1.0.3|27.11.2019|Korjattu Ccy-elementin pakollisuustieto|
+1.0.4|27.11.2019|Lisätty ohjeet ja skeema kiistanalaisten tietojen ilmoittamisesta|
 
 ## Sisällysluettelo
 
@@ -23,6 +24,20 @@ Versio|Päivämäärä|Kuvaus
 2. [Pankki- ja maksutilitietojen kysely tiedonhakujärjestelmästä](#luku2)  
 3. [Tietoturva](#tietoturva)  
 4. [Tiedonhakujärjestelmän kyselyrajapinta](#kyselyrajapinta)   
+  4.1 [Kyselyrajapinnan SOAP-operaatioiden sanomarakenne](#4-1)    
+  4.2 [Business Application Header (BAH)](#4-2)    
+  4.3 [Kyselyrajapinnan sanomat](#4-3)    
+  4.4 [BusinessApplicationHeaderV01](#BusinessApplicationHeaderV01)    
+  4.5 [InformationRequestOpeningV01](#InformationRequestOpeningV01)    
+  4.6 [InformationRequestFIN012](#InformationRequestFIN012)    
+  4.7 [InformationRequestResponseV01](#InformationRequestResponseV01)    
+  4.8 [InformationResponseSD1V01](#InformationResponseSD1V01)    
+  4.9 [InformationResponseFIN002](#InformationResponseFIN002)    
+  4.10 [InformationResponseFIN013](#InformationResponseFIN013)   
+  4.11 [Id-elementin käyttö](#Id-elementin_kaytto)    
+  4.12 [Kyselyrajapinnan WS-sanomaliikenteen skenaariot](#4-12)    
+  4.13 [Kiistanalaisten tietojen palauttaminen](#4-13)  
+
 
 ## 1. Johdanto <a name="luku1"></a>
 
@@ -219,11 +234,11 @@ Sanomissa käytetään ISO 20022 koodistoviittauksia. Koodistoviittaukset löyty
 
 Kyselyrajapinnassa on yksi endpoint, jonka kysely- ja vastaussanomarakenne on kuvattu tässä luvussa.
 
-### 4.1 Kyselyrajapinnan SOAP-operaatioiden sanomarakenne
+### <a name="4-1"></a> 4.1 Kyselyrajapinnan SOAP-operaatioiden sanomarakenne
 
 SOAP body koostuu aina kahdesta osasta, ISO 20022 Business Application Headerista (BAH) ja varsinaisesta business-sanomasta.  
 
-### 4.2 Business Application Header (BAH) 
+### <a name="4-2"></a> 4.2 Business Application Header (BAH) 
 
 Business Application Header sanoman tiedot on esitetty seuraavassa taulukossa.
 
@@ -233,7 +248,7 @@ Business Application Header sanoman tiedot on esitetty seuraavassa taulukossa.
 
 BAH on oltava aina SOAP bodyn ensimmäinen elementti.
 
-### 4.3 Kyselyrajapinnan sanomat
+### <a name="4-3"></a> 4.3 Kyselyrajapinnan sanomat
 
 Tiedonhakujärjestelmän kyselyrajapinnassa käytetään [ISO 20022 -sanomia InformationRequestOpeningV01 ja InformationRequestResponseV01](https://www.iso20022.org/full_catalogue.page), joihin liitetään tarvittavat [Supplementary Datat](https://www.iso20022.org/supplementary_data.page).
 
@@ -659,7 +674,7 @@ Id-elementissä palautetaan rekisteröitymispäivämäärä. SchemeNm/Cd-element
 </OrgId>
 ```
 
-### 4.12 Kyselyrajapinnan WS-sanomaliikenteen skenaariot
+### <a name="4-12"></a> 4.12 Kyselyrajapinnan WS-sanomaliikenteen skenaariot
 
 Tässä luvussa on esitelty kyselyrajapinnan WS-sanomaliikenteen skenaariot. 
 
@@ -669,20 +684,72 @@ Tässä luvussa on esitelty kyselyrajapinnan WS-sanomaliikenteen skenaariot.
 |---|---|  
 Kuvaus|Sanoma käsiteltiin kokonaisuudessaan onnistuneesti.  
 HTTP status code|202
-Seuraamus|-|
+Seuraamus|Palautetaan head.001.001.01 ja auth.002.001.01 sanomat ja mahdolliset alisanomat|
 
-#### Skenaario 3 - Virheellinen kysely
-
-| | |
-|---|---|
-|Kuvaus|Kyselysanoma on virheellinen|
-|HTTP status code|400|
-|Seuraamus|Lähetä korjattu sanoma|
-
-#### Skenaario 4 - Tekninen virhe
+#### Skenaario 2 - Virheellinen kyselysanoma
 
 | | |
-|---|---|
-|Kuvaus|Tapahtui tekninen virhe|
-|HTTP status code|500|
-|Seuraamus|Viestiä ei ole käsitelty. Vastaussanoma sisältää virheen kuvauksen.|
+|---|---|  
+Kuvaus|Virheellinen sanoma.  
+HTTP status code|500
+Seuraamus|Palautetaan SOAP Fault ks. taulukko alla|
+
+
+*__Taulukko 4.12.1:__ Virhekoodit*
+<table class="confluenceTable wrapped"><colgroup><col /><col /><col /><col /></colgroup><tbody><tr><th class="confluenceTh">Virhetilanne</th><th class="confluenceTh">faultcode</th><th class="confluenceTh" colspan="1">faultstring</th><th class="confluenceTh" colspan="1">detail</th></tr><tr><td class="confluenceTd">Asynkronisesti aloitettu kysely on kadonnut</td><td class="confluenceTd">SOAP-ENV:Server</td><td class="confluenceTd" colspan="1">The query has been lost. Please re-send initial query.</td><td class="confluenceTd" colspan="1"><br /></td></tr><tr><td class="confluenceTd">XML-allekirjoitus on virheellinen</td><td class="confluenceTd">SOAP-ENV:Client</td><td class="confluenceTd" colspan="1">The provided signature is invalid.</td><td class="confluenceTd" colspan="1"><br /></td></tr><tr><td class="confluenceTd">Sanomassa on validointivirheit&auml;</td><td class="confluenceTd">SOAP-ENV:Client</td><td class="confluenceTd" colspan="1">Bad Request.</td><td class="confluenceTd" colspan="1"><p>1 kpl ValidationError-elementti&auml; per validointivirhe esim.</p><p><code>&lt;ValidationError&gt;</code><code>Validaatiovirheen kuvaus&lt;/ValidationError&gt;</code></p></td></tr><tr><td class="confluenceTd" colspan="1">Muu sis&auml;inen virhe</td><td class="confluenceTd" colspan="1">SOAP-ENV:Server</td><td class="confluenceTd" colspan="1">Internal Server Error.</td><td class="confluenceTd" colspan="1"><br /></td></tr></tbody></table>
+
+### <a name="4-13"></a> 4.13 Kiistanalaisten tietojen palauttaminen
+
+Kyselyvastauksessa esitetyistä tiedoista osa voi olla kiistanalaisia. Tällöin liitetään auth.002.001.01 sanomaan `Document/InfReqRspn/SplmtryData`-elementin alle disputed.xsd mukainen supplementary data, jossa listataan kiistanalaisten tietueiden tunnisteet. 
+
+*__Listaus 4.13.1:__ Esimerkki kiistanalaisten tietojen ilmoittamisesta Supplementary Datassa*
+```
+<Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="disputed.xsd">
+	<Disputed>
+		<DisputedEntityId>
+			<Id>290408-616V</Id>
+			<Code>PIC</Code>
+		</DisputedEntityId>
+		<FinancialInstitutionId>
+			<Id>0245442-8</Id>
+			<Code>Y</Code>
+		</FinancialInstitutionId>
+	</Disputed>
+</Document>
+```
+
+*__Taulukko 4.13.1:__ Kiistanalaisten tietojen id-koodit*
+
+|Koodi|Kuvaus|
+|:---|:---|
+|PIC|Henkilötunnus|
+|Y|Y-tunnus|
+|ORG|Muu oikeushenkilön tunniste|
+|PRH|Yhdistysrekisterinumero|
+|ACCT|Tilin tunniste esim. IBAN|
+|SDBX|Tallelokeron tunniste|
+|NAME+NATI+BDAT|Erikoistapaus, kun henkilötunnusta ei ole tiedossa. Tällöin on palautettava koko nimi, kansalaisuus ja syntymäaika ks. esimerkki alla|
+ 
+*__Listaus 4.13.2:__ Esimerkki kiistanalaisten tietojen ilmoittamisesta Supplementary Datassa. Erikoistapaus, kun henkilötunnusta ei ole tiedossa. Tällöin on palautettava koko nimi, kansalaisuus ja syntymäaika.*
+```
+<Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="disputed.xsd">
+<Disputed>
+    <DisputedEntityId>
+      <Id>Markkanen, Veikko</Id>
+      <Code>NAME</Code>
+    </DisputedEntityId>
+    <DisputedEntityId>
+      <Id>FI</Id>
+      <Code>NATI</Code>
+    </DisputedEntityId>
+    <DisputedEntityId>
+      <Id>2008-04-29</Id>
+      <Code>BDAT</Code>
+    </DisputedEntityId>
+    <FinancialInstitutionId>
+      <Id>0245442-8</Id>
+      <Code>Y</Code>
+    </FinancialInstitutionId>
+  </Disputed>
+</Document>
+```
