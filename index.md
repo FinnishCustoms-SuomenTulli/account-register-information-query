@@ -558,7 +558,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |&nbsp;&nbsp;&nbsp;&nbsp;Nm||ei|||
 |&nbsp;&nbsp;&nbsp;&nbsp;Sts||ei|||
 |&nbsp;&nbsp;&nbsp;&nbsp;Tp||ei|||
-|&nbsp;&nbsp;&nbsp;&nbsp;Ccy||ei|||
+|&nbsp;&nbsp;&nbsp;&nbsp;Ccy||kyllä|[1..1]|"EUR"|
 |&nbsp;&nbsp;&nbsp;&nbsp;MnthlyPmtVal||ei|||
 |&nbsp;&nbsp;&nbsp;&nbsp;MnthlyRcvdVal||ei|||
 |&nbsp;&nbsp;&nbsp;&nbsp;MnthlyTxNb||ei|||
