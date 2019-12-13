@@ -372,28 +372,28 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 
 #### <a name="SearchCriteria1Choice"></a> Haku henkilötunnuksella tai henkilötodistuksen tunnistenumerolla
 
-|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
-|:---|:---|:---|
-|\<Id\>|CstmrId/Pty/Id/Prvtld/Othr|Hetu tai henkilötodistuksen tunnistenumero|
+|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
+|:---|:---|:---|:---|
+|\<Id\>|CstmrId/Pty/Id/Prvtld/Othr|Hetu tai henkilötodistuksen tunnistenumero|Validi henkilötunnus, kun Cd=PIC. Muussa tapauksessa skeeman mukainen.|
 |\<Cd\>|CstmrId/Pty/Id/Prvtld/Othr/SchemeNm|"PIC" (Person Identification Code, hetu), "OTHR" (Muu henkilötodistuksen tunnistenumero)|
 |\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
 #### <a name=""></a> Haku Y-tunnuksella tai muulla oikeushenkilön tunnisteella
 
-|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
-|:---|:---|:---|
-|\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Y-tunnus tai muu oikeushenkilön tunniste|
-|\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|"Y" (Y-tunnus), "PRH" (Yhdistysrekisterinumero), OTHER*|
-|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
-|\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
+|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
+|:---|:---|:---|:---|
+|\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Y-tunnus tai muu oikeushenkilön tunniste|Validi Y-tunnus, kun Cd=Y. Validi yhdistysrekisterinumero, kun Cd=PRH.  Muutoin skeeman mukaisesti| |
+|\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|"Y" (Y-tunnus), "PRH" (Yhdistysrekisterinumero), OTHR (muu tunniste kuin Y-tunnus tai yhdistysrekisterinumero)| |
+|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"| |
+|\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"| |
 
 
 #### <a name=""></a> Haku yrityksen nimellä
 
-|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
-|:---|:---|:---|
-|\<Id\>|CstmrId/Pty/Nm|Yrityksen nimi|
+|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
+|:---|:---|:---|:---|
+|\<Id\>|CstmrId/Pty/Nm|Yrityksen nimi|Täsmällinen osuma 1:1|
 |\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Arvoksi asetetaan "1"|
 |\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|"NAME"|
 |\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
@@ -411,13 +411,13 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
 |:---|:---|:---|:---|
 |Tilin muu yksilöintitunnus|\<Id\>|Acct/Id/Id/Othr|Tunnus|
-||\<Cd\>|Acct/Id/Id/Othr/SchemeNm|OTHER*|
+||\<Cd\>|Acct/Id/Id/Othr/SchemeNm|OTHR|
 
 #### <a name=""></a> Haku luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä
 
-|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
-|:---|:---|:---|
-|\<Nm\>|CstmrId/Pty|Nimi|
+|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
+|:---|:---|:---|:---|
+|\<Nm\>|CstmrId/Pty|Nimi|Täsmällinen osuma 1:1, ml. erikoismerkit. Formaatti on "kaikki sukunimet välilyönnillä eroteltuna pilkku kaiki etunimet välilyönnillä eroteltuna", regex `(\S+\s)*\S+,(\S+\s)*\S+`|
 |\<Id\>|CstmrId/Pty/Id/PrvtId/Othr|Maakoodi|
 |\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchemeNm|"NATI"|
 |\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth|Syntymäaika. `CtryOfBirth` arvoksi asetetaan "XX" ja `CityOfBirth` arvoksi asetetaan ”not in use”|
@@ -681,6 +681,7 @@ Kaikissa sanomissa käytetään vastaavaa oikeushenkilön ja luonnollisen henkil
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
+|Nm|Max140Text|Kyllä|[1..1]|Formaatti "Sukunimi n-1, Sukunimi n,Etunimi n-1, Sukunimi n". Regex `(\S+\s)*\S+,(\S+\s)*\S+`|
 |Id|Party8Choice|kyllä|[1..1]| |
 
 #### Party8Choice
