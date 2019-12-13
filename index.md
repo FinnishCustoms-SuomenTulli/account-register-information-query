@@ -595,7 +595,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
 |AccountAndParties2| | | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;Acct|CustomerAccount1|kyllä|[1..*]|Tilin tiedot ks. CustomerAccount1 käyttö| 
+|&nbsp;&nbsp;&nbsp;&nbsp;Acct|CustomerAccount1|kyllä|[1..1]|Tilin tiedot ks. CustomerAccount1 käyttö| 
 |&nbsp;&nbsp;&nbsp;&nbsp;Role|AccountRole1|kyllä|[1..*]|Tiliin liittyvät roolit ks. toinen taulukko alla. Jokainen rooli on ilmoitettava erikseen, esim. jos luonnollisella henkilöllä on sekä omistajuus että käyttöoikeus tiliin, niin Role-elementtejä on tällin kaksi kappaletta, joista yhden OwnrTp=OWNE ja toisen OwnrTp=ACCE. Jokaisella roolilla on alkupäivämäärä ja valinnainen loppupäivämäärä. Tämän lisäksi jokaiseen rooliin liittyvä asiakkuus on ilmoitettava fin.013-alisanomassa yhden kerran per osallinen. Em. esimerkin henkilölle ilmoitetaan siis yksi asiakkuus tässä tapauksessa.|
 |&nbsp;&nbsp;&nbsp;&nbsp;AddtlInf|Max256Text|kyllä|[1..1]|Tilin avaamispäivämäärä merkkijonona ISODate-formaatissa|
 
@@ -644,7 +644,30 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 
 #### <a name="SafetyDepositBoxAndParties"></a> SafetyDepositBoxAndParties käyttö
 
-SafetyDepositBoxAndParties käyttö.
+|Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
+|:---|:---|:---|:---|:---|
+|SafetyDepositBoxAndParties| | | | |
+|&nbsp;&nbsp;&nbsp;&nbsp;SdBox|SdBox|kyllä|[1..1]|Tilin tiedot ks. SdBox käyttö| 
+|&nbsp;&nbsp;&nbsp;&nbsp;Role|SdBoxRole|kyllä|[1..*]|Tallelokeroon liittyvät roolit ks. toinen taulukko alla. Jokainen rooli on ilmoitettava erikseen koodille OwnrTp=OWNE. Tämän lisäksi jokaiseen rooliin liittyvä asiakkuus on ilmoitettava fin.013-alisanomassa yhden kerran per osallinen.|
+
+#### <a name="SdBox"></a> SdBox käyttö
+
+|Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
+|:---|:---|:---|:---|:---|
+|CustomerAccount1| | | | |
+|&nbsp;&nbsp;&nbsp;&nbsp;Id|Max34Text|kyllä|[1..1]|Yksilöllinen tallelokeron tunniste|
+|&nbsp;&nbsp;&nbsp;&nbsp;ClsgDt||kyllä|[1..1]|Sopimuksen alkupäivämäärä|
+|&nbsp;&nbsp;&nbsp;&nbsp;ClsgDt||kyllä|[0..1]|Sopimuksen päättymispäivämäärä|
+
+#### SdBoxRole käyttö
+
+|Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
+|:---|:---|:---|:---|:---|
+|AccountRole1| | | | |
+|&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|kyllä|[1..*]|ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|kyllä|[1..1]|Käytetään `OwnrTp/Prtry/SchmeNm` arvolla "RLTP", sekä `OwnrTp/Prtry/Id`, jossa arvo "OWNE" (omistaja)|
+|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|kyllä|[1..1]|Roolin alkamispäivämäärä|
+|&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|kyllä|[0..1]|Roolin päättymispäivämäärä|
 
 ### <a name="InformationResponseFIN013"></a> 4.10 InformationResponseFIN013
 
@@ -688,7 +711,7 @@ Kaikissa sanomissa käytetään vastaavaa oikeushenkilön ja luonnollisen henkil
 |:---|:---|:---|:---|:---|
 |Party8Choice|| | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;OrgId|A|OrganisationIdentification6|[0..1]|Käytetään seuraavasti: Elementti `OrgId/Othr/SchmeNm/Cd` sisältää organisaatiotunnuksen tyyppikoodin ja elementti `OrgId/Othr/Id` sisältää tunnuksen. Ks. koodit taulukko alla. Lisäksi voidaan kyselyvastauksen yhteydessä palauttaa oikeushenkilön rekisteröitysmispäivämäärä ks. [esimerkki](#rgdt) alla|
-|&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|A|PersonIdentification5|[0..1]|Käytetään seuraavasti: Elementti `PrvtId/Othr/SchmeNm/Cd` sisältää henkilötunnisteen tyyppikoodin. Elementti `PrvtId/Othr/Id` sisältää tunnuksen. Ks. koodit taulukko alla.|
+|&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|A|PersonIdentification5|[0..1]|Käytetään seuraavasti: Elementti `PrvtId/Othr/SchmeNm/Cd` sisältää henkilötunnisteen tyyppikoodin, tai kansalaisuuskoodin jos henkilöllä ei ole henkilötunnusta. Elementti `PrvtId/Othr/Id` sisältää tunnuksen tai maakoodin. Ks. koodit taulukko alla. Lisäksi palautetaan syntymäaika elementissä `PrvtId/DtAndPlcOfBirth` ks. taulukko alla|
 
 OrgId koodit  
 
@@ -703,7 +726,17 @@ PrvtId koodit
 |Koodi|Kuvaus|
 |:---|:---|
 |PIC|Suomalainen henkilötunnus|
+|NATI|Kansalaisuus|
 |OTHR|Muu henkilön tunnistusasiakirjan id|
+
+Syntymäaika
+
+|Nimi|Tyyppi||Kuvaus|
+|:---|:---|:---|:---|:---|
+|DtAndPlcOfBirth| | | |
+|BirthDt|ISODate|Syntymäaika.| 
+|CtryOfBirth| |arvoksi asetetaan "XX" |
+|CityOfBirth| |arvoksi asetetaan ”not in use”|
 
 #### <a name="rgdt"></a> Esimerkki oikeushenkilön rekisteröitymispäivän palauttamisesta
 
