@@ -258,13 +258,13 @@ Taulukoissa *4.3.1*-*4.3.5* on esitetty pankki- ja maksutilirekisterin tietosis�
 
 Taulukossa *4.3.6*-*4.3.8* on esitetty ISO 20022 -katalogin mukaiset auth-sanomat, sekä niihin liitettävät alisanomat.
 
-Tarkemmat sanomakuvuakset ovat tämän luvun aliluvuissa 4.4 alkaen.
+Tarkemmat sanomakuvaukset ovat tämän luvun aliluvuissa 4.4 alkaen.
 
 *__Taulukko 4.3.1:__ Luonnollinen henkilö, tiedot sanomakohtaisesti eriteltynä*
 
 |Tieto|Sanoma(t)|Kuvaus|
 |:---|:---|:---|
-|Sukunimi|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyssä Pty/Nm-elementissä, formaatti on "kaikki sukunimet välilyönnillä eroteltuna pilkku kaiki etunimet välilyönnillä eroteltuna", regex `(\S+\s)*\S+,(\S+\s)*\S+`|
+|Sukunimi|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyssä Pty/Nm-elementissä, formaatti on "kaikki sukunimet välilyönnillä eroteltuna pilkku kaikki etunimet välilyönnillä eroteltuna", regex `(\S+\s)*\S+,(\S+\s)*\S+`|
 |Etunimet|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyssä Pty/Nm-elementissä|
 |Syntymäaika|fin.002, fin.013, supl.027|Palautetaan jos luonnollisella henkilöllä ei ole suomalaista henkilötunnusta. Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
 |Henkilötunnus|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
@@ -430,7 +430,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijaintiin.
 
 |Nimi|[min..max]|Tyyppi|Kuvaus|Liitetään sanomaan|XPath|
-|:---|:---|:---|:---|:---|:---|:---|
+|:---|:---|:---|:---|:---|:---|
 |InformationRequestFIN012| | | |[auth.001](#InformationRequestOpeningV01)|`/Document/InfReqOpng/SplmtryData/Envlp`|
 |&nbsp;&nbsp;&nbsp;&nbsp;AuthorityInquiry|[1..1]|[AuthorityInquirySet](#AuthorityInquirySet)|Kyselyyn liittyvät viranomaisen tiedot| |
 |&nbsp;&nbsp;&nbsp;&nbsp;AdditionalSearchCriteria|[0..*]|[SearchCriteriaChoice](#SearchCriteriaChoice)|Ei käytössä toistaiseksi.| |
@@ -438,8 +438,8 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 #### <a name="AuthorityInquirySet"></a> AuthorityInquirySet
 
 |Nimi|[min..max]|Tyyppi|Kuvaus|
-|:---|:---|:---|:---|:---|
-|AuthorityInquirySet| | | | |
+|:---|:---|:---|:---|
+|AuthorityInquirySet| | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|[0..1]|Max140Text|Viranomaisen (henkilön) tunniste|
 |&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|[0..1]|Max140Text|Esimiehen tunniste|
 
@@ -596,7 +596,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |:---|:---|:---|:---|:---|
 |AccountAndParties2| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Acct|CustomerAccount1|kyllä|[1..1]|Tilin tiedot ks. CustomerAccount1 käyttö| 
-|&nbsp;&nbsp;&nbsp;&nbsp;Role|AccountRole1|kyllä|[1..*]|Tiliin liittyvät roolit ks. toinen taulukko alla. Jokainen rooli on ilmoitettava erikseen, esim. jos luonnollisella henkilöllä on sekä omistajuus että käyttöoikeus tiliin, niin Role-elementtejä on tällin kaksi kappaletta, joista yhden OwnrTp=OWNE ja toisen OwnrTp=ACCE. Jokaisella roolilla on alkupäivämäärä ja valinnainen loppupäivämäärä. Tämän lisäksi jokaiseen rooliin liittyvä asiakkuus on ilmoitettava fin.013-alisanomassa yhden kerran per osallinen. Em. esimerkin henkilölle ilmoitetaan siis yksi asiakkuus tässä tapauksessa.|
+|&nbsp;&nbsp;&nbsp;&nbsp;Role|AccountRole1|kyllä|[1..*]|Tiliin liittyvät roolit ks. toinen taulukko alla. Jokainen rooli on ilmoitettava erikseen, esim. jos luonnollisella henkilöllä on sekä omistajuus että käyttöoikeus tiliin, niin Role-elementtejä on tällöin kaksi kappaletta, joista yhden OwnrTp=OWNE ja toisen OwnrTp=ACCE. Jokaisella roolilla on alkupäivämäärä ja valinnainen loppupäivämäärä. Tämän lisäksi jokaiseen rooliin liittyvä asiakkuus on ilmoitettava fin.013-alisanomassa yhden kerran per osallinen. Em. esimerkin henkilölle ilmoitetaan siis yksi asiakkuus tässä tapauksessa.|
 |&nbsp;&nbsp;&nbsp;&nbsp;AddtlInf|Max256Text|kyllä|[1..1]|Tilin avaamispäivämäärä merkkijonona ISODate-formaatissa|
 
 #### <a name="CustomerAccount1"></a> CustomerAccount1 käyttö
@@ -732,7 +732,7 @@ PrvtId koodit
 Syntymäaika
 
 |Nimi|Tyyppi||Kuvaus|
-|:---|:---|:---|:---|:---|
+|:---|:---|:---|:---|
 |DtAndPlcOfBirth| | | |
 |BirthDt|ISODate|Syntymäaika.| 
 |CtryOfBirth| |arvoksi asetetaan "XX" |
