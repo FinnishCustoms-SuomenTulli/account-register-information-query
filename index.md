@@ -250,22 +250,82 @@ BAH on oltava aina SOAP bodyn ensimmäinen elementti.
 
 ### <a name="4-3"></a> 4.3 Kyselyrajapinnan sanomat
 
-Tiedonhakujärjestelmän kyselyrajapinnassa käytetään [ISO 20022 -sanomia InformationRequestOpeningV01 ja InformationRequestResponseV01](https://www.iso20022.org/full_catalogue.page), joihin liitetään tarvittavat [Supplementary Datat](https://www.iso20022.org/supplementary_data.page).
+Tiedonhakujärjestelmän kyselyrajapinnassa käytetään [ISO 20022 -sanomia InformationRequestOpeningV01 (auth.001.001.01)ja InformationRequestResponseV01 (auth.002.001.01)](https://www.iso20022.org/full_catalogue.page), joihin liitetään tarvittavat alisanomat ([Supplementary Data](https://www.iso20022.org/supplementary_data.page)).
 
-Seuraavassa taulukossa on listattu käytettävät ISO 20022 -sanomat. 
+Ylätasolla käytettävät alisanomat jakautuvat kolmeen käsitteeseen: asiakkuus, tili ja tallelokero. Asiakkuustiedot palautetaan sanomassa [fin.013.001.01](schemas/fin.013.001.01.xsd), tilitiedot sanomassa [supl.027.001.01](https://www.iso20022.org/sites/default/files/documents/SuppData_extensions/ISO20022_SupplementaryData_14Feb2019_v1.xlsx) ja tallelokerotiedot sanomassa [fin.002.001.01](schemas/fin.002.001.01) (huom. tässä sama koodi eräiden olemassaolevien järjestelmien manuaalisen käsittelyn kanssa). Nämä alisanomat liitetään [auth.002.001.01](https://www.iso20022.org/documents/messages/auth/schemas/auth.002.001.01.zip) elementtiin `InformationRequestResponseV01/RtrInd`.
+
+Taulukoissa *4.3.1*-*4.3.5* on esitetty pankki- ja maksutilirekisterin tietosisältö, sekä Supplementary Data -alisanoma, jonka osana kukin tieto palautetaan.  
+
+Taulukossa *4.3.6*-*4.3.8* on esitetty ISO 20022 -katalogin mukaiset auth-sanomat, sekä niihin liitettävät alisanomat.
+
+Tarkemmat sanomakuvaukset ovat tämän luvun aliluvuissa 4.4 alkaen.
+
+*__Taulukko 4.3.1:__ Luonnollinen henkilö, tiedot sanomakohtaisesti eriteltynä*
+
+|Tieto|Sanoma(t)|Kuvaus|
+|:---|:---|:---|
+|Sukunimi|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyssä Pty/Nm-elementissä, formaatti on "kaikki sukunimet välilyönnillä eroteltuna pilkku kaikki etunimet välilyönnillä eroteltuna", regex `(\S+\s)*\S+,(\S+\s)*\S+`|
+|Etunimet|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyssä Pty/Nm-elementissä|
+|Syntymäaika|fin.002, fin.013, supl.027|Palautetaan jos luonnollisella henkilöllä ei ole suomalaista henkilötunnusta. Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|Henkilötunnus|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|Kansalaisuus|fin.002, fin.013, supl.027|Palautetaan jos luonnollisella henkilöllä ei ole suomalaista henkilötunnusta. Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|Kiistanalainen|auth.002|[disputed-skeeman](schemas/disputed.xsd) mukainen Supplementary Data|
+
+*__Taulukko 4.3.2:__ Oikeushenkilö, tiedot sanomakohtaisesti eriteltynä*
+
+|Tieto|Sanoma(t)|Kuvaus|
+|:---|:---|:---|
+|Nimi|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyssä Pty/Nm-elementissä|
+|Yhdistysrekisterinumero|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|Y-tunnus|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|Rekisteriviranomainen|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|Rekisteröitymispäivä|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|Toimijan yksilöivä tunniste|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|Kiistanalainen|auth.002|[disputed-skeeman](schemas/disputed.xsd) mukainen Supplementary Data|
+
+*__Taulukko 4.3.3:__ Pankki- ja  maksutili, tiedot sanomakohtaisesti eriteltynä*
+
+|Tieto|Sanoma(t)|Kuvaus|
+|:---|:---|:---|
+|IBAN-numero|supl.027|Ks. [CustomerAccount-käyttö](#CustomerAccount1)|
+|Tilin avaamispäivä|supl.027|Palautetaan AddtlInf-kentässä|
+|Tilin sulkemispäivä|supl.027|Ks. [CustomerAccount-käyttö](#CustomerAccount1)|
+|Kiistanalainen|auth.002|[disputed-skeeman](schemas/disputed.xsd) mukainen Supplementary Data|
+
+*__Taulukko 4.3.4:__ Tallelokero, tiedot sanomakohtaisesti eriteltynä*
+
+|Tieto|Sanoma(t)|Kuvaus|
+|:---|:---|:---|
+|Yksilöintitieto|fin.002|ks. [SafetyDepositBoxAndParties käyttö](#SafetyDepositBoxAndParties)|
+|Vuokra-ajan alkamispäivämäärä|fin.002|ks. [SafetyDepositBoxAndParties käyttö](#SafetyDepositBoxAndParties)|
+|Vuokra-ajan päättymispäivämäärä|fin.002|ks. [SafetyDepositBoxAndParties käyttö](#SafetyDepositBoxAndParties)|
+|Kiistanalainen|auth.002|[disputed-skeeman](schemas/disputed.xsd) mukainen Supplementary Data|
+
+*__Taulukko 4.3.5:__ Asiakkuus, tiedot sanomakohtaisesti eriteltynä*
+
+|Tieto|Sanoma(t)|Kuvaus|
+|:---|:---|:---|
+|Asiakkuus|fin.013|Ks. [InformationResponseFIN013](#InformationResponseFIN013)|
+|Alkamispäivämäärä|fin.013|Ks. [InformationResponseFIN013](#InformationResponseFIN013)|
+|Päättymispäivämäärä|fin.013|Ks. [InformationResponseFIN013](#InformationResponseFIN013)|
+|Kiistanalainen|auth.002|[disputed-skeeman](schemas/disputed.xsd) mukainen Supplementary Data|
+
+
+*__Taulukko 4.3.6:__ ISO 20022 katalogin mukaiset auth-sanomat*
 
 |Sanoma-id|Sanoman nimi|Käyttötarkoitus|Vastaava organisaatio|Msg Def Report|
 |---|---|---|---|---| 
 |auth.001.001.01|InformationRequestOpeningV01|Kyselyrajapinnan kyselysanoma|FFI|[MDR](https://www.iso20022.org/documents/general/Payments_AFI_MDR_January2013.zip)|
 |auth.002.001.01|InformationRequestResponseV01|Kyselyrajapinnan vastaussanoma|FFI|[MDR](https://www.iso20022.org/documents/general/Payments_AFI_MDR_January2013.zip)|
 
-Seuraavassa taulukossa on listattu kyselysanomaan liitettävä Supplementary Data -sanomalaajennus. Sanomalaajennusten tarkempi sisältö ja tietueiden käyttöohjeet on listattu luvussa 4.
+
+*__Taulukko 4.3.7:__ Kyselysanomaan auth.001 liitettävä alisanoma*
 
 |Sanoma-id|Sanoman nimi|Laajennettavan ISO 20022 sanoman id|Tarkoitus ja toiminnallisuus|
 |---|---|---|---|
 |FIN012|InformationRequestFIN012|auth.001.001.01|ISO 20022 sanomalaajennus. Kyselyrajapinnan toimivaltaiset viranomaiset käyttävät tätä sanomaa tietojen kyselyyn tiedonhakurajapinnasta. Sisältää kyselyn tekevän henkilön ja henkilön esimiehen tunnisteet. Mahdollistaa auth.001.001.01 puuttuvien hakukriteerien käytön (esim. tallelokero, toistaiseksi ei käytössä)|
 
-Seuraavassa taulukossa on listattu vastaussanomaan liitettävät Supplementary Data -sanomalaajennukset.
+*__Taulukko 4.3.8:__ Vastaussanomaan auth.002 liitettävät alisanomat*
 
 |Sanoma-id|Sanoman nimi|Laajennettavan ISO 20022 sanoman id|Tarkoitus ja toiminnallisuus|
 |---|---|---|---|
@@ -274,14 +334,6 @@ Seuraavassa taulukossa on listattu vastaussanomaan liitettävät Supplementary D
 |FIN013|InformationResponseFIN013|auth.002.001.01|Sisältää tili- ja tallelokerotiedoista erillisenä hakuparametreja vastaavat asiakkuustiedot|
 
 Kyselyrajapinnan sanomavastauksiin sisällytetään kaikki hakukriteereitä vastaavat tiedot, joiden ajallinen ulottuvuus johdetaan rahanpesun ja terrorismin rahoittamisen estämistä koskevan lain 3 luvun 3 §:stä, jossa on täsmällisesti ja tarkkarajaisesti säädetty asiakkaan tuntemistiedot ja niiden säilyttämisestä. Tileihin ja tallelokeroihin liittyvät kaikki osallisuustiedot palautetaan, eli kyselyparametrina annetun hakuehdon mukaisten henkilöiden (oikeus- tai luonnollinen) lisäksi palautetaan myös kaikki osalliset henkilöt. Osallisten henkilöiden muita kuin kyselyn hakuparametria vastaavia tilejä ja tallelokeroita sen sijaan ei palauteta, vaan niitä koskien on tehtävä uudet kyselyt lainsäädäntöperusteineen.
-
-Seuraavassa on listattu kyselyrajapinnan sanomat tietueineen. Taulukoita luetaan siten, että sisennetyt rivit ovat ensimmäisen rivin sisällä sanomarakenteessa.
-
-Taulukossa pakollisuus on merkitty seuraavasti:
-
-- **R** Pakollinen (required)
-- **A** Vaihtoehtoinen (alternative), valitaan yksi useammasta vaihtoehdosta
-- **O** Vapaaehtoinen (optional)
 
 ### <a name="BusinessApplicationHeaderV01"></a> 4.4 BusinessApplicationHeaderV01
 
@@ -314,34 +366,34 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |&nbsp;&nbsp;&nbsp;&nbsp;LglMndtBsis|LegalMandate1|Kyllä|Lainsäädäntöperuste. Arvojoukko tarkentuu.|
 |&nbsp;&nbsp;&nbsp;&nbsp;CnfdtltySts|YesNoIndicator|Kyllä|Aina "true"|
 |&nbsp;&nbsp;&nbsp;&nbsp;DueDt|DueDate1|Ei||
-|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Kyllä|Päivä tai päivämääräväli, johon haku kohdistuu.|
+|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Kyllä|Päivä tai päivämääräväli, johon haku kohdistuu. Päivämääräväli on aina tänään tai menneisyydessä. Aikavälihaku on sisällyttävä siten, että jos jokin tietosisältöön määritetty aikaväli (kaikki taulukoiden 4.3.1-4.3.5 päivämäärätietueet) sisältyy osittain tai kokonaan annettuun InvstgtnPrd-aikaväliin, on kyseinen tietorivi lisättävä hakutulokseen. |
 |&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Kyllä|Hakukriteeri. Käytettävä aina mahdollisimman täsmällistä hakukriteeriä. Esim. jos ei käytetä Y-tunnusta, vaan käytetään OtherOrganisationIdentification -kenttää, haku ei kohdistu Y-tunnuksiin lainkaan. Ks. [tarkempi erittely](#SearchCriteria1Choice) alla.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Kyllä|Sisältää sanomalaajennuksen [InformationRequestFIN012](#InformationRequestFIN012)|
 
 #### <a name="SearchCriteria1Choice"></a> Haku henkilötunnuksella tai henkilötodistuksen tunnistenumerolla
 
-|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
-|:---|:---|:---|
-|\<Id\>|CstmrId/Pty/Id/Prvtld/Othr|Hetu tai henkilötodistuksen tunnistenumero|
+|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
+|:---|:---|:---|:---|
+|\<Id\>|CstmrId/Pty/Id/Prvtld/Othr|Hetu tai henkilötodistuksen tunnistenumero|Validi henkilötunnus, kun Cd=PIC. Muussa tapauksessa skeeman mukainen.|
 |\<Cd\>|CstmrId/Pty/Id/Prvtld/Othr/SchemeNm|"PIC" (Person Identification Code, hetu), "OTHR" (Muu henkilötodistuksen tunnistenumero)|
 |\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
 #### <a name=""></a> Haku Y-tunnuksella tai muulla oikeushenkilön tunnisteella
 
-|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
-|:---|:---|:---|
-|\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Y-tunnus tai muu oikeushenkilön tunniste|
-|\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|"Y" (Y-tunnus), "PRH" (Yhdistysrekisterinumero), OTHER*|
-|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
-|\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
+|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
+|:---|:---|:---|:---|
+|\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Y-tunnus tai muu oikeushenkilön tunniste|Validi Y-tunnus, kun Cd=Y. Validi yhdistysrekisterinumero, kun Cd=PRH.  Muutoin skeeman mukaisesti| |
+|\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|"Y" (Y-tunnus), "PRH" (Yhdistysrekisterinumero), OTHR (muu tunniste kuin Y-tunnus tai yhdistysrekisterinumero)| |
+|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"| |
+|\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"| |
 
 
 #### <a name=""></a> Haku yrityksen nimellä
 
-|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
-|:---|:---|:---|
-|\<Id\>|CstmrId/Pty/Nm|Yrityksen nimi|
+|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
+|:---|:---|:---|:---|
+|\<Id\>|CstmrId/Pty/Nm|Yrityksen nimi|Täsmällinen osuma 1:1|
 |\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Arvoksi asetetaan "1"|
 |\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|"NAME"|
 |\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
@@ -359,39 +411,37 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
 |:---|:---|:---|:---|
 |Tilin muu yksilöintitunnus|\<Id\>|Acct/Id/Id/Othr|Tunnus|
-||\<Cd\>|Acct/Id/Id/Othr/SchemeNm|OTHER*|
+||\<Cd\>|Acct/Id/Id/Othr/SchemeNm|OTHR|
 
 #### <a name=""></a> Haku luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä
 
-|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
-|:---|:---|:---|
-|\<Nm\>|CstmrId/Pty|Nimi|
+|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
+|:---|:---|:---|:---|
+|\<Nm\>|CstmrId/Pty|Nimi|Täsmällinen osuma 1:1, ml. erikoismerkit. Formaatti on "kaikki sukunimet välilyönnillä eroteltuna pilkku kaiki etunimet välilyönnillä eroteltuna", regex `(\S+\s)*\S+,(\S+\s)*\S+`|
 |\<Id\>|CstmrId/Pty/Id/PrvtId/Othr|Maakoodi|
 |\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchemeNm|"NATI"|
 |\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth|Syntymäaika. `CtryOfBirth` arvoksi asetetaan "XX" ja `CityOfBirth` arvoksi asetetaan ”not in use”|
 |\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
-*) OTHER arvojoukko kuvataan erillisessä taulukossa, Tulli lähettää taulukot Pankki- ja maksutilirekisterin
-osalta yhteisen taulukon ylläpitäjälle.
 
 ### <a name="InformationRequestFIN012"></a> 4.6 Sanomalaajennus InformationRequestFIN012
 
 Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijaintiin.
 
-|Nimi|Pakollisuus (RAO)|[min..max]|Tyyppi|Kuvaus|Liitetään sanomaan|XPath|
-|:---|:---|:---|:---|:---|:---|:---|
-|InformationRequestFIN012| | | | |[auth.001](#InformationRequestOpeningV01)|`/Document/InfReqOpng/SplmtryData/Envlp`|
-|&nbsp;&nbsp;&nbsp;&nbsp;AuthorityInquiry|R|[1..1]|[AuthorityInquirySet](#AuthorityInquirySet)|Kyselyyn liittyvät viranomaisen tiedot| |
-|&nbsp;&nbsp;&nbsp;&nbsp;AdditionalSearchCriteria|R|[1..*]|[SearchCriteriaChoice](#SearchCriteriaChoice)|Jos tarvitaan esimerkiksi tallelokero hakukriteeriksi, voidaan käyttää tätä elementtiä.| |
+|Nimi|[min..max]|Tyyppi|Kuvaus|Liitetään sanomaan|XPath|
+|:---|:---|:---|:---|:---|:---|
+|InformationRequestFIN012| | | |[auth.001](#InformationRequestOpeningV01)|`/Document/InfReqOpng/SplmtryData/Envlp`|
+|&nbsp;&nbsp;&nbsp;&nbsp;AuthorityInquiry|[1..1]|[AuthorityInquirySet](#AuthorityInquirySet)|Kyselyyn liittyvät viranomaisen tiedot| |
+|&nbsp;&nbsp;&nbsp;&nbsp;AdditionalSearchCriteria|[0..*]|[SearchCriteriaChoice](#SearchCriteriaChoice)|Ei käytössä toistaiseksi.| |
 
 #### <a name="AuthorityInquirySet"></a> AuthorityInquirySet
 
-|Nimi|Pakollisuus (RAO)|[min..max]|Tyyppi|Kuvaus|
-|:---|:---|:---|:---|:---|
-|AuthorityInquirySet| | | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|R|[0..1]|Max140Text|Viranomaisen (henkilön) tunniste|
-|&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|R|[0..1]|Max140Text|Esimiehen tunniste|
+|Nimi|[min..max]|Tyyppi|Kuvaus|
+|:---|:---|:---|:---|
+|AuthorityInquirySet| | | |
+|&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|[0..1]|Max140Text|Viranomaisen (henkilön) tunniste|
+|&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|[0..1]|Max140Text|Esimiehen tunniste|
 
 ### <a name="InformationRequestResponseV01"></a> 4.7 InformationRequestResponseV01
 
@@ -405,7 +455,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |&nbsp;&nbsp;&nbsp;&nbsp;RspnSts|StatusResponse1Code|Kyllä|[1..1]|Vastaussanoman status, "COMP"|
 |&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Kyllä|[1..1]|Kyselysanomassa esiintynyt Document/InfReqOpng/SchCrit sellaisenaan|
 |&nbsp;&nbsp;&nbsp;&nbsp;RtrInd|ReturnIndicator1|Kyllä|[0..*]| ks. ReturnIndicator1 käyttö alla. |
-|&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Ei|[0..0]|-|
+|&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Kyllä|[0..1]|Ks. [Kiistanalaisten tietojen palauttaminen](#4-13)|
 
 #### ReturnIndicator1 käyttö
 
@@ -545,11 +595,11 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
 |AccountAndParties2| | | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;Acct|CustomerAccount1|kyllä|[1..*]|Tilin tiedot ks. CustomerAccount1 käyttö| 
-|&nbsp;&nbsp;&nbsp;&nbsp;Role|AccountRole1|kyllä|[1..*]|Tiliin liittyvät roolit ks. toinen taulukko alla|
+|&nbsp;&nbsp;&nbsp;&nbsp;Acct|CustomerAccount1|kyllä|[1..1]|Tilin tiedot ks. CustomerAccount1 käyttö| 
+|&nbsp;&nbsp;&nbsp;&nbsp;Role|AccountRole1|kyllä|[1..*]|Tiliin liittyvät roolit ks. toinen taulukko alla. Jokainen rooli on ilmoitettava erikseen, esim. jos luonnollisella henkilöllä on sekä omistajuus että käyttöoikeus tiliin, niin Role-elementtejä on tällöin kaksi kappaletta, joista yhden OwnrTp=OWNE ja toisen OwnrTp=ACCE. Jokaisella roolilla on alkupäivämäärä ja valinnainen loppupäivämäärä. Tämän lisäksi jokaiseen rooliin liittyvä asiakkuus on ilmoitettava fin.013-alisanomassa yhden kerran per osallinen. Em. esimerkin henkilölle ilmoitetaan siis yksi asiakkuus tässä tapauksessa.|
 |&nbsp;&nbsp;&nbsp;&nbsp;AddtlInf|Max256Text|kyllä|[1..1]|Tilin avaamispäivämäärä merkkijonona ISODate-formaatissa|
 
-#### CustomerAccount1 käyttö
+#### <a name="CustomerAccount1"></a> CustomerAccount1 käyttö
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
@@ -576,7 +626,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |:---|:---|:---|:---|:---|
 |AccountRole1| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|kyllä|[1..*]|ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
-|&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|kyllä|[1..1]|Käytetään `OwnrTp/Prtry/SchmeNm/Cd` arvolla "RLTP", sekä `OwnrTp/Prtry/Id`, jossa arvot "POWN" (omistaja), "ACCE" (käyttöoikeus) tai "BENE" (edunsaaja)|
+|&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|kyllä|[1..1]|Käytetään `OwnrTp/Prtry/SchmeNm` arvolla "RLTP", sekä `OwnrTp/Prtry/Id`, jossa arvot "OWNE" (omistaja) tai "ACCE" (käyttöoikeus)|
 |&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|kyllä|[1..1]|Roolin alkamispäivämäärä|
 |&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|kyllä|[0..1]|Roolin päättymispäivämäärä|
 
@@ -590,7 +640,34 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|R|[1..1]|Max35Text|kyllä|Tutkinnan case-id|
 |&nbsp;&nbsp;&nbsp;&nbsp;CreDtTm|R|[1..1]|ISODateTime|kyllä|Sanoman luomisaika|
 |&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|R|[1..1]|BranchAndFinancialInstitutionIdentification4|kyllä|Käytetään seuraavasti: Elementti `SvcrId/FinInstnId/Othr/SchmeNm/Cd` sisältää arvon "Y" ja elementti `SvcrId/FinInstnId/Othr/Id` sisältää lähettäjän Y-tunnuksen.|
-|&nbsp;&nbsp;&nbsp;&nbsp;SdBoxAndPties|O|[0..*]|SafetyDepositBoxAndParties|kyllä|Tallelokero ja osalliset|
+|&nbsp;&nbsp;&nbsp;&nbsp;SdBoxAndPties|O|[0..*]|SafetyDepositBoxAndParties|kyllä|Tallelokero ja osalliset ks. [SafetyDepositBoxAndParties käyttö](#SafetyDepositBoxAndParties)|
+
+#### <a name="SafetyDepositBoxAndParties"></a> SafetyDepositBoxAndParties käyttö
+
+|Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
+|:---|:---|:---|:---|:---|
+|SafetyDepositBoxAndParties| | | | |
+|&nbsp;&nbsp;&nbsp;&nbsp;SdBox|SdBox|kyllä|[1..1]|Tilin tiedot ks. SdBox käyttö| 
+|&nbsp;&nbsp;&nbsp;&nbsp;Role|SdBoxRole|kyllä|[1..*]|Tallelokeroon liittyvät roolit ks. toinen taulukko alla. Jokainen rooli on ilmoitettava erikseen koodille OwnrTp=OWNE. Tämän lisäksi jokaiseen rooliin liittyvä asiakkuus on ilmoitettava fin.013-alisanomassa yhden kerran per osallinen.|
+
+#### <a name="SdBox"></a> SdBox käyttö
+
+|Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
+|:---|:---|:---|:---|:---|
+|CustomerAccount1| | | | |
+|&nbsp;&nbsp;&nbsp;&nbsp;Id|Max34Text|kyllä|[1..1]|Yksilöllinen tallelokeron tunniste|
+|&nbsp;&nbsp;&nbsp;&nbsp;ClsgDt||kyllä|[1..1]|Sopimuksen alkupäivämäärä|
+|&nbsp;&nbsp;&nbsp;&nbsp;ClsgDt||kyllä|[0..1]|Sopimuksen päättymispäivämäärä|
+
+#### SdBoxRole käyttö
+
+|Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
+|:---|:---|:---|:---|:---|
+|AccountRole1| | | | |
+|&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|kyllä|[1..*]|ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|kyllä|[1..1]|Käytetään `OwnrTp/Prtry/SchmeNm` arvolla "RLTP", sekä `OwnrTp/Prtry/Id`, jossa arvo "OWNE" (omistaja)|
+|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|kyllä|[1..1]|Roolin alkamispäivämäärä|
+|&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|kyllä|[0..1]|Roolin päättymispäivämäärä|
 
 ### <a name="InformationResponseFIN013"></a> 4.10 InformationResponseFIN013
 
@@ -609,7 +686,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
 |Customer| | | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;Contract|Contract|kyllä|[1..1]| |
+|&nbsp;&nbsp;&nbsp;&nbsp;Contract|Contract|kyllä|[1..1]|Asiakkuuden alku- ja (jos tiedossa) loppupäivämäärä. Ks. skeema.|
 |&nbsp;&nbsp;&nbsp;&nbsp;Id|PartyIdentification41|kyllä|[1..1]|Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
 |&nbsp;&nbsp;&nbsp;&nbsp;Beneficiaries|Beneficiaries|kyllä|[0..1]|Edunsaajat, ks. [Beneficiaries käyttö](#Beneficiaries_kaytto)|
 
@@ -625,6 +702,7 @@ Kaikissa sanomissa käytetään vastaavaa oikeushenkilön ja luonnollisen henkil
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
+|Nm|Max140Text|Kyllä|[1..1]|Formaatti "Sukunimi n-1, Sukunimi n,Etunimi n-1, Sukunimi n". Regex `(\S+\s)*\S+,(\S+\s)*\S+`|
 |Id|Party8Choice|kyllä|[1..1]| |
 
 #### Party8Choice
@@ -633,7 +711,7 @@ Kaikissa sanomissa käytetään vastaavaa oikeushenkilön ja luonnollisen henkil
 |:---|:---|:---|:---|:---|
 |Party8Choice|| | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;OrgId|A|OrganisationIdentification6|[0..1]|Käytetään seuraavasti: Elementti `OrgId/Othr/SchmeNm/Cd` sisältää organisaatiotunnuksen tyyppikoodin ja elementti `OrgId/Othr/Id` sisältää tunnuksen. Ks. koodit taulukko alla. Lisäksi voidaan kyselyvastauksen yhteydessä palauttaa oikeushenkilön rekisteröitysmispäivämäärä ks. [esimerkki](#rgdt) alla|
-|&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|A|PersonIdentification5|[0..1]|Käytetään seuraavasti: Elementti `PrvtId/Othr/SchmeNm/Cd` sisältää henkilötunnisteen tyyppikoodin. Elementti `PrvtId/Othr/Id` sisältää tunnuksen. Ks. koodit taulukko alla.|
+|&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|A|PersonIdentification5|[0..1]|Käytetään seuraavasti: Elementti `PrvtId/Othr/SchmeNm/Cd` sisältää henkilötunnisteen tyyppikoodin, tai kansalaisuuskoodin jos henkilöllä ei ole henkilötunnusta. Elementti `PrvtId/Othr/Id` sisältää tunnuksen tai maakoodin. Ks. koodit taulukko alla. Lisäksi palautetaan syntymäaika elementissä `PrvtId/DtAndPlcOfBirth` ks. taulukko alla|
 
 OrgId koodit  
 
@@ -648,7 +726,17 @@ PrvtId koodit
 |Koodi|Kuvaus|
 |:---|:---|
 |PIC|Suomalainen henkilötunnus|
+|NATI|Kansalaisuus|
 |OTHR|Muu henkilön tunnistusasiakirjan id|
+
+Syntymäaika
+
+|Nimi|Tyyppi||Kuvaus|
+|:---|:---|:---|:---|
+|DtAndPlcOfBirth| | | |
+|BirthDt|ISODate|Syntymäaika.| 
+|CtryOfBirth| |arvoksi asetetaan "XX" |
+|CityOfBirth| |arvoksi asetetaan ”not in use”|
 
 #### <a name="rgdt"></a> Esimerkki oikeushenkilön rekisteröitymispäivän palauttamisesta
 
