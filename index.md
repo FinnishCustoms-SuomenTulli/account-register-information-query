@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.5*
+*Dokumentin versio 1.0.6*
 
 ## Versiohistoria
 
@@ -18,7 +18,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.3|27.11.2019|Korjattu Ccy-elementin pakollisuustieto|
 1.0.4|27.11.2019|Lisätty ohjeet ja skeema kiistanalaisten tietojen ilmoittamisesta|
 1.0.5|18.12.2019|Alisanoma fin.013 Contract-elementti kuvattu. Lisätty taulukot lukuun 4.3 kuvaamaan pankki- ja maksutilirekisterin tietosisältö sanomakohtaisesti eriteltynä. PartyIdentification41 nimikentän formaatti määritelty. Nimihaun ehtoja tarkennettu. Alisanoma fin.012 AdditionalSearchCriteria poistettu virheellinen pakollisuustieto. Poistettu viittaus OTHER-taulukkoon kyselyparametrien yhteydessä. Tarkennettu investigation period kuvausta. Omistaja-koodin abstraktiotasoa nostettu. Role OwnrTp poistettu virheellinen viittaus Cd-elementtiin. Tarkennettu luonnollisen henkilön palautettavia tietoja. Kuvattu SdBoxAndParties käyttö.
-
+1.0.6|21.1.2020|Selvennetty ReturnIndicator1 käyttöä kun hakutuloksia alisanomalle ei löydy.|
 
 ## Sisällysluettelo
 
@@ -466,15 +466,15 @@ ReturnIndicator1 sisältää yksittäisen hakutulostyypin esiintymän.
 |XPath|Tyyppi|Kuvaus|
 |:---|:---|:---|
 |RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|sisältää sanomalaajennuksen sanoma-id:n (supl.027.001.01, fin.013.001.01 tai fin.002.001.01)|
-|RtrInd/InvstgtnRslt|InvestigationResult1Choice|palautetaan aina `Rslt` elementti tyyppiä SupplementaryDataEnvelope1, joka sisältää joko [supl.027.001.01](#supl.027.001.01), [InformationResponseFIN002](#InformationResponseFIN002) tai [InformationResponseFIN013](#InformationResponseFIN013).
+|RtrInd/InvstgtnRslt|InvestigationResult1Choice|palautetaan `Rslt` elementti tyyppiä SupplementaryDataEnvelope1, joka sisältää joko [supl.027.001.01](#supl.027.001.01), [InformationResponseFIN002](#InformationResponseFIN002) tai [InformationResponseFIN013](#InformationResponseFIN013) tai `InvstgtnSts` koodilla `NFOU`.
 
 Jokaista hakutulostyyppiä kohti palautetaan enintään yksi hakutulos-alisanoma (supl.027.001.01, fin.013.001.01 tai fin.002.001.01) per Y-tunnus. 
 
 __Esimerkki 1.__  
 
-Kyselysanomassa esiintynyttä Document/InfReqOpng/SchCrit hakutermiä vastaavia tuloksia on löytynyt kolme kappaletta: yksi asiakkuus ja kaksi tiliä.
+Kyselysanomassa esiintynyttä `Document/InfReqOpng/SchCrit` hakutermiä vastaavia tuloksia on löytynyt kolme kappaletta: yksi asiakkuus ja kaksi tiliä. Tallelokeroita ei löytynyt.
 
-Vastaussanomaan liitetään kaksi kappaletta RtrInd-elementtiä:
+Vastaussanomaan liitetään kolme kappaletta `RtrInd`-elementtiä, joista supl.027.001.01 ja fin.013.001.01 osalta liitetään hakutulokset Rslt-elementteihin ja fin.002.001.01 osalta palautetaan `InvstgtnSts` koodilla `NFOU`:
 
 ```
 <!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
@@ -506,15 +506,23 @@ Vastaussanomaan liitetään kaksi kappaletta RtrInd-elementtiä:
     </n1:Rslt>
   </n1:InvstgtnRslt>
 </n1:RtrInd>
+<n1:RtrInd>
+  <n1:AuthrtyReqTp>
+    <n1:MsgNmId>fin.002.001.01</n1:MsgNmId>
+  </n1:AuthrtyReqTp>
+  <n1:InvstgtnRslt>
+    <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
+  </n1:InvstgtnRslt>
+</n1:RtrInd>
 ```
 
 __Esimerkki 2.__
 
 Rajapinta on koosteinen: yksi rajapinta palauttaa hakutuloksia useiden Y-tunnusten alla.
 
-Kyselysanomassa esiintynyttä Document/InfReqOpng/SchCrit hakutermiä vastaavia tuloksia on löytynyt neljä kappaletta: yksi tili (tili #1) Y-tunnukselle 0190983-0 ja kolme tiliä (tili #2, tili #3, tili #4) Y-tunnukselle 0828972-6.
+Kyselysanomassa esiintynyttä `Document/InfReqOpng/SchCrit` hakutermiä vastaavia tuloksia on löytynyt neljä kappaletta: yksi tili (tili #1) Y-tunnukselle 0190983-0 ja kolme tiliä (tili #2, tili #3, tili #4) Y-tunnukselle 0828972-6. 
 
-Vastaussanomaan liitetään kaksi kappaletta RtrInd-elementtiä:
+Vastaussanomaan liitetään neljä kappaletta `RtrInd`-elementtiä, joista supl.027.001.0 osalta liitetään hakutulokset Rslt-elementteihin, ja fin.013.001.01 sekä fin.002.001.01 osalta palautetaan `InvstgtnSts` koodilla `NFOU`:
 
 ```
 <!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
@@ -576,6 +584,40 @@ Vastaussanomaan liitetään kaksi kappaletta RtrInd-elementtiä:
         </n2:InfRspnSD1>
       </n2:Document>
     </n1:Rslt>
+  </n1:InvstgtnRslt>
+</n1:RtrInd>
+<n1:RtrInd>
+  <n1:AuthrtyReqTp>
+    <n1:MsgNmId>fin.013.001.01</n1:MsgNmId>
+  </n1:AuthrtyReqTp>
+  <n1:InvstgtnRslt>
+    <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
+  </n1:InvstgtnRslt>
+</n1:RtrInd>
+<n1:RtrInd>
+  <n1:AuthrtyReqTp>
+    <n1:MsgNmId>fin.002.001.01</n1:MsgNmId>
+  </n1:AuthrtyReqTp>
+  <n1:InvstgtnRslt>
+    <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
+  </n1:InvstgtnRslt>
+</n1:RtrInd>
+```
+
+__Esimerkki 3.__  
+
+Kyselysanomassa esiintynyttä Document/InfReqOpng/SchCrit hakutermiä vastaavia tuloksia ei löytynyt.
+
+Vastaussanomaan liitetään yksi kappale InvstgtnSts elementtiä.
+
+```
+<!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
+<n1:RtrInd>
+  <n1:AuthrtyReqTp>
+    <n1:MsgNmId>supl.027.001.01</n1:MsgNmId>
+  </n1:AuthrtyReqTp>
+  <n1:InvstgtnRslt>
+    <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
   </n1:InvstgtnRslt>
 </n1:RtrInd>
 ```
