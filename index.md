@@ -606,15 +606,31 @@ Vastaussanomaan liitetään neljä kappaletta `RtrInd`-elementtiä, joista supl.
 
 __Esimerkki 3.__  
 
-Kyselysanomassa esiintynyttä Document/InfReqOpng/SchCrit hakutermiä vastaavia tuloksia ei löytynyt.
+Kyselysanomassa esiintynyttä `Document/InfReqOpng/SchCrit` hakutermiä vastaavia tuloksia ei löytynyt.
 
-Vastaussanomaan liitetään yksi kappale InvstgtnSts elementtiä.
+Vastaussanomaan liitetään kolme kappaletta `InvstgtnSts` elementtiä koodilla `NFOU`.
 
 ```
 <!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
     <n1:MsgNmId>supl.027.001.01</n1:MsgNmId>
+  </n1:AuthrtyReqTp>
+  <n1:InvstgtnRslt>
+    <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
+  </n1:InvstgtnRslt>
+</n1:RtrInd>
+<n1:RtrInd>
+  <n1:AuthrtyReqTp>
+    <n1:MsgNmId>fin.013.001.01</n1:MsgNmId>
+  </n1:AuthrtyReqTp>
+  <n1:InvstgtnRslt>
+    <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
+  </n1:InvstgtnRslt>
+</n1:RtrInd>
+<n1:RtrInd>
+  <n1:AuthrtyReqTp>
+    <n1:MsgNmId>fin.002.001.01</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
