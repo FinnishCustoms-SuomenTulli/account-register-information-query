@@ -6,7 +6,7 @@
 	<xs:element name="Document" type="Document"/>
 	<xs:complexType name="Document">
 		<xs:sequence>
-			<xs:element name="InfRspnFin013" type="InformationRequestFIN012"/>
+			<xs:element name="InfRspnFin012" type="InformationRequestFIN012"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="InformationRequestFIN012">
