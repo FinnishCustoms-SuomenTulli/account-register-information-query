@@ -67,8 +67,8 @@
 					<urn2:SplmtryData>
 						<urn2:Envlp>
 							<urn2:AuthorityInquiry>
-								<urn2:OfficialName>Viranomaisen nimi</urn2:OfficialName>
-								<urn2:OfficialSuperiorName>Esimiehen nimi</urn2:OfficialSuperiorName>
+								<urn2:OfficialId>1234567</urn2:OfficialId>
+                <urn2:OfficialSuperiorId>2345678</urn2:OfficialSuperiorId>
 							</urn2:AuthorityInquiry>
 						</urn2:Envlp>
 					</urn2:SplmtryData>
