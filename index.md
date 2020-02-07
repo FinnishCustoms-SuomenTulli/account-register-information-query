@@ -716,8 +716,10 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |:---|:---|:---|:---|:---|
 |CustomerAccount1| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Id|Max34Text|kyllä|[1..1]|Yksilöllinen tallelokeron tunniste|
-|&nbsp;&nbsp;&nbsp;&nbsp;ClsgDt||kyllä|[1..1]|Sopimuksen alkupäivämäärä|
-|&nbsp;&nbsp;&nbsp;&nbsp;ClsgDt||kyllä|[0..1]|Sopimuksen päättymispäivämäärä|
+|&nbsp;&nbsp;&nbsp;&nbsp;ClsgDt||kyllä|[0..1]|Vuokra-ajan alkupäivämäärä*|
+|&nbsp;&nbsp;&nbsp;&nbsp;ClsgDt||kyllä|[0..1]|Vuokra-ajan päättymispäivämäärä*|
+
+*) Vuokra-ajan pituus ilmoitettava joko alkaen pvm, päättyen pvm tai päivämääräväli.
 
 #### SdBoxRole käyttö
 
