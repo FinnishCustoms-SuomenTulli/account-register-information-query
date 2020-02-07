@@ -55,6 +55,9 @@
 								<urn2:Id>
 									<urn2:Othr>
 										<urn2:Id>71577580004977</urn2:Id>
+										<urn2:SchmeNm>
+											<urn2:Cd>OTHR</urn2:Cd>
+										</urn2:SchmeNm>
 									</urn2:Othr>
 								</urn2:Id>
 							</urn2:Id>
