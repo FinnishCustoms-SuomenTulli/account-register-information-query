@@ -268,8 +268,7 @@ Tarkemmat sanomakuvaukset ovat tämän luvun aliluvuissa 4.4 alkaen.
 
 |Tieto|Sanoma(t)|Kuvaus|
 |:---|:---|:---|
-|Sukunimi|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyssä Pty/Nm-elementissä, formaatti on "kaikki sukunimet välilyönnillä eroteltuna pilkku kaikki etunimet välilyönnillä eroteltuna", regex `(\S+\s)*\S+,(\S+\s)*\S+`|
-|Etunimet|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyssä Pty/Nm-elementissä|
+|Täydellinen nimi|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyssä Pty/Nm-elementissä, lähdejärjestelmän formaatissa.|
 |Syntymäaika|fin.002, fin.013, supl.027|Palautetaan jos luonnollisella henkilöllä ei ole suomalaista henkilötunnusta. Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
 |Henkilötunnus|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
 |Kansalaisuus|fin.002, fin.013, supl.027|Palautetaan jos luonnollisella henkilöllä ei ole suomalaista henkilötunnusta. Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
@@ -388,7 +387,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
 |:---|:---|:---|:---|
 |\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Y-tunnus tai muu oikeushenkilön tunniste|Validi Y-tunnus, kun Cd=Y. Validi yhdistysrekisterinumero, kun Cd=PRH.  Muutoin skeeman mukaisesti| |
-|\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|"Y" (Y-tunnus), "PRH" (Yhdistysrekisterinumero), OTHR (muu tunniste kuin Y-tunnus tai yhdistysrekisterinumero)| |
+|\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|"Y" (Y-tunnus), "PRH" (Yhdistysrekisterinumero), OTHR (muu tunniste kuin Y-tunnus tai yhdistysrekisterinumero, esim. sisäinen väliaikainen tunniste tilanteessa, jossa yritykselle perustettuun tiliin ei ole voitu vielä liittää Y-tunnusta.)| |
 |\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"| |
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"| |
 
@@ -421,7 +420,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 
 |Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
 |:---|:---|:---|:---|
-|\<Nm\>|CstmrId/Pty|Nimi|Täsmällinen osuma 1:1, ml. erikoismerkit. Formaatti on "kaikki sukunimet välilyönnillä eroteltuna pilkku kaiki etunimet välilyönnillä eroteltuna", regex `(\S+\s)*\S+,(\S+\s)*\S+`|
+|\<Nm\>|CstmrId/Pty|Nimi|Täsmällinen osuma 1:1, ml. erikoismerkit. Formaatti on vapaamuotoinen.|
 |\<Id\>|CstmrId/Pty/Id/PrvtId/Othr|Maakoodi|
 |\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchemeNm|"NATI"|
 |\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth|Syntymäaika. `CtryOfBirth` arvoksi asetetaan "XX" ja `CityOfBirth` arvoksi asetetaan ”not in use”|
@@ -766,7 +765,7 @@ Kaikissa sanomissa käytetään vastaavaa oikeushenkilön ja luonnollisen henkil
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
-|Nm|Max140Text|Kyllä|[1..1]|Formaatti "Sukunimi n-1, Sukunimi n,Etunimi n-1, Sukunimi n". Regex `(\S+\s)*\S+,(\S+\s)*\S+`|
+|Nm|Max140Text|Kyllä|[1..1]|Formaatti vapaamuotoinen.|
 |Id|Party8Choice|kyllä|[1..1]| |
 
 #### Party8Choice
