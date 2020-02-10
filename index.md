@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.6*
+*Dokumentin versio 1.0.8*
 
 ## Versiohistoria
 
@@ -19,6 +19,8 @@ Versio|Päivämäärä|Kuvaus
 1.0.4|27.11.2019|Lisätty ohjeet ja skeema kiistanalaisten tietojen ilmoittamisesta|
 1.0.5|18.12.2019|Alisanoma fin.013 Contract-elementti kuvattu. Lisätty taulukot lukuun 4.3 kuvaamaan pankki- ja maksutilirekisterin tietosisältö sanomakohtaisesti eriteltynä. PartyIdentification41 nimikentän formaatti määritelty. Nimihaun ehtoja tarkennettu. Alisanoma fin.012 AdditionalSearchCriteria poistettu virheellinen pakollisuustieto. Poistettu viittaus OTHER-taulukkoon kyselyparametrien yhteydessä. Tarkennettu investigation period kuvausta. Omistaja-koodin abstraktiotasoa nostettu. Role OwnrTp poistettu virheellinen viittaus Cd-elementtiin. Tarkennettu luonnollisen henkilön palautettavia tietoja. Kuvattu SdBoxAndParties käyttö.
 1.0.6|21.1.2020|Selvennetty ReturnIndicator1 käyttöä kun hakutuloksia alisanomalle ei löydy.|
+1.0.7|7.2.2020|Korvattu etunimi ja sukunimi täydellisellä nimellä.|
+1.0.8|7.2.2020|Poistettu tallelokeron vuorka-ajan alkupäivämäärän pakollisuus|
 
 ## Sisällysluettelo
 
@@ -716,8 +718,10 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |:---|:---|:---|:---|:---|
 |CustomerAccount1| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Id|Max34Text|kyllä|[1..1]|Yksilöllinen tallelokeron tunniste|
-|&nbsp;&nbsp;&nbsp;&nbsp;ClsgDt||kyllä|[1..1]|Sopimuksen alkupäivämäärä|
-|&nbsp;&nbsp;&nbsp;&nbsp;ClsgDt||kyllä|[0..1]|Sopimuksen päättymispäivämäärä|
+|&nbsp;&nbsp;&nbsp;&nbsp;ClsgDt||kyllä|[0..1]|Vuokra-ajan alkupäivämäärä*|
+|&nbsp;&nbsp;&nbsp;&nbsp;ClsgDt||kyllä|[0..1]|Vuokra-ajan päättymispäivämäärä*|
+
+*) Vuokra-ajan pituus ilmoitettava joko alkaen pvm, päättyen pvm tai päivämääräväli.
 
 #### SdBoxRole käyttö
 

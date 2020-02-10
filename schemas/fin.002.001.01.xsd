@@ -47,7 +47,7 @@
 		<xs:sequence>
 			<xs:element name="Id" type="Max34Text"/>
 			<xs:element name="ClsgDt" type="ISODate" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="OpngDt" type="ISODate"/>
+			<xs:element name="OpngDt" type="ISODate" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="BranchAndFinancialInstitutionIdentification4">
