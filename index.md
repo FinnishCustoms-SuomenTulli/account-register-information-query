@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.8*
+*Dokumentin versio 1.0.9*
 
 ## Versiohistoria
 
@@ -21,6 +21,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.6|21.1.2020|Selvennetty ReturnIndicator1 käyttöä kun hakutuloksia alisanomalle ei löydy.|
 1.0.7|7.2.2020|Korvattu etunimi ja sukunimi täydellisellä nimellä.|
 1.0.8|7.2.2020|Poistettu tallelokeron vuorka-ajan alkupäivämäärän pakollisuus|
+1.0.9|19.2.2020|Muutettu fin013 Beneficiaries-kentän sisällöksi PersonIdentification5, koska vain luonnolliset henkilöt ovat sallittuja|
 
 ## Sisällysluettelo
 
@@ -757,7 +758,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
-|Id|PartyIdentification41|kyllä|[1..*]|Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|Id|PersonIdentification5|kyllä|[1..*]|Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
 
 ### <a name="Id-elementin_kaytto"></a> 4.11 Id-elementin käyttö
 
