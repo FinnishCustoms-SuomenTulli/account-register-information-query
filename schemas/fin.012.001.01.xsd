@@ -23,8 +23,8 @@
 	</xs:complexType>
 	<xs:complexType name="AuthorityInquirySet">
 		<xs:all>
-			<xs:element name="OfficialId" type="c:PersonLastFirstName"/>
-			<xs:element name="OfficialSuperiorId" type="c:PersonLastFirstName"/>
+			<xs:element name="OfficialId" type="c:Max140Text"/>
+			<xs:element name="OfficialSuperiorId" type="c:Max140Text"/>
 		</xs:all>
 	</xs:complexType>
 </xs:schema>
