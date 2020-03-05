@@ -438,7 +438,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |:---|:---|:---|:---|:---|:---|
 |InformationRequestFIN012| | | |[auth.001](#InformationRequestOpeningV01)|`/Document/InfReqOpng/SplmtryData/Envlp`|
 |&nbsp;&nbsp;&nbsp;&nbsp;AuthorityInquiry|[1..1]|[AuthorityInquirySet](#AuthorityInquirySet)|Kyselyyn liittyvät viranomaisen tiedot| |
-|&nbsp;&nbsp;&nbsp;&nbsp;AdditionalSearchCriteria|[0..*]|[SearchCriteriaChoice](#SearchCriteriaChoice)|Ei käytössä toistaiseksi.| |
+|&nbsp;&nbsp;&nbsp;&nbsp;AdditionalSearchCriteria|[0..*]|[SearchCriteriaChoice](#SearchCriteriaChoice)|Käytetään hakuun tallelokeron tunnisteella.| |
 
 #### <a name="AuthorityInquirySet"></a> AuthorityInquirySet
 
