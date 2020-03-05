@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.9*
+*Dokumentin versio 1.0.10*
 
 ## Versiohistoria
 
