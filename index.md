@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.9*
+*Dokumentin versio 1.0.10*
 
 ## Versiohistoria
 
@@ -22,6 +22,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.7|7.2.2020|Korvattu etunimi ja sukunimi täydellisellä nimellä.|
 1.0.8|7.2.2020|Poistettu tallelokeron vuorka-ajan alkupäivämäärän pakollisuus|
 1.0.9|19.2.2020|Muutettu fin013 Beneficiaries-kentän sisällöksi PersonIdentification5, koska vain luonnolliset henkilöt ovat sallittuja|
+1.0.10|5.3.2020|Vahvistettu, että tallelokero on hakukriteerinä käytössä.|
 
 ## Sisällysluettelo
 
@@ -327,7 +328,7 @@ Tarkemmat sanomakuvaukset ovat tämän luvun aliluvuissa 4.4 alkaen.
 
 |Sanoma-id|Sanoman nimi|Laajennettavan ISO 20022 sanoman id|Tarkoitus ja toiminnallisuus|
 |---|---|---|---|
-|FIN012|InformationRequestFIN012|auth.001.001.01|ISO 20022 sanomalaajennus. Kyselyrajapinnan toimivaltaiset viranomaiset käyttävät tätä sanomaa tietojen kyselyyn tiedonhakurajapinnasta. Sisältää kyselyn tekevän henkilön ja henkilön esimiehen tunnisteet. Mahdollistaa auth.001.001.01 puuttuvien hakukriteerien käytön (esim. tallelokero, toistaiseksi ei käytössä)|
+|FIN012|InformationRequestFIN012|auth.001.001.01|ISO 20022 sanomalaajennus. Kyselyrajapinnan toimivaltaiset viranomaiset käyttävät tätä sanomaa tietojen kyselyyn tiedonhakurajapinnasta. Sisältää kyselyn tekevän henkilön ja henkilön esimiehen tunnisteet. Mahdollistaa auth.001.001.01 puuttuvien hakukriteerien käytön (esim. tallelokero)|
 
 *__Taulukko 4.3.8:__ Vastaussanomaan auth.002 liitettävät alisanomat*
 
