@@ -15,7 +15,7 @@
 			<xs:element name="AdditionalSearchCriteria" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:any namespace="##any"/>
+						<xs:any namespace="##any" processContents="lax"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
