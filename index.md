@@ -22,7 +22,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.7|7.2.2020|Korvattu etunimi ja sukunimi täydellisellä nimellä.|
 1.0.8|7.2.2020|Poistettu tallelokeron vuorka-ajan alkupäivämäärän pakollisuus|
 1.0.9|19.2.2020|Muutettu fin013 Beneficiaries-kentän sisällöksi PersonIdentification5, koska vain luonnolliset henkilöt ovat sallittuja|
-1.0.10|5.3.2020|Vahvistettu, että tallelokero on hakukriteerinä käytössä.|
+1.0.10|5.3.2020|Vahvistettu, että tallelokero on hakukriteerinä käytössä. Päivitetty XML-allekirjoituksen vaatimuksia. Korjattu SchemeNm muotoon SchmeNm.|
 
 ## Sisällysluettelo
 
@@ -55,7 +55,6 @@ Rajapinta|Standardin mukainen käytäntö tai yhtymäkohta, joka mahdollistaa ti
 WS (Web Service)|Verkkopalvelimessa toimiva ohjelmisto, joka tarjoaa standardoitujen internetyhteyskäytäntöjen avulla palveluja sovellusten käytettäväksi. Tiedonhakujärjestelmä tarjoaa palveluna tietojen kyselyn.
 Endpoint|Rajapintapalvelu, joka on saatavilla tietyssä verkko-osoitteessa
 WSDL| (Web Service Description Language) Rakenteellinen kuvauskieli, jolla kuvataan web palvelun tarjoamat toiminnallisuudet.
-PKI | Julkisen avaimen tekniikka. Julkisen avaimen tekniikkaan perustuva sähköinen allekirjoitus luodaan siten, että allekirjoitettavasta tiedosta muodostetaan (tiivistealgoritmilla) tiiviste, joka salataan avainparin yksityisellä avaimella. Salattu tiiviste tallennetaan allekirjoitetun tiedon tai sähköisen asiakirjan yhteyteen tai välitetään muulla tavoin tiedon vastaanottajalle. Vastaanottaja purkaa tiivisteen salauksen avainparin julkisella avaimella, muodostaa uudelleen viestin tai asiakirjan tiedoista tiivisteen ja vertaa sitä allekirjoitukseen liitettyyn tiivisteeseen. Viestin sisältö on muuttumaton, mikäli tiivisteet ovat samat. (Sähköisen asioinnin tietoturvallisuus -ohje)|
 
 ### 1.2 Dokumentin tarkoitus ja kattavuus
 
@@ -211,6 +210,8 @@ Esimerkki 3.1. Esimerkki SignedInfo
 ```
 
 Allekirjoitusalgoritmi on siis RSA-SHA256 ja C14N on Exclusive XML Canonicalization. Reference URI on "", eli koko dokumentti allekirjoitetaan. Allekirjoitusta muodostettaessa laskettavien tiivisteiden (Digest) muodostamiseen tulee käyttää SHA256 -algoritmia.
+
+Allekirjoituksessa käytettyjen kryptografisten algoritmien on vastattava kryptografiselta vahvuudeltaan vähintään Viestintäviraston määrittelemiä kryptografisia vahvuusvaatimuksia kansalliselle suojaustasolle ST IV. Tämänhetkiset vahvuusvaatimukset on kuvattu dokumentissa https://www.kyberturvallisuuskeskus.fi/sites/default/files/media/regulation/ohje-kryptografiset-vahvuusvaatimukset-kansalliset-suojaustasot.pdf (Dnro: 190/651/2015).
 
 Mahdollisuus pyyntöjen IP-avaruuden rajoittamiseen tiedonhakujärjestelmässä tarkennetaan myöhemmin.
 
@@ -380,7 +381,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
 |:---|:---|:---|:---|
 |\<Id\>|CstmrId/Pty/Id/Prvtld/Othr|Hetu tai henkilötodistuksen tunnistenumero|Validi henkilötunnus, kun Cd=PIC. Muussa tapauksessa skeeman mukainen.|
-|\<Cd\>|CstmrId/Pty/Id/Prvtld/Othr/SchemeNm|"PIC" (Person Identification Code, hetu), "OTHR" (Muu henkilötodistuksen tunnistenumero)|
+|\<Cd\>|CstmrId/Pty/Id/Prvtld/Othr/SchmeNm|"PIC" (Person Identification Code, hetu), "OTHR" (Muu henkilötodistuksen tunnistenumero)|
 |\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
@@ -389,7 +390,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
 |:---|:---|:---|:---|
 |\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Y-tunnus tai muu oikeushenkilön tunniste|Validi Y-tunnus, kun Cd=Y. Validi yhdistysrekisterinumero, kun Cd=PRH.  Muutoin skeeman mukaisesti| |
-|\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|"Y" (Y-tunnus), "PRH" (Yhdistysrekisterinumero), OTHR (muu tunniste kuin Y-tunnus tai yhdistysrekisterinumero, esim. sisäinen väliaikainen tunniste tilanteessa, jossa yritykselle perustettuun tiliin ei ole voitu vielä liittää Y-tunnusta.)| |
+|\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchmeNm|"Y" (Y-tunnus), "PRH" (Yhdistysrekisterinumero), OTHR (muu tunniste kuin Y-tunnus tai yhdistysrekisterinumero, esim. sisäinen väliaikainen tunniste tilanteessa, jossa yritykselle perustettuun tiliin ei ole voitu vielä liittää Y-tunnusta.)| |
 |\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"| |
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"| |
 
@@ -400,7 +401,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |:---|:---|:---|:---|
 |\<Id\>|CstmrId/Pty/Nm|Yrityksen nimi|Täsmällinen osuma 1:1|
 |\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Arvoksi asetetaan "1"|
-|\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchemeNm|"NAME"|
+|\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchmeNm|"NAME"|
 |\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
@@ -416,7 +417,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
 |:---|:---|:---|:---|
 |Tilin muu yksilöintitunnus|\<Id\>|Acct/Id/Id/Othr|Tunnus|
-||\<Cd\>|Acct/Id/Id/Othr/SchemeNm|OTHR|
+||\<Cd\>|Acct/Id/Id/Othr/SchmeNm|OTHR|
 
 #### <a name=""></a> Haku luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä
 
@@ -424,7 +425,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |:---|:---|:---|:---|
 |\<Nm\>|CstmrId/Pty|Nimi|Täsmällinen osuma 1:1, ml. erikoismerkit. Formaatti on vapaamuotoinen.|
 |\<Id\>|CstmrId/Pty/Id/PrvtId/Othr|Maakoodi|
-|\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchemeNm|"NATI"|
+|\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchmeNm|"NATI"|
 |\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth|Syntymäaika. `CtryOfBirth` arvoksi asetetaan "XX" ja `CityOfBirth` arvoksi asetetaan ”not in use”|
 |\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
@@ -807,7 +808,7 @@ Syntymäaika
 
 Oikeushenkilön rekisteröitymispäivämäärä palautetaan tunniste-elementin (esim. Y-tunnus) rinnakkaisena Othr-elementtinä:
 
-Id-elementissä palautetaan rekisteröitymispäivämäärä. SchemeNm/Cd-elementissä palautetaan koodi RGDT, Issr-elementissä palautetaan rekisteriviranomaisen nimi.
+Id-elementissä palautetaan rekisteröitymispäivämäärä. SchmeNm/Cd-elementissä palautetaan koodi RGDT, Issr-elementissä palautetaan rekisteriviranomaisen nimi.
 
 ```
 <OrgId>
