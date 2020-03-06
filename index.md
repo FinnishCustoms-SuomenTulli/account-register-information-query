@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.11*
+*Dokumentin versio 1.0.12*
 
 ## Versiohistoria
 
@@ -24,6 +24,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.9|19.2.2020|Muutettu fin013 Beneficiaries-kentän sisällöksi PersonIdentification5, koska vain luonnolliset henkilöt ovat sallittuja|
 1.0.10|5.3.2020|Vahvistettu, että tallelokero on hakukriteerinä käytössä. Päivitetty XML-allekirjoituksen vaatimuksia. Korjattu SchemeNm muotoon SchmeNm.|
 1.0.11|5.3.2020|Lainsäädäntöperusteen kuvaus lisätty.|
+1.0.12|6.3.2020|Palautettu fin013 Beneficiaries-kentän sisällöksi PartyIdentification41. Muutettu Contract-kenttä optionaaliseksi.|
 
 ## Sisällysluettelo
 
@@ -753,7 +754,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
 |Customer| | | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;Contract|Contract|kyllä|[1..1]|Asiakkuuden alku- ja (jos tiedossa) loppupäivämäärä. Ks. skeema.|
+|&nbsp;&nbsp;&nbsp;&nbsp;Contract|Contract|kyllä|[0..1]|Asiakkuuden alku- ja (jos tiedossa) loppupäivämäärä. Ks. skeema.|
 |&nbsp;&nbsp;&nbsp;&nbsp;Id|PartyIdentification41|kyllä|[1..1]|Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
 |&nbsp;&nbsp;&nbsp;&nbsp;Beneficiaries|Beneficiaries|kyllä|[0..1]|Edunsaajat, ks. [Beneficiaries käyttö](#Beneficiaries_kaytto)|
 
@@ -761,7 +762,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
-|Id|PersonIdentification5|kyllä|[1..*]|Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|Id|PartyIdentification41|kyllä|[1..*]|Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
 
 ### <a name="Id-elementin_kaytto"></a> 4.11 Id-elementin käyttö
 
