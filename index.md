@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.10*
+*Dokumentin versio 1.0.11*
 
 ## Versiohistoria
 
@@ -23,6 +23,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.8|7.2.2020|Poistettu tallelokeron vuorka-ajan alkupäivämäärän pakollisuus|
 1.0.9|19.2.2020|Muutettu fin013 Beneficiaries-kentän sisällöksi PersonIdentification5, koska vain luonnolliset henkilöt ovat sallittuja|
 1.0.10|5.3.2020|Vahvistettu, että tallelokero on hakukriteerinä käytössä. Päivitetty XML-allekirjoituksen vaatimuksia. Korjattu SchemeNm muotoon SchmeNm.|
+1.0.11|6.3.2020|PART koodin käyttö lisätty.|
 
 ## Sisällysluettelo
 
@@ -112,19 +113,21 @@ Taulukossa 2.1. esitettyjen muuttujien kulloinkin voimassa olevat arvot kerrotaa
 Kyselyn vuo kulkee seuraavasti:
 1. Client lähettää kyselysanoman
 2. Server joko  
-  a. Palauttaa vastaussanoman, joka sisältää hakutuloksen ja koodin *COMP*, muuttujassa *DELAY_1* määritellyn viiveen sisällä ("välittömästi"), tai  
+  a. Palauttaa vastaussanoman, joka sisältää hakutuloksen ja koodin *COMP* tai *PART*, muuttujassa *DELAY_1* määritellyn viiveen sisällä ("välittömästi"), tai  
   b. palauttaa vastaussanoman, joka sisältää koodin *NRES* 
-3. Client tarkistaa onko vastaussanomassa koodi *COMP* vai *NRES*
-4. Jos koodi on *COMP*, siirrytään kohtaan 10.
+3. Client tarkistaa onko vastaussanomassa koodi *COMP*, *PART* vai *NRES*
+4. Jos koodi on *COMP* tai *PART*, siirrytään kohtaan 10.
 5. Koodi on *NRES*. Client odottaa *DELAY_2* muuttujan määrittämän ajan ja tekee sen jälkeen kyselyn request #2
 6. Server, joko  
-  a. Palauttaa hakutuloksen ja koodin *COMP*, muuttujassa *DELAY_1* määritellyn viiveen sisällä ("välittömästi"), tai  
+  a. Palauttaa hakutuloksen ja koodin *COMP* tai *PART*, muuttujassa *DELAY_1* määritellyn viiveen sisällä ("välittömästi"), tai  
   b. palauttaa vastaussanoman, joka sisältää koodin *NRES* 
-7. Client tarkistaa onko vastaussanomassa koodi *COMP* vai *NRES*
-8. Jos koodi on *COMP*, siirrytään kohtaan 10.
+7. Client tarkistaa onko vastaussanomassa koodi *COMP*, *PART* vai *NRES*
+8. Jos koodi on *COMP* tai *PART*, siirrytään kohtaan 10.
 9. Koodi on *NRES*. Jos *RETRY_LIMIT* ei ole saavutettu, siirrytään kohtaan 5.  
-10. Loppu.
- 
+10. Jos koodi on *PART* on vastaussanoma pilkottu useampaan vastaukseen. Niin kauan kuin vastaussanomassa koodi on *PART* lähetetään kysely uudelleen ja vastaanotetaan sanoma kunnes koodi on *COMP*.
+
+Vastaussanoman maksimikoko on 5MB.
+
 Taulukossa 2.2. on kuvattu StatusResponse1Code arvojen käyttö
 
 *__Taulukko 2.2.__ StatusResponse1Code arvojen käyttö*
@@ -133,7 +136,7 @@ Taulukossa 2.2. on kuvattu StatusResponse1Code arvojen käyttö
 |:--|:--|:--|:--|
 |COMP|CompleteResponse|Response is complete.|Vastaussanoma sisältää hakutulokset|
 |NRES|NoResponseYet|Response not provided yet.|Vastaussanoma ei sisällä hakutuloksia, tee uusi kysely myöhemmin.|
-|PART|PartialResponse|Response is partially provided.|Ei käytössä|
+|PART|PartialResponse|Response is partially provided.|Käytetään kokorajoituksen ylittävien vastaussanomien pilkkomiseen.|
 
 ## <a name="tietoturva"></a> 3. Tietoturva
   
