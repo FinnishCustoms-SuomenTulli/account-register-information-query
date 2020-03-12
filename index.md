@@ -411,18 +411,18 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 
 #### <a name=""></a> Haku IBANilla
 
-|Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
-|:---|:---|:---|:---|
-|IBAN|\<IBAN\>|Acct/Id/Id||
+|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
+|:---|:---|:---|
+|\<IBAN\>|Acct/Id/Id|IBAN|
 |\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
 #### <a name=""></a> Haku muulla tilin yksilöintitunnuksella
 
-|Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
-|:---|:---|:---|:---|
-|Tilin muu yksilöintitunnus|\<Id\>|Acct/Id/Id/Othr|Tunnus|
-||\<Cd\>|Acct/Id/Id/Othr/SchmeNm|OTHR|
+|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
+|:---|:---|:---|
+|\<Id\>|Acct/Id/Id/Othr|Tilin muu yksilöintitunnus|
+|\<Cd\>|Acct/Id/Id/Othr/SchmeNm|OTHR|
 |\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
