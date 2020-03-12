@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.12*
+*Dokumentin versio 1.0.13*
 
 ## Versiohistoria
 
@@ -25,6 +25,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.10|5.3.2020|Vahvistettu, että tallelokero on hakukriteerinä käytössä. Päivitetty XML-allekirjoituksen vaatimuksia. Korjattu SchemeNm muotoon SchmeNm.|
 1.0.11|5.3.2020|Lainsäädäntöperusteen kuvaus lisätty.|
 1.0.12|10.3.2020|Päivitetty vastaussanoman kuvausta tiliin liittyvien roolien osalta.|
+1.0.13|12.3.2020|Täydennetty IBAN ja muu tilin yksilöinti tunniste -hakujen tietueiden käyttöä.|
 
 ## Sisällysluettelo
 
@@ -413,6 +414,8 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |Hakukriteeri|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
 |:---|:---|:---|:---|
 |IBAN|\<IBAN\>|Acct/Id/Id||
+|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
+|\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
 #### <a name=""></a> Haku muulla tilin yksilöintitunnuksella
 
@@ -420,6 +423,8 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |:---|:---|:---|:---|
 |Tilin muu yksilöintitunnus|\<Id\>|Acct/Id/Id/Othr|Tunnus|
 ||\<Cd\>|Acct/Id/Id/Othr/SchmeNm|OTHR|
+|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
+|\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
 #### <a name=""></a> Haku luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä
 
