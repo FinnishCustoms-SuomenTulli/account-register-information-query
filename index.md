@@ -414,8 +414,8 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
 |:---|:---|:---|
 |\<IBAN\>|Acct/Id/Id|IBAN|
-|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
-|\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
+|\<MsgNmId\>|Acct/AuthrtyReqTp|"auth.001.001.01"|
+|\<Cd\>|Acct/InvstgtdPties|"ALLP"|
 
 #### <a name=""></a> Haku muulla tilin yksilöintitunnuksella
 
@@ -423,8 +423,8 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |:---|:---|:---|
 |\<Id\>|Acct/Id/Id/Othr|Tilin muu yksilöintitunnus|
 |\<Cd\>|Acct/Id/Id/Othr/SchmeNm|OTHR|
-|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
-|\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
+|\<MsgNmId\>|Acct/AuthrtyReqTp|"auth.001.001.01"|
+|\<Cd\>|Acct/InvstgtdPties|"ALLP"|
 
 #### <a name=""></a> Haku luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä
 
