@@ -415,7 +415,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |:---|:---|:---|
 |\<IBAN\>|Acct/Id/Id|IBAN|
 |\<MsgNmId\>|Acct/AuthrtyReqTp|"auth.001.001.01"|
-|\<Cd\>|Acct/InvstgtdPties/InvstgtdRoles|"ALLP"|
+|\<Cd\>|Acct/InvstgtdPties|"ALLP"|
 
 #### <a name=""></a> Haku muulla tilin yksilöintitunnuksella
 
@@ -424,7 +424,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |\<Id\>|Acct/Id/Id/Othr|Tilin muu yksilöintitunnus|
 |\<Cd\>|Acct/Id/Id/Othr/SchmeNm|OTHR|
 |\<MsgNmId\>|Acct/AuthrtyReqTp|"auth.001.001.01"|
-|\<Cd\>|Acct/InvstgtdPties/InvstgtdRoles|"ALLP"|
+|\<Cd\>|Acct/InvstgtdPties|"ALLP"|
 
 #### <a name=""></a> Haku luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä
 
