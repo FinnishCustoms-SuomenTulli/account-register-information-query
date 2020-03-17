@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.13*
+*Dokumentin versio 1.0.14*
 
 ## Versiohistoria
 
@@ -26,6 +26,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.11|5.3.2020|Lainsäädäntöperusteen kuvaus lisätty.|
 1.0.12|10.3.2020|Päivitetty vastaussanoman kuvausta tiliin liittyvien roolien osalta.|
 1.0.13|12.3.2020|Täydennetty IBAN ja muu tilin yksilöinti tunniste -hakujen tietueiden käyttöä.|
+1.0.14|17.3.2020|Päivitetty XML-allekirjoituksen esimerkki.|
 
 ## Sisällysluettelo
 
@@ -199,16 +200,16 @@ Allekirjoituksen tyyppi on __enveloped signature__. Signature-elementti sijoitet
 Esimerkki 3.1. Esimerkki SignedInfo
 ```
 <SignedInfo>
- <CanonicalizationMethod Algorithm=”http://www.w3.org/2001/10/xml-exc-c14n#"/>
- <SignatureMethod
-  Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256"/>
- <Reference URI="">
-  <Transforms>
-   <Transform Algorithm=”http://www.w3.org/2001/10/xml-exc-c14n#"/>
-  </Transforms>
-  <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256"/>
-  <DigestValue>...</DigestValue>
- </Reference>
+  <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+  <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+  <Reference URI="">
+    <Transforms>
+      <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+      <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+    </Transforms>
+    <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+    <DigestValue />
+  </Reference>
 </SignedInfo>
 ```
 
