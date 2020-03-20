@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.14*
+*Dokumentin versio 1.0.15*
 
 ## Versiohistoria
 
@@ -27,6 +27,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.12|10.3.2020|Päivitetty vastaussanoman kuvausta tiliin liittyvien roolien osalta.|
 1.0.13|12.3.2020|Täydennetty IBAN ja muu tilin yksilöinti tunniste -hakujen tietueiden käyttöä.|
 1.0.14|17.3.2020|Päivitetty XML-allekirjoituksen esimerkki.|
+1.0.15|17.3.2020|Palautettu fin013 Beneficiaries-kentän sisällöksi PartyIdentification41. Muutettu Contract-kenttä optionaaliseksi.|
 
 ## Sisällysluettelo
 
@@ -760,7 +761,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
 |Customer| | | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;Contract|Contract|kyllä|[1..1]|Asiakkuuden alku- ja (jos tiedossa) loppupäivämäärä. Ks. skeema.|
+|&nbsp;&nbsp;&nbsp;&nbsp;Contract|Contract|kyllä|[0..1]|Asiakkuuden alku- ja (jos tiedossa) loppupäivämäärä. Ks. skeema.|
 |&nbsp;&nbsp;&nbsp;&nbsp;Id|PartyIdentification41|kyllä|[1..1]|Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
 |&nbsp;&nbsp;&nbsp;&nbsp;Beneficiaries|Beneficiaries|kyllä|[0..1]|Edunsaajat, ks. [Beneficiaries käyttö](#Beneficiaries_kaytto)|
 
@@ -768,7 +769,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
-|Id|PersonIdentification5|kyllä|[1..*]|Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|Id|PartyIdentification41|kyllä|[1..*]|Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
 
 ### <a name="Id-elementin_kaytto"></a> 4.11 Id-elementin käyttö
 
