@@ -3,14 +3,14 @@
 	<xs:element name="Document" type="Document"/>
 	<xs:complexType name="Customer">
 		<xs:sequence>
-			<xs:element name="Contract" type="Contract"/>
+			<xs:element name="Contract" type="Contract" minOccurs="0"/>
 			<xs:element name="Id" type="PartyIdentification41"/>
 			<xs:element name="Beneficiaries" type="Beneficiaries" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="Beneficiaries">
 		<xs:sequence>
-			<xs:element name="Id" type="PersonIdentification5" maxOccurs="unbounded"/>
+			<xs:element name="Id" type="PartyIdentification41" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="CountryCode">
