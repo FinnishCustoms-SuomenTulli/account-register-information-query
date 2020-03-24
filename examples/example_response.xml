@@ -1,0 +1,505 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+	<SOAP-ENV:Header/>
+	<SOAP-ENV:Body>
+		<ApplicationResponse xmlns="urn:fi:tulli:wsdl_root">
+			<iso:AppHdr xmlns:iso="urn:fi:tulli:wsdl_root">
+				<ns:Fr xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+					<ns:OrgId>
+						<ns:Id>
+							<ns:OrgId>
+								<ns:Othr>
+									<ns:Id>0245442-8</ns:Id>
+									<ns:SchmeNm>
+										<ns:Cd>Y</ns:Cd>
+									</ns:SchmeNm>
+								</ns:Othr>
+							</ns:OrgId>
+						</ns:Id>
+					</ns:OrgId>
+				</ns:Fr>
+				<ns:To xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+					<ns:OrgId>
+						<ns:Id>
+							<ns:OrgId>
+								<ns:Othr>
+									<ns:Id>0245442-8</ns:Id>
+									<ns:SchmeNm>
+										<ns:Cd>Y</ns:Cd>
+									</ns:SchmeNm>
+								</ns:Othr>
+							</ns:OrgId>
+						</ns:Id>
+					</ns:OrgId>
+				</ns:To>
+				<ns:BizMsgIdr xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">J4ZRcxvfQnaZ7rv/yuQdjw==</ns:BizMsgIdr>
+				<ns:MsgDefIdr xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">auth.002.01.01</ns:MsgDefIdr>
+				<ns:CreDt xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">2020-03-24T13:18:19.927Z</ns:CreDt>
+				<ns:Rltd xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+					<urn1:Fr xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+						<urn1:OrgId>
+							<urn1:Id>
+								<urn1:OrgId>
+									<urn1:Othr>
+										<urn1:Id>0245442-8</urn1:Id>
+										<urn1:SchmeNm>
+											<urn1:Cd>Y</urn1:Cd>
+										</urn1:SchmeNm>
+									</urn1:Othr>
+								</urn1:OrgId>
+							</urn1:Id>
+						</urn1:OrgId>
+					</urn1:Fr>
+					<urn1:To xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+						<urn1:OrgId>
+							<urn1:Id>
+								<urn1:OrgId>
+									<urn1:Othr>
+										<urn1:Id>0245442-8</urn1:Id>
+										<urn1:SchmeNm>
+											<urn1:Cd>Y</urn1:Cd>
+										</urn1:SchmeNm>
+									</urn1:Othr>
+								</urn1:OrgId>
+							</urn1:Id>
+						</urn1:OrgId>
+					</urn1:To>
+					<urn1:BizMsgIdr xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">r6/bz9dlT567HVr5RDi8Zw==</urn1:BizMsgIdr>
+					<urn1:MsgDefIdr xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">auth.001.001.01</urn1:MsgDefIdr>
+					<urn1:CreDt xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">2020-02-03T11:31:11Z</urn1:CreDt>
+					<urn1:Sgntr xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+						<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+							<SignedInfo>
+								<CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+								<SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+								<Reference URI="">
+									<Transforms>
+										<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+									</Transforms>
+									<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+									<DigestValue>hpimds8LLXH0qL3yMGeDsNZ4Ty/41KEDTXlmI/sttTA=</DigestValue>
+								</Reference>
+							</SignedInfo>
+							<SignatureValue>waMQPXOPJj7t5ilXEVwMWambBQ0qLMduXou3QSTxgd6f01dmuT8za3eLwoooR2Tl
+QS7WXTtfBi+wenjQmVogCVRBv3nU5ubQ8NBH2RCtERttp7WO7iWJ6m9QIS7hwkxP
+XXuqfIJsA4g1f2CW2Zoe+yOZD5A35FioCvXp6mvA02P1+EeLRUU95+WfCzogLi2P
+3Hq9gy+gsg954gBeuDS4KEMQEMLgzCpwmtyCuITkvEEyjYz7FBglcV8WLOevbhkZ
+GEVhbWsxVfIPmQH6Gj1VXzFDXdDWzqSKpQG0p5k2cVezkoCR51GYJ/O0rrb0wFMn
+011Fr1zZhlVr1mrVI4CfRg==</SignatureValue>
+							<KeyInfo>
+								<X509Data>
+									<X509Certificate>MIIEjTCCAnUCFEJoHj8iA6GW4Wl356dpxq0S87XyMA0GCSqGSIb3DQEBCwUAMIGi
+MQswCQYDVQQGEwJGSTEQMA4GA1UECAwHVXVzaW1hYTERMA8GA1UEBwwISGVsc2lu
+a2kxDjAMBgNVBAoMBVR1bGxpMR4wHAYDVQQLDBVBY2NvdW50IFJlZ2lzdGVyIFRl
+c3QxFzAVBgNVBAMMDnRlc3Qgcm9vdCBjZXJ0MSUwIwYJKoZIhvcNAQkBFhZ0aWxp
+cmVraXN0ZXJpQHR1bGxpLmZpMB4XDTIwMDExNjEzMTU0OFoXDTIxMDUzMDEzMTU0
+OFowYzELMAkGA1UEBhMCRkkxEDAOBgNVBAgMB1V1c2ltYWExDjAMBgNVBAoMBVR1
+bGxpMR4wHAYDVQQLDBVBY2NvdW50IFJlZ2lzdGVyIFRlc3QxEjAQBgNVBAMMCTAy
+NDU0NDItODCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANd3JR5uwDd4
+DItDIoX7k3kdOI+hwHZuEcFCY9h2beGK/ShitdQZuLhKV02kmCszvnhEaJCn+NL6
+nl2rUdhLhtpAhAJpWhCRBgNldMozXoqSl/kqkeEKA6N7ivpCp6lZToHEPCv3rFAi
+8WBsmqKVS3NZfqCXx/gG5N0m1OjGXMMiiNNKMzN3KKl1mO5mlm/wUox7SQ+c3ZvB
+ZgE88W0aQ85fh/cb02dv0hi01zlTdvaxaoYzbjj3hz4/ZOQ0iZSD8VrsTJSaPZ3O
+38o0spmsMlKohjkguZbTXwrEGKxCahb3PrwM+K66cRuRawP8hfwYYaFIN0YPp/d9
+etA8VldaeFkCAwEAATANBgkqhkiG9w0BAQsFAAOCAgEAgadZU4KP8jeWkJCadnz7
+bGtrIanMtHzXdlncaJ0wYT4BhWEvIhFPCD6Z5qdyGc9DQzg1p4aJR5jKdQIbXcAQ
+pI42cbMod2bKg6V/bpzhqCPnhlFN3q3em7SG2qreuHFfY4Lpl7hKuumLmG7CE+r/
+ADPwmYRMjn+71bRBjq6QXvySPuyvwbdAt81qyngvqZJ/s2NWTADlelZ3LZOuum1p
+bweYfLObiibEWu0t3LFlzZSoSwpXGBQ0RSOdXM5P4iTXSqt/Fr5ymKtxLl2Vg+RT
+TaQS+QN1eT5lSkRdPwKtkuxlIfd6/WJoq46Vg68YkX2Gb2UpuipyBMM1yDOCGxox
+pwFAVAbZtq0hA7X6oUHhh26wco+L+ln41fXD+1JvUA0T19hHOBtWMGW3BJEyg4YP
+GOwf3P0V22UJ3eqAuTKuGkrJGiLRJvet72gWcROu6rsMReC7Z3O5x3Kxkf7m5M3g
+HaEi2Z7N9SRpYSCnPCxx2srwAVsPKiV1LJTCtMEs5HJ/2pk+9vV1Rj+L5O5LtocP
+TuB1FdN9jxGw5Vq3Vath6dycpH1X81c8f/dml5OhwYIBV0jAr3VtKLKmmpk1OX1j
+Wyr5Rq14SRR1ZxgJH+5L8yieNAuqmoEKg5GiNA/8QJK0aOvwLqADCRVjAS+MW3Jv
+5zCow8ZK9e1HCOunCPprQvA=</X509Certificate>
+								</X509Data>
+							</KeyInfo>
+						</Signature>
+					</urn1:Sgntr>
+				</ns:Rltd>
+			</iso:AppHdr>
+			<iso:Document xmlns:iso="urn:fi:tulli:wsdl_root">
+				<ns:InfReqRspn xmlns:ns="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01">
+					<ns:RspnId>ABC1234</ns:RspnId>
+					<ns:InvstgtnId>ABC1234</ns:InvstgtnId>
+					<ns:RspnSts>COMP</ns:RspnSts>
+					<ns:SchCrit>
+						<ns:CstmrId>
+							<ns:Pty>
+								<ns:Id>
+									<ns:OrgId>
+										<ns:Othr>
+											<ns:Id>1403768-0</ns:Id>
+											<ns:SchmeNm>
+												<ns:Cd>Y</ns:Cd>
+											</ns:SchmeNm>
+										</ns:Othr>
+									</ns:OrgId>
+								</ns:Id>
+							</ns:Pty>
+							<ns:AuthrtyReq>
+								<ns:Tp>
+									<ns:MsgNmId>auth.001.001.01</ns:MsgNmId>
+								</ns:Tp>
+								<ns:InvstgtdRoles>
+									<ns:Cd>OWNE</ns:Cd>
+								</ns:InvstgtdRoles>
+							</ns:AuthrtyReq>
+						</ns:CstmrId>
+					</ns:SchCrit>
+					<ns:RtrInd>
+						<ns:AuthrtyReqTp>
+							<ns:MsgNmId>auth.002.001.01</ns:MsgNmId>
+						</ns:AuthrtyReqTp>
+						<ns:InvstgtnRslt>
+							<ns:Rslt>
+								<ns:Document xmlns:ns="urn:fin.013.001.01">
+									<ns:InfRspnFin013>
+										<ns:InvstgtnId>ABC1234</ns:InvstgtnId>
+										<ns:CreDtTm>2020-03-24T13:18:19.927+02:00</ns:CreDtTm>
+										<ns:SvcrId>
+											<ns:FinInstnId>
+												<ns:Othr>
+													<ns:Id>8488829-6</ns:Id>
+													<ns:SchmeNm>
+														<ns:Cd>Y</ns:Cd>
+													</ns:SchmeNm>
+												</ns:Othr>
+											</ns:FinInstnId>
+										</ns:SvcrId>
+										<ns:Customer>
+											<ns:Id>
+												<ns:Nm>Hosseini, Justus Leone</ns:Nm>
+												<ns:Id>
+													<ns:PrvtId>
+														<ns:DtAndPlcOfBirth>
+															<ns:BirthDt>1979-10-01</ns:BirthDt>
+															<ns:CityOfBirth>not in use</ns:CityOfBirth>
+															<ns:CtryOfBirth>XX</ns:CtryOfBirth>
+														</ns:DtAndPlcOfBirth>
+														<ns:Othr>
+															<ns:Id>011079-428W</ns:Id>
+															<ns:SchmeNm>
+																<ns:Cd>PIC</ns:Cd>
+															</ns:SchmeNm>
+														</ns:Othr>
+													</ns:PrvtId>
+												</ns:Id>
+											</ns:Id>
+										</ns:Customer>
+										<ns:Customer>
+											<ns:Id>
+												<ns:Nm>Petrow, Emad Johny</ns:Nm>
+												<ns:Id>
+													<ns:PrvtId>
+														<ns:DtAndPlcOfBirth>
+															<ns:BirthDt>1949-10-17</ns:BirthDt>
+															<ns:CityOfBirth>not in use</ns:CityOfBirth>
+															<ns:CtryOfBirth>XX</ns:CtryOfBirth>
+														</ns:DtAndPlcOfBirth>
+														<ns:Othr>
+															<ns:Id>171049-338K</ns:Id>
+															<ns:SchmeNm>
+																<ns:Cd>PIC</ns:Cd>
+															</ns:SchmeNm>
+														</ns:Othr>
+													</ns:PrvtId>
+												</ns:Id>
+											</ns:Id>
+										</ns:Customer>
+										<ns:Customer>
+											<ns:Id>
+												<ns:Nm>Simmons, Annele Suvi-Elina</ns:Nm>
+												<ns:Id>
+													<ns:PrvtId>
+														<ns:DtAndPlcOfBirth>
+															<ns:BirthDt>1974-01-12</ns:BirthDt>
+															<ns:CityOfBirth>not in use</ns:CityOfBirth>
+															<ns:CtryOfBirth>XX</ns:CtryOfBirth>
+														</ns:DtAndPlcOfBirth>
+														<ns:Othr>
+															<ns:Id>120174-6066</ns:Id>
+															<ns:SchmeNm>
+																<ns:Cd>PIC</ns:Cd>
+															</ns:SchmeNm>
+														</ns:Othr>
+													</ns:PrvtId>
+												</ns:Id>
+											</ns:Id>
+										</ns:Customer>
+										<ns:Customer>
+											<ns:Id>
+												<ns:Nm>Dahlbacka, Rafael Stellan</ns:Nm>
+												<ns:Id>
+													<ns:PrvtId>
+														<ns:DtAndPlcOfBirth>
+															<ns:BirthDt>1952-10-21</ns:BirthDt>
+															<ns:CityOfBirth>not in use</ns:CityOfBirth>
+															<ns:CtryOfBirth>XX</ns:CtryOfBirth>
+														</ns:DtAndPlcOfBirth>
+														<ns:Othr>
+															<ns:Id>210252-0218</ns:Id>
+															<ns:SchmeNm>
+																<ns:Cd>PIC</ns:Cd>
+															</ns:SchmeNm>
+														</ns:Othr>
+													</ns:PrvtId>
+												</ns:Id>
+											</ns:Id>
+										</ns:Customer>
+										<ns:Customer>
+											<ns:Contract>
+												<ns:OpngDt>1972-02-04</ns:OpngDt>
+											</ns:Contract>
+											<ns:Id>
+												<ns:Nm>Company 1</ns:Nm>
+												<ns:Id>
+													<ns:OrgId>
+														<ns:Othr>
+															<ns:Id>1956-06-24</ns:Id>
+															<ns:SchmeNm>
+																<ns:Cd>RGDT</ns:Cd>
+															</ns:SchmeNm>
+															<ns:Issr>PRH</ns:Issr>
+														</ns:Othr>
+														<ns:Othr>
+															<ns:Id>1620873-8</ns:Id>
+															<ns:SchmeNm>
+																<ns:Cd>Y</ns:Cd>
+															</ns:SchmeNm>
+														</ns:Othr>
+													</ns:OrgId>
+												</ns:Id>
+											</ns:Id>
+											<ns:Beneficiaries>
+												<ns:Id>
+													<ns:Nm>Petrow, Emad Johny</ns:Nm>
+													<ns:Id>
+														<ns:PrvtId>
+															<ns:DtAndPlcOfBirth>
+																<ns:BirthDt>1949-10-17</ns:BirthDt>
+																<ns:CityOfBirth>not in use</ns:CityOfBirth>
+																<ns:CtryOfBirth>XX</ns:CtryOfBirth>
+															</ns:DtAndPlcOfBirth>
+															<ns:Othr>
+																<ns:Id>171049-338K</ns:Id>
+																<ns:SchmeNm>
+																	<ns:Cd>PIC</ns:Cd>
+																</ns:SchmeNm>
+															</ns:Othr>
+														</ns:PrvtId>
+													</ns:Id>
+												</ns:Id>
+												<ns:Id>
+													<ns:Nm>Dahlbacka, Rafael Stellan</ns:Nm>
+													<ns:Id>
+														<ns:PrvtId>
+															<ns:DtAndPlcOfBirth>
+																<ns:BirthDt>1952-10-21</ns:BirthDt>
+																<ns:CityOfBirth>not in use</ns:CityOfBirth>
+																<ns:CtryOfBirth>XX</ns:CtryOfBirth>
+															</ns:DtAndPlcOfBirth>
+															<ns:Othr>
+																<ns:Id>210252-0218</ns:Id>
+																<ns:SchmeNm>
+																	<ns:Cd>PIC</ns:Cd>
+																</ns:SchmeNm>
+															</ns:Othr>
+														</ns:PrvtId>
+													</ns:Id>
+												</ns:Id>
+											</ns:Beneficiaries>
+										</ns:Customer>
+										<ns:Customer>
+											<ns:Contract>
+												<ns:OpngDt>1990-08-21</ns:OpngDt>
+											</ns:Contract>
+											<ns:Id>
+												<ns:Nm>Company 2</ns:Nm>
+												<ns:Id>
+													<ns:OrgId>
+														<ns:Othr>
+															<ns:Id>1990-07-26</ns:Id>
+															<ns:SchmeNm>
+																<ns:Cd>RGDT</ns:Cd>
+															</ns:SchmeNm>
+															<ns:Issr>PRH</ns:Issr>
+														</ns:Othr>
+														<ns:Othr>
+															<ns:Id>1403768-0</ns:Id>
+															<ns:SchmeNm>
+																<ns:Cd>Y</ns:Cd>
+															</ns:SchmeNm>
+														</ns:Othr>
+													</ns:OrgId>
+												</ns:Id>
+											</ns:Id>
+											<ns:Beneficiaries>
+												<ns:Id>
+													<ns:Nm>Simmons, Annele Suvi-Elina</ns:Nm>
+													<ns:Id>
+														<ns:PrvtId>
+															<ns:DtAndPlcOfBirth>
+																<ns:BirthDt>1974-01-12</ns:BirthDt>
+																<ns:CityOfBirth>not in use</ns:CityOfBirth>
+																<ns:CtryOfBirth>XX</ns:CtryOfBirth>
+															</ns:DtAndPlcOfBirth>
+															<ns:Othr>
+																<ns:Id>120174-6066</ns:Id>
+																<ns:SchmeNm>
+																	<ns:Cd>PIC</ns:Cd>
+																</ns:SchmeNm>
+															</ns:Othr>
+														</ns:PrvtId>
+													</ns:Id>
+												</ns:Id>
+												<ns:Id>
+													<ns:Nm>Hosseini, Justus Leone</ns:Nm>
+													<ns:Id>
+														<ns:PrvtId>
+															<ns:DtAndPlcOfBirth>
+																<ns:BirthDt>1979-10-01</ns:BirthDt>
+																<ns:CityOfBirth>not in use</ns:CityOfBirth>
+																<ns:CtryOfBirth>XX</ns:CtryOfBirth>
+															</ns:DtAndPlcOfBirth>
+															<ns:Othr>
+																<ns:Id>011079-428W</ns:Id>
+																<ns:SchmeNm>
+																	<ns:Cd>PIC</ns:Cd>
+																</ns:SchmeNm>
+															</ns:Othr>
+														</ns:PrvtId>
+													</ns:Id>
+												</ns:Id>
+											</ns:Beneficiaries>
+										</ns:Customer>
+										<ns:Customer>
+											<ns:Contract>
+												<ns:OpngDt>1990-08-21</ns:OpngDt>
+											</ns:Contract>
+											<ns:Id>
+												<ns:Nm>Company 2</ns:Nm>
+												<ns:Id>
+													<ns:OrgId>
+														<ns:Othr>
+															<ns:Id>1990-07-26</ns:Id>
+															<ns:SchmeNm>
+																<ns:Cd>RGDT</ns:Cd>
+															</ns:SchmeNm>
+															<ns:Issr>PRH</ns:Issr>
+														</ns:Othr>
+														<ns:Othr>
+															<ns:Id>1403768-0</ns:Id>
+															<ns:SchmeNm>
+																<ns:Cd>Y</ns:Cd>
+															</ns:SchmeNm>
+														</ns:Othr>
+													</ns:OrgId>
+												</ns:Id>
+											</ns:Id>
+										</ns:Customer>
+									</ns:InfRspnFin013>
+								</ns:Document>
+							</ns:Rslt>
+						</ns:InvstgtnRslt>
+					</ns:RtrInd>
+					<ns:RtrInd>
+						<ns:AuthrtyReqTp>
+							<ns:MsgNmId>auth.002.001.01</ns:MsgNmId>
+						</ns:AuthrtyReqTp>
+						<ns:InvstgtnRslt>
+							<ns:Rslt>
+								<ns:Document xmlns:ns="urn:iso:std:iso:20022:tech:xsd:supl.027.001.01">
+									<ns:InfRspnSD1>
+										<ns:InvstgtnId>ABC1234</ns:InvstgtnId>
+										<ns:CreDtTm>2020-03-24T13:18:19.928+02:00</ns:CreDtTm>
+										<ns:AcctSvcrId>
+											<ns:FinInstnId>
+												<ns:Othr>
+													<ns:Id>8488829-6</ns:Id>
+													<ns:SchmeNm>
+														<ns:Cd>Y</ns:Cd>
+													</ns:SchmeNm>
+												</ns:Othr>
+											</ns:FinInstnId>
+										</ns:AcctSvcrId>
+										<ns:AcctAndPties>
+											<ns:Acct>
+												<ns:Id>
+													<ns:IBAN>FI0647674328000895</ns:IBAN>
+												</ns:Id>
+												<ns:Ccy>EUR</ns:Ccy>
+												<ns:ClsgDt>2020-01-20</ns:ClsgDt>
+											</ns:Acct>
+											<ns:Role>
+												<ns:Pty>
+													<ns:Nm>Company 1</ns:Nm>
+													<ns:Id>
+														<ns:OrgId>
+															<ns:Othr>
+																<ns:Id>1956-06-24</ns:Id>
+																<ns:SchmeNm>
+																	<ns:Cd>RGDT</ns:Cd>
+																</ns:SchmeNm>
+																<ns:Issr>PRH</ns:Issr>
+															</ns:Othr>
+															<ns:Othr>
+																<ns:Id>1620873-8</ns:Id>
+																<ns:SchmeNm>
+																	<ns:Cd>Y</ns:Cd>
+																</ns:SchmeNm>
+															</ns:Othr>
+														</ns:OrgId>
+													</ns:Id>
+												</ns:Pty>
+												<ns:OwnrTp>
+													<ns:Tp>TRUS</ns:Tp>
+													<ns:Prtry>
+														<ns:Id>OWNE</ns:Id>
+														<ns:SchmeNm>RLTP</ns:SchmeNm>
+													</ns:Prtry>
+												</ns:OwnrTp>
+												<ns:StartDt>1972-02-04</ns:StartDt>
+											</ns:Role>
+											<ns:Role>
+												<ns:Pty>
+													<ns:Nm>Company 2</ns:Nm>
+													<ns:Id>
+														<ns:OrgId>
+															<ns:Othr>
+																<ns:Id>1990-07-26</ns:Id>
+																<ns:SchmeNm>
+																	<ns:Cd>RGDT</ns:Cd>
+																</ns:SchmeNm>
+																<ns:Issr>PRH</ns:Issr>
+															</ns:Othr>
+															<ns:Othr>
+																<ns:Id>1403768-0</ns:Id>
+																<ns:SchmeNm>
+																	<ns:Cd>Y</ns:Cd>
+																</ns:SchmeNm>
+															</ns:Othr>
+														</ns:OrgId>
+													</ns:Id>
+												</ns:Pty>
+												<ns:OwnrTp>
+													<ns:Tp>TRUS</ns:Tp>
+													<ns:Prtry>
+														<ns:Id>ACCE</ns:Id>
+														<ns:SchmeNm>RLTP</ns:SchmeNm>
+													</ns:Prtry>
+												</ns:OwnrTp>
+												<ns:StartDt>2012-01-30</ns:StartDt>
+											</ns:Role>
+											<ns:AddtlInf>1968-04-20</ns:AddtlInf>
+										</ns:AcctAndPties>
+									</ns:InfRspnSD1>
+								</ns:Document>
+							</ns:Rslt>
+						</ns:InvstgtnRslt>
+					</ns:RtrInd>
+				</ns:InfReqRspn>
+			</iso:Document>
+		</ApplicationResponse>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
