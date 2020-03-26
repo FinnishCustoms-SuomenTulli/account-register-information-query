@@ -444,7 +444,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 
 #### <a name=""></a> Haku Tallelokeron tunnisteella
 
-ISO-saoman rajoitusten vuoksi Document/InfReqOpng/SchCrit on täytettävä jokin valinta. Täytetään CstmrId:
+ISO-sanoman rajoitusten vuoksi Document/InfReqOpng/SchCrit on täytettävä jokin valinta. Täytetään CstmrId:
 
 |Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
 |:---|:---|:---|
