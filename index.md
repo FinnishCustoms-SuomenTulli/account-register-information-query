@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.15*
+*Dokumentin versio 1.0.16*
 
 ## Versiohistoria
 
@@ -20,7 +20,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.5|18.12.2019|Alisanoma fin.013 Contract-elementti kuvattu. Lisätty taulukot lukuun 4.3 kuvaamaan pankki- ja maksutilirekisterin tietosisältö sanomakohtaisesti eriteltynä. PartyIdentification41 nimikentän formaatti määritelty. Nimihaun ehtoja tarkennettu. Alisanoma fin.012 AdditionalSearchCriteria poistettu virheellinen pakollisuustieto. Poistettu viittaus OTHER-taulukkoon kyselyparametrien yhteydessä. Tarkennettu investigation period kuvausta. Omistaja-koodin abstraktiotasoa nostettu. Role OwnrTp poistettu virheellinen viittaus Cd-elementtiin. Tarkennettu luonnollisen henkilön palautettavia tietoja. Kuvattu SdBoxAndParties käyttö.
 1.0.6|21.1.2020|Selvennetty ReturnIndicator1 käyttöä kun hakutuloksia alisanomalle ei löydy.|
 1.0.7|7.2.2020|Korvattu etunimi ja sukunimi täydellisellä nimellä.|
-1.0.8|7.2.2020|Poistettu tallelokeron vuorka-ajan alkupäivämäärän pakollisuus|
+1.0.8|7.2.2020|Poistettu tallelokeron vuokra-ajan alkupäivämäärän pakollisuus|
 1.0.9|19.2.2020|Muutettu fin013 Beneficiaries-kentän sisällöksi PersonIdentification5, koska vain luonnolliset henkilöt ovat sallittuja|
 1.0.10|5.3.2020|Vahvistettu, että tallelokero on hakukriteerinä käytössä. Päivitetty XML-allekirjoituksen vaatimuksia. Korjattu SchemeNm muotoon SchmeNm.|
 1.0.11|5.3.2020|Lainsäädäntöperusteen kuvaus lisätty.|
@@ -28,6 +28,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.13|12.3.2020|Täydennetty IBAN ja muu tilin yksilöinti tunniste -hakujen tietueiden käyttöä.|
 1.0.14|17.3.2020|Päivitetty XML-allekirjoituksen esimerkki.|
 1.0.15|17.3.2020|Palautettu fin013 Beneficiaries-kentän sisällöksi PartyIdentification41. Muutettu Contract-kenttä optionaaliseksi.|
+1.0.16|26.3.2020|Päivitetty fin.013 skeema ja sen käyttö.|
 
 ## Sisällysluettelo
 
@@ -81,7 +82,7 @@ Tämä dokumentti on osa Tullin julkaisemaa määräystä pankki- ja maksutilien
 
 [fin.012.001.01](schemas/fin.012.001.01.xsd)
 
-[fin.013.001.01](schemas/fin.013.001.01.xsd)
+[fin.013.001.02](schemas/fin.013.001.02.xsd)
 
 [Sähköisen asioinnin tietoturvallisuus -ohje](http://julkaisut.valtioneuvosto.fi/bitstream/handle/10024/80012/VM_25_2017.pdf)
 
@@ -264,7 +265,7 @@ BAH on oltava aina SOAP bodyn ensimmäinen elementti.
 
 Tiedonhakujärjestelmän kyselyrajapinnassa käytetään [ISO 20022 -sanomia InformationRequestOpeningV01 (auth.001.001.01)ja InformationRequestResponseV01 (auth.002.001.01)](https://www.iso20022.org/full_catalogue.page), joihin liitetään tarvittavat alisanomat ([Supplementary Data](https://www.iso20022.org/supplementary_data.page)).
 
-Ylätasolla käytettävät alisanomat jakautuvat kolmeen käsitteeseen: asiakkuus, tili ja tallelokero. Asiakkuustiedot palautetaan sanomassa [fin.013.001.01](schemas/fin.013.001.01.xsd), tilitiedot sanomassa [supl.027.001.01](https://www.iso20022.org/sites/default/files/documents/SuppData_extensions/ISO20022_SupplementaryData_14Feb2019_v1.xlsx) ja tallelokerotiedot sanomassa [fin.002.001.01](schemas/fin.002.001.01) (huom. tässä sama koodi eräiden olemassaolevien järjestelmien manuaalisen käsittelyn kanssa). Nämä alisanomat liitetään [auth.002.001.01](https://www.iso20022.org/documents/messages/auth/schemas/auth.002.001.01.zip) elementtiin `InformationRequestResponseV01/RtrInd`.
+Ylätasolla käytettävät alisanomat jakautuvat kolmeen käsitteeseen: asiakkuus, tili ja tallelokero. Asiakkuus- ja edunsaajatiedot palautetaan sanomassa [fin.013.001.02](schemas/fin.013.001.02.xsd), tilitiedot sanomassa [supl.027.001.01](https://www.iso20022.org/sites/default/files/documents/SuppData_extensions/ISO20022_SupplementaryData_14Feb2019_v1.xlsx) ja tallelokerotiedot sanomassa [fin.002.001.01](schemas/fin.002.001.01) (huom. tässä sama koodi eräiden olemassaolevien järjestelmien manuaalisen käsittelyn kanssa). Nämä alisanomat liitetään [auth.002.001.01](https://www.iso20022.org/documents/messages/auth/schemas/auth.002.001.01.zip) elementtiin `InformationRequestResponseV01/RtrInd`.
 
 Taulukoissa *4.3.1*-*4.3.5* on esitetty pankki- ja maksutilirekisterin tietosisältö, sekä Supplementary Data -alisanoma, jonka osana kukin tieto palautetaan.  
 
@@ -478,16 +479,16 @@ ReturnIndicator1 sisältää yksittäisen hakutulostyypin esiintymän.
 
 |XPath|Tyyppi|Kuvaus|
 |:---|:---|:---|
-|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|sisältää sanomalaajennuksen sanoma-id:n (supl.027.001.01, fin.013.001.01 tai fin.002.001.01)|
+|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|sisältää sanomalaajennuksen sanoma-id:n (supl.027.001.01, fin.013.001.02 tai fin.002.001.01)|
 |RtrInd/InvstgtnRslt|InvestigationResult1Choice|palautetaan `Rslt` elementti tyyppiä SupplementaryDataEnvelope1, joka sisältää joko [supl.027.001.01](#supl.027.001.01), [InformationResponseFIN002](#InformationResponseFIN002) tai [InformationResponseFIN013](#InformationResponseFIN013) tai `InvstgtnSts` koodilla `NFOU`.
 
-Jokaista hakutulostyyppiä kohti palautetaan enintään yksi hakutulos-alisanoma (supl.027.001.01, fin.013.001.01 tai fin.002.001.01) per Y-tunnus. 
+Jokaista hakutulostyyppiä kohti palautetaan enintään yksi hakutulos-alisanoma (supl.027.001.01, fin.013.001.02 tai fin.002.001.01) per Y-tunnus. 
 
 __Esimerkki 1.__  
 
 Kyselysanomassa esiintynyttä `Document/InfReqOpng/SchCrit` hakutermiä vastaavia tuloksia on löytynyt kolme kappaletta: yksi asiakkuus ja kaksi tiliä. Tallelokeroita ei löytynyt.
 
-Vastaussanomaan liitetään kolme kappaletta `RtrInd`-elementtiä, joista supl.027.001.01 ja fin.013.001.01 osalta liitetään hakutulokset Rslt-elementteihin ja fin.002.001.01 osalta palautetaan `InvstgtnSts` koodilla `NFOU`:
+Vastaussanomaan liitetään kolme kappaletta `RtrInd`-elementtiä, joista supl.027.001.01 ja fin.013.001.02 osalta liitetään hakutulokset Rslt-elementteihin ja fin.002.001.01 osalta palautetaan `InvstgtnSts` koodilla `NFOU`:
 
 ```
 <!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
@@ -507,11 +508,11 @@ Vastaussanomaan liitetään kolme kappaletta `RtrInd`-elementtiä, joista supl.0
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.013.001.01</n1:MsgNmId>
+    <n1:MsgNmId>fin.013.001.02</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:Rslt>
-      <n1:Document xmlns:n3="fin.013.001.01" ...">
+      <n1:Document xmlns:n3="fin.013.001.02" ...">
       	<n1:InfRspnFin013>
           <!-- Hakutuloksen asiakkuus #1 tiedot -->
         </n1:InfRspnFin013>
@@ -535,7 +536,7 @@ Rajapinta on koosteinen: yksi rajapinta palauttaa hakutuloksia useiden Y-tunnust
 
 Kyselysanomassa esiintynyttä `Document/InfReqOpng/SchCrit` hakutermiä vastaavia tuloksia on löytynyt neljä kappaletta: yksi tili (tili #1) Y-tunnukselle 0190983-0 ja kolme tiliä (tili #2, tili #3, tili #4) Y-tunnukselle 0828972-6. 
 
-Vastaussanomaan liitetään neljä kappaletta `RtrInd`-elementtiä, joista supl.027.001.0 osalta liitetään hakutulokset Rslt-elementteihin, ja fin.013.001.01 sekä fin.002.001.01 osalta palautetaan `InvstgtnSts` koodilla `NFOU`:
+Vastaussanomaan liitetään neljä kappaletta `RtrInd`-elementtiä, joista supl.027.001.0 osalta liitetään hakutulokset Rslt-elementteihin, ja fin.013.001.02 sekä fin.002.001.01 osalta palautetaan `InvstgtnSts` koodilla `NFOU`:
 
 ```
 <!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
@@ -601,7 +602,7 @@ Vastaussanomaan liitetään neljä kappaletta `RtrInd`-elementtiä, joista supl.
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.013.001.01</n1:MsgNmId>
+    <n1:MsgNmId>fin.013.001.02</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -635,7 +636,7 @@ Vastaussanomaan liitetään kolme kappaletta `InvstgtnSts` elementtiä koodilla 
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.013.001.01</n1:MsgNmId>
+    <n1:MsgNmId>fin.013.001.02</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -754,22 +755,31 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|kyllä|[1..1]|Max35Text|Tutkinnan case-id|
 |&nbsp;&nbsp;&nbsp;&nbsp;CreDtTm|kyllä|[1..1]|ISODateTime|Sanoman luomisaika|
 |&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|kyllä|[1..1]|BranchAndFinancialInstitutionIdentification4|Käytetään seuraavasti: Elementti `SvcrId/FinInstnId/Othr/SchmeNm/Cd` sisältää arvon "Y" ja elementti `SvcrId/FinInstnId/Othr/Id` sisältää lähettäjän Y-tunnuksen.|
-|&nbsp;&nbsp;&nbsp;&nbsp;Customer|kyllä|[0..*]|Customer|Asiakas. Luonnollinen henkilö tai yritys. Ks. Customer-elementin käyttö taulukko alla|
+|&nbsp;&nbsp;&nbsp;&nbsp;LegalPersonInfo|kyllä|[1..*]|LegalPersonInfo|Oikeushenkilö tai luonnollinen henkilö. Ks. [LegalPersonInfo-elementin käyttö](#LegalPersonInfo) taulukko alla|
 
-#### Customer-elementin käyttö
-
+#### <a name="LegalPersonInfo"></a>LegalPersonInfo-elementin käyttö
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
-|Customer| | | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;Contract|Contract|kyllä|[0..1]|Asiakkuuden alku- ja (jos tiedossa) loppupäivämäärä. Ks. skeema.|
-|&nbsp;&nbsp;&nbsp;&nbsp;Id|PartyIdentification41|kyllä|[1..1]|Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
-|&nbsp;&nbsp;&nbsp;&nbsp;Beneficiaries|Beneficiaries|kyllä|[0..1]|Edunsaajat, ks. [Beneficiaries käyttö](#Beneficiaries_kaytto)|
+|Id|PartyIdentification41b|Kyllä|[1..1]|Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|CustomerInfo|CustomerInfo|Kyllä|[0..1]|Asiakkuustiedot. Ks. [CustomerInfo-elementin käyttö](#CustomerInfo)|
+|Beneficiaries|Beneficiaries|Kyllä|[0..1]|Edunsaajatiedot. Ks. [Beneficiaries-elementin käyttö](#Beneficiaries_kaytto)|
+
+#### <a name="CustomerInfo"></a>CustomerInfo-elementin käyttö
+|Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
+|:---|:---|:---|:---|:---|
+|OpngDt|ISODate|Kyllä|[1..1]|Asiakkuuden alkupäivämäärä|
+|ClsgDt|ISODate|Kyllä|[0..1]|Asiakkuuden loppupäivämäärä|
 
 #### <a name="Beneficiaries_kaytto"></a> Beneficiaries käyttö
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
-|Id|PartyIdentification41|kyllä|[1..*]|Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|Id|Beneficiary|kyllä|[1..*]|Ks. [Beneficiary-elementin käyttö](#Beneficiary)|
+
+#### <a name="Beneficiary"></a> Beneficiary-elementin käyttö
+|Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
+|:---|:---|:---|:---|:---|
+|PrvtId|PersonIdentification5b|[1..1]|Luonnollinen henkilö|Ks. [PersonIdentification5b-elementin käyttö](#PersonIdentification)
 
 ### <a name="Id-elementin_kaytto"></a> 4.11 Id-elementin käyttö
 
@@ -786,7 +796,14 @@ Kaikissa sanomissa käytetään vastaavaa oikeushenkilön ja luonnollisen henkil
 |:---|:---|:---|:---|
 |Party8Choice| | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;OrgId|OrganisationIdentification6|[0..1]|Käytetään seuraavasti: Elementti `OrgId/Othr/SchmeNm/Cd` sisältää organisaatiotunnuksen tyyppikoodin ja elementti `OrgId/Othr/Id` sisältää tunnuksen. Ks. koodit taulukko alla. Lisäksi voidaan kyselyvastauksen yhteydessä palauttaa oikeushenkilön rekisteröitysmispäivämäärä ks. [esimerkki](#rgdt) alla|
-|&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|PersonIdentification5|[0..1]|Käytetään seuraavasti: Elementti `PrvtId/Othr/SchmeNm/Cd` sisältää henkilötunnisteen tyyppikoodin, tai kansalaisuuskoodin jos henkilöllä ei ole henkilötunnusta. Elementti `PrvtId/Othr/Id` sisältää tunnuksen tai maakoodin. Ks. koodit taulukko alla. Lisäksi palautetaan syntymäaika elementissä `PrvtId/DtAndPlcOfBirth` ks. taulukko alla|
+|&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|PersonIdentification5|[0..1]|Ks. [PersonIdentification5-elementin käyttö](#PersonIdentification)|
+
+#### <a name="PersonIdentification"></a>PersonIdentification5- ja PersonIdentification5b-elementtien käyttö
+|XPath|Tyyppi|Kuvaus|
+|:---|:---|:---|
+|Othr/SchmeNm/Cd|ExternalPersonIdentification1Code|Sisältää henkilötunnisteen tyyppikoodin, tai kansalaisuuskoodin jos henkilöllä ei ole henkilötunnusta.|
+|Othr/Id|Max35Text|Sisältää tunnuksen tai maakoodin. Ks. koodit taulukko alla.|
+|DtAndPlcOfBirth|DateAndPlaceOfBirth|Ks. taulukko alla.
 
 OrgId koodit  
 
