@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.16*
+*Dokumentin versio 1.0.17*
 
 ## Versiohistoria
 
@@ -454,9 +454,9 @@ ISO-saoman rajoitusten vuoksi Document/InfReqOpng/SchCrit on täytettävä jokin
 
 Varsinainen hakukriteeri, tallelokeron tunniste, asetetaan auth.001.001.01 Supplementary Dataan, fin.012.001.02 sanomalaajennuksen SafetyDepositBoxId-elementtiin seuraavassa taulukossa esitetyllä tavalla.
 
-|Tagi|Skeeman polku InfReqOpng/SplmtryData/Envlp/|Kuvaus|
-|:---|:---|:---|
-|\<SafetyDepositBoxId\>|Document/InfRspnFin012/AdditionalSearchCriteria/|Tallelokeron tunniste|
+|Tagi|Skeeman polku InfReqOpng/SplmtryData/Envlp/|Kuvaus|Sääntö|
+|:---|:---|:---|:---|
+|\<SafetyDepositBoxId\>|Document/InfRspnFin012/AdditionalSearchCriteria/|Tallelokeron tunniste|Täsmällinen osuma 1:1, ml. erikoismerkit. Formaatti on vapaamuotoinen.|
 
 ### <a name="InformationRequestFIN012"></a> 4.6 Sanomalaajennus InformationRequestFIN012
 
@@ -466,7 +466,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |:---|:---|:---|:---|:---|:---|
 |InformationRequestFIN012| | | |[auth.001](#InformationRequestOpeningV01)|`/Document/InfReqOpng/SplmtryData/Envlp`|
 |&nbsp;&nbsp;&nbsp;&nbsp;AuthorityInquiry|[1..1]|[AuthorityInquirySet](#AuthorityInquirySet)|Kyselyyn liittyvät viranomaisen tiedot| |
-|&nbsp;&nbsp;&nbsp;&nbsp;AdditionalSearchCriteria|[0..*]||Käytetään hakuun tallelokeron tunnisteella.| |
+|&nbsp;&nbsp;&nbsp;&nbsp;AdditionalSearchCriteria|[0..*]||Käytetään hakuun tallelokeron tunnisteella.||
 
 #### <a name="AuthorityInquirySet"></a> AuthorityInquirySet
 
