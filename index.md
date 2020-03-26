@@ -29,7 +29,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.14|17.3.2020|Päivitetty XML-allekirjoituksen esimerkki.|
 1.0.15|17.3.2020|Palautettu fin013 Beneficiaries-kentän sisällöksi PartyIdentification41. Muutettu Contract-kenttä optionaaliseksi.|
 1.0.16|26.3.2020|Päivitetty fin.013 skeema ja sen käyttö.|
-1.0.17|26.3.2020|Lisätty kuvaus hausta tallelokeron tunniseella. päivitetty InformationRequestFIN012 versioon fin.012.001.02.|
+1.0.17|26.3.2020|Lisätty kuvaus hausta tallelokeron tunnisteella. päivitetty InformationRequestFIN012 versioon fin.012.001.02.|
 
 ## Sisällysluettelo
 
