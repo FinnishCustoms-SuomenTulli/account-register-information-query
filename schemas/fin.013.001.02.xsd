@@ -135,6 +135,7 @@
 	</xs:complexType>
 	<xs:complexType name="Beneficiary">
 		<xs:sequence>
+			<xs:element name="Nm" type="Max140Text" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="PrvtId" type="PersonIdentification5b"/>
 		</xs:sequence>
 	</xs:complexType>
