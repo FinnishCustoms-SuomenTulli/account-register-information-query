@@ -779,7 +779,8 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 #### <a name="Beneficiary"></a> Beneficiary-elementin käyttö
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
-|PrvtId|PersonIdentification5b|[1..1]|Luonnollinen henkilö|Ks. [PersonIdentification5b-elementin käyttö](#PersonIdentification)
+|Nm|Max140Text|Kyllä|[1..1]|Edunsaajan nimi. Formaatti vapaamuotoinen.|
+|PrvtId|PersonIdentification5b|Kyllä|[1..1]|Luonnollinen henkilö. Ks. [PersonIdentification5b-elementin käyttö](#PersonIdentification)
 
 ### <a name="Id-elementin_kaytto"></a> 4.11 Id-elementin käyttö
 
