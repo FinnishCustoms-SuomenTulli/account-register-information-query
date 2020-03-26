@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.16*
+*Dokumentin versio 1.0.17*
 
 ## Versiohistoria
 
@@ -29,6 +29,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.14|17.3.2020|Päivitetty XML-allekirjoituksen esimerkki.|
 1.0.15|17.3.2020|Palautettu fin013 Beneficiaries-kentän sisällöksi PartyIdentification41. Muutettu Contract-kenttä optionaaliseksi.|
 1.0.16|26.3.2020|Päivitetty fin.013 skeema ja sen käyttö.|
+1.0.17|26.3.2020|Lisätty kuvaus hausta tallelokeron tunnisteella. päivitetty InformationRequestFIN012 versioon fin.012.001.02.|
 
 ## Sisällysluettelo
 
@@ -80,7 +81,7 @@ Tämä dokumentti on osa Tullin julkaisemaa määräystä pankki- ja maksutilien
 
 [fin.002.001.01](schemas/fin.002.001.01.xsd)
 
-[fin.012.001.01](schemas/fin.012.001.01.xsd)
+[fin.012.001.02](schemas/fin.012.001.02.xsd)
 
 [fin.013.001.02](schemas/fin.013.001.02.xsd)
 
@@ -441,6 +442,22 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
 
+#### <a name=""></a> Haku Tallelokeron tunnisteella
+
+ISO-sanoman rajoitusten vuoksi Document/InfReqOpng/SchCrit on täytettävä jokin valinta. Täytetään CstmrId:
+
+|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
+|:---|:---|:---|
+|\<Pty\>|CstmrId|Jätetään tyhjäksi|
+|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"fin.012.001.02"|
+|\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
+
+Varsinainen hakukriteeri, tallelokeron tunniste, asetetaan auth.001.001.01 Supplementary Dataan, fin.012.001.02 sanomalaajennuksen SafetyDepositBoxId-elementtiin seuraavassa taulukossa esitetyllä tavalla.
+
+|Tagi|Skeeman polku InfReqOpng/SplmtryData/Envlp/|Kuvaus|Sääntö|
+|:---|:---|:---|:---|
+|\<SafetyDepositBoxId\>|Document/InfRspnFin012/AdditionalSearchCriteria/|Tallelokeron tunniste|Täsmällinen osuma 1:1, ml. erikoismerkit. Formaatti on vapaamuotoinen.|
+
 ### <a name="InformationRequestFIN012"></a> 4.6 Sanomalaajennus InformationRequestFIN012
 
 Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijaintiin.
@@ -449,7 +466,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |:---|:---|:---|:---|:---|:---|
 |InformationRequestFIN012| | | |[auth.001](#InformationRequestOpeningV01)|`/Document/InfReqOpng/SplmtryData/Envlp`|
 |&nbsp;&nbsp;&nbsp;&nbsp;AuthorityInquiry|[1..1]|[AuthorityInquirySet](#AuthorityInquirySet)|Kyselyyn liittyvät viranomaisen tiedot| |
-|&nbsp;&nbsp;&nbsp;&nbsp;AdditionalSearchCriteria|[0..*]|[SearchCriteriaChoice](#SearchCriteriaChoice)|Käytetään hakuun tallelokeron tunnisteella.| |
+|&nbsp;&nbsp;&nbsp;&nbsp;AdditionalSearchCriteria|[0..*]||Käytetään hakuun tallelokeron tunnisteella.||
 
 #### <a name="AuthorityInquirySet"></a> AuthorityInquirySet
 
