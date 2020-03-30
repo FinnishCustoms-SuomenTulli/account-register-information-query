@@ -31,7 +31,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.16|26.3.2020|Päivitetty fin.013 skeema ja sen käyttö.|
 1.0.17|26.3.2020|Lisätty kuvaus hausta tallelokeron tunnisteella. päivitetty InformationRequestFIN012 versioon fin.012.001.02.|
 1.0.18|26.3.2020|Päivitetty oikeushenkilön rekisterinumeron käyttö ja kooditus|
-1.0.19|Tarkennettu termistöä. Lisätty kuvaus pitkien tilitunnisteiden esitystavasta.
+1.0.19|Tarkennettu termistöä. Lisätty kuvaus pitkien tilitunnisteiden esitystavasta. Poistettu ylimääräinen tekstikappale. Tarkennuksia varmenteiden osapuolista.
 
 ## Sisällysluettelo
 
@@ -177,16 +177,16 @@ b) varmenteen kohteen serialNumber attribuuttina on tunnus, joka muodostuu kirja
 
 #### Yhteydenottajan tietoliikennevarmenne
 
-Yhteydenottaja tunnistetaan palvelinvarmenteen avulla. Tietojärjestelmän on hyväksyttävä yhteys toimivaltaiselta viranomaiselta seuraavin edellytyksin:  
+Tiedon luovuttaja tai tiedon luovuttajan valtuuttama taho tunnistaa toimivaltaisen viranomaisen, joka ottaa yhteyden tiedonhakujärjestelmän kyselyrajapintaan, palvelinvarmenteen avulla. Yhteys toimivaltaiselta viranomaiselta on hyväksyttävä seuraavin edellytyksin: 
 a) Toimivaltaisen viranomaisen varmenteen on myöntänyt VRK  
 b) varmenne on voimassa, eikä esiinny VRK:n sulkulistalla  
 c) varmenteen kohteen serialNumber attribuuttina on tunnus, joka muodostuu kirjaimista “FI” ja toimivaltaisen viranomaisen tai sen puolesta toimivan valtion palvelukeskuksen Y-tunnuksen numero-osasta ilman väliviivaa (ALV-tunnuksen muotoinen tunnus).
 
 #### Tiedon luovuttajan tai tiedon luovuttajan valtuuttaman tahon tietoliikennevarmenne
 
-Tiedon luovuttaja tai tiedon luovuttajan valtuuttama taho tunnistetaan palvelinvarmenteen avulla. Tiedon luovuttajan valtuuttamalla taholla tarkoitetaan esim. palvelukeskusta, jonka tiedon luovuttaja on valtuuttanut puolestaan huolehtimaan ilmoitusten muodostamisesta ja/tai lähettämisestä.
+Toimivaltainen viranomainen, joka ottaa yhteyden kyselyrajapintaan, tunnistaa tiedon luovuttajan tai tiedon luovuttajan valtuuttaman tahon palvelinvarmenteen avulla. Tiedon luovuttajan valtuuttamalla taholla tarkoitetaan esim. palvelukeskusta, jonka tiedon luovuttaja on valtuuttanut puolestaan huolehtimaan ilmoitusten muodostamisesta ja/tai lähettämisestä.
 
-Tietojärjestelmän on hyväksyttävä yhteys tiedon luovuttajaan seuraavin edellytyksin:
+Yhteys tiedon luovuttajaan on hyväksyttävä seuraavin edellytyksin:
 
 joko  
 a) palvelinvarmenteen on myöntänyt VRK, varmenne on voimassa, eikä esiinny VRK:n sulkulistalla, varmenteen kohteen serialNumber attribuuttina on kyseisen tiedon luovuttajan tai tiedon luovuttajan valtuuttaman tahon Y-tunnus tai ALV-tunnus
