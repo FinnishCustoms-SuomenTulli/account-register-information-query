@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.18*
+*Dokumentin versio 1.0.19*
 
 ## Versiohistoria
 
@@ -31,6 +31,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.16|26.3.2020|Päivitetty fin.013 skeema ja sen käyttö.|
 1.0.17|26.3.2020|Lisätty kuvaus hausta tallelokeron tunnisteella. päivitetty InformationRequestFIN012 versioon fin.012.001.02.|
 1.0.18|26.3.2020|Päivitetty oikeushenkilön rekisterinumeron käyttö ja kooditus|
+1.0.19|Tarkennettu termistöä. Lisätty kuvaus pitkien tilitunnisteiden esitystavasta.
 
 ## Sisällysluettelo
 
@@ -695,7 +696,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
 |CustomerAccount1| | | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;Id|AccountIdentification4Choice|kyllä|[1..1]|Joko IBAN tai muu tilin tunnistetieto, kts. `supl.027.001.01` -skeema|
+|&nbsp;&nbsp;&nbsp;&nbsp;Id|AccountIdentification4Choice|kyllä|[1..1]|Joko IBAN tai muu tilin tunnistetieto, kts. `supl.027.001.01` -skeema. Pitkien tunnusten tapauksessa `Acct/Id/Othr/SchmeNm/Cd` elementtiin asetetaan koodi GLID (Generic Long Id) ja `Acct/Id/Othr/Id` arvoksi asetetaan "1". Varsinainen id (luottokorttitilin numero) asetetaan `Acct/Nm`-elementtiin|
 |&nbsp;&nbsp;&nbsp;&nbsp;Nm||ei|||
 |&nbsp;&nbsp;&nbsp;&nbsp;Sts||ei|||
 |&nbsp;&nbsp;&nbsp;&nbsp;Tp||ei|||
@@ -758,7 +759,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |:---|:---|:---|:---|:---|
 |AccountRole1| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|kyllä|[1..*]|ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
-|&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|kyllä|[1..1]|Käytetään `OwnrTp/Prtry/SchmeNm` arvolla "RLTP", sekä `OwnrTp/Prtry/Id`, jossa arvo "OWNE" (omistaja)|
+|&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|kyllä|[1..1]|Käytetään `OwnrTp/Prtry/SchmeNm` arvolla "RLTP", sekä `OwnrTp/Prtry/Id`, jossa arvo "OWNE" (tallelokeron haltija, "omistaja") tai "ACCE" (tallelokeron käyttöoikeuden haltija, "käyttöoikeus"|
 |&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|kyllä|[1..1]|Roolin alkamispäivämäärä|
 |&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|kyllä|[0..1]|Roolin päättymispäivämäärä|
 
