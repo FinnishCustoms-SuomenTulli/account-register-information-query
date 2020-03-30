@@ -14,7 +14,7 @@
 			<xs:element name="AdditionalSearchCriteria" minOccurs="0">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:any namespace="##any" processContents="lax"/>
+						<xs:element name="SafetyDepositBoxId" type="Max140Text"/>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -26,10 +26,10 @@
 			<xs:element name="OfficialSuperiorId" type="Max140Text"/>
 		</xs:all>
 	</xs:complexType>
-    <xs:simpleType name="Max140Text">
-        <xs:restriction base="xs:string">
-            <xs:minLength value="1"/>
-            <xs:maxLength value="140"/>
-        </xs:restriction>
-    </xs:simpleType>
+	<xs:simpleType name="Max140Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="140"/>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
