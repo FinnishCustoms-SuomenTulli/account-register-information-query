@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.17*
+*Dokumentin versio 1.0.18*
 
 ## Versiohistoria
 
@@ -30,6 +30,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.15|17.3.2020|Palautettu fin013 Beneficiaries-kentän sisällöksi PartyIdentification41. Muutettu Contract-kenttä optionaaliseksi.|
 1.0.16|26.3.2020|Päivitetty fin.013 skeema ja sen käyttö.|
 1.0.17|26.3.2020|Lisätty kuvaus hausta tallelokeron tunnisteella. päivitetty InformationRequestFIN012 versioon fin.012.001.02.|
+1.0.18|26.3.2020|Päivitetty oikeushenkilön rekisterinumeron käyttö ja kooditus|
 
 ## Sisällysluettelo
 
@@ -289,8 +290,7 @@ Tarkemmat sanomakuvaukset ovat tämän luvun aliluvuissa 4.4 alkaen.
 |Tieto|Sanoma(t)|Kuvaus|
 |:---|:---|:---|
 |Nimi|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyssä Pty/Nm-elementissä|
-|Yhdistysrekisterinumero|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
-|Y-tunnus|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|Rekisterinumero|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
 |Rekisteriviranomainen|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
 |Rekisteröitymispäivä|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
 |Toimijan yksilöivä tunniste|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
@@ -392,12 +392,12 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
-#### <a name=""></a> Haku Y-tunnuksella tai muulla oikeushenkilön tunnisteella
+#### <a name=""></a> Haku oikeushenkilön rekisterinumerolla
 
 |Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
 |:---|:---|:---|:---|
-|\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Y-tunnus tai muu oikeushenkilön tunniste|Validi Y-tunnus, kun Cd=Y. Validi yhdistysrekisterinumero, kun Cd=PRH.  Muutoin skeeman mukaisesti| |
-|\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchmeNm|"Y" (Y-tunnus), "PRH" (Yhdistysrekisterinumero), OTHR (muu tunniste kuin Y-tunnus tai yhdistysrekisterinumero, esim. sisäinen väliaikainen tunniste tilanteessa, jossa yritykselle perustettuun tiliin ei ole voitu vielä liittää Y-tunnusta.)| |
+|\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Y-tunnus tai muu oikeushenkilön tunniste|| |
+|\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchmeNm|"COID"| |
 |\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"| |
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"| |
 
@@ -829,7 +829,7 @@ OrgId koodit
 |:---|:---|
 |Y|Y-tunnus|
 |PRH|Yhdistysrekisterinumero|
-|*|Muu yritystunnus, lista koodeista Tullin toimittamassa erillisessä dokumentissa|
+|COID|Muu yritystunnus, tyyppi ei ole tiedossa|
 
 PrvtId koodit  
 
@@ -922,8 +922,8 @@ Kyselyvastauksessa esitetyistä tiedoista osa voi olla kiistanalaisia. Tällöin
 |:---|:---|
 |PIC|Henkilötunnus|
 |Y|Y-tunnus|
-|ORG|Muu oikeushenkilön tunniste|
 |PRH|Yhdistysrekisterinumero|
+|COID|Muu oikeushenkilön tunniste|
 |ACCT|Tilin tunniste esim. IBAN|
 |SDBX|Tallelokeron tunniste|
 |NAME+NATI+BDAT|Erikoistapaus, kun henkilötunnusta ei ole tiedossa. Tällöin on palautettava koko nimi, kansalaisuus ja syntymäaika ks. esimerkki alla|
