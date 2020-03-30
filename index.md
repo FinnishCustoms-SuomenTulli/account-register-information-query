@@ -177,8 +177,6 @@ b) varmenteen kohteen serialNumber attribuuttina on tunnus, joka muodostuu kirja
 
 #### Yhteydenottajan tietoliikennevarmenne
 
-Kyseisen tiedon luovuttajan tai tiedon luovuttajan valtuuttaman tahon Y-tunnus tai ALV-tunnus.
-
 Yhteydenottaja tunnistetaan palvelinvarmenteen avulla. Tietojärjestelmän on hyväksyttävä yhteys toimivaltaiselta viranomaiselta seuraavin edellytyksin:  
 a) Toimivaltaisen viranomaisen varmenteen on myöntänyt VRK  
 b) varmenne on voimassa, eikä esiinny VRK:n sulkulistalla  
