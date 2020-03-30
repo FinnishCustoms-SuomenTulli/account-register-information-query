@@ -2,8 +2,8 @@
 	<SOAP-ENV:Header/>
 	<SOAP-ENV:Body>
 		<ApplicationResponse xmlns="urn:fi:tulli:wsdl_root">
-			<iso:AppHdr xmlns:iso="urn:fi:tulli:wsdl_root">
-				<ns:Fr xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+			<iso:AppHdr xmlns:iso="urn:fi:tulli:wsdl_root" xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+				<ns:Fr>
 					<ns:OrgId>
 						<ns:Id>
 							<ns:OrgId>
@@ -17,7 +17,7 @@
 						</ns:Id>
 					</ns:OrgId>
 				</ns:Fr>
-				<ns:To xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+				<ns:To>
 					<ns:OrgId>
 						<ns:Id>
 							<ns:OrgId>
@@ -31,11 +31,11 @@
 						</ns:Id>
 					</ns:OrgId>
 				</ns:To>
-				<ns:BizMsgIdr xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">J4ZRcxvfQnaZ7rv/yuQdjw==</ns:BizMsgIdr>
-				<ns:MsgDefIdr xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">auth.002.01.01</ns:MsgDefIdr>
-				<ns:CreDt xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">2020-03-24T13:18:19.927Z</ns:CreDt>
-				<ns:Rltd xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
-					<urn1:Fr xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+				<ns:BizMsgIdr>J4ZRcxvfQnaZ7rv/yuQdjw==</ns:BizMsgIdr>
+				<ns:MsgDefIdr>auth.002.01.01</ns:MsgDefIdr>
+				<ns:CreDt>2020-03-24T13:18:19.927Z</ns:CreDt>
+				<ns:Rltd>
+					<urn1:Fr>
 						<urn1:OrgId>
 							<urn1:Id>
 								<urn1:OrgId>
@@ -49,7 +49,7 @@
 							</urn1:Id>
 						</urn1:OrgId>
 					</urn1:Fr>
-					<urn1:To xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+					<urn1:To>
 						<urn1:OrgId>
 							<urn1:Id>
 								<urn1:OrgId>
@@ -63,10 +63,10 @@
 							</urn1:Id>
 						</urn1:OrgId>
 					</urn1:To>
-					<urn1:BizMsgIdr xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">r6/bz9dlT567HVr5RDi8Zw==</urn1:BizMsgIdr>
-					<urn1:MsgDefIdr xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">auth.001.001.01</urn1:MsgDefIdr>
-					<urn1:CreDt xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">2020-02-03T11:31:11Z</urn1:CreDt>
-					<urn1:Sgntr xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+					<urn1:BizMsgIdr>r6/bz9dlT567HVr5RDi8Zw==</urn1:BizMsgIdr>
+					<urn1:MsgDefIdr>auth.001.001.01</urn1:MsgDefIdr>
+					<urn1:CreDt>2020-02-03T11:31:11Z</urn1:CreDt>
+					<urn1:Sgntr>
 						<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
 							<SignedInfo>
 								<CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
@@ -326,9 +326,9 @@ Wyr5Rq14SRR1ZxgJH+5L8yieNAuqmoEKg5GiNA/8QJK0aOvwLqADCRVjAS+MW3Jv
 															<ns:Issr>PRH</ns:Issr>
 														</ns:Othr>
 														<ns:Othr>
-															<ns:Id>14037680A</ns:Id>
+															<ns:Id>1403768-0</ns:Id>
 															<ns:SchmeNm>
-																<ns:Cd>COID</ns:Cd>
+																<ns:Cd>Y</ns:Cd>
 															</ns:SchmeNm>
 														</ns:Othr>
 													</ns:OrgId>
@@ -389,9 +389,9 @@ Wyr5Rq14SRR1ZxgJH+5L8yieNAuqmoEKg5GiNA/8QJK0aOvwLqADCRVjAS+MW3Jv
 															<ns:Issr>PRH</ns:Issr>
 														</ns:Othr>
 														<ns:Othr>
-															<ns:Id>14037680A</ns:Id>
+															<ns:Id>1403768-0</ns:Id>
 															<ns:SchmeNm>
-																<ns:Cd>COID</ns:Cd>
+																<ns:Cd>Y</ns:Cd>
 															</ns:SchmeNm>
 														</ns:Othr>
 													</ns:OrgId>
@@ -474,9 +474,9 @@ Wyr5Rq14SRR1ZxgJH+5L8yieNAuqmoEKg5GiNA/8QJK0aOvwLqADCRVjAS+MW3Jv
 																<ns:Issr>PRH</ns:Issr>
 															</ns:Othr>
 															<ns:Othr>
-																<ns:Id>14037680A</ns:Id>
+																<ns:Id>1403768-0</ns:Id>
 																<ns:SchmeNm>
-																	<ns:Cd>COID</ns:Cd>
+																	<ns:Cd>Y</ns:Cd>
 																</ns:SchmeNm>
 															</ns:Othr>
 														</ns:OrgId>
