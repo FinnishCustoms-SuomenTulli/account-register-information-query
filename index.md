@@ -31,7 +31,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.16|26.3.2020|Päivitetty fin.013 skeema ja sen käyttö.|
 1.0.17|26.3.2020|Lisätty kuvaus hausta tallelokeron tunnisteella. päivitetty InformationRequestFIN012 versioon fin.012.001.02.|
 1.0.18|26.3.2020|Päivitetty oikeushenkilön rekisterinumeron käyttö ja kooditus|
-1.0.19|31.1.2020|Tarkennettu termistöä. Lisätty kuvaus pitkien tilitunnisteiden esitystavasta. Poistettu ylimääräinen tekstikappale. Tarkennuksia varmenteiden osapuolista. Tarkennettu allekirjoitusvaatimuksia.
+1.0.19|31.3.2020|Tarkennettu termistöä. Lisätty kuvaus pitkien tilitunnisteiden esitystavasta. Poistettu ylimääräinen tekstikappale. Tarkennuksia varmenteiden osapuolista. Tarkennettu allekirjoitusvaatimuksia.
 
 ## Sisällysluettelo
 
