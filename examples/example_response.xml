@@ -31,9 +31,9 @@
 						</ns:Id>
 					</ns:OrgId>
 				</ns:To>
-				<ns:BizMsgIdr>bwcCMFTsRqKvkDKC/XtkFQ==</ns:BizMsgIdr>
+				<ns:BizMsgIdr>nDSF50IQSCOqRtERSgmSUw==</ns:BizMsgIdr>
 				<ns:MsgDefIdr>auth.002.01.01</ns:MsgDefIdr>
-				<ns:CreDt>2020-04-09T13:50:15.509Z</ns:CreDt>
+				<ns:CreDt>2020-04-09T15:50:40.034Z</ns:CreDt>
 				<ns:Rltd>
 					<urn1:Fr>
 						<urn1:OrgId>
@@ -156,7 +156,7 @@ Wyr5Rq14SRR1ZxgJH+5L8yieNAuqmoEKg5GiNA/8QJK0aOvwLqADCRVjAS+MW3Jv
 								<ns:Document xmlns:ns="urn:fin.013.001.02">
 									<ns:InfRspnFin013>
 										<ns:InvstgtnId>ABC1234</ns:InvstgtnId>
-										<ns:CreDtTm>2020-04-09T13:50:15.509+03:00</ns:CreDtTm>
+										<ns:CreDtTm>2020-04-09T15:50:40.034+03:00</ns:CreDtTm>
 										<ns:SvcrId>
 											<ns:FinInstnId>
 												<ns:Othr>
@@ -234,6 +234,44 @@ Wyr5Rq14SRR1ZxgJH+5L8yieNAuqmoEKg5GiNA/8QJK0aOvwLqADCRVjAS+MW3Jv
 														</ns:DtAndPlcOfBirth>
 														<ns:Othr>
 															<ns:Id>210252-0218</ns:Id>
+															<ns:SchmeNm>
+																<ns:Cd>PIC</ns:Cd>
+															</ns:SchmeNm>
+														</ns:Othr>
+													</ns:PrvtId>
+												</ns:Id>
+											</ns:Id>
+											<ns:CustomerInfo/>
+										</ns:LegalPersonInfo>
+										<ns:LegalPersonInfo>
+											<ns:Id>
+												<ns:Nm>Hosseini, Justus Leone</ns:Nm>
+												<ns:Id>
+													<ns:PrvtId>
+														<ns:DtAndPlcOfBirth>
+															<ns:BirthDt>1979-10-01</ns:BirthDt>
+														</ns:DtAndPlcOfBirth>
+														<ns:Othr>
+															<ns:Id>011079-428W</ns:Id>
+															<ns:SchmeNm>
+																<ns:Cd>PIC</ns:Cd>
+															</ns:SchmeNm>
+														</ns:Othr>
+													</ns:PrvtId>
+												</ns:Id>
+											</ns:Id>
+											<ns:CustomerInfo/>
+										</ns:LegalPersonInfo>
+										<ns:LegalPersonInfo>
+											<ns:Id>
+												<ns:Nm>Simmons, Annele Suvi-Elina</ns:Nm>
+												<ns:Id>
+													<ns:PrvtId>
+														<ns:DtAndPlcOfBirth>
+															<ns:BirthDt>1974-01-12</ns:BirthDt>
+														</ns:DtAndPlcOfBirth>
+														<ns:Othr>
+															<ns:Id>120174-6066</ns:Id>
 															<ns:SchmeNm>
 																<ns:Cd>PIC</ns:Cd>
 															</ns:SchmeNm>
@@ -377,6 +415,61 @@ Wyr5Rq14SRR1ZxgJH+5L8yieNAuqmoEKg5GiNA/8QJK0aOvwLqADCRVjAS+MW3Jv
 											<ns:CustomerInfo>
 												<ns:OpngDt>1990-08-21</ns:OpngDt>
 											</ns:CustomerInfo>
+											<ns:Beneficiaries>
+												<ns:Id>
+													<ns:Nm>Simmons, Annele Suvi-Elina</ns:Nm>
+													<ns:PrvtId>
+														<ns:DtAndPlcOfBirth>
+															<ns:BirthDt>1974-01-12</ns:BirthDt>
+														</ns:DtAndPlcOfBirth>
+														<ns:Othr>
+															<ns:Id>120174-6066</ns:Id>
+															<ns:SchmeNm>
+																<ns:Cd>PIC</ns:Cd>
+															</ns:SchmeNm>
+														</ns:Othr>
+													</ns:PrvtId>
+												</ns:Id>
+												<ns:Id>
+													<ns:Nm>Hosseini, Justus Leone</ns:Nm>
+													<ns:PrvtId>
+														<ns:DtAndPlcOfBirth>
+															<ns:BirthDt>1979-10-01</ns:BirthDt>
+														</ns:DtAndPlcOfBirth>
+														<ns:Othr>
+															<ns:Id>011079-428W</ns:Id>
+															<ns:SchmeNm>
+																<ns:Cd>PIC</ns:Cd>
+															</ns:SchmeNm>
+														</ns:Othr>
+													</ns:PrvtId>
+												</ns:Id>
+											</ns:Beneficiaries>
+										</ns:LegalPersonInfo>
+										<ns:LegalPersonInfo>
+											<ns:Id>
+												<ns:Nm>Company 2</ns:Nm>
+												<ns:Id>
+													<ns:OrgId>
+														<ns:Othr>
+															<ns:Id>1403768-0</ns:Id>
+															<ns:SchmeNm>
+																<ns:Cd>COID</ns:Cd>
+															</ns:SchmeNm>
+														</ns:Othr>
+														<ns:Othr>
+															<ns:Id>1990-07-26</ns:Id>
+															<ns:SchmeNm>
+																<ns:Cd>RGDT</ns:Cd>
+															</ns:SchmeNm>
+															<ns:Issr>PRH</ns:Issr>
+														</ns:Othr>
+													</ns:OrgId>
+												</ns:Id>
+											</ns:Id>
+											<ns:CustomerInfo>
+												<ns:OpngDt>1990-08-21</ns:OpngDt>
+											</ns:CustomerInfo>
 											<ns:Beneficiaries/>
 										</ns:LegalPersonInfo>
 									</ns:InfRspnFin013>
@@ -393,7 +486,7 @@ Wyr5Rq14SRR1ZxgJH+5L8yieNAuqmoEKg5GiNA/8QJK0aOvwLqADCRVjAS+MW3Jv
 								<ns:Document xmlns:ns="urn:iso:std:iso:20022:tech:xsd:supl.027.001.01">
 									<ns:InfRspnSD1>
 										<ns:InvstgtnId>ABC1234</ns:InvstgtnId>
-										<ns:CreDtTm>2020-04-09T13:50:15.518+03:00</ns:CreDtTm>
+										<ns:CreDtTm>2020-04-09T15:50:40.036+03:00</ns:CreDtTm>
 										<ns:AcctSvcrId>
 											<ns:FinInstnId>
 												<ns:Othr>
@@ -475,6 +568,68 @@ Wyr5Rq14SRR1ZxgJH+5L8yieNAuqmoEKg5GiNA/8QJK0aOvwLqADCRVjAS+MW3Jv
 											<ns:AddtlInf>1968-04-20</ns:AddtlInf>
 										</ns:AcctAndPties>
 									</ns:InfRspnSD1>
+								</ns:Document>
+							</ns:Rslt>
+						</ns:InvstgtnRslt>
+					</ns:RtrInd>
+					<ns:RtrInd>
+						<ns:AuthrtyReqTp>
+							<ns:MsgNmId>auth.002.001.01</ns:MsgNmId>
+						</ns:AuthrtyReqTp>
+						<ns:InvstgtnRslt>
+							<ns:Rslt>
+								<ns:Document xmlns:ns="urn:fin.002.001.01">
+									<ns:InfRspnFin002>
+										<ns:InvstgtnId>ABC1234</ns:InvstgtnId>
+										<ns:CreDtTm>2020-04-09T15:50:40.037+03:00</ns:CreDtTm>
+										<ns:SvcrId>
+											<ns:FinInstnId>
+												<ns:Othr>
+													<ns:Id>8488829-6</ns:Id>
+													<ns:SchmeNm>
+														<ns:Cd>Y</ns:Cd>
+													</ns:SchmeNm>
+												</ns:Othr>
+											</ns:FinInstnId>
+										</ns:SvcrId>
+										<ns:SdBoxAndPties>
+											<ns:SdBox>
+												<ns:Id>sdBoxTest123</ns:Id>
+												<ns:OpngDt>2002-02-07</ns:OpngDt>
+												<ns:ClsgDt>2020-02-01</ns:ClsgDt>
+											</ns:SdBox>
+											<ns:Role>
+												<ns:Pty>
+													<ns:Nm>Company 2</ns:Nm>
+													<ns:Id>
+														<ns:OrgId>
+															<ns:Othr>
+																<ns:Id>1403768-0</ns:Id>
+																<ns:SchmeNm>
+																	<ns:Cd>COID</ns:Cd>
+																</ns:SchmeNm>
+															</ns:Othr>
+															<ns:Othr>
+																<ns:Id>1990-07-26</ns:Id>
+																<ns:SchmeNm>
+																	<ns:Cd>RGDT</ns:Cd>
+																</ns:SchmeNm>
+																<ns:Issr>PRH</ns:Issr>
+															</ns:Othr>
+														</ns:OrgId>
+													</ns:Id>
+												</ns:Pty>
+												<ns:OwnrTp>
+													<ns:Prtry>
+														<ns:Id>OWNE</ns:Id>
+														<ns:SchmeNm>RLTP</ns:SchmeNm>
+													</ns:Prtry>
+												</ns:OwnrTp>
+												<ns:StartDt>2002-02-07</ns:StartDt>
+												<ns:EndDt>2020-02-01</ns:EndDt>
+											</ns:Role>
+										</ns:SdBoxAndPties>
+									</ns:InfRspnFin002>
 								</ns:Document>
 							</ns:Rslt>
 						</ns:InvstgtnRslt>
