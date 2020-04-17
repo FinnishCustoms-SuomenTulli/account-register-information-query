@@ -32,6 +32,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.17|26.3.2020|Lisätty kuvaus hausta tallelokeron tunnisteella. päivitetty InformationRequestFIN012 versioon fin.012.001.02.|
 1.0.18|26.3.2020|Päivitetty oikeushenkilön rekisterinumeron käyttö ja kooditus|
 1.0.19|31.3.2020|Tarkennettu termistöä. Lisätty kuvaus pitkien tilitunnisteiden esitystavasta. Poistettu ylimääräinen tekstikappale. Tarkennuksia varmenteiden osapuolista. Tarkennettu allekirjoitusvaatimuksia.
+1.0.20|17.4.2020|Lisätty fin013 Beneficiary-kentälle roolin alkamis- ja päättymispäivät.|
 
 ## Sisällysluettelo
 
@@ -796,7 +797,9 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
 |Nm|Max140Text|Kyllä|[1..1]|Edunsaajan nimi. Formaatti vapaamuotoinen.|
-|PrvtId|PersonIdentification5b|Kyllä|[1..1]|Luonnollinen henkilö. Ks. [PersonIdentification5b-elementin käyttö](#PersonIdentification)
+|PrvtId|PersonIdentification5b|Kyllä|[1..1]|Luonnollinen henkilö. Ks. [PersonIdentification5b-elementin käyttö](#PersonIdentification)|
+|StartDt|ISODate|Kyllä|[1..1]|Roolin alkamispäivämäärä|
+|EndDt|ISODate|Kyllä|[0..1]|Roolin päättymispäivämäärä|
 
 ### <a name="Id-elementin_kaytto"></a> 4.11 Id-elementin käyttö
 
