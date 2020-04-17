@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2020 sp1 (x64) (http://www.altova.com) by Tulli (Tulli) -->
-<xs:schema xmlns="urn:fin.013.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:fin.013.001.02" elementFormDefault="qualified">
+<xs:schema xmlns="urn:fin.013.001.03" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:fin.013.001.03" elementFormDefault="qualified">
 	<xs:element name="Document" type="Document"/>
 	<xs:complexType name="LegalPersonInfo">
 		<xs:sequence>
@@ -137,6 +137,8 @@
 		<xs:sequence>
 			<xs:element name="Nm" type="Max140Text" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="PrvtId" type="PersonIdentification5b"/>
+			<xs:element name="StartDt" type="ISODate" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="EndDt" type="ISODate" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="PartyIdentification41b">
