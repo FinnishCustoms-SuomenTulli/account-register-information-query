@@ -76,13 +76,12 @@
                     <urn2:SchCrit>
                         <urn2:CstmrId>
                             <urn2:Pty>
-                                <urn2:Nm>Company Name</urn2:Nm>
                                 <urn2:Id>
                                     <urn2:OrgId>
                                         <urn2:Othr>
-                                            <urn2:Id>1</urn2:Id>
+                                            <urn2:Id>3723210-4</urn2:Id>
                                             <urn2:SchmeNm>
-                                                <urn2:Cd>NAME</urn2:Cd>
+                                                <urn2:Cd>COID</urn2:Cd>
                                             </urn2:SchmeNm>
                                         </urn2:Othr>
                                     </urn2:OrgId>
