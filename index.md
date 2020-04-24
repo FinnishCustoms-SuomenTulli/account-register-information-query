@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.21*
+*Dokumentin versio 1.0.22*
 
 ## Versiohistoria
 
@@ -34,6 +34,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.19|31.3.2020|Tarkennettu termistöä. Lisätty kuvaus pitkien tilitunnisteiden esitystavasta. Poistettu ylimääräinen tekstikappale. Tarkennuksia varmenteiden osapuolista. Tarkennettu allekirjoitusvaatimuksia.
 1.0.20|17.4.2020|Lisätty InformationResponseFIN013 Beneficiary-kentälle roolin alkamis- ja päättymispäivät. Päivitetty InformationResponseFIN013 versioon fin.013.001.03.|
 1.0.21|20.4.2020|Poistettu mahdollisuus hakea henkilötodistuksen tunnistenumerolla.|
+1.0.22|24.4.2020|Päivitetty SearchCriteria1Choice-kentän kuvaus kappaleessa 4.5.|
 
 ## Sisällysluettelo
 
