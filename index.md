@@ -381,7 +381,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |&nbsp;&nbsp;&nbsp;&nbsp;CnfdtltySts|YesNoIndicator|Kyllä|Aina "true"|
 |&nbsp;&nbsp;&nbsp;&nbsp;DueDt|DueDate1|Ei||
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Kyllä|Päivä tai päivämääräväli, johon haku kohdistuu. Päivämääräväli on aina tänään tai menneisyydessä. Aikavälihaku on sisällyttävä siten, että jos jokin tietosisältöön määritetty aikaväli (kaikki taulukoiden 4.3.1-4.3.5 päivämäärätietueet) sisältyy osittain tai kokonaan annettuun InvstgtnPrd-aikaväliin, on kyseinen tietorivi lisättävä hakutulokseen. |
-|&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Kyllä|Hakukriteeri. Käytettävä aina mahdollisimman täsmällistä hakukriteeriä. Esim. jos ei käytetä Y-tunnusta, vaan käytetään OtherOrganisationIdentification -kenttää, haku ei kohdistu Y-tunnuksiin lainkaan. Ks. [tarkempi erittely](#SearchCriteria1Choice) alla.|
+|&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Kyllä|Hakukriteeri. Käytettävä aina mahdollisimman täsmällistä hakukriteeriä. Ks. [tarkempi erittely](#SearchCriteria1Choice) alla.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Kyllä|Sisältää sanomalaajennuksen [InformationRequestFIN012](#InformationRequestFIN012)|
 
 #### <a name="SearchCriteria1Choice"></a> Haku henkilötunnuksella
