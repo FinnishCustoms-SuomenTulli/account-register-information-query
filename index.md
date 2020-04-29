@@ -124,7 +124,7 @@ Taulukossa 2.1. esitettyjen muuttujien kulloinkin voimassa olevat arvot kerrotaa
 Kyselyn vuo kulkee seuraavasti:
 1. Client lähettää kyselysanoman
 2. Server voi kyvykkyydestä ja kontekstista riippuen palauttaa hakutulokset joko synkronisesti tai asynkronisesti. Server joko  
-  a. Palauttaa vastaussanoman, joka sisältää hakutuloksen ja koodin *COMP*, viiden (5) sekunnin sisällä, tai  
+  a. Palauttaa vastaussanoman, joka sisältää hakutuloksen ja koodin *COMP*, esimerkiksi viiden (5) sekunnin sisällä, tai  
   b. palauttaa vastaussanoman, joka sisältää koodin *NRES* 
 3. Client tarkistaa onko vastaussanomassa koodi *COMP* vai *NRES*
 4. Jos koodi on *COMP*, siirrytään kohtaan 10.
