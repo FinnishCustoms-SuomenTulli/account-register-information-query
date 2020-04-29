@@ -35,7 +35,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.20|17.4.2020|Lisätty InformationResponseFIN013 Beneficiary-kentälle roolin alkamis- ja päättymispäivät. Päivitetty InformationResponseFIN013 versioon fin.013.001.03.|
 1.0.21|20.4.2020|Poistettu mahdollisuus hakea henkilötodistuksen tunnistenumerolla.|
 1.0.22|24.4.2020|Päivitetty SearchCriteria1Choice-kentän kuvaus kappaleessa 4.5.|
-1.0.23|20.4.2020|Selvennetty kuvaa 2.1. Pankki- ja maksutilitietojen kysely. Lisätty virhekoodeille numerointi.|
+1.0.23|29.4.2020|Selvennetty kuvaa 2.1. Pankki- ja maksutilitietojen kysely. Lisätty virhekoodeille numerointi.|
 
 ## Sisällysluettelo
 
