@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.22*
+*Dokumentin versio 1.0.23*
 
 ## Versiohistoria
 
@@ -35,6 +35,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.20|17.4.2020|Lisätty InformationResponseFIN013 Beneficiary-kentälle roolin alkamis- ja päättymispäivät. Päivitetty InformationResponseFIN013 versioon fin.013.001.03.|
 1.0.21|20.4.2020|Poistettu mahdollisuus hakea henkilötodistuksen tunnistenumerolla.|
 1.0.22|24.4.2020|Päivitetty SearchCriteria1Choice-kentän kuvaus kappaleessa 4.5.|
+1.0.23|29.4.2020|Selvennetty kuvaa 2.1. Pankki- ja maksutilitietojen kysely. Lisätty virhekoodeille numerointi.|
 
 ## Sisällysluettelo
 
@@ -115,22 +116,21 @@ Taulukossa 2.1. on esitetty vuokaavion muuttujien merkitys.
 
 |Muuttuja|Kuvaus|
 |:--|:--|
-|DELAY_1|Kyselyn request #1 sallittu maksimiviive, "välittömästi"|
-|DELAY_2|Pollausväli, viive joka clientin on odotettava ennen seuraavaa kyselyä|
-|RETRY_LIMIT|Kuinka monta pollausta (request #2) on sallittua tehdä|
+|POLLING_INTERVAL|Pollausväli, viive joka clientin on odotettava ennen seuraavaa kyselyä. Jos client pollaa serveriä liian tiheästi, voi server hylätä transaktion käsittelyn (virhekoodi 3, ks [4.12](#4-12)).|
+|RETRY_LIMIT|Kuinka monta pollausta on sallittua tehdä, ennen kuin lopetetaan. Jos vastausta ei edelleenkään saada, on joko tehtävä kokonaan uusi kysely tai siirrettävä asia manuaaliseen käsittelyyn.|
 
 Taulukossa 2.1. esitettyjen muuttujien kulloinkin voimassa olevat arvot kerrotaan liitedokumentaatiossa.
 
 Kyselyn vuo kulkee seuraavasti:
 1. Client lähettää kyselysanoman
-2. Server joko  
-  a. Palauttaa vastaussanoman, joka sisältää hakutuloksen ja koodin *COMP*, muuttujassa *DELAY_1* määritellyn viiveen sisällä ("välittömästi"), tai  
+2. Server voi kyvykkyydestä ja kontekstista riippuen palauttaa hakutulokset joko synkronisesti tai asynkronisesti. Server joko  
+  a. Palauttaa vastaussanoman, joka sisältää hakutuloksen ja koodin *COMP*, esimerkiksi viiden (5) sekunnin sisällä, tai  
   b. palauttaa vastaussanoman, joka sisältää koodin *NRES* 
 3. Client tarkistaa onko vastaussanomassa koodi *COMP* vai *NRES*
 4. Jos koodi on *COMP*, siirrytään kohtaan 10.
-5. Koodi on *NRES*. Client odottaa *DELAY_2* muuttujan määrittämän ajan ja tekee sen jälkeen kyselyn request #2
+5. Koodi on *NRES*. Client odottaa *POLLING_INTERVAL* muuttujan määrittämän ajan ja tekee sen jälkeen kyselyn request #2
 6. Server, joko  
-  a. Palauttaa hakutuloksen ja koodin *COMP*, muuttujassa *DELAY_1* määritellyn viiveen sisällä ("välittömästi"), tai  
+  a. Palauttaa hakutuloksen ja koodin *COMP*, tai  
   b. palauttaa vastaussanoman, joka sisältää koodin *NRES* 
 7. Client tarkistaa onko vastaussanomassa koodi *COMP* vai *NRES*
 8. Jos koodi on *COMP*, siirrytään kohtaan 10.
@@ -888,23 +888,74 @@ Kuvaus|Sanoma käsiteltiin kokonaisuudessaan onnistuneesti.
 HTTP status code|202
 Seuraamus|Palautetaan head.001.001.01 ja auth.002.001.01 sanomat ja mahdolliset alisanomat|
 
-#### Skenaario 2 - Virheellinen kyselysanoma
+#### Skenaario 2 - Tapahtui virhe
 
 | | |
 |---|---|  
-Kuvaus|Virheellinen sanoma.  
+Kuvaus|Tapahtui virhe  
 HTTP status code|500
 Seuraamus|Palautetaan SOAP Fault ks. taulukko alla|
 
 
 *__Taulukko 4.12.1:__ Virhekoodit*
-<table class="confluenceTable wrapped"><colgroup><col /><col /><col /><col /></colgroup><tbody><tr><th class="confluenceTh">Virhetilanne</th><th class="confluenceTh">faultcode</th><th class="confluenceTh" colspan="1">faultstring</th><th class="confluenceTh" colspan="1">detail</th></tr><tr><td class="confluenceTd">Asynkronisesti aloitettu kysely on kadonnut</td><td class="confluenceTd">SOAP-ENV:Server</td><td class="confluenceTd" colspan="1">The query has been lost. Please re-send initial query.</td><td class="confluenceTd" colspan="1"><br /></td></tr><tr><td class="confluenceTd">XML-allekirjoitus on virheellinen</td><td class="confluenceTd">SOAP-ENV:Client</td><td class="confluenceTd" colspan="1">The provided signature is invalid.</td><td class="confluenceTd" colspan="1"><br /></td></tr><tr><td class="confluenceTd">Sanomassa on validointivirheit&auml;</td><td class="confluenceTd">SOAP-ENV:Client</td><td class="confluenceTd" colspan="1">Bad Request.</td><td class="confluenceTd" colspan="1"><p>1 kpl ValidationError-elementti&auml; per validointivirhe esim.</p><p><code>&lt;ValidationError&gt;</code><code>Validaatiovirheen kuvaus&lt;/ValidationError&gt;</code></p></td></tr><tr><td class="confluenceTd" colspan="1">Muu sis&auml;inen virhe</td><td class="confluenceTd" colspan="1">SOAP-ENV:Server</td><td class="confluenceTd" colspan="1">Internal Server Error.</td><td class="confluenceTd" colspan="1"><br /></td></tr></tbody></table>
+
+<table>
+  <colgroup><col /><col /><col /><col /></colgroup>
+  <tbody>
+    <tr>
+      <th>Virhetilanne</th>
+      <th >faultcode</th>
+      <th  colspan="1">faultstring</th>
+      <th  colspan="1">detail</th>
+      <th  colspan="1">Virhekoodi</th>
+    </tr>
+    <tr>
+      <td >Asynkronisesti aloitettu kysely on kadonnut</td>
+      <td >SOAP-ENV:Server</td>
+      <td  colspan="1">The query has been lost. Please re-send initial query.</td>
+      <td  colspan="1"><code>&lt;errorcode&gt;1&lt;/errorcode&gt;</code></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td >XML-allekirjoitus on virheellinen</td>
+      <td >SOAP-ENV:Client</td>
+      <td  colspan="1">The provided signature is invalid.</td>
+      <td  colspan="1"><code>&lt;errorcode&gt;2&lt;/errorcode&gt;</code></td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td >Transaktio hylätty liian tiheän pollausvälin johdosta</td>
+      <td >SOAP-ENV:Client</td>
+      <td  colspan="1">Too many requests</td>
+      <td  colspan="1"><code>&lt;errorcode&gt;3&lt;/errorcode&gt;</code></td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td >Sanomassa on validointivirheit&auml;</td>
+      <td >SOAP-ENV:Client</td><td  colspan="1">Bad Request</td>
+      <td  colspan="1">
+        <p>1 kpl ValidationError-elementti&auml; per validointivirhe esim.</p>
+        <p><code>&lt;errorcode&gt;4&lt;/errorcode&gt;</code><br /><code>&lt;ValidationError&gt;</code><code>Validaatiovirheen kuvaus&lt;/ValidationError&gt;</code></p>
+      </td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td  colspan="1">Palvelimen virhe</td>
+      <td  colspan="1">SOAP-ENV:Server</td>
+      <td  colspan="1">Internal Server Error</td>
+      <td  colspan="1"><code>&lt;errorcode&gt;0&lt;/errorcode&gt;</code></td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
 
 ### <a name="4-13"></a> 4.13 Kiistanalaisten tietojen palauttaminen
 
 Kyselyvastauksessa esitetyistä tiedoista osa voi olla kiistanalaisia. Tällöin liitetään auth.002.001.01 sanomaan `Document/InfReqRspn/SplmtryData`-elementin alle disputed.xsd mukainen supplementary data, jossa listataan kiistanalaisten tietueiden tunnisteet. 
 
 *__Listaus 4.13.1:__ Esimerkki kiistanalaisten tietojen ilmoittamisesta Supplementary Datassa*
+
 ```
 <Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="disputed.xsd">
 	<Disputed>
