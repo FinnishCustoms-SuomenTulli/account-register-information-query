@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.24*
+*Dokumentin versio 1.0.25*
 
 ## Versiohistoria
 
@@ -37,6 +37,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.22|24.4.2020|Päivitetty SearchCriteria1Choice-kentän kuvaus kappaleessa 4.5.|
 1.0.23|29.4.2020|Selvennetty kuvaa 2.1. Pankki- ja maksutilitietojen kysely. Lisätty virhekoodeille numerointi.|
 1.0.24|5.5.2020|Luvun 4.3 tarkennuksia: maininta luonnollisen henkilön edunsaajatiedosta, maininta tilin osallisista, maininta tallelokeron osallisista.|
+1.0.25|6.5.2020|Selvennetty etu- ja sukunimien esitystavan rajoituksia liittyen ISO 20022 auth.001-sanomaan.|
 
 ## Sisällysluettelo
 
