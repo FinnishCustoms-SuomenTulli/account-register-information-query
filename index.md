@@ -263,7 +263,7 @@ SOAP body koostuu aina kahdesta osasta, ISO 20022 Business Application Headerist
 Business Application Header sanoman tiedot on esitetty seuraavassa taulukossa.
 
 |Sanoma-id|Sanoman nimi|
-|:---|:---|:--|
+|:---|:---|
 |[head.001.001.01](https://www.iso20022.org/message-set/651/download)|Business Application Header|
 
 BAH on oltava aina SOAP bodyn ensimmäinen elementti.
