@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.25*
+*Dokumentin versio 1.0.26*
 
 ## Versiohistoria
 
@@ -38,6 +38,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.23|29.4.2020|Selvennetty kuvaa 2.1. Pankki- ja maksutilitietojen kysely. Lisätty virhekoodeille numerointi.|
 1.0.24|5.5.2020|Luvun 4.3 tarkennuksia: maininta luonnollisen henkilön edunsaajatiedosta, maininta tilin osallisista, maininta tallelokeron osallisista.|
 1.0.25|6.5.2020|Selvennetty etu- ja sukunimien esitystavan rajoituksia liittyen ISO 20022 auth.001-sanomaan.|
+1.0.26|7.5.2020|Korjattu linkitykset kappaleissa 4.2 ja 4.3.|
 
 ## Sisällysluettelo
 
@@ -261,17 +262,17 @@ SOAP body koostuu aina kahdesta osasta, ISO 20022 Business Application Headerist
 
 Business Application Header sanoman tiedot on esitetty seuraavassa taulukossa.
 
-|Sanoma-id|Sanoman nimi|Sovellusohje|
+|Sanoma-id|Sanoman nimi|
 |:---|:---|:--|
-|[head.001.001.01](https://www.iso20022.org/documents/messages/head/schemas/head.001.001.01.zip)|Business Application Header|[MUG](https://www.iso20022.org/documents/general/BAHMUG.zip)|
+|[head.001.001.01](https://www.iso20022.org/message-set/651/download)|Business Application Header|
 
 BAH on oltava aina SOAP bodyn ensimmäinen elementti.
 
 ### <a name="4-3"></a> 4.3 Kyselyrajapinnan sanomat
 
-Tiedonhakujärjestelmän kyselyrajapinnassa käytetään [ISO 20022 -sanomia InformationRequestOpeningV01 (auth.001.001.01)ja InformationRequestResponseV01 (auth.002.001.01)](https://www.iso20022.org/full_catalogue.page), joihin liitetään tarvittavat alisanomat ([Supplementary Data](https://www.iso20022.org/supplementary_data.page)).
+Tiedonhakujärjestelmän kyselyrajapinnassa käytetään ISO 20022 -sanomia [InformationRequestOpeningV01 (auth.001.001.01)](https://www.iso20022.org/message/10186/download) ja [InformationRequestResponseV01 (auth.002.001.01)](https://www.iso20022.org/message/10191/download), joihin liitetään tarvittavat alisanomat ([Supplementary Data](http://www.iso20022.org/sites/default/files/documents/D7/InformationResponse_SupplementaryData.zip)).
 
-Ylätasolla käytettävät alisanomat jakautuvat kolmeen käsitteeseen: asiakkuus, tili ja tallelokero. Asiakkuus- ja edunsaajatiedot palautetaan sanomassa [fin.013.001.02](schemas/fin.013.001.02.xsd), tilitiedot sanomassa [supl.027.001.01](https://www.iso20022.org/sites/default/files/documents/SuppData_extensions/ISO20022_SupplementaryData_14Feb2019_v1.xlsx) ja tallelokerotiedot sanomassa [fin.002.001.01](schemas/fin.002.001.01) (huom. tässä sama koodi eräiden olemassaolevien järjestelmien manuaalisen käsittelyn kanssa). Nämä alisanomat liitetään [auth.002.001.01](https://www.iso20022.org/documents/messages/auth/schemas/auth.002.001.01.zip) elementtiin `InformationRequestResponseV01/RtrInd`.
+Ylätasolla käytettävät alisanomat jakautuvat kolmeen käsitteeseen: asiakkuus, tili ja tallelokero. Asiakkuus- ja edunsaajatiedot palautetaan sanomassa [fin.013.001.03](schemas/fin.013.001.03.xsd), tilitiedot sanomassa [supl.027.001.01](http://www.iso20022.org/sites/default/files/documents/D7/InformationResponse_SupplementaryData.zip) ja tallelokerotiedot sanomassa [fin.002.001.02](schemas/fin.002.001.02) (huom. tässä sama koodi eräiden olemassaolevien järjestelmien manuaalisen käsittelyn kanssa). Nämä alisanomat liitetään [auth.002.001.01](https://www.iso20022.org/message/10191/download) elementtiin `InformationRequestResponseV01/RtrInd`.
 
 Taulukoissa *4.3.1*-*4.3.5* on esitetty pankki- ja maksutilirekisterin tietosisältö, sekä Supplementary Data -alisanoma, jonka osana kukin tieto palautetaan.  
 
