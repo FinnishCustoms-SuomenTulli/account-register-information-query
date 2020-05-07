@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.24*
+*Dokumentin versio 1.0.25*
 
 ## Versiohistoria
 
@@ -37,6 +37,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.22|24.4.2020|Päivitetty SearchCriteria1Choice-kentän kuvaus kappaleessa 4.5.|
 1.0.23|29.4.2020|Selvennetty kuvaa 2.1. Pankki- ja maksutilitietojen kysely. Lisätty virhekoodeille numerointi.|
 1.0.24|5.5.2020|Luvun 4.3 tarkennuksia: maininta luonnollisen henkilön edunsaajatiedosta, maininta tilin osallisista, maininta tallelokeron osallisista.|
+1.0.25|6.5.2020|Selvennetty etu- ja sukunimien esitystavan rajoituksia liittyen ISO 20022 auth.001-sanomaan.|
 
 ## Sisällysluettelo
 
@@ -282,7 +283,7 @@ Tarkemmat sanomakuvaukset ovat tämän luvun aliluvuissa 4.4 alkaen.
 
 |Tieto|Sanoma(t)|Kuvaus|
 |:---|:---|:---|
-|Täydellinen nimi|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyssä Pty/Nm-elementissä, lähdejärjestelmän formaatissa.|
+|Täydellinen nimi|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyssä Pty/Nm-elementissä, lähdejärjestelmän formaatissa. Jotta saavutetaan yhteensopivuus olemassaolevien järjestelmien kanssa, on käytettävä yhtä nimikenttää esittämään henkilön kaikki nimet. Tämän elementin formaattia etu- ja sukunimien suhteen ei ole tarkasti määritelty ISO 20022 -sanomatoteutuksissa, jotka on tiedonhakurajapinnan määrittelytyön pohjaksi annettu (auth.001: Document/InfReqOpng/SchCrit/CstmrId/Pty/Nm). Lisäksi on huomioitava, ettei etu- ja/tai sukunimeä esiinny globaalisti kaikilla henkilöillä.|
 |Syntymäaika|fin.002, fin.013, supl.027|Palautetaan jos luonnollisella henkilöllä ei ole suomalaista henkilötunnusta. Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
 |Henkilötunnus|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
 |Kansalaisuudet|fin.002, fin.013, supl.027|Palautetaan jos luonnollisella henkilöllä ei ole suomalaista henkilötunnusta. Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
