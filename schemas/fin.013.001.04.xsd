@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2020 sp1 (x64) (http://www.altova.com) by Tulli (Tulli) -->
+<xs:schema xmlns="urn:fin.013.001.04" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:fin.013.001.04" elementFormDefault="qualified">
+	<xs:element name="Document" type="Document"/>
+	<xs:complexType name="LegalPersonInfo">
+		<xs:sequence>
+			<xs:element name="Id" type="PartyIdentification41b"/>
+			<xs:element name="CustomerInfo" type="CustomerInfo" minOccurs="0"/>
+			<xs:element name="Beneficiaries" type="Beneficiaries" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Beneficiaries">
+		<xs:sequence>
+			<xs:element name="Id" type="Beneficiary" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="CountryCode">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Z]{2,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="CustomerInfo">
+		<xs:sequence>
+			<xs:element name="OpngDt" type="ISODate"/>
+			<xs:element name="ClsgDt" type="ISODate" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BranchAndFinancialInstitutionIdentification4">
+		<xs:sequence>
+			<xs:element name="FinInstnId" type="FinancialInstitutionIdentification7"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DateAndPlaceOfBirth2">
+		<xs:sequence>
+			<xs:element name="BirthDt" type="ISODate"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Document">
+		<xs:sequence>
+			<xs:element name="InfRspnFin013" type="InformationResponseFIN013"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ExternalFinancialInstitutionIdentification1Code">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ExternalOrganisationIdentification1Code">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ExternalPersonIdentification1Code">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="FinancialIdentificationSchemeName1Choice">
+		<xs:choice>
+			<xs:element name="Cd" type="ExternalFinancialInstitutionIdentification1Code"/>
+			<xs:element name="Prtry" type="Max35Text"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="FinancialInstitutionIdentification7">
+		<xs:sequence>
+			<xs:element name="Othr" type="GenericFinancialIdentification1b" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GenericFinancialIdentification1b">
+		<xs:sequence>
+			<xs:element name="Id" type="Max35Text"/>
+			<xs:element name="SchmeNm" type="FinancialIdentificationSchemeName1Choice" maxOccurs="1"/>
+			<xs:element name="Issr" type="Max35Text" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GenericOrganisationIdentification1">
+		<xs:sequence>
+			<xs:element name="Id" type="Max35Text"/>
+			<xs:element name="SchmeNm" type="OrganisationIdentificationSchemeName1Choice" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Issr" type="Max35Text" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GenericPersonIdentification1b">
+		<xs:sequence>
+			<xs:element name="Id" type="Max35Text"/>
+			<xs:element name="SchmeNm" type="PersonIdentificationSchemeName1Choice" maxOccurs="1"/>
+			<xs:element name="Issr" type="Max35Text" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ISODate">
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+	<xs:simpleType name="ISODateTime">
+		<xs:restriction base="xs:dateTime"/>
+	</xs:simpleType>
+	<xs:complexType name="InformationResponseFIN013">
+		<xs:sequence>
+			<xs:element name="InvstgtnId" type="Max35Text"/>
+			<xs:element name="CreDtTm" type="ISODateTime"/>
+			<xs:element name="SvcrId" type="BranchAndFinancialInstitutionIdentification4"/>
+			<xs:element name="LegalPersonInfo" type="LegalPersonInfo" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Max140Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="140"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max35Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="35"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="OrganisationIdentification6b">
+		<xs:sequence>
+			<xs:element name="Othr" type="GenericOrganisationIdentification1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OrganisationIdentificationSchemeName1Choice">
+		<xs:choice>
+			<xs:element name="Cd" type="ExternalOrganisationIdentification1Code"/>
+			<xs:element name="Prtry" type="Max35Text"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Party8Choice2">
+		<xs:choice>
+			<xs:element name="OrgId" type="OrganisationIdentification6b"/>
+			<xs:element name="PrvtId" type="PersonIdentification5b"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Beneficiary">
+		<xs:sequence>
+			<xs:element name="Nm" type="Max140Text" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="PrvtId" type="PersonIdentification5b"/>
+			<xs:element name="StartDt" type="ISODate" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="EndDt" type="ISODate" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PartyIdentification41b">
+		<xs:sequence>
+			<xs:element name="Nm" type="Max140Text" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Id" type="Party8Choice2" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersonIdentification5b">
+		<xs:sequence>
+			<xs:element name="DtAndPlcOfBirth" type="DateAndPlaceOfBirth2" maxOccurs="1"/>
+			<xs:element name="Othr" type="GenericPersonIdentification1b" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersonIdentificationSchemeName1Choice">
+		<xs:choice>
+			<xs:element name="Cd" type="ExternalPersonIdentification1Code"/>
+			<xs:element name="Prtry" type="Max35Text"/>
+		</xs:choice>
+	</xs:complexType>
+</xs:schema>
