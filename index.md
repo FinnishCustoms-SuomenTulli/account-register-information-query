@@ -807,7 +807,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |:---|:---|:---|:---|:---|
 |Nm|Max140Text|Kyllä|[1..1]|Edunsaajan nimi. Formaatti vapaamuotoinen.|
 |PrvtId|PersonIdentification5b|Kyllä|[1..1]|Luonnollinen henkilö. Ks. [PersonIdentification5b-elementin käyttö](#PersonIdentification)|
-|StartDt|ISODate|Kyllä|[1..1]|Roolin alkamispäivämäärä|
+|StartDt|ISODate|Kyllä|[0..1]|Roolin alkamispäivämäärä|
 |EndDt|ISODate|Kyllä|[0..1]|Roolin päättymispäivämäärä|
 
 ### <a name="Id-elementin_kaytto"></a> 4.11 Id-elementin käyttö
