@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.27*
+*Dokumentin versio 1.0.28*
 
 ## Versiohistoria
 
@@ -40,6 +40,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.25|6.5.2020|Selvennetty etu- ja sukunimien esitystavan rajoituksia liittyen ISO 20022 auth.001-sanomaan.|
 1.0.26|7.5.2020|Korjattu linkitykset kappaleissa 4.2 ja 4.3.|
 1.0.27|11.5.2020|Poistettu edunsaajan roolin alkupäivän pakollisuus, päivitetty fin.013 skeema versioon fin.013.001.04.|
+1.0.28|14.5.2020|Lisätty tarkennus vastaussanomien kokorajoituksiin.|
 
 ## Sisällysluettelo
 
@@ -106,6 +107,10 @@ Tässä dokumentissa kuvataan tiedonhakujärjestelmän kyselyrajapinnat.
 ## 2. Pankki- ja maksutilitietojen kysely tiedonhakujärjestelmästä <a name="luku2"></a>
 
 Tässä luvussa on kuvattu pankki- ja maksutilitietojen kysely tiedonhakujärjestelmästä.
+
+Viranomaisten järjestelmissä  on olemassa rajoituksia yksittäisen sanoman koolle.
+
+Toimijat voivat käyttöönoton yhteydessä keskenään sopia sanomien kokorajasta sekä keinoista, millä tavoin yksittäisen sanoman kokoa voidaan tarvittaessa pienentää tai vaihtoehtoisesta menetelmästä satunnaisten ylisuurten sanomien toimittamiseen.
 
 Kuvassa 2.1 on esitetty vuokaaviona pankki- ja maksutilitietojen kysely tiedonhakujärjestelmästä.
 
