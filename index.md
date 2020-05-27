@@ -41,6 +41,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.26|7.5.2020|Korjattu linkitykset kappaleissa 4.2 ja 4.3.|
 1.0.27|11.5.2020|Poistettu edunsaajan roolin alkupäivän pakollisuus, päivitetty fin.013 skeema versioon fin.013.001.04.|
 1.0.28|14.5.2020|Lisätty tarkennus vastaussanomien kokorajoituksiin.|
+1.0.29|28.5.2020|Lisätty Unauthorized-virhekoodi taulukkoon 4.12.1.|
 
 ## Sisällysluettelo
 
@@ -948,6 +949,14 @@ Seuraamus|Palautetaan SOAP Fault ks. taulukko alla|
       <td  colspan="1">
         <p>1 kpl ValidationError-elementti&auml; per validointivirhe esim.</p>
         <p><code>&lt;errorcode&gt;4&lt;/errorcode&gt;</code><br /><code>&lt;ValidationError&gt;</code><code>Validaatiovirheen kuvaus&lt;/ValidationError&gt;</code></p>
+      </td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td >Sanoman indikoimalla käyttäjällä ei ole käyttöoikeutta</td>
+      <td >SOAP-ENV:Client</td><td  colspan="1">Unauthorized</td>
+      <td  colspan="1">
+        <p><code>&lt;errorcode&gt;5&lt;/errorcode&gt;</code><br /></p>
       </td>
       <td>4</td>
     </tr>
