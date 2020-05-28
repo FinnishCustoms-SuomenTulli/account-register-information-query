@@ -958,7 +958,7 @@ Seuraamus|Palautetaan SOAP Fault ks. taulukko alla|
       <td  colspan="1">
         <p><code>&lt;errorcode&gt;5&lt;/errorcode&gt;</code><br /></p>
       </td>
-      <td>4</td>
+      <td>5</td>
     </tr>
     <tr>
       <td  colspan="1">Palvelimen virhe</td>
