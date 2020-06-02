@@ -403,8 +403,8 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 
 |Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
 |:---|:---|:---|:---|
-|\<Id\>|CstmrId/Pty/Id/Prvtld/Othr|Hetu|Validi henkilötunnus.|
-|\<Cd\>|CstmrId/Pty/Id/Prvtld/Othr/SchmeNm|"PIC" (Person Identification Code, hetu)|
+|\<Id\>|CstmrId/Pty/Id/PrvtId/Othr|Hetu|Validi henkilötunnus.|
+|\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchmeNm|"PIC" (Person Identification Code, hetu)|
 |\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
