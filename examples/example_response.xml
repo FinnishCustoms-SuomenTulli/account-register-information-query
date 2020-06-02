@@ -470,6 +470,7 @@ Wyr5Rq14SRR1ZxgJH+5L8yieNAuqmoEKg5GiNA/8QJK0aOvwLqADCRVjAS+MW3Jv
 											<ns:CustomerInfo>
 												<ns:OpngDt>1990-08-21</ns:OpngDt>
 											</ns:CustomerInfo>
+											<ns:Beneficiaries/>
 										</ns:LegalPersonInfo>
 									</ns:InfRspnFin013>
 								</ns:Document>
