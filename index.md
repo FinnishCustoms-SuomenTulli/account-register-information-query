@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.28*
+*Dokumentin versio 1.0.30*
 
 ## Versiohistoria
 
@@ -42,6 +42,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.27|11.5.2020|Poistettu edunsaajan roolin alkupäivän pakollisuus, päivitetty fin.013 skeema versioon fin.013.001.04.|
 1.0.28|14.5.2020|Lisätty tarkennus vastaussanomien kokorajoituksiin.|
 1.0.29|28.5.2020|Lisätty Unauthorized-virhekoodi taulukkoon 4.12.1.|
+1.0.30|2.5.2020|Korjattu kirjoitusvirheitä ja muotoiluja. Poistettu tarpeettomia kohtia.|
 
 ## Sisällysluettelo
 
@@ -762,7 +763,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |:---|:---|:---|:---|:---|
 |CustomerAccount1| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Id|Max34Text|kyllä|[1..1]|Yksilöllinen tallelokeron tunniste|
-|&nbsp;&nbsp;&nbsp;&nbsp;ClsgDt||kyllä|[0..1]|Vuokra-ajan alkupäivämäärä*|
+|&nbsp;&nbsp;&nbsp;&nbsp;OpngDt||kyllä|[0..1]|Vuokra-ajan alkupäivämäärä*|
 |&nbsp;&nbsp;&nbsp;&nbsp;ClsgDt||kyllä|[0..1]|Vuokra-ajan päättymispäivämäärä*|
 
 *) Vuokra-ajan pituus ilmoitettava joko alkaen pvm, päättyen pvm tai päivämääräväli.
@@ -790,6 +791,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |&nbsp;&nbsp;&nbsp;&nbsp;LegalPersonInfo|kyllä|[1..*]|LegalPersonInfo|Oikeushenkilö tai luonnollinen henkilö. Ks. [LegalPersonInfo-elementin käyttö](#LegalPersonInfo) taulukko alla|
 
 #### <a name="LegalPersonInfo"></a>LegalPersonInfo-elementin käyttö
+
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
 |Id|PartyIdentification41b|Kyllä|[1..1]|Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
@@ -797,6 +799,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |Beneficiaries|Beneficiaries|Kyllä|[0..1]|Edunsaajatiedot. Ks. [Beneficiaries-elementin käyttö](#Beneficiaries_kaytto)|
 
 #### <a name="CustomerInfo"></a>CustomerInfo-elementin käyttö
+
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
 |OpngDt|ISODate|Kyllä|[1..1]|Asiakkuuden alkupäivämäärä|
@@ -809,6 +812,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |Id|Beneficiary|kyllä|[1..*]|Ks. [Beneficiary-elementin käyttö](#Beneficiary)|
 
 #### <a name="Beneficiary"></a> Beneficiary-elementin käyttö
+
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
 |Nm|Max140Text|Kyllä|[1..1]|Edunsaajan nimi. Formaatti vapaamuotoinen.|
@@ -834,6 +838,7 @@ Kaikissa sanomissa käytetään vastaavaa oikeushenkilön ja luonnollisen henkil
 |&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|PersonIdentification5|[0..1]|Ks. [PersonIdentification5-elementin käyttö](#PersonIdentification)|
 
 #### <a name="PersonIdentification"></a>PersonIdentification5- ja PersonIdentification5b-elementtien käyttö
+
 |XPath|Tyyppi|Kuvaus|
 |:---|:---|:---|
 |Othr/SchmeNm/Cd|ExternalPersonIdentification1Code|Sisältää henkilötunnisteen tyyppikoodin, tai kansalaisuuskoodin jos henkilöllä ei ole henkilötunnusta.|
@@ -854,7 +859,6 @@ PrvtId koodit
 |:---|:---|
 |PIC|Suomalainen henkilötunnus|
 |NATI|Kansalaisuus|
-|OTHR|Muu henkilön tunnistusasiakirjan id|
 
 Syntymäaika
 
@@ -862,8 +866,6 @@ Syntymäaika
 |:---|:---|:---|:---|
 |DtAndPlcOfBirth| | | |
 |BirthDt|ISODate|Syntymäaika.| 
-|CtryOfBirth| |arvoksi asetetaan "XX" |
-|CityOfBirth| |arvoksi asetetaan ”not in use”|
 
 #### <a name="rgdt"></a> Esimerkki oikeushenkilön rekisteröitymispäivän palauttamisesta
 
