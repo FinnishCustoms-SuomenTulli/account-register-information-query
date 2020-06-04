@@ -31,9 +31,9 @@
 						</ns:Id>
 					</ns:OrgId>
 				</ns:To>
-				<ns:BizMsgIdr xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">X4M+oPG5TquCJqLOFKgfIg==</ns:BizMsgIdr>
+				<ns:BizMsgIdr xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">Irxh1QcSTZSiVj8UaW6qzA==</ns:BizMsgIdr>
 				<ns:MsgDefIdr xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">auth.002.01.01</ns:MsgDefIdr>
-				<ns:CreDt xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">2020-06-03T15:42:48.328Z</ns:CreDt>
+				<ns:CreDt xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">2020-06-04T17:25:32.769Z</ns:CreDt>
 				<ns:Sgntr xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
 					<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
 						<SignedInfo>
@@ -44,14 +44,14 @@
 									<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
 								</Transforms>
 								<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
-								<DigestValue>yQjPUoAJivO2CXFqhO2z/1XzsIvqBKOiuOyfmQsYrJ8=</DigestValue>
+								<DigestValue>gM4Ddz7w/ZfHN/dNhTxb5MEF//NjpojM0I643m3nezk=</DigestValue>
 							</Reference>
 						</SignedInfo>
-						<SignatureValue>Dr3S/rVBQZzhn4I5NiewSbMPS6Q5cbyDc0o6Fqq4dnyQOIEz+40xu6RA3g0mqZclkJzOBbbcrTlK
-							vBua4RMupNz9h1g9Qr6FZW/QRqI1JMviaJfvE8Xr3PdnD7WkMXRwRxdyudOszeINc5yirALgvWmq
-							y2Gz9dMxo/TxO4gW5a/PY/QTEVdF9SZNxupwz3dc7ilYhT+xNMzsVTaBgAVchMc2o3zhd1XAz0Sl
-							Z+QNx8xMYFTbinCfGdvSjaO7xo1dQdk/y/7is4/nal2/BKqTTysCNfJk0XCDXhI7hztBgVKPuij9
-							uvbCDsnp++KPej9QOuXC0GTyqpQ3so1pdD2Fiw==</SignatureValue>
+						<SignatureValue>ccf1ZSBT4OZW+j/Gcpa7LU59wzpcRzZWIaxuRSprOxV2wrM40DLlmWg9+S357oJ3ygby+dgxpjRw
+							SyJ8KJv/r0yzjJnAVNsRg5AEcKGfthb7RNhcHqM9ihfDue1VQ77PZ2fLdJfFy23h3ogc3n8MrEJ6
+							aJrRSEbLYjgZ5Lo4Rtl79AjJgE47diOQGNiAIw1RJ4/ayRCBM1YuhnoIC2q/y/+gYXzdQDmy4vT9
+							NlYRA6kVdY/7nWXYm7VgNrpY+SLcxmtMhoDf2bV00+1hWKOtEvyqYoDucTlD8cWgctEvhxEGhRgJ
+							zFglBwhgo2OxgSFPUEu0GwPkQ74jSt5Is75HzQ==</SignatureValue>
 						<KeyInfo>
 							<X509Data>
 								<X509SubjectName>2.5.4.5=#130a46493032343534343238,CN=0245442-8,O=Tulli,ST=Uusimaa,C=FI</X509SubjectName>
@@ -200,6 +200,31 @@
 										hnyYgcG31zenwy35YWkhNxH2mffCM7+FBJ/Dz1dAbnP7KIHpRkAFM7ie5USy7YBf
 										ltZsjFDYl9QGhn63k5Dks37inRjtEhad5ZHrkj8uYTNzuP5sTzYleEl+iN8MlV7+
 										9opJQsPD</X509Certificate>
+									<X509Certificate>MIIEgjCCAmoCFEJoHj8iA6GW4Wl356dpxq0S87X1MA0GCSqGSIb3DQEBCwUAMIGi
+										MQswCQYDVQQGEwJGSTEQMA4GA1UECAwHVXVzaW1hYTERMA8GA1UEBwwISGVsc2lu
+										a2kxDjAMBgNVBAoMBVR1bGxpMR4wHAYDVQQLDBVBY2NvdW50IFJlZ2lzdGVyIFRl
+										c3QxFzAVBgNVBAMMDnRlc3Qgcm9vdCBjZXJ0MSUwIwYJKoZIhvcNAQkBFhZ0aWxp
+										cmVraXN0ZXJpQHR1bGxpLmZpMB4XDTIwMDUwNzA1Mzc0MVoXDTIxMDkxOTA1Mzc0
+										MVowWDELMAkGA1UEBhMCRkkxEDAOBgNVBAgMB1V1c2ltYWExDjAMBgNVBAoMBVR1
+										bGxpMRIwEAYDVQQDDAkwMjQ1NDQyLTgxEzARBgNVBAUTCkZJMDI0NTQ0MjgwggEi
+										MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDKI3antoM2IgM44vVc+2qveNm5
+										XS0hDRLNtAtR6qkwy+qKfNABTP5PNudvYSoEWkE731bJjmUlU2vAZxG3SVzqLnuK
+										nJmmUBrgPgb7OMs1KGasCK5Ru4QOqg70AkU7th1my+8C+oqNI8ft0Ii0VAWwm7Fj
+										jg7o6wHHLOwCca44BA5gr2O9pQSG8A+4tIvpXSNyRinMW1WhTGAXdn6Cd5tlNYWS
+										vrvYYOCSbL5tOJq85AshT0KstgnyyVgXqb+wGv3kR1emmEzx8mtQSEar8ku1ottO
+										qxH6zQ0uwpnwCZHr21nq6kS19pe9W11HALRChOgFGZe3ziJRdRSI0/Ch3RAnAgMB
+										AAEwDQYJKoZIhvcNAQELBQADggIBAA89hSeonW+p5/Y7z7y4tbui9VbwJW7nmCFC
+										QoGyDq5zt/xLS5SYXxmzo5GtFbjRwZ/+KV2R2bYT+YVkdGvA5ZeqGz1USuyr0NTZ
+										56aSMEvrvgIvxVRZCzKg3u8l/yck1LXam3yjwIcqLtLmObDJInOwy/+QjRCN0/b8
+										5o79sbGVE6ixEa5Uul3whh9mqlpbmbgmRjWP+/I16+LW7clmrGefHvdzcA2/83LW
+										SFqpljv0PQAURO67GjvPvpYlFLLlBiYWrSh8Nww2t1zdMqgIygDa5JPMQvvwMZFv
+										EQmVxpv3HVKd1/8+ZoWOWRGI3l95HpBwNz+ZgeQdpyRKF9WU5F2ajdk0i2/Ugt/C
+										4m3b5jQOK71aKI7bVXcOTzfNG+rAplWFZM3MV1+XJXPmTKB5gPMqd/KAl//EJ5Cq
+										3WaSYK2GuvahhO44egaUHgrT45mlJ443vuM07j6GXFqAJeCXC5CUN90Z4WwMKI3b
+										2RmSfOt6P3HXcgbWm+1deG+rnH911OsrDVnVZL088zfLsRWhl1qIwzPz76AG1y74
+										hnyYgcG31zenwy35YWkhNxH2mffCM7+FBJ/Dz1dAbnP7KIHpRkAFM7ie5USy7YBf
+										ltZsjFDYl9QGhn63k5Dks37inRjtEhad5ZHrkj8uYTNzuP5sTzYleEl+iN8MlV7+
+										9opJQsPD</X509Certificate>
 								</X509Data>
 							</KeyInfo>
 						</Signature>
@@ -244,7 +269,7 @@
 								<ns:Document xmlns:ns="urn:fin.013.001.04">
 									<ns:InfRspnFin013>
 										<ns:InvstgtnId>ABC1234</ns:InvstgtnId>
-										<ns:CreDtTm>2020-06-03T15:42:48.331+03:00</ns:CreDtTm>
+										<ns:CreDtTm>2020-06-04T17:25:32.77+03:00</ns:CreDtTm>
 										<ns:SvcrId>
 											<ns:FinInstnId>
 												<ns:Othr>
@@ -255,121 +280,6 @@
 												</ns:Othr>
 											</ns:FinInstnId>
 										</ns:SvcrId>
-										<ns:LegalPersonInfo>
-											<ns:Id>
-												<ns:Nm>Company 2</ns:Nm>
-												<ns:Id>
-													<ns:OrgId>
-														<ns:Othr>
-															<ns:Id>1403768-0</ns:Id>
-															<ns:SchmeNm>
-																<ns:Cd>COID</ns:Cd>
-															</ns:SchmeNm>
-														</ns:Othr>
-														<ns:Othr>
-															<ns:Id>1990-07-26</ns:Id>
-															<ns:SchmeNm>
-																<ns:Cd>RGDT</ns:Cd>
-															</ns:SchmeNm>
-															<ns:Issr>PRH</ns:Issr>
-														</ns:Othr>
-													</ns:OrgId>
-												</ns:Id>
-											</ns:Id>
-											<ns:CustomerInfo>
-												<ns:OpngDt>1990-08-21</ns:OpngDt>
-											</ns:CustomerInfo>
-											<ns:Beneficiaries>
-												<ns:Id>
-													<ns:Nm>Simmons, Annele Suvi-Elina</ns:Nm>
-													<ns:PrvtId>
-														<ns:DtAndPlcOfBirth>
-															<ns:BirthDt>1974-01-12</ns:BirthDt>
-														</ns:DtAndPlcOfBirth>
-														<ns:Othr>
-															<ns:Id>120174-6066</ns:Id>
-															<ns:SchmeNm>
-																<ns:Cd>PIC</ns:Cd>
-															</ns:SchmeNm>
-														</ns:Othr>
-													</ns:PrvtId>
-													<ns:StartDt>1990-08-21</ns:StartDt>
-												</ns:Id>
-												<ns:Id>
-													<ns:Nm>Hosseini, Justus Leone</ns:Nm>
-													<ns:PrvtId>
-														<ns:DtAndPlcOfBirth>
-															<ns:BirthDt>1979-10-01</ns:BirthDt>
-														</ns:DtAndPlcOfBirth>
-														<ns:Othr>
-															<ns:Id>011079-428W</ns:Id>
-															<ns:SchmeNm>
-																<ns:Cd>PIC</ns:Cd>
-															</ns:SchmeNm>
-														</ns:Othr>
-													</ns:PrvtId>
-													<ns:StartDt>1995-04-29</ns:StartDt>
-													<ns:EndDt>2019-12-11</ns:EndDt>
-												</ns:Id>
-											</ns:Beneficiaries>
-										</ns:LegalPersonInfo>
-										<ns:LegalPersonInfo>
-											<ns:Id>
-												<ns:Nm>Company 1</ns:Nm>
-												<ns:Id>
-													<ns:OrgId>
-														<ns:Othr>
-															<ns:Id>1620873-8</ns:Id>
-															<ns:SchmeNm>
-																<ns:Cd>COID</ns:Cd>
-															</ns:SchmeNm>
-														</ns:Othr>
-														<ns:Othr>
-															<ns:Id>1956-06-24</ns:Id>
-															<ns:SchmeNm>
-																<ns:Cd>RGDT</ns:Cd>
-															</ns:SchmeNm>
-															<ns:Issr>PRH</ns:Issr>
-														</ns:Othr>
-													</ns:OrgId>
-												</ns:Id>
-											</ns:Id>
-											<ns:CustomerInfo>
-												<ns:OpngDt>1972-02-04</ns:OpngDt>
-											</ns:CustomerInfo>
-											<ns:Beneficiaries>
-												<ns:Id>
-													<ns:Nm>Petrow, Emad Johny</ns:Nm>
-													<ns:PrvtId>
-														<ns:DtAndPlcOfBirth>
-															<ns:BirthDt>1949-10-17</ns:BirthDt>
-														</ns:DtAndPlcOfBirth>
-														<ns:Othr>
-															<ns:Id>171049-338K</ns:Id>
-															<ns:SchmeNm>
-																<ns:Cd>PIC</ns:Cd>
-															</ns:SchmeNm>
-														</ns:Othr>
-													</ns:PrvtId>
-													<ns:StartDt>1970-08-04</ns:StartDt>
-												</ns:Id>
-												<ns:Id>
-													<ns:Nm>Dahlbacka, Rafael Stellan</ns:Nm>
-													<ns:PrvtId>
-														<ns:DtAndPlcOfBirth>
-															<ns:BirthDt>1952-10-21</ns:BirthDt>
-														</ns:DtAndPlcOfBirth>
-														<ns:Othr>
-															<ns:Id>210252-0218</ns:Id>
-															<ns:SchmeNm>
-																<ns:Cd>PIC</ns:Cd>
-															</ns:SchmeNm>
-														</ns:Othr>
-													</ns:PrvtId>
-													<ns:StartDt>1971-12-27</ns:StartDt>
-												</ns:Id>
-											</ns:Beneficiaries>
-										</ns:LegalPersonInfo>
 										<ns:LegalPersonInfo>
 											<ns:Id>
 												<ns:Nm>Company 2</ns:Nm>
@@ -499,7 +409,7 @@
 								<ns:Document xmlns:ns="urn:iso:std:iso:20022:tech:xsd:supl.027.001.01">
 									<ns:InfRspnSD1>
 										<ns:InvstgtnId>ABC1234</ns:InvstgtnId>
-										<ns:CreDtTm>2020-06-03T15:42:48.339+03:00</ns:CreDtTm>
+										<ns:CreDtTm>2020-06-04T17:25:32.771+03:00</ns:CreDtTm>
 										<ns:AcctSvcrId>
 											<ns:FinInstnId>
 												<ns:Othr>
@@ -580,76 +490,6 @@
 											</ns:Role>
 											<ns:AddtlInf>1968-04-20</ns:AddtlInf>
 										</ns:AcctAndPties>
-										<ns:AcctAndPties>
-											<ns:Acct>
-												<ns:Id>
-													<ns:IBAN>FI0647674328000895</ns:IBAN>
-												</ns:Id>
-												<ns:Ccy>EUR</ns:Ccy>
-												<ns:ClsgDt>2020-01-20</ns:ClsgDt>
-											</ns:Acct>
-											<ns:Role>
-												<ns:Pty>
-													<ns:Nm>Company 2</ns:Nm>
-													<ns:Id>
-														<ns:OrgId>
-															<ns:Othr>
-																<ns:Id>1403768-0</ns:Id>
-																<ns:SchmeNm>
-																	<ns:Cd>COID</ns:Cd>
-																</ns:SchmeNm>
-															</ns:Othr>
-															<ns:Othr>
-																<ns:Id>1990-07-26</ns:Id>
-																<ns:SchmeNm>
-																	<ns:Cd>RGDT</ns:Cd>
-																</ns:SchmeNm>
-																<ns:Issr>PRH</ns:Issr>
-															</ns:Othr>
-														</ns:OrgId>
-													</ns:Id>
-												</ns:Pty>
-												<ns:OwnrTp>
-													<ns:Tp>TRUS</ns:Tp>
-													<ns:Prtry>
-														<ns:Id>ACCE</ns:Id>
-														<ns:SchmeNm>RLTP</ns:SchmeNm>
-													</ns:Prtry>
-												</ns:OwnrTp>
-												<ns:StartDt>2012-01-30</ns:StartDt>
-											</ns:Role>
-											<ns:Role>
-												<ns:Pty>
-													<ns:Nm>Company 1</ns:Nm>
-													<ns:Id>
-														<ns:OrgId>
-															<ns:Othr>
-																<ns:Id>1620873-8</ns:Id>
-																<ns:SchmeNm>
-																	<ns:Cd>COID</ns:Cd>
-																</ns:SchmeNm>
-															</ns:Othr>
-															<ns:Othr>
-																<ns:Id>1956-06-24</ns:Id>
-																<ns:SchmeNm>
-																	<ns:Cd>RGDT</ns:Cd>
-																</ns:SchmeNm>
-																<ns:Issr>PRH</ns:Issr>
-															</ns:Othr>
-														</ns:OrgId>
-													</ns:Id>
-												</ns:Pty>
-												<ns:OwnrTp>
-													<ns:Tp>TRUS</ns:Tp>
-													<ns:Prtry>
-														<ns:Id>OWNE</ns:Id>
-														<ns:SchmeNm>RLTP</ns:SchmeNm>
-													</ns:Prtry>
-												</ns:OwnrTp>
-												<ns:StartDt>1972-02-04</ns:StartDt>
-											</ns:Role>
-											<ns:AddtlInf>1968-04-20</ns:AddtlInf>
-										</ns:AcctAndPties>
 									</ns:InfRspnSD1>
 								</ns:Document>
 							</ns:Rslt>
@@ -664,7 +504,7 @@
 								<ns:Document xmlns:ns="urn:fin.002.001.01">
 									<ns:InfRspnFin002>
 										<ns:InvstgtnId>ABC1234</ns:InvstgtnId>
-										<ns:CreDtTm>2020-06-03T15:42:48.341+03:00</ns:CreDtTm>
+										<ns:CreDtTm>2020-06-04T17:25:32.771+03:00</ns:CreDtTm>
 										<ns:SvcrId>
 											<ns:FinInstnId>
 												<ns:Othr>
@@ -675,41 +515,6 @@
 												</ns:Othr>
 											</ns:FinInstnId>
 										</ns:SvcrId>
-										<ns:SdBoxAndPties>
-											<ns:SdBox>
-												<ns:Id>OKOYFIHH-345hyiwqq89l5</ns:Id>
-												<ns:OpngDt>1950-02-11</ns:OpngDt>
-											</ns:SdBox>
-											<ns:Role>
-												<ns:Pty>
-													<ns:Nm>Company 2</ns:Nm>
-													<ns:Id>
-														<ns:OrgId>
-															<ns:Othr>
-																<ns:Id>1403768-0</ns:Id>
-																<ns:SchmeNm>
-																	<ns:Cd>COID</ns:Cd>
-																</ns:SchmeNm>
-															</ns:Othr>
-															<ns:Othr>
-																<ns:Id>1990-07-26</ns:Id>
-																<ns:SchmeNm>
-																	<ns:Cd>RGDT</ns:Cd>
-																</ns:SchmeNm>
-																<ns:Issr>PRH</ns:Issr>
-															</ns:Othr>
-														</ns:OrgId>
-													</ns:Id>
-												</ns:Pty>
-												<ns:OwnrTp>
-													<ns:Prtry>
-														<ns:Id>OWNE</ns:Id>
-														<ns:SchmeNm>RLTP</ns:SchmeNm>
-													</ns:Prtry>
-												</ns:OwnrTp>
-												<ns:StartDt>1950-02-11</ns:StartDt>
-											</ns:Role>
-										</ns:SdBoxAndPties>
 										<ns:SdBoxAndPties>
 											<ns:SdBox>
 												<ns:Id>OKOYFIHH-345hyiwqq89l5</ns:Id>
