@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.30*
+*Dokumentin versio 1.0.31*
 
 ## Versiohistoria
 
@@ -42,7 +42,8 @@ Versio|Päivämäärä|Kuvaus
 1.0.27|11.5.2020|Poistettu edunsaajan roolin alkupäivän pakollisuus, päivitetty fin.013 skeema versioon fin.013.001.04.|
 1.0.28|14.5.2020|Lisätty tarkennus vastaussanomien kokorajoituksiin.|
 1.0.29|28.5.2020|Lisätty Unauthorized-virhekoodi taulukkoon 4.12.1.|
-1.0.30|2.5.2020|Korjattu kirjoitusvirheitä ja muotoiluja. Poistettu tarpeettomia kohtia.|
+1.0.30|2.6.2020|Korjattu kirjoitusvirheitä ja muotoiluja. Poistettu tarpeettomia kohtia.|
+1.0.31|8.6.2020|fin.002.001.02.xsd ja fin.012.001.02.xsd päivityksiä.|
 
 ## Sisällysluettelo
 
