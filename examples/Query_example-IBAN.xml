@@ -7,6 +7,7 @@
     <soapenv:Header />
     <soapenv:Body>
         <urn:ApplicationRequest>
+            <urn1:CharSet>UTF-8</urn1:CharSet>
             <urn:AppHdr>
                 <urn1:Fr>
                     <urn1:OrgId>
