@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.31*
+*Dokumentin versio 1.0.32*
 
 ## Versiohistoria
 
@@ -44,6 +44,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.29|28.5.2020|Lisätty Unauthorized-virhekoodi taulukkoon 4.12.1.|
 1.0.30|2.6.2020|Korjattu kirjoitusvirheitä ja muotoiluja. Poistettu tarpeettomia kohtia.|
 1.0.31|8.6.2020|fin.002.001.02.xsd ja fin.012.001.02.xsd päivityksiä.|
+1.0.32|11.6.2020|Uudelleennimetty skeeman fin.012 InfRspnFin012-elementti InfReqFin012-nimiseksi. Päivitetty skeema fin.012 versioon fin.012.001.03.|
 
 ## Sisällysluettelo
 
@@ -95,7 +96,7 @@ Tämä dokumentti on osa Tullin julkaisemaa määräystä pankki- ja maksutilien
 
 [fin.002.001.01](schemas/fin.002.001.01.xsd)
 
-[fin.012.001.02](schemas/fin.012.001.02.xsd)
+[fin.012.001.03](schemas/fin.012.001.03.xsd)
 
 [fin.013.001.04](schemas/fin.013.001.04.xsd)
 
@@ -466,14 +467,14 @@ ISO-sanoman rajoitusten vuoksi Document/InfReqOpng/SchCrit on täytettävä joki
 |Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
 |:---|:---|:---|
 |\<Pty\>|CstmrId|Jätetään tyhjäksi|
-|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"fin.012.001.02"|
+|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"fin.012.001.03"|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
-Varsinainen hakukriteeri, tallelokeron tunniste, asetetaan auth.001.001.01 Supplementary Dataan, fin.012.001.02 sanomalaajennuksen SafetyDepositBoxId-elementtiin seuraavassa taulukossa esitetyllä tavalla.
+Varsinainen hakukriteeri, tallelokeron tunniste, asetetaan auth.001.001.01 Supplementary Dataan, fin.012.001.03 sanomalaajennuksen SafetyDepositBoxId-elementtiin seuraavassa taulukossa esitetyllä tavalla.
 
 |Tagi|Skeeman polku InfReqOpng/SplmtryData/Envlp/|Kuvaus|Sääntö|
 |:---|:---|:---|:---|
-|\<SafetyDepositBoxId\>|Document/InfRspnFin012/AdditionalSearchCriteria/|Tallelokeron tunniste|Täsmällinen osuma 1:1, ml. erikoismerkit. Formaatti on vapaamuotoinen.|
+|\<SafetyDepositBoxId\>|Document/InfReqFin012/AdditionalSearchCriteria/|Tallelokeron tunniste|Täsmällinen osuma 1:1, ml. erikoismerkit. Formaatti on vapaamuotoinen.|
 
 ### <a name="InformationRequestFIN012"></a> 4.6 Sanomalaajennus InformationRequestFIN012
 
