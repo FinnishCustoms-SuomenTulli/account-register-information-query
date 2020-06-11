@@ -149,7 +149,7 @@ Wyr5Rq14SRR1ZxgJH+5L8yieNAuqmoEKg5GiNA/8QJK0aOvwLqADCRVjAS+MW3Jv
 					</ns:SchCrit>
 					<ns:RtrInd>
 						<ns:AuthrtyReqTp>
-							<ns:MsgNmId>auth.002.001.01</ns:MsgNmId>
+							<ns:MsgNmId>fin.013.001.02</ns:MsgNmId>
 						</ns:AuthrtyReqTp>
 						<ns:InvstgtnRslt>
 							<ns:Rslt>
@@ -479,7 +479,7 @@ Wyr5Rq14SRR1ZxgJH+5L8yieNAuqmoEKg5GiNA/8QJK0aOvwLqADCRVjAS+MW3Jv
 					</ns:RtrInd>
 					<ns:RtrInd>
 						<ns:AuthrtyReqTp>
-							<ns:MsgNmId>auth.002.001.01</ns:MsgNmId>
+							<ns:MsgNmId>supl.027.001.01</ns:MsgNmId>
 						</ns:AuthrtyReqTp>
 						<ns:InvstgtnRslt>
 							<ns:Rslt>
@@ -574,7 +574,7 @@ Wyr5Rq14SRR1ZxgJH+5L8yieNAuqmoEKg5GiNA/8QJK0aOvwLqADCRVjAS+MW3Jv
 					</ns:RtrInd>
 					<ns:RtrInd>
 						<ns:AuthrtyReqTp>
-							<ns:MsgNmId>auth.002.001.01</ns:MsgNmId>
+							<ns:MsgNmId>fin.002.001.01</ns:MsgNmId>
 						</ns:AuthrtyReqTp>
 						<ns:InvstgtnRslt>
 							<ns:Rslt>
