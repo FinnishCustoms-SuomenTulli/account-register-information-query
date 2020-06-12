@@ -45,7 +45,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.30|2.6.2020|Korjattu kirjoitusvirheitä ja muotoiluja. Poistettu tarpeettomia kohtia.|
 1.0.31|8.6.2020|fin.002.001.02.xsd ja fin.012.001.02.xsd päivityksiä.|
 1.0.32|11.6.2020|Uudelleennimetty skeeman fin.012 InfRspnFin012-elementti InfReqFin012-nimiseksi. Päivitetty skeema fin.012 versioon fin.012.001.03.|
-1.0.33|12.6.2020|Päivitetty XML-allekirjoituksen muodostamisen vaatimuksia.|
+1.0.33|12.6.2020|Päivitetty XML-allekirjoituksen muodostamisen vaatimuksia. WSDL päivitetty.|
 
 ## Sisällysluettelo
 
