@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.32*
+*Dokumentin versio 1.0.33*
 
 ## Versiohistoria
 
@@ -45,6 +45,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.30|2.6.2020|Korjattu kirjoitusvirheitä ja muotoiluja. Poistettu tarpeettomia kohtia.|
 1.0.31|8.6.2020|fin.002.001.02.xsd ja fin.012.001.02.xsd päivityksiä.|
 1.0.32|11.6.2020|Uudelleennimetty skeeman fin.012 InfRspnFin012-elementti InfReqFin012-nimiseksi. Päivitetty skeema fin.012 versioon fin.012.001.03.|
+1.0.33|12.6.2020|Päivitetty XML-allekirjoituksen muodostamisen vaatimuksia.|
 
 ## Sisällysluettelo
 
@@ -221,7 +222,7 @@ Esimerkki 3.1. Esimerkki SignedInfo
 <SignedInfo>
   <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
   <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
-  <Reference URI="">
+  <Reference URI="#applicationRequest">
     <Transforms>
       <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
       <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
@@ -232,7 +233,7 @@ Esimerkki 3.1. Esimerkki SignedInfo
 </SignedInfo>
 ```
 
-Allekirjoitusalgoritmi on siis RSA-SHA256 ja C14N on Exclusive XML Canonicalization. Reference URI on "", eli koko dokumentti allekirjoitetaan. Allekirjoitusta muodostettaessa laskettavien tiivisteiden (Digest) muodostamiseen tulee käyttää SHA256 -algoritmia.
+Allekirjoitusalgoritmi on siis RSA-SHA256 ja C14N on Exclusive XML Canonicalization. Reference URI on joko "#applicationRequest" tai "#applicationResponse", riippuen onko kyseessä kysely- vai vastaussanoma. Eli vain "ApplicationRequest" tai "ApplicationResponse" elementti allekirjoitetaan. Allekirjoitusta muodostettaessa laskettavien tiivisteiden (Digest) muodostamiseen tulee käyttää SHA256 -algoritmia.
 
 Allekirjoituksessa käytettyjen kryptografisten algoritmien on vastattava kryptografiselta vahvuudeltaan vähintään Viestintäviraston määrittelemiä kryptografisia vahvuusvaatimuksia kansalliselle suojaustasolle ST IV. Tämänhetkiset vahvuusvaatimukset on kuvattu dokumentissa https://www.kyberturvallisuuskeskus.fi/sites/default/files/media/regulation/ohje-kryptografiset-vahvuusvaatimukset-kansalliset-suojaustasot.pdf (Dnro: 190/651/2015).
 
