@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.33*
+*Dokumentin versio 1.0.34*
 
 ## Versiohistoria
 
@@ -46,6 +46,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.31|8.6.2020|fin.002.001.02.xsd ja fin.012.001.02.xsd päivityksiä.|
 1.0.32|11.6.2020|Uudelleennimetty skeeman fin.012 InfRspnFin012-elementti InfReqFin012-nimiseksi. Päivitetty skeema fin.012 versioon fin.012.001.03.|
 1.0.33|12.6.2020|Päivitetty XML-allekirjoituksen muodostamisen vaatimuksia. WSDL päivitetty.|
+1.0.34|3.7.2020|Tarkennettu että hakutekijät yrityksen nimi ja luonnollisen henkilön nimi ovat aakkoskoosta riippumattomat.
 
 ## Sisällysluettelo
 
@@ -425,7 +426,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 
 |Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
 |:---|:---|:---|:---|
-|\<Id\>|CstmrId/Pty/Nm|Yrityksen nimi|Täsmällinen osuma 1:1|
+|\<Id\>|CstmrId/Pty/Nm|Yrityksen nimi|Täsmällinen osuma 1:1. Aakkoskoosta riippumaton.|
 |\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Arvoksi asetetaan "1"|
 |\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchmeNm|"NAME"|
 |\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
@@ -453,7 +454,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 
 |Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
 |:---|:---|:---|:---|
-|\<Nm\>|CstmrId/Pty|Nimi|Täsmällinen osuma 1:1, ml. erikoismerkit. Formaatti on vapaamuotoinen.|
+|\<Nm\>|CstmrId/Pty|Nimi|Täsmällinen osuma 1:1, ml. erikoismerkit. Aakkoskoosta riippumaton. Formaatti on vapaamuotoinen.|
 |\<Id\>|CstmrId/Pty/Id/PrvtId/Othr|Maakoodi|
 |\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchmeNm|"NATI"|
 |\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth|Syntymäaika. `CtryOfBirth` arvoksi asetetaan "XX" ja `CityOfBirth` arvoksi asetetaan ”not in use”|
