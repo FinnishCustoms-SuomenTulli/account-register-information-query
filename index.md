@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.34*
+*Dokumentin versio 1.0.35*
 
 ## Versiohistoria
 
@@ -47,6 +47,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.32|11.6.2020|Uudelleennimetty skeeman fin.012 InfRspnFin012-elementti InfReqFin012-nimiseksi. Päivitetty skeema fin.012 versioon fin.012.001.03.|
 1.0.33|12.6.2020|Päivitetty XML-allekirjoituksen muodostamisen vaatimuksia. WSDL päivitetty.|
 1.0.34|3.7.2020|Tarkennettu että hakutekijät yrityksen nimi ja luonnollisen henkilön nimi ovat aakkoskoosta riippumattomat.
+1.0.35|23.7.2020|Päivitetty iso20022.org -sivuston linkit.
 
 ## Sisällysluettelo
 
@@ -90,11 +91,11 @@ Tämä dokumentti on osa Tullin julkaisemaa määräystä pankki- ja maksutilien
 
 [ISO 20022 External Code Sets](https://www.iso20022.org/external_code_list.page)
 
-[ISO 20022 auth.001.001.01 InformationRequestOpeningV01 MDR](https://www.iso20022.org/documents/general/Payments_AFI_MDR_January2013.zip)
+[ISO 20022 auth.001.001.01 InformationRequestOpeningV01 MDR](https://www.iso20022.org/business-area/36/download)
 
-[ISO 20022 auth.002.001.01 InformationRequestResponseV01 MDR](https://www.iso20022.org/documents/general/Payments_AFI_MDR_January2013.zip)
+[ISO 20022 auth.002.001.01 InformationRequestResponseV01 MDR](https://www.iso20022.org/business-area/36/download)
 
-[ISO 20022 head.001.001.01 skeema](https://www.iso20022.org/documents/messages/head/schemas/head.001.001.01.zip)
+[ISO 20022 head.001.001.01 skeema](https://www.iso20022.org/business-area/136/download)
 
 [fin.002.001.01](schemas/fin.002.001.01.xsd)
 
@@ -348,8 +349,8 @@ Tarkemmat sanomakuvaukset ovat tämän luvun aliluvuissa 4.4 alkaen.
 
 |Sanoma-id|Sanoman nimi|Käyttötarkoitus|Vastaava organisaatio|Msg Def Report|
 |---|---|---|---|---| 
-|auth.001.001.01|InformationRequestOpeningV01|Kyselyrajapinnan kyselysanoma|FFI|[MDR](https://www.iso20022.org/documents/general/Payments_AFI_MDR_January2013.zip)|
-|auth.002.001.01|InformationRequestResponseV01|Kyselyrajapinnan vastaussanoma|FFI|[MDR](https://www.iso20022.org/documents/general/Payments_AFI_MDR_January2013.zip)|
+|auth.001.001.01|InformationRequestOpeningV01|Kyselyrajapinnan kyselysanoma|FFI|[MDR](https://www.iso20022.org/business-area/36/download)|
+|auth.002.001.01|InformationRequestResponseV01|Kyselyrajapinnan vastaussanoma|FFI|[MDR](https://www.iso20022.org/business-area/36/download)|
 
 
 *__Taulukko 4.3.7:__ Kyselysanomaan auth.001 liitettävä alisanoma*
@@ -370,7 +371,7 @@ Kyselyrajapinnan sanomavastauksiin sisällytetään kaikki hakukriteereitä vast
 
 ### <a name="BusinessApplicationHeaderV01"></a> 4.4 BusinessApplicationHeaderV01
 
-Seuraavassa taulukossa on esitetty BAH-elementtien käyttö. Elementtien tyypit on kuvattu [head.001.001.01-skeemassa](https://www.iso20022.org/documents/messages/head/schemas/head.001.001.01.zip).
+Seuraavassa taulukossa on esitetty BAH-elementtien käyttö. Elementtien tyypit on kuvattu [head.001.001.01-skeemassa](https://www.iso20022.org/business-area/136/download).
 
 |Nimi|Tyyppi|Käytössä|Kuvaus|
 |:---|:---|:---|:---|
