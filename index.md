@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.36*
+*Dokumentin versio 1.0.37*
 
 ## Versiohistoria
 
@@ -49,6 +49,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.34|3.7.2020|Tarkennettu että hakutekijät yrityksen nimi ja luonnollisen henkilön nimi ovat aakkoskoosta riippumattomat.|
 1.0.35|23.7.2020|Päivitetty iso20022.org -sivuston linkit.|
 1.0.36|13.8.2020|Korjattu Haku yrityksen nimellä -kohtaan yrityksen nimen tagi (Id -> Nm).|
+1.0.37|21.8.2020|Poistettu lauseesta "jokaista hakutulostyyppiä kohti palautetaan enintään yksi hakutulos-alisanoma" sana "enintään".|
 
 ## Sisällysluettelo
 
@@ -521,7 +522,7 @@ ReturnIndicator1 sisältää yksittäisen hakutulostyypin esiintymän.
 |RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|sisältää sanomalaajennuksen sanoma-id:n (supl.027.001.01, fin.013.001.04 tai fin.002.001.01)|
 |RtrInd/InvstgtnRslt|InvestigationResult1Choice|palautetaan `Rslt` elementti tyyppiä SupplementaryDataEnvelope1, joka sisältää joko [supl.027.001.01](#supl.027.001.01), [InformationResponseFIN002](#InformationResponseFIN002) tai [InformationResponseFIN013](#InformationResponseFIN013) tai `InvstgtnSts` koodilla `NFOU`.
 
-Jokaista hakutulostyyppiä kohti palautetaan enintään yksi hakutulos-alisanoma (supl.027.001.01, fin.013.001.04 tai fin.002.001.01) per Y-tunnus. 
+Jokaista hakutulostyyppiä kohti palautetaan yksi hakutulos-alisanoma (supl.027.001.01, fin.013.001.04 tai fin.002.001.01) per Y-tunnus. 
 
 __Esimerkki 1.__  
 
