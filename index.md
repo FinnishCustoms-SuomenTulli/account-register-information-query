@@ -418,9 +418,7 @@ Järjestelmä palauttaa ainoastaan hakukriteereissä pyydetyt alisanomat (supl.0
 
 |Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
 |:---|:---|:---|:---|
-|\<MsgNmId\>|Haku henkilötunnuksella, luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä, oikeushenkilön rekisterinumerolla, yrityksen nimellä tai tallelokeron tunnisteella:<br/>
-CstmrId/AuthrtyReq/Tp<br/><br/>Haku IBANilla tai muulla tilin yksilöintitunnuksella:<br/>
-Acct/AuthrtyReqTp|"supl.027.001.01", "fin.002.001.02" tai "fin.013.001.04"||
+|\<MsgNmId\>|Haku henkilötunnuksella, luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä, oikeushenkilön rekisterinumerolla, yrityksen nimellä tai tallelokeron tunnisteella:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Haku IBANilla tai muulla tilin yksilöintitunnuksella:<br/>Acct/AuthrtyReqTp|"supl.027.001.01", "fin.002.001.02" tai "fin.013.001.04"||
 
 #### <a name=""></a> Haku henkilötunnuksella
 
