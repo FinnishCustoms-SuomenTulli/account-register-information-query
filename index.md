@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.38*
+*Dokumentin versio 1.0.39*
 
 ## Versiohistoria
 
@@ -50,7 +50,8 @@ Versio|Päivämäärä|Kuvaus
 1.0.35|23.7.2020|Päivitetty iso20022.org -sivuston linkit.|
 1.0.36|13.8.2020|Korjattu Haku yrityksen nimellä -kohtaan yrityksen nimen tagi (Id -> Nm).|
 1.0.37|24.8.2020|Lisätty tarkentava huomautus liittyen tietoliikenteessä ja sanomien allekirjoituksissa käytettävien avainten pituuksista.|
-1.0.38|25.8.2020|Tietoliikenne- ja allekirjoitusvarmenteen serialNumber attribuuttina sallitaan sekä Y-tunnus että ALV-tunnus.|
+1.0.38|24.8.2020|Lisätty kappale "Hakutuloksen alisanomien rajaaminen". Poistettu lauseesta "jokaista hakutulostyyppiä kohti palautetaan enintään yksi hakutulos-alisanoma" sana "enintään".|
+1.0.39|25.8.2020|Tietoliikenne- ja allekirjoitusvarmenteen serialNumber attribuuttina sallitaan sekä Y-tunnus että ALV-tunnus.|
 
 ## Sisällysluettelo
 
@@ -410,14 +411,22 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Kyllä|Päivä tai päivämääräväli, johon haku kohdistuu. Päivämääräväli on aina tänään tai menneisyydessä. Aikavälihaku on sisällyttävä siten, että jos jokin tietosisältöön määritetty aikaväli (kaikki taulukoiden 4.3.1-4.3.5 päivämäärätietueet) sisältyy osittain tai kokonaan annettuun InvstgtnPrd-aikaväliin, on kyseinen tietorivi lisättävä hakutulokseen. |
 |&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Kyllä|Hakukriteeri. Käytettävä aina mahdollisimman täsmällistä hakukriteeriä. Ks. [tarkempi erittely](#SearchCriteria1Choice) alla.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Kyllä|Sisältää sanomalaajennuksen [InformationRequestFIN012](#InformationRequestFIN012)|
+|&nbsp;&nbsp;&nbsp;&nbsp;|SupplementaryData1|Kyllä|Sisältää sanomalaajennuksen [InformationRequestFIN012](#InformationRequestFIN012)|
 
-#### <a name="SearchCriteria1Choice"></a> Haku henkilötunnuksella
+#### <a name="SearchCriteria1Choice"></a> Hakutuloksen alisanomien rajaaminen
+
+Järjestelmä palauttaa ainoastaan hakukriteereissä pyydetyt alisanomat (supl.027.001.01, fin.002.001.02, fin.013.001.04). Kutakin alisanomaa pyydetään erillisessä AuthorityRequestType1 -tyyppisessä elementissä, joita siis tulee esiintyä hakukriteereissä 1-3 kappaletta.
+
+|Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
+|:---|:---|:---|:---|
+|\<MsgNmId\>|Haku henkilötunnuksella, luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä, oikeushenkilön rekisterinumerolla, yrityksen nimellä tai tallelokeron tunnisteella:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Haku IBANilla tai muulla tilin yksilöintitunnuksella:<br/>Acct/AuthrtyReqTp|"supl.027.001.01", "fin.002.001.02" tai "fin.013.001.04"||
+
+#### <a name=""></a> Haku henkilötunnuksella
 
 |Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
 |:---|:---|:---|:---|
 |\<Id\>|CstmrId/Pty/Id/PrvtId/Othr|Hetu|Validi henkilötunnus.|
 |\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchmeNm|"PIC" (Person Identification Code, hetu)|
-|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
 #### <a name=""></a> Haku oikeushenkilön rekisterinumerolla
@@ -426,7 +435,6 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |:---|:---|:---|:---|
 |\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Y-tunnus tai muu oikeushenkilön tunniste|| |
 |\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchmeNm|"COID"| |
-|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"| |
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"| |
 
 
@@ -437,7 +445,6 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |\<Nm\>|CstmrId/Pty|Yrityksen nimi|Täsmällinen osuma 1:1. Aakkoskoosta riippumaton.|
 |\<Id\>|CstmrId/Pty/Id/OrgId/Othr|Arvoksi asetetaan "1"|
 |\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchmeNm|"NAME"|
-|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
 
@@ -446,7 +453,6 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
 |:---|:---|:---|
 |\<IBAN\>|Acct/Id/Id|IBAN|
-|\<MsgNmId\>|Acct/AuthrtyReqTp|"auth.001.001.01"|
 |\<Cd\>|Acct/InvstgtdPties|"ALLP"|
 
 #### <a name=""></a> Haku muulla tilin yksilöintitunnuksella
@@ -455,7 +461,6 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |:---|:---|:---|
 |\<Id\>|Acct/Id/Id/Othr|Tilin muu yksilöintitunnus|
 |\<Cd\>|Acct/Id/Id/Othr/SchmeNm|OTHR|
-|\<MsgNmId\>|Acct/AuthrtyReqTp|"auth.001.001.01"|
 |\<Cd\>|Acct/InvstgtdPties|"ALLP"|
 
 #### <a name=""></a> Haku luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä
@@ -466,9 +471,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |\<Id\>|CstmrId/Pty/Id/PrvtId/Othr|Maakoodi|
 |\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchmeNm|"NATI"|
 |\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth|Syntymäaika. `CtryOfBirth` arvoksi asetetaan "XX" ja `CityOfBirth` arvoksi asetetaan ”not in use”|
-|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"auth.001.001.01"|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
-
 
 #### <a name=""></a> Haku Tallelokeron tunnisteella
 
@@ -477,7 +480,6 @@ ISO-sanoman rajoitusten vuoksi Document/InfReqOpng/SchCrit on täytettävä joki
 |Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
 |:---|:---|:---|
 |\<Pty\>|CstmrId|Jätetään tyhjäksi|
-|\<MsgNmId\>|CstmrId/AuthrtyReq/Tp|"fin.012.001.03"|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
 Varsinainen hakukriteeri, tallelokeron tunniste, asetetaan auth.001.001.01 Supplementary Dataan, fin.012.001.03 sanomalaajennuksen SafetyDepositBoxId-elementtiin seuraavassa taulukossa esitetyllä tavalla.
@@ -527,7 +529,7 @@ ReturnIndicator1 sisältää yksittäisen hakutulostyypin esiintymän.
 |RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|sisältää sanomalaajennuksen sanoma-id:n (supl.027.001.01, fin.013.001.04 tai fin.002.001.01)|
 |RtrInd/InvstgtnRslt|InvestigationResult1Choice|palautetaan `Rslt` elementti tyyppiä SupplementaryDataEnvelope1, joka sisältää joko [supl.027.001.01](#supl.027.001.01), [InformationResponseFIN002](#InformationResponseFIN002) tai [InformationResponseFIN013](#InformationResponseFIN013) tai `InvstgtnSts` koodilla `NFOU`.
 
-Jokaista hakutulostyyppiä kohti palautetaan enintään yksi hakutulos-alisanoma (supl.027.001.01, fin.013.001.04 tai fin.002.001.01) per Y-tunnus. 
+Jokaista hakutulostyyppiä kohti palautetaan yksi hakutulos-alisanoma (supl.027.001.01, fin.013.001.04 tai fin.002.001.01) per Y-tunnus. 
 
 __Esimerkki 1.__  
 
