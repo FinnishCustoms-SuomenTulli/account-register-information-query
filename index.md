@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.38*
+*Dokumentin versio 1.0.39*
 
 ## Versiohistoria
 
@@ -51,6 +51,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.36|13.8.2020|Korjattu Haku yrityksen nimellä -kohtaan yrityksen nimen tagi (Id -> Nm).|
 1.0.37|24.8.2020|Lisätty tarkentava huomautus liittyen tietoliikenteessä ja sanomien allekirjoituksissa käytettävien avainten pituuksista.|
 1.0.38|24.8.2020|Lisätty kappale "Hakutuloksen alisanomien rajaaminen". Poistettu lauseesta "jokaista hakutulostyyppiä kohti palautetaan enintään yksi hakutulos-alisanoma" sana "enintään".|
+1.0.39|25.8.2020|Tietoliikenne- ja allekirjoitusvarmenteen serialNumber attribuuttina sallitaan sekä Y-tunnus että ALV-tunnus.|
 
 ## Sisällysluettelo
 
@@ -197,14 +198,14 @@ Huom. Jotta sanomien allekirjoitukset täyttävät alla viitatut Kyberturvallisu
 
 Toimivaltaisen viranomaisen on allekirjoitettava lähettämänsä sanomat käyttäen x.509 palvelinvarmennetta, josta käy ilmi ko. viranomaisen Y-tunnus. Saapuvien sanomien allekirjoitus on tarkistettava. Vastaanottaja ei saa hyväksyä sanomaa ilman hyväksyttävää allekirjoitusta. Toimivaltaisen viranomaisen allekirjoituksen hyväksyminen edellyttää, että XML-allekirjoitus on validi ja että  
 a) varmenne on VRK:n myöntämä, voimassa, eikä esiinny VRK:n ylläpitämällä sulkulistalla  
-b) varmenteen kohteen serialNumber attribuuttina on tunnus, joka muodostuu kirjaimista “FI” ja sanoman lähettäneen toimivaltaisen viranomaisen Y-tunnuksen numero-osasta ilman väliviivaa (ALV-tunnuksen muotoinen tunnus).
+b) varmenteen kohteen serialNumber attribuuttina on sanoman lähettäneen toimivaltaisen viranomaisen Y-tunnus tai tunnus, joka muodostuu kirjaimista “FI” ja Y-tunnuksen numero-osasta ilman väliviivaa (ALV-tunnuksen muotoinen tunnus).
 
 #### Yhteydenottajan tietoliikennevarmenne
 
 Tiedon luovuttaja tai tiedon luovuttajan valtuuttama taho tunnistaa toimivaltaisen viranomaisen, joka ottaa yhteyden tiedonhakujärjestelmän kyselyrajapintaan, palvelinvarmenteen avulla. Yhteys toimivaltaiselta viranomaiselta on hyväksyttävä seuraavin edellytyksin: 
 a) Toimivaltaisen viranomaisen varmenteen on myöntänyt VRK  
 b) varmenne on voimassa, eikä esiinny VRK:n sulkulistalla  
-c) varmenteen kohteen serialNumber attribuuttina on tunnus, joka muodostuu kirjaimista “FI” ja toimivaltaisen viranomaisen tai sen puolesta toimivan valtion palvelukeskuksen Y-tunnuksen numero-osasta ilman väliviivaa (ALV-tunnuksen muotoinen tunnus).
+c) varmenteen kohteen serialNumber attribuuttina on toimivaltaisen viranomaisen tai sen puolesta toimivan valtion palvelukeskuksen Y-tunnus tai tunnus, joka muodostuu kirjaimista “FI” ja Y-tunnuksen numero-osasta ilman väliviivaa (ALV-tunnuksen muotoinen tunnus).
 
 #### Tiedon luovuttajan tai tiedon luovuttajan valtuuttaman tahon tietoliikennevarmenne
 
