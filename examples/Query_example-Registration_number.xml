@@ -1,10 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
-    xmlns:urn="urn:fi:tulli:wsdl_root" 
-    xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" 
-    xmlns:urn2="urn:iso:std:iso:20022:tech:xsd:auth.001.001.01" 
-    xmlns:urn3="urn:fin.012.001.03">
-    <soapenv:Header />
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:fi:tulli:wsdl_root" xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" xmlns:urn2="urn:iso:std:iso:20022:tech:xsd:auth.001.001.01" xmlns:urn3="urn:fin.012.001.03">
+    <soapenv:Header/>
     <soapenv:Body>
         <urn:ApplicationRequest id="applicationRequest">
             <urn:AppHdr>
@@ -51,20 +46,20 @@
                                     <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
                                 </Transforms>
                                 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
-                                <DigestValue>Rz/I9kw6ks/XYQlteQCCVn56KRB17UU041zCwnREF08=</DigestValue>
+                                <DigestValue>0W2zR017NLUgOaAlmMh4o5IbvTswqAezZnIcjb+x2BM=</DigestValue>
                             </Reference>
                         </SignedInfo>
-                        <SignatureValue>Zi/lubNgXLJ2mg1lM9xM7jID0UfPUECyOIauQyUz0C3QEsWGym9/p8iVFF/6krwI
-+cY8SNNF7PUXv3gWjGNre88Xq625B9pcUzB51l6NpEgK4RYt78E1nlbjtQg7mxz7
-ZrOOVNUV04H76Lp7dP0ahRdDOYk5uhZY43GSHzP8/oSafhTGNp8f6/K4vEuOFmbg
-wbyfNdKJ6PRlqJOTgpw+LY4LGZfBsQT9u+1bAj1yuDfW5T7bB/HqriXJUfWBMtcW
-YtJvsQ0boG6rU+3tHSBW/Zu/Fua1PX2bLq4+W/k6SNQ5YqnThMzbLaPn8UFPoLOA
-oWDDtnnaLo/zFvVq/ZBsyVroXNSDLnbPSTGgSFtCvBgAEvHRI5ip1Q7r3eiJbDSn
-dNqf2o7qWkOuRePVzqcln0GKDn8A+V0paOwLKuqYT+zxHRN3L+7Ul3GtfJ1t9gqW
-KAiumQTT1pDkbbKfAS7DQsOfTgF1H8+S8AB6LbcXxI6FHoBBhZyU83Cz3vsjvKjz
-iiCkCO+eS9h8NzT5vpa3TYpaGBLjxrJiWExvRmGfeYuhfhGmt05LXoJPCIoq5KOs
-i0ETJyCEcseRSZm6PZ2QhqGCWFdu64LqXF9tIadwr1BuplNcuAQAnLxq71M+RfNa
-LOGbzifX1t68DjfOOyUdgMPxWqDstS4yrF+11wQA3Ms=</SignatureValue>
+                        <SignatureValue>asj4vPCQQ6kCmA63bwNkPhyOGib7ITOtGFpBkrJHv1I/1yGvuvL/IPgNilXwnvKP
+HPfYSToui3TvKHwtOjD3qWM+i56AASIJlGOREwMSYMv7Mg1QGtsVUQ3e7Rt5sW2x
+yij9UIvuuoGr2Q94PhhPB5Z8rQrH1m9ikhyP2fpwz72z/7CHY6KEdNVx3j6TRbdB
+5M6hlskN3efmfsMEaXudINtvY7WfWzorFOiqAOJMlz27OJi3ql0h1JlHVXZ62xQp
++tG+vn9ULtTIxYPqp9H4MBflrc/JrRnC6pVsAwYDAithTVro0i2zGrw4cM3eRry3
+d2QPyaUb9ijPXnsXV/xAU3Feys0+Pzc3iBf9RvxyHCRx5WvQJPRPaEUsXtLAr4rm
+qNEybBlnk9pv9XZATQ/a/HWhOZCqJKO8ialMevMduxIAnajP94Di4m92FxyOKlFM
+yjmDNe/e8dzDVMEXta+NSMxZb8eOERgABtdVC49vvak+gIBWhCtHdlnFL/6XhrW0
+EUNd452HkcejomnaMK/uzYevLVY0s/uYl7aL1M5hCVgDt5SgfpQaFprimCf7VPcp
+vOhOMutdmAuf9iSFP4TcI2d5Fn4FDXMzleIhtH8Ez2nsI9srZ89aYgjFPOfrlHbF
+6EAJDuewkjppS2H5+F92ydktC4W10JgZr6srXdylbOs=</SignatureValue>
                         <KeyInfo>
                             <X509Data>
 <X509Certificate>MIIHuTCCBaGgAwIBAgIEBgVM/TANBgkqhkiG9w0BAQsFADB0MQswCQYDVQQGEwJG
@@ -143,7 +138,23 @@ grUHxeTf87icp8Wb6w==</X509Certificate>
                             </urn2:Pty>
                             <urn2:AuthrtyReq>
                                 <urn2:Tp>
-                                    <urn2:MsgNmId>auth.001.001.01</urn2:MsgNmId>
+                                    <urn2:MsgNmId>supl.027.001.01</urn2:MsgNmId>
+                                </urn2:Tp>
+                                <urn2:InvstgtdRoles>
+                                    <urn2:Cd>ALLP</urn2:Cd>
+                                </urn2:InvstgtdRoles>
+                            </urn2:AuthrtyReq>
+                            <urn2:AuthrtyReq>
+                                <urn2:Tp>
+                                    <urn2:MsgNmId>fin.002.001.02</urn2:MsgNmId>
+                                </urn2:Tp>
+                                <urn2:InvstgtdRoles>
+                                    <urn2:Cd>ALLP</urn2:Cd>
+                                </urn2:InvstgtdRoles>
+                            </urn2:AuthrtyReq>
+                            <urn2:AuthrtyReq>
+                                <urn2:Tp>
+                                    <urn2:MsgNmId>fin.013.001.04</urn2:MsgNmId>
                                 </urn2:Tp>
                                 <urn2:InvstgtdRoles>
                                     <urn2:Cd>ALLP</urn2:Cd>
