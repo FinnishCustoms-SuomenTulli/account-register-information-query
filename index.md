@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.39*
+*Dokumentin versio 1.0.40*
 
 ## Versiohistoria
 
@@ -52,6 +52,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.37|24.8.2020|Lisätty tarkentava huomautus liittyen tietoliikenteessä ja sanomien allekirjoituksissa käytettävien avainten pituuksista.|
 1.0.38|24.8.2020|Lisätty kappale "Hakutuloksen alisanomien rajaaminen". Poistettu lauseesta "jokaista hakutulostyyppiä kohti palautetaan enintään yksi hakutulos-alisanoma" sana "enintään".|
 1.0.39|25.8.2020|Tietoliikenne- ja allekirjoitusvarmenteen serialNumber attribuuttina sallitaan sekä Y-tunnus että ALV-tunnus.|
+1.0.40|17.9.2020|Lisätty Vastaussanoman koko on liian suuri -virhe taulukkoon 4.12.1.|
 
 ## Sisällysluettelo
 
@@ -975,6 +976,14 @@ Seuraamus|Palautetaan SOAP Fault ks. taulukko alla|
         <p><code>&lt;errorcode&gt;5&lt;/errorcode&gt;</code><br /></p>
       </td>
       <td>5</td>
+    </tr>
+    <tr>
+      <td >Vastaussanoman koko on liian suuri</td>
+      <td >SOAP-ENV:Client</td><td  colspan="1">Query response size is too large. Please refine the query.</td>
+      <td  colspan="1">
+        <p><code>&lt;errorcode&gt;6&lt;/errorcode&gt;</code><br /></p>
+      </td>
+      <td>6</td>
     </tr>
     <tr>
       <td  colspan="1">Palvelimen virhe</td>
