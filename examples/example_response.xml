@@ -45,23 +45,23 @@
 									<Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
 								</Transforms>
 								<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
-								<DigestValue>UwKP6j1GulkJ7Tb7Zq76w+lhbOZCYtRpnCrjB+Kgvfw=</DigestValue>
+								<DigestValue>g5DBffofRMrk7zoi1wVz8hy3zLkhFoeFyFCuWfweoEs=</DigestValue>
 							</Reference>
 						</SignedInfo>
-						<SignatureValue>ne032rbbX0GBCWrRulJTsjCcgqH66DMehL5SALRgYqK7+9M1aFWW5hIxEOBhRvnG
-pkZU/M9LR4LX6xnTGfs/oylQHx80FrnKxHPOhfck08bJrRXh+DlhUTdN7EclihXg
-saHrIvgr1U+dwNA1Ap4KPFbOgg0yuNA6OPJxniJzFP/kzo/5CM3TNDCJCVl+YvwQ
-OweUcbWGbeXj3b2JCF+kndBY8mv8lFD4S0z97ZGZKXSZIG27XvLVfyi4ttdrbAPk
-uledFxl9/lw9OIQsjutKS92Y0rgRCzs9hZVYZkh9smCA9svs0suwyL1WzYyh3BAW
-MP88JjOLQvQp4Om29X8mr4its3/vTv6WzbzxkBXJXQPlWFyu3OYWqHiWUtQvCo5Q
-m8Zhf9+G0qFgAMJqc8ffKJXSVTs/gVHKX7c/cZHxjAIWoEnG+89/K44R60qui9dB
-DJPB7qQ+V2XnX8KyDXKyimgef1C002CNEZglGWDdM/nUADU79SoaJuO4Ve+SH05h
-KQE7MQBZ9UefT8O/+jCqUxDwhYq3kxtr6qx3Fm3pYouYFGMgfYc/TpDrC5haQEEZ
-ytdJKolSk4nWDKemg++gvoT9hBj6a5wd8T5U+QyGppjXu/hqSI97CqF4YrfYkcnY
-E1uBDJyfXNz7xBUrZNcZzTiWEroYH6I47Xry3nu5+LE=</SignatureValue>
+						<SignatureValue>40zRLDWmC5UDjTJ+uho6c96Q6rI0yMZBUpkkvd9IPO+4SnHbah78tMqe3X2DMG2k
+8EdZ9vYOPuEPzrd5u4aXmqfxrp8m7NrWsY38Lnq4fDJWb7HAYqoArDnDOmFnnYqp
+wAAZdxFRRdmAVoRwe6devT+B77xW8WCqoW4xYvlLXXrQpe2wq5i9hPA4ynCD2Bck
+zt2InCnW29wY3uwQkuNK+FwD+KCORJK3qINtu9n235B27G96nOl9sbvr0e65WUgO
+SoshLX+LqXP2Vyj2B9iiB9GcnBe8yM7au9Gf/Q5W783Ge+dQRshIxS02zHNj0z6I
+hHoeoj5laM42tnMNUxLUDQrraXJe31ng1dezscpqSw+Jqy28kAa67KBBq9YUO/x5
+zvWxpV5QvIC9wsKKQyR+ytQ9crE1RMiiRHBTaJ8dO9jAZUygOaqIDeFdIcFzg3ee
+ykFiAzWcQj4KFB4CkNlCJidgJGFkCA4/qWPjk/Hz8waZC5oV3d6W+foqt1Jj8c1u
+YPgRneWfiQx6G0m8McY3gyRuFqFsw5g9zctNlPpWa+6IU07baVNIEHa2DbjWDgOp
+mhD/3zC88BlHTrXF6/yUN27yy+FQ8SKN8PkupXWCrqvWR35xt5XPGPUPSfsNrbuS
+afuLokBte/cw6aDQbwM7kkATC+POFah5Rla0X6Eot5M=</SignatureValue>
 						<KeyInfo>
 							<X509Data>
-								<X509Certificate>MIIHuTCCBaGgAwIBAgIEBgVM/TANBgkqhkiG9w0BAQsFADB0MQswCQYDVQQGEwJG
+<X509Certificate>MIIHuTCCBaGgAwIBAgIEBgVM/TANBgkqhkiG9w0BAQsFADB0MQswCQYDVQQGEwJG
 STEjMCEGA1UEChMaVmFlc3RvcmVraXN0ZXJpa2Vza3VzIFRFU1QxGDAWBgNVBAsT
 D1Rlc3RpdmFybWVudGVldDEmMCQGA1UEAxMdVlJLIENBIGZvciBUZXN0IFB1cnBv
 c2VzIC0gRzMwHhcNMjAwMzE3MTE0MDAwWhcNMjIwMzE3MjE1OTU5WjByMQswCQYD
@@ -103,7 +103,7 @@ PYLERFt+yxYGNmuyfIdCa1kQ7KFGObGugcqxbwas5j+tl+PKm9fooWbRkfkLG/5k
 mcVmY3wmrbNbw7e074FVDXKF7lAJXE5E8cjQhLFgXCsdpIaQETHCJrywHiyHFOjp
 +VZzv47X+WJzOsK0q9RzRa+ndxPCgxWeH0y1yK+YJEMCf8kN62uh9QOX1tq9mSUm
 grUHxeTf87icp8Wb6w==</X509Certificate>
-							</X509Data>
+</X509Data>
 						</KeyInfo>
 					</Signature>
 				</ns:Sgntr>
@@ -475,11 +475,11 @@ grUHxeTf87icp8Wb6w==</X509Certificate>
 					</ns:RtrInd>
 					<ns:RtrInd>
 						<ns:AuthrtyReqTp>
-							<ns:MsgNmId>fin.002.001.01</ns:MsgNmId>
+							<ns:MsgNmId>fin.002.001.02</ns:MsgNmId>
 						</ns:AuthrtyReqTp>
 						<ns:InvstgtnRslt>
 							<ns:Rslt>
-								<ns:Document xmlns:ns="urn:fin.002.001.01">
+								<ns:Document xmlns:ns="urn:fin.002.001.02">
 									<ns:InfRspnFin002>
 										<ns:InvstgtnId>ABC1234</ns:InvstgtnId>
 										<ns:CreDtTm>2020-06-04T17:25:32.771+03:00</ns:CreDtTm>
