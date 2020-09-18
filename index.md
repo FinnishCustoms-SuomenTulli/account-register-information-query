@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.39*
+*Dokumentin versio 1.0.40*
 
 ## Versiohistoria
 
@@ -52,6 +52,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.37|24.8.2020|Lisätty tarkentava huomautus liittyen tietoliikenteessä ja sanomien allekirjoituksissa käytettävien avainten pituuksista.|
 1.0.38|24.8.2020|Lisätty kappale "Hakutuloksen alisanomien rajaaminen". Poistettu lauseesta "jokaista hakutulostyyppiä kohti palautetaan enintään yksi hakutulos-alisanoma" sana "enintään".|
 1.0.39|25.8.2020|Tietoliikenne- ja allekirjoitusvarmenteen serialNumber attribuuttina sallitaan sekä Y-tunnus että ALV-tunnus.|
+1.0.40|17.9.2020|Korjattu fin.002.001.01 sanoman viittauksia fin.002.001.02 versioon|
 
 ## Sisällysluettelo
 
@@ -101,7 +102,7 @@ Tämä dokumentti on osa Tullin julkaisemaa määräystä pankki- ja maksutilien
 
 [ISO 20022 head.001.001.01 skeema](https://www.iso20022.org/business-area/136/download)
 
-[fin.002.001.01](schemas/fin.002.001.01.xsd)
+[fin.002.001.02](schemas/fin.002.001.02.xsd)
 
 [fin.012.001.03](schemas/fin.012.001.03.xsd)
 
@@ -526,16 +527,16 @@ ReturnIndicator1 sisältää yksittäisen hakutulostyypin esiintymän.
 
 |XPath|Tyyppi|Kuvaus|
 |:---|:---|:---|
-|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|sisältää sanomalaajennuksen sanoma-id:n (supl.027.001.01, fin.013.001.04 tai fin.002.001.01)|
+|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|sisältää sanomalaajennuksen sanoma-id:n (supl.027.001.01, fin.013.001.04 tai fin.002.001.02)|
 |RtrInd/InvstgtnRslt|InvestigationResult1Choice|palautetaan `Rslt` elementti tyyppiä SupplementaryDataEnvelope1, joka sisältää joko [supl.027.001.01](#supl.027.001.01), [InformationResponseFIN002](#InformationResponseFIN002) tai [InformationResponseFIN013](#InformationResponseFIN013) tai `InvstgtnSts` koodilla `NFOU`.
 
-Jokaista hakutulostyyppiä kohti palautetaan yksi hakutulos-alisanoma (supl.027.001.01, fin.013.001.04 tai fin.002.001.01) per Y-tunnus. 
+Jokaista hakutulostyyppiä kohti palautetaan yksi hakutulos-alisanoma (supl.027.001.01, fin.013.001.04 tai fin.002.001.02) per Y-tunnus. 
 
 __Esimerkki 1.__  
 
 Kyselysanomassa esiintynyttä `Document/InfReqOpng/SchCrit` hakutermiä vastaavia tuloksia on löytynyt kolme kappaletta: yksi asiakkuus ja kaksi tiliä. Tallelokeroita ei löytynyt.
 
-Vastaussanomaan liitetään kolme kappaletta `RtrInd`-elementtiä, joista supl.027.001.01 ja fin.013.001.04 osalta liitetään hakutulokset Rslt-elementteihin ja fin.002.001.01 osalta palautetaan `InvstgtnSts` koodilla `NFOU`:
+Vastaussanomaan liitetään kolme kappaletta `RtrInd`-elementtiä, joista supl.027.001.01 ja fin.013.001.04 osalta liitetään hakutulokset Rslt-elementteihin ja fin.002.001.02 osalta palautetaan `InvstgtnSts` koodilla `NFOU`:
 
 ```
 <!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
@@ -569,7 +570,7 @@ Vastaussanomaan liitetään kolme kappaletta `RtrInd`-elementtiä, joista supl.0
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.002.001.01</n1:MsgNmId>
+    <n1:MsgNmId>fin.002.001.02</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -583,7 +584,7 @@ Rajapinta on koosteinen: yksi rajapinta palauttaa hakutuloksia useiden Y-tunnust
 
 Kyselysanomassa esiintynyttä `Document/InfReqOpng/SchCrit` hakutermiä vastaavia tuloksia on löytynyt neljä kappaletta: yksi tili (tili #1) Y-tunnukselle 0190983-0 ja kolme tiliä (tili #2, tili #3, tili #4) Y-tunnukselle 0828972-6. 
 
-Vastaussanomaan liitetään neljä kappaletta `RtrInd`-elementtiä, joista supl.027.001.0 osalta liitetään hakutulokset Rslt-elementteihin, ja fin.013.001.04 sekä fin.002.001.01 osalta palautetaan `InvstgtnSts` koodilla `NFOU`:
+Vastaussanomaan liitetään neljä kappaletta `RtrInd`-elementtiä, joista supl.027.001.0 osalta liitetään hakutulokset Rslt-elementteihin, ja fin.013.001.04 sekä fin.002.001.02 osalta palautetaan `InvstgtnSts` koodilla `NFOU`:
 
 ```
 <!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
@@ -657,7 +658,7 @@ Vastaussanomaan liitetään neljä kappaletta `RtrInd`-elementtiä, joista supl.
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.002.001.01</n1:MsgNmId>
+    <n1:MsgNmId>fin.002.001.02</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -691,7 +692,7 @@ Vastaussanomaan liitetään kolme kappaletta `InvstgtnSts` elementtiä koodilla 
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.002.001.01</n1:MsgNmId>
+    <n1:MsgNmId>fin.002.001.02</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
