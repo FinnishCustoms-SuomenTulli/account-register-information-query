@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.41*
+*Dokumentin versio 1.0.42*
 
 ## Versiohistoria
 
@@ -54,6 +54,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.39|25.8.2020|Tietoliikenne- ja allekirjoitusvarmenteen serialNumber attribuuttina sallitaan sekä Y-tunnus että ALV-tunnus.|
 1.0.40|17.9.2020|Korjattu fin.002.001.01 sanoman viittauksia fin.002.001.02 versioon|
 1.0.41|18.9.2020|Lisätty Vastaussanoman koko on liian suuri -virhe taulukkoon 4.12.1.|
+1.0.42|22.9.2020|Korjattu virhe WSDL:ssä. ApplicationRequest- ja ApplicationResponse-elementtien sisältämät AppHrd- ja Document-elementit olivat virheellisesti wsdl_root-nimiavaruudessa.|
 
 ## Sisällysluettelo
 
