@@ -288,7 +288,7 @@ Business Application Header sanoman tiedot on esitetty seuraavassa taulukossa.
 
 |Sanoma-id|Sanoman nimi|
 |:---|:---|
-|[head.001.001.01](https://www.iso20022.org/message-set/651/download)|Business Application Header|
+|[head.001.001.01](assets/iso20022org/archive_business_application_header_2.zip)|Business Application Header|
 
 BAH on oltava aina SOAP bodyn ensimmäinen elementti.
 
