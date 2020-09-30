@@ -1,67 +1,154 @@
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-	<SOAP-ENV:Header/>
-	<SOAP-ENV:Body>
-		<ApplicationResponse xmlns="urn:fi:tulli:wsdl_root" id="applicationResponse">
-			<iso:AppHdr xmlns:iso="urn:fi:tulli:wsdl_root">
-				<ns:Fr xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
-					<ns:OrgId>
-						<ns:Id>
-							<ns:OrgId>
-								<ns:Othr>
-									<ns:Id>0245442-8</ns:Id>
-									<ns:SchmeNm>
-										<ns:Cd>Y</ns:Cd>
-									</ns:SchmeNm>
-								</ns:Othr>
-							</ns:OrgId>
-						</ns:Id>
-					</ns:OrgId>
-				</ns:Fr>
-				<ns:To xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
-					<ns:OrgId>
-						<ns:Id>
-							<ns:OrgId>
-								<ns:Othr>
-									<ns:Id>0245442-8</ns:Id>
-									<ns:SchmeNm>
-										<ns:Cd>Y</ns:Cd>
-									</ns:SchmeNm>
-								</ns:Othr>
-							</ns:OrgId>
-						</ns:Id>
-					</ns:OrgId>
-				</ns:To>
-				<ns:BizMsgIdr xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">Irxh1QcSTZSiVj8UaW6qzA==</ns:BizMsgIdr>
-				<ns:MsgDefIdr xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">auth.002.01.01</ns:MsgDefIdr>
-				<ns:CreDt xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">2020-06-04T17:25:32.769Z</ns:CreDt>
-				<ns:Sgntr xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
-					<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
-						<SignedInfo>
-							<CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
-							<SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
-							<Reference URI="#applicationResponse">
-								<Transforms>
-									<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
-									<Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
-								</Transforms>
-								<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
-								<DigestValue>g5DBffofRMrk7zoi1wVz8hy3zLkhFoeFyFCuWfweoEs=</DigestValue>
-							</Reference>
-						</SignedInfo>
-						<SignatureValue>40zRLDWmC5UDjTJ+uho6c96Q6rI0yMZBUpkkvd9IPO+4SnHbah78tMqe3X2DMG2k
-8EdZ9vYOPuEPzrd5u4aXmqfxrp8m7NrWsY38Lnq4fDJWb7HAYqoArDnDOmFnnYqp
-wAAZdxFRRdmAVoRwe6devT+B77xW8WCqoW4xYvlLXXrQpe2wq5i9hPA4ynCD2Bck
-zt2InCnW29wY3uwQkuNK+FwD+KCORJK3qINtu9n235B27G96nOl9sbvr0e65WUgO
-SoshLX+LqXP2Vyj2B9iiB9GcnBe8yM7au9Gf/Q5W783Ge+dQRshIxS02zHNj0z6I
-hHoeoj5laM42tnMNUxLUDQrraXJe31ng1dezscpqSw+Jqy28kAa67KBBq9YUO/x5
-zvWxpV5QvIC9wsKKQyR+ytQ9crE1RMiiRHBTaJ8dO9jAZUygOaqIDeFdIcFzg3ee
-ykFiAzWcQj4KFB4CkNlCJidgJGFkCA4/qWPjk/Hz8waZC5oV3d6W+foqt1Jj8c1u
-YPgRneWfiQx6G0m8McY3gyRuFqFsw5g9zctNlPpWa+6IU07baVNIEHa2DbjWDgOp
-mhD/3zC88BlHTrXF6/yUN27yy+FQ8SKN8PkupXWCrqvWR35xt5XPGPUPSfsNrbuS
-afuLokBte/cw6aDQbwM7kkATC+POFah5Rla0X6Eot5M=</SignatureValue>
-						<KeyInfo>
-							<X509Data>
-<X509Certificate>MIIHuTCCBaGgAwIBAgIEBgVM/TANBgkqhkiG9w0BAQsFADB0MQswCQYDVQQGEwJG
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ApplicationResponse id="applicationResponse" xmlns="urn:fi:tulli:wsdl_root">
+         <AppHdr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+            <ns:CharSet xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">UTF-8</ns:CharSet>
+            <ns:Fr xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+               <ns:OrgId>
+                  <ns:Id>
+                     <ns:OrgId>
+                        <ns:Othr>
+                           <ns:Id>0245442-8</ns:Id>
+                           <ns:SchmeNm>
+                              <ns:Cd>Y</ns:Cd>
+                           </ns:SchmeNm>
+                        </ns:Othr>
+                     </ns:OrgId>
+                  </ns:Id>
+               </ns:OrgId>
+            </ns:Fr>
+            <ns:To xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+               <ns:OrgId>
+                  <ns:Id>
+                     <ns:OrgId>
+                        <ns:Othr>
+                           <ns:Id>0245442-8</ns:Id>
+                           <ns:SchmeNm>
+                              <ns:Cd>Y</ns:Cd>
+                           </ns:SchmeNm>
+                        </ns:Othr>
+                     </ns:OrgId>
+                  </ns:Id>
+               </ns:OrgId>
+            </ns:To>
+            <ns:BizMsgIdr xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">rydH3BwMTbGJl4wcbnic/A==</ns:BizMsgIdr>
+            <ns:MsgDefIdr xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">auth.002.01.01</ns:MsgDefIdr>
+            <ns:CreDt xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">2020-09-24T13:08:16.520Z</ns:CreDt>
+            <ns:Sgntr xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+               <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+                  <SignedInfo>
+                     <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                     <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+                     <Reference URI="#applicationResponse">
+                        <Transforms>
+                           <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                           <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                        </Transforms>
+                        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                        <DigestValue>WLi9yIQ4045VDuCbqZtdM2XGZtOiHpW+T3HXGWAiW94=</DigestValue>
+                     </Reference>
+                  </SignedInfo>
+                  <SignatureValue>XifRaYlx28SYL5iyrGKYFE0wK3jwh8A6ZvBnZ/23WK+hRN0SLR7PF8hE1zy2vGO1n99RvAqWR0Vl
+VvJP3kXw92bvuhhOB9aEvwlPKQkdkrJf5I25fb3gXAD77m8m6JoMIhEzhkDXtDHzW6aw+kQo7eRQ
+dLC4EkWmv4yhnyvJ94wmJDZOJPyYAMsH6pJkpuaCCpMuKG0wb21mPGtKfTtUjNtDqi7dQCNMRZLc
+MFZMIRgxGk+HdHSdm9Kk79gyZleT8Zuhb8UxzPCloCAiIW/wbJPH6tB2ly0ZteCFYoJm0JcvBxXZ
+QZnb9g2XY9jgW85SJ0KJ7j3bTrOyj0vuJCtimQhFjvGWsiJMV83PVt4cy3dOyeZIfZ6HgBkT1mFq
+xdcTgo0sa1x7OMHQri+OaxaQ6n1ku8WVrmfbB+a8GaK6c84I0S2QBazOe6WvHicqaHquQ9LTMWyI
+KGdbTrWZkVJKHEGKBW5BJw/VCvq8bmaX9+Dip1oN6SM9JgporcLRenPxbbkQm9IdGmLYExHGryUj
+niOkpdjYFsXN0k+GO0jwX2qMNa4WSefnvMHm8MfOk2Wzjv3ZGdfjZkMvL8zw/7eJz/j4wrv8/c6J
+c7+HkOJpxOV8nxjrkX+TqmFH710Sv/X2q+it0sFWQGjestoldiLgQLfXklo8iEaZ4GrpCczRHE8=</SignatureValue>
+                  <KeyInfo>
+                     <X509Data>
+                        <X509SubjectName>2.5.4.5=#1309303234353434322d38,CN=0245442-8,O=0245442-8,ST=Uusimaa,C=FI</X509SubjectName>
+                        <X509Certificate>MIIFBTCCAu0CFEJoHj8iA6GW4Wl356dpxq0S87X3MA0GCSqGSIb3DQEBCwUAMIGiMQswCQYDVQQG
+EwJGSTEQMA4GA1UECAwHVXVzaW1hYTERMA8GA1UEBwwISGVsc2lua2kxDjAMBgNVBAoMBVR1bGxp
+MR4wHAYDVQQLDBVBY2NvdW50IFJlZ2lzdGVyIFRlc3QxFzAVBgNVBAMMDnRlc3Qgcm9vdCBjZXJ0
+MSUwIwYJKoZIhvcNAQkBFhZ0aWxpcmVraXN0ZXJpQHR1bGxpLmZpMB4XDTIwMDYxODExNTAyNloX
+DTIxMTAzMTExNTAyNlowWzELMAkGA1UEBhMCRkkxEDAOBgNVBAgMB1V1c2ltYWExEjAQBgNVBAoM
+CTAyNDU0NDItODESMBAGA1UEAwwJMDI0NTQ0Mi04MRIwEAYDVQQFEwkwMjQ1NDQyLTgwggGiMA0G
+CSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQCrcpIcQGZRqyTDJAReKu5s49EGRfMFD2m5AIT2WAMW
+HaHdS1QFMBmZSsghASp0sFH0iNpElXTAPfSjBBFcoK+McVFOAxs9xXZQWJ0YUjE/AEQ73G/bCoWi
+j1PvK8WvpmXYv4wb46EDMn3+AgU0lA813shIA2/JVgAAiPonQwcJAoIQzZlvdv9GEvqeuHU9pWbO
+/x/r6aZuDi19S/0KE00rWTyV83is3SE2TWXsPGluBF0aW/yVRB0HSqKpKMeOZef46eb3ND8JZpdm
+m32gND4MqXSsI1JYsUB1RbEJgn3kHrD/WgMZxq+EoGYOqCrWHefilWifhr93a1usEBc8xOr3wP9g
+W2NpAPK7WdjxssHzAjJa5LFganqljHWowfM0947AjyOxtNAWRp6QCTqxHvn4IXWcTuH2peC2yTB5
+QRbMmHKaaema+PbLujsQPx3c83DbM8VNEXdIuHHC1CGAFulmenuLgX/xcW3bwipm2aADJAOfHiwT
+NynsLeM8VJ4Qma0CAwEAATANBgkqhkiG9w0BAQsFAAOCAgEAliwBMPMQ78fcGcnuyYT9gR6nWX+0
+o768B3CYXMjW5eZe6tlQiKdoaER4GY2WcHHIIfan4L4VzYWLVVGEVHBaCv69BGGSnZKQG2MKgVqI
+vRD6EXXvpM1y5P7eDRZm1A9yo2sEqVa8Iszd9yDPDxuqCiNbZsVk/2aYL+7W8cOty104ordO1nzX
+m1yQy6rfstj0hf4Yj2tzz353jqYCErx4BPHtScZGEK6XV90yOztKni57SJBmbVfTNBabtsz39Vo5
+/6lQ2YqVRxmfrVgpN2aVlo45roYXmrAHPIDZq9xev1rFz35KkEr5pTW3LTIC52siS5Ka2YBXiXr3
+HANz27LljXfZvDN4+ARr477Zqm926p0n1gWpQCCennVGuO1QT5oQUiSnB/nzlWyPCzsKsp++FST+
+dERAyIRjtJbYet6FcYUa1JhF1a7M5vx+rTwbO7oCb61bMRRwkxDeLolMzjTnOASA+hoDPX50A3G+
+czdW92rdCrJMVqbEUgYl15DlI1zYad+686nmBCD9FC8vMTWMe75rjg05j/lKTbnv8l5OjWhVF211
+rsqNvpIXnZEFUiIhpopnHT29HQNYT6BK1NtJNYcptblSu69rA6P0v0n+YPH4h88lxX7qbETX5v3F
+zeGv+LQkNLg4wDAt44sFzpDQyv0CBNU5yscHcdHXtIslZUM=</X509Certificate>
+                     </X509Data>
+                  </KeyInfo>
+               </Signature>
+            </ns:Sgntr>
+            <ns:Rltd xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+               <urn1:CharSet xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">UTF-8</urn1:CharSet>
+               <urn1:Fr xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+                  <urn1:OrgId>
+                     <urn1:Id>
+                        <urn1:OrgId>
+                           <urn1:Othr>
+                              <urn1:Id>0245442-8</urn1:Id>
+                              <urn1:SchmeNm>
+                                 <urn1:Cd>Y</urn1:Cd>
+                              </urn1:SchmeNm>
+                           </urn1:Othr>
+                        </urn1:OrgId>
+                     </urn1:Id>
+                  </urn1:OrgId>
+               </urn1:Fr>
+               <urn1:To xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+                  <urn1:OrgId>
+                     <urn1:Id>
+                        <urn1:OrgId>
+                           <urn1:Othr>
+                              <urn1:Id>0245442-8</urn1:Id>
+                              <urn1:SchmeNm>
+                                 <urn1:Cd>Y</urn1:Cd>
+                              </urn1:SchmeNm>
+                           </urn1:Othr>
+                        </urn1:OrgId>
+                     </urn1:Id>
+                  </urn1:OrgId>
+               </urn1:To>
+               <urn1:BizMsgIdr xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">r6/bz9dlT567HVr5RDi8Zw==</urn1:BizMsgIdr>
+               <urn1:MsgDefIdr xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">auth.001.001.01</urn1:MsgDefIdr>
+               <urn1:CreDt xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">2020-02-03T11:31:11Z</urn1:CreDt>
+               <urn1:Sgntr xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+                  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+                     <SignedInfo>
+                        <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                        <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+                        <Reference URI="#applicationRequest">
+                           <Transforms>
+                              <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                              <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                           </Transforms>
+                           <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                           <DigestValue>YR/cLmufCfIJNdy8eAyloIO2WEeqJ1GBjpfpS+aSPBE=</DigestValue>
+                        </Reference>
+                     </SignedInfo>
+                     <SignatureValue>gqpUS1dlyHzRDloIvvtBvyUfOlwONBcuAZtwhdgTInup8FtqGBlOHsy2Tnmw+KfS
+qgT0f7ua2DtV/DN/4DEVsfSBIKDPhKI3IPaVeFGqbHVeR3y8ypQeLqeHCtbSS7Wd
+DRXbu001G+QY592n0ha0Y7AjoLgI1k38aQ6NdxMHCwV9QYm4nMdCjO1Ytlo7Xn/o
+J1Dk3/4ZoS3iJUB0TsjSVhIZDjE7NV6ImQtHxJRM71tKLuXELuWf6KhUc6gxt0X6
+C+XEsbfsxLIwVktKHf+rJsIlA9so3QpiiCshW8f3MYVmb2gaYDmwpwRle3VZ3frZ
+2W+sjIuhivfg1e2OShUwhDvdx80BEUvfepYhzvuvGlfr10N9rLg1g6krGzLJVfcn
+cEKgKN/6z90EQrTQAwthF7UhwMOIFpfr1SUrYaoxYR24POExJ3ouZw5L2bT0PwIS
+NzmOOo38eAjLsJTevdr1tP421L8wZ9R3GBS+atwLFaUM7WJRUjNY25cK/IbzT6Gw
+kyY/DZpnqaIVILA4/4GCNuTKyv/0u9acod/cv2e7RQxktWvrfCpxUUcZwVILtRYk
+VFMYUPe1AkKWVSNqYVKDDtdC/iJ8hJSj89GzpbCEc8sd8AAQjSsVM5aUKwIzMqOl
+X1u3EfRLlLaZw68wqyA9E3JCpkSbp/iQlx6qNv8snxY=</SignatureValue>
+                     <KeyInfo>
+                        <X509Data>
+                           <X509Certificate>MIIHuTCCBaGgAwIBAgIEBgVM/TANBgkqhkiG9w0BAQsFADB0MQswCQYDVQQGEwJG
 STEjMCEGA1UEChMaVmFlc3RvcmVraXN0ZXJpa2Vza3VzIFRFU1QxGDAWBgNVBAsT
 D1Rlc3RpdmFybWVudGVldDEmMCQGA1UEAxMdVlJLIENBIGZvciBUZXN0IFB1cnBv
 c2VzIC0gRzMwHhcNMjAwMzE3MTE0MDAwWhcNMjIwMzE3MjE1OTU5WjByMQswCQYD
@@ -103,438 +190,125 @@ PYLERFt+yxYGNmuyfIdCa1kQ7KFGObGugcqxbwas5j+tl+PKm9fooWbRkfkLG/5k
 mcVmY3wmrbNbw7e074FVDXKF7lAJXE5E8cjQhLFgXCsdpIaQETHCJrywHiyHFOjp
 +VZzv47X+WJzOsK0q9RzRa+ndxPCgxWeH0y1yK+YJEMCf8kN62uh9QOX1tq9mSUm
 grUHxeTf87icp8Wb6w==</X509Certificate>
-</X509Data>
-						</KeyInfo>
-					</Signature>
-				</ns:Sgntr>
-				<ns:Rltd xmlns:ns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
-					<urn1:Fr xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
-						<urn1:OrgId>
-							<urn1:Id>
-								<urn1:OrgId>
-									<urn1:Othr>
-										<urn1:Id>0245442-8</urn1:Id>
-										<urn1:SchmeNm>
-											<urn1:Cd>Y</urn1:Cd>
-										</urn1:SchmeNm>
-									</urn1:Othr>
-								</urn1:OrgId>
-							</urn1:Id>
-						</urn1:OrgId>
-					</urn1:Fr>
-					<urn1:To xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
-						<urn1:OrgId>
-							<urn1:Id>
-								<urn1:OrgId>
-									<urn1:Othr>
-										<urn1:Id>0245442-8</urn1:Id>
-										<urn1:SchmeNm>
-											<urn1:Cd>Y</urn1:Cd>
-										</urn1:SchmeNm>
-									</urn1:Othr>
-								</urn1:OrgId>
-							</urn1:Id>
-						</urn1:OrgId>
-					</urn1:To>
-					<urn1:BizMsgIdr xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">r6/bz9dlT567HVr5RDi8Zw==</urn1:BizMsgIdr>
-					<urn1:MsgDefIdr xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">auth.001.001.01</urn1:MsgDefIdr>
-					<urn1:CreDt xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">2020-02-03T11:31:11Z</urn1:CreDt>
-					<urn1:Sgntr xmlns:urn1="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
-						<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
-							<SignedInfo>
-								<CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
-								<SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
-								<Reference URI="#applicationRequest">
-									<Transforms>
-										<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
-										<Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
-									</Transforms>
-									<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
-									<DigestValue>K8i36XqMdZEhNmtN8pByJfpXfJvfONJoOrGgATigOS0=</DigestValue>
-								</Reference>
-							</SignedInfo>
-							<SignatureValue>vXao1FNMlSQWRhHBommMTCwKUYfRWMZXD5xwLUkO4/IzHS1p0LH23FvSYX4iqlyW
-								CD/29Zc9tYEJO/IbUkjJQlYegI3Q1hRmorb0JhwV1YPISKrzC7bvKGmSyjKMw1hk
-								YvFu0NnlcHRM66+ezmUngKbcSCelAXaJG8Zi1YfP2ES9jY3cmh6DpV/1gLCL6Pi9
-								d82IJcM61yJUfT0KopdggJ+rsd2Xnbzautq08VlpaiY+Z62ttC44v8QFWBj4EAE2
-								0hq2dW6uKT+8uisDm9jBcq9/454O3nV0Jti0ErGtLe10f0p1hk7E3z9WMQ8Dl1CH
-								PqlVsQffZX+iKAnE1YXLbA==</SignatureValue>
-							<KeyInfo>
-								<X509Data>
-									<X509Certificate>MIIHuTCCBaGgAwIBAgIEBgVM/TANBgkqhkiG9w0BAQsFADB0MQswCQYDVQQGEwJG
-										STEjMCEGA1UEChMaVmFlc3RvcmVraXN0ZXJpa2Vza3VzIFRFU1QxGDAWBgNVBAsT
-										D1Rlc3RpdmFybWVudGVldDEmMCQGA1UEAxMdVlJLIENBIGZvciBUZXN0IFB1cnBv
-										c2VzIC0gRzMwHhcNMjAwMzE3MTE0MDAwWhcNMjIwMzE3MjE1OTU5WjByMQswCQYD
-										VQQGEwJGSTEQMA4GA1UECBMHRmlubGFuZDERMA8GA1UEBxMISGVsc2lua2kxDjAM
-										BgNVBAoTBVR1bGxpMRMwEQYDVQQFEwpGSTAyNDU0NDI4MRkwFwYDVQQDExBhYy10
-										ZXN0LnR1bGxpLmZpMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA5saz
-										wL8QwFol7Ujnb5XJ6g56qp5uGPy+8q6SfAdrPE0Q1OPnQhUBGwIUop2fNhiMScu4
-										GhkiZ6Gm1PMnJgdtPvvtB+vWV8bKRCXmqHIBeDElXT4BbHMA0uS488P2tt0mY+uR
-										qQSACmx3E1f+24F8OfgMAwoUEEW6o+TNe14Dv0tZbPpaMUludxXO+/5DuKFkm60Y
-										+4KMjTcQ0EzrpNA1fZQhpx/E7MSjBWx/NvkKuHrzeHoxtk2Jh7X7k/izKAFmPDH1
-										CcUOjqXooLa5BfRg/OuHDF2LNo7w/eE5FrUzr0jUjLSPKqQo8XXNhHW1XvlqxuS4
-										JlEiE/ZVnOgEa+pAs6PpI1KpNLmV5z7UZ9MsZarj4KQh+EZ34IF+oOaO7lXbC7Zo
-										rQz0IpC53iV8K1+JNVfv72NNn2WGd3Mu9+S5WN65rs8AYdhaNHS2SqnWGxrlirKs
-										gEH8sl45pQj/8gZPw2xltGS5YlH4gHVZCMb7t093KW8zHRVWBa7hNuFkw1eBWkGx
-										8wiglwBPUW+HKSkIhOjea8wKJAU7OXIoK1TVW5YioIQPjQc5xTUw29/QSmAsRPfn
-										nyXkHkWnIuJ6YQGb/jnDcwsEcwCUtDz8yNICI074lV6iAHDlUmPduc269n7MPAsP
-										eonE3TbYg88/nrJSs22XX2hbNREYUhB7E3IpzIUCAwEAAaOCAlMwggJPMB8GA1Ud
-										IwQYMBaAFFvOhpzHU0PmArn7cWyMbaMg5bH4MB0GA1UdDgQWBBTmqFeQiXz7T6Cj
-										3LIi02Fmyn8TbTAOBgNVHQ8BAf8EBAMCBLAwgdcGA1UdIASBzzCBzDAIBgYEAI96
-										AQcwgb8GCSqBdoQFYwoiATCBsTAnBggrBgEFBQcCARYbaHR0cDovL3d3dy5maW5l
-										aWQuZmkvY3BzOTkvMIGFBggrBgEFBQcCAjB5GndWYXJtZW5uZXBvbGl0aWlra2Eg
-										b24gc2FhdGF2aWxsYSAtIENlcnRpZmlrYXQgcG9saWN5IGZpbm5zIC0gQ2VydGlm
-										aWNhdGUgcG9saWN5IGlzIGF2YWlsYWJsZSBodHRwOi8vd3d3LmZpbmVpZC5maS9j
-										cHM5OTAbBgNVHREEFDASghBhYy10ZXN0LnR1bGxpLmZpMA8GA1UdEwEB/wQFMAMB
-										AQAwNwYDVR0fBDAwLjAsoCqgKIYmaHR0cDovL3Byb3h5LmZpbmVpZC5maS9jcmwv
-										dnJrdHAzYy5jcmwwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMG4GCCsG
-										AQUFBwEBBGIwYDAwBggrBgEFBQcwAoYkaHR0cDovL3Byb3h5LmZpbmVpZC5maS9j
-										YS92cmt0cDMuY3J0MCwGCCsGAQUFBzABhiBodHRwOi8vb2NzcHRlc3QuZmluZWlk
-										LmZpL3Zya3RwMzAtBggrBgEFBQcBAwQhMB8wCAYGBACORgEBMBMGBgQAjkYBBjAJ
-										BgcEAI5GAQYDMA0GCSqGSIb3DQEBCwUAA4ICAQCK0W7YI46zLNPhoLfHwFMh5K2B
-										mciV3/dCUr6pncKI20VeWDkn12zWWZvVoplADvBPxlj1G7O6ljBtm43XeL32qZ/A
-										kW1n+I708AyNYAWlslCUVLwlpl6704EjWe1ym1Ybp8iea/dyWatvvLJRp960yaGI
-										L1/7cALzIIJGQX3H+vhMFno6rS69/jzZmyW+YSyZHNOnqFO2awNJU/2fFFB9S4Lh
-										GBLnHfvZXMiwLGuOP1FbaOkVj5cakI0SDZavAYFQn5bQK1/45LXO69hdRO8T1tAF
-										uMiLdox0qdo6BguDXFw8kspttv34oQ+SEQpC3VHb617SnmvovIZzLawk30xh6wP9
-										hqmhJClXCoLHFSSCePmyU1jbvzeS17U7VTjOaSHh3J+017qov0WLmCZKRxtql9G8
-										mL2UOSq+bfpMsS0HlrhheA4tiwag8uoQpL8Yb3NrUZQ1ChwNDkzojwApIrs1xR2h
-										PYLERFt+yxYGNmuyfIdCa1kQ7KFGObGugcqxbwas5j+tl+PKm9fooWbRkfkLG/5k
-										mcVmY3wmrbNbw7e074FVDXKF7lAJXE5E8cjQhLFgXCsdpIaQETHCJrywHiyHFOjp
-										+VZzv47X+WJzOsK0q9RzRa+ndxPCgxWeH0y1yK+YJEMCf8kN62uh9QOX1tq9mSUm
-										grUHxeTf87icp8Wb6w==</X509Certificate>
-								</X509Data>
-							</KeyInfo>
-						</Signature>
-					</urn1:Sgntr>
-				</ns:Rltd>
-			</iso:AppHdr>
-			<iso:Document xmlns:iso="urn:fi:tulli:wsdl_root">
-				<ns:InfReqRspn xmlns:ns="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01">
-					<ns:RspnId>ABC1234</ns:RspnId>
-					<ns:InvstgtnId>ABC1234</ns:InvstgtnId>
-					<ns:RspnSts>COMP</ns:RspnSts>
-					<ns:SchCrit>
-						<ns:CstmrId>
-							<ns:Pty>
-								<ns:Id>
-									<ns:OrgId>
-										<ns:Othr>
-											<ns:Id>1403768-0</ns:Id>
-											<ns:SchmeNm>
-												<ns:Cd>COID</ns:Cd>
-											</ns:SchmeNm>
-										</ns:Othr>
-									</ns:OrgId>
-								</ns:Id>
-							</ns:Pty>
-							<ns:AuthrtyReq>
-								<ns:Tp>
-									<ns:MsgNmId>auth.001.001.01</ns:MsgNmId>
-								</ns:Tp>
-								<ns:InvstgtdRoles>
-									<ns:Cd>ALLP</ns:Cd>
-								</ns:InvstgtdRoles>
-							</ns:AuthrtyReq>
-						</ns:CstmrId>
-					</ns:SchCrit>
-					<ns:RtrInd>
-						<ns:AuthrtyReqTp>
-							<ns:MsgNmId>fin.013.001.04</ns:MsgNmId>
-						</ns:AuthrtyReqTp>
-						<ns:InvstgtnRslt>
-							<ns:Rslt>
-								<ns:Document xmlns:ns="urn:fin.013.001.04">
-									<ns:InfRspnFin013>
-										<ns:InvstgtnId>ABC1234</ns:InvstgtnId>
-										<ns:CreDtTm>2020-06-04T17:25:32.77+03:00</ns:CreDtTm>
-										<ns:SvcrId>
-											<ns:FinInstnId>
-												<ns:Othr>
-													<ns:Id>8488829-6</ns:Id>
-													<ns:SchmeNm>
-														<ns:Cd>Y</ns:Cd>
-													</ns:SchmeNm>
-												</ns:Othr>
-											</ns:FinInstnId>
-										</ns:SvcrId>
-										<ns:LegalPersonInfo>
-											<ns:Id>
-												<ns:Nm>Company 2</ns:Nm>
-												<ns:Id>
-													<ns:OrgId>
-														<ns:Othr>
-															<ns:Id>1403768-0</ns:Id>
-															<ns:SchmeNm>
-																<ns:Cd>COID</ns:Cd>
-															</ns:SchmeNm>
-														</ns:Othr>
-														<ns:Othr>
-															<ns:Id>1990-07-26</ns:Id>
-															<ns:SchmeNm>
-																<ns:Cd>RGDT</ns:Cd>
-															</ns:SchmeNm>
-															<ns:Issr>PRH</ns:Issr>
-														</ns:Othr>
-													</ns:OrgId>
-												</ns:Id>
-											</ns:Id>
-											<ns:CustomerInfo>
-												<ns:OpngDt>1990-08-21</ns:OpngDt>
-											</ns:CustomerInfo>
-											<ns:Beneficiaries>
-												<ns:Id>
-													<ns:Nm>Simmons, Annele Suvi-Elina</ns:Nm>
-													<ns:PrvtId>
-														<ns:DtAndPlcOfBirth>
-															<ns:BirthDt>1974-01-12</ns:BirthDt>
-														</ns:DtAndPlcOfBirth>
-														<ns:Othr>
-															<ns:Id>120174-6066</ns:Id>
-															<ns:SchmeNm>
-																<ns:Cd>PIC</ns:Cd>
-															</ns:SchmeNm>
-														</ns:Othr>
-													</ns:PrvtId>
-													<ns:StartDt>1990-08-21</ns:StartDt>
-												</ns:Id>
-												<ns:Id>
-													<ns:Nm>Hosseini, Justus Leone</ns:Nm>
-													<ns:PrvtId>
-														<ns:DtAndPlcOfBirth>
-															<ns:BirthDt>1979-10-01</ns:BirthDt>
-														</ns:DtAndPlcOfBirth>
-														<ns:Othr>
-															<ns:Id>011079-428W</ns:Id>
-															<ns:SchmeNm>
-																<ns:Cd>PIC</ns:Cd>
-															</ns:SchmeNm>
-														</ns:Othr>
-													</ns:PrvtId>
-													<ns:StartDt>1995-04-29</ns:StartDt>
-													<ns:EndDt>2019-12-11</ns:EndDt>
-												</ns:Id>
-											</ns:Beneficiaries>
-										</ns:LegalPersonInfo>
-										<ns:LegalPersonInfo>
-											<ns:Id>
-												<ns:Nm>Company 1</ns:Nm>
-												<ns:Id>
-													<ns:OrgId>
-														<ns:Othr>
-															<ns:Id>1620873-8</ns:Id>
-															<ns:SchmeNm>
-																<ns:Cd>COID</ns:Cd>
-															</ns:SchmeNm>
-														</ns:Othr>
-														<ns:Othr>
-															<ns:Id>1956-06-24</ns:Id>
-															<ns:SchmeNm>
-																<ns:Cd>RGDT</ns:Cd>
-															</ns:SchmeNm>
-															<ns:Issr>PRH</ns:Issr>
-														</ns:Othr>
-													</ns:OrgId>
-												</ns:Id>
-											</ns:Id>
-											<ns:CustomerInfo>
-												<ns:OpngDt>1972-02-04</ns:OpngDt>
-											</ns:CustomerInfo>
-											<ns:Beneficiaries>
-												<ns:Id>
-													<ns:Nm>Petrow, Emad Johny</ns:Nm>
-													<ns:PrvtId>
-														<ns:DtAndPlcOfBirth>
-															<ns:BirthDt>1949-10-17</ns:BirthDt>
-														</ns:DtAndPlcOfBirth>
-														<ns:Othr>
-															<ns:Id>171049-338K</ns:Id>
-															<ns:SchmeNm>
-																<ns:Cd>PIC</ns:Cd>
-															</ns:SchmeNm>
-														</ns:Othr>
-													</ns:PrvtId>
-													<ns:StartDt>1970-08-04</ns:StartDt>
-												</ns:Id>
-												<ns:Id>
-													<ns:Nm>Dahlbacka, Rafael Stellan</ns:Nm>
-													<ns:PrvtId>
-														<ns:DtAndPlcOfBirth>
-															<ns:BirthDt>1952-10-21</ns:BirthDt>
-														</ns:DtAndPlcOfBirth>
-														<ns:Othr>
-															<ns:Id>210252-0218</ns:Id>
-															<ns:SchmeNm>
-																<ns:Cd>PIC</ns:Cd>
-															</ns:SchmeNm>
-														</ns:Othr>
-													</ns:PrvtId>
-													<ns:StartDt>1971-12-27</ns:StartDt>
-												</ns:Id>
-											</ns:Beneficiaries>
-										</ns:LegalPersonInfo>
-									</ns:InfRspnFin013>
-								</ns:Document>
-							</ns:Rslt>
-						</ns:InvstgtnRslt>
-					</ns:RtrInd>
-					<ns:RtrInd>
-						<ns:AuthrtyReqTp>
-							<ns:MsgNmId>supl.027.001.01</ns:MsgNmId>
-						</ns:AuthrtyReqTp>
-						<ns:InvstgtnRslt>
-							<ns:Rslt>
-								<ns:Document xmlns:ns="urn:iso:std:iso:20022:tech:xsd:supl.027.001.01">
-									<ns:InfRspnSD1>
-										<ns:InvstgtnId>ABC1234</ns:InvstgtnId>
-										<ns:CreDtTm>2020-06-04T17:25:32.771+03:00</ns:CreDtTm>
-										<ns:AcctSvcrId>
-											<ns:FinInstnId>
-												<ns:Othr>
-													<ns:Id>8488829-6</ns:Id>
-													<ns:SchmeNm>
-														<ns:Cd>Y</ns:Cd>
-													</ns:SchmeNm>
-												</ns:Othr>
-											</ns:FinInstnId>
-										</ns:AcctSvcrId>
-										<ns:AcctAndPties>
-											<ns:Acct>
-												<ns:Id>
-													<ns:IBAN>FI0647674328000895</ns:IBAN>
-												</ns:Id>
-												<ns:Ccy>EUR</ns:Ccy>
-												<ns:ClsgDt>2020-01-20</ns:ClsgDt>
-											</ns:Acct>
-											<ns:Role>
-												<ns:Pty>
-													<ns:Nm>Company 1</ns:Nm>
-													<ns:Id>
-														<ns:OrgId>
-															<ns:Othr>
-																<ns:Id>1620873-8</ns:Id>
-																<ns:SchmeNm>
-																	<ns:Cd>COID</ns:Cd>
-																</ns:SchmeNm>
-															</ns:Othr>
-															<ns:Othr>
-																<ns:Id>1956-06-24</ns:Id>
-																<ns:SchmeNm>
-																	<ns:Cd>RGDT</ns:Cd>
-																</ns:SchmeNm>
-																<ns:Issr>PRH</ns:Issr>
-															</ns:Othr>
-														</ns:OrgId>
-													</ns:Id>
-												</ns:Pty>
-												<ns:OwnrTp>
-													<ns:Tp>TRUS</ns:Tp>
-													<ns:Prtry>
-														<ns:Id>OWNE</ns:Id>
-														<ns:SchmeNm>RLTP</ns:SchmeNm>
-													</ns:Prtry>
-												</ns:OwnrTp>
-												<ns:StartDt>1972-02-04</ns:StartDt>
-											</ns:Role>
-											<ns:Role>
-												<ns:Pty>
-													<ns:Nm>Company 2</ns:Nm>
-													<ns:Id>
-														<ns:OrgId>
-															<ns:Othr>
-																<ns:Id>1403768-0</ns:Id>
-																<ns:SchmeNm>
-																	<ns:Cd>COID</ns:Cd>
-																</ns:SchmeNm>
-															</ns:Othr>
-															<ns:Othr>
-																<ns:Id>1990-07-26</ns:Id>
-																<ns:SchmeNm>
-																	<ns:Cd>RGDT</ns:Cd>
-																</ns:SchmeNm>
-																<ns:Issr>PRH</ns:Issr>
-															</ns:Othr>
-														</ns:OrgId>
-													</ns:Id>
-												</ns:Pty>
-												<ns:OwnrTp>
-													<ns:Tp>TRUS</ns:Tp>
-													<ns:Prtry>
-														<ns:Id>ACCE</ns:Id>
-														<ns:SchmeNm>RLTP</ns:SchmeNm>
-													</ns:Prtry>
-												</ns:OwnrTp>
-												<ns:StartDt>2012-01-30</ns:StartDt>
-											</ns:Role>
-											<ns:AddtlInf>1968-04-20</ns:AddtlInf>
-										</ns:AcctAndPties>
-									</ns:InfRspnSD1>
-								</ns:Document>
-							</ns:Rslt>
-						</ns:InvstgtnRslt>
-					</ns:RtrInd>
-					<ns:RtrInd>
-						<ns:AuthrtyReqTp>
-							<ns:MsgNmId>fin.002.001.02</ns:MsgNmId>
-						</ns:AuthrtyReqTp>
-						<ns:InvstgtnRslt>
-							<ns:Rslt>
-								<ns:Document xmlns:ns="urn:fin.002.001.02">
-									<ns:InfRspnFin002>
-										<ns:InvstgtnId>ABC1234</ns:InvstgtnId>
-										<ns:CreDtTm>2020-06-04T17:25:32.771+03:00</ns:CreDtTm>
-										<ns:SvcrId>
-											<ns:FinInstnId>
-												<ns:Othr>
-													<ns:Id>8488829-6</ns:Id>
-													<ns:SchmeNm>
-														<ns:Cd>Y</ns:Cd>
-													</ns:SchmeNm>
-												</ns:Othr>
-											</ns:FinInstnId>
-										</ns:SvcrId>
-										<ns:SdBoxAndPties>
-											<ns:SdBox>
-												<ns:Id>OKOYFIHH-345hyiwqq89l5</ns:Id>
-												<ns:OpngDt>1950-02-11</ns:OpngDt>
-											</ns:SdBox>
-											<ns:Role>
-												<ns:Pty>
-													<ns:Nm>Company 2</ns:Nm>
-													<ns:Id>
-														<ns:OrgId>
-															<ns:Othr>
-																<ns:Id>1403768-0</ns:Id>
-																<ns:SchmeNm>
-																	<ns:Cd>COID</ns:Cd>
-																</ns:SchmeNm>
-															</ns:Othr>
-															<ns:Othr>
-																<ns:Id>1990-07-26</ns:Id>
-																<ns:SchmeNm>
-																	<ns:Cd>RGDT</ns:Cd>
-																</ns:SchmeNm>
-																<ns:Issr>PRH</ns:Issr>
-															</ns:Othr>
-														</ns:OrgId>
-													</ns:Id>
-												</ns:Pty>
-												<ns:OwnrTp>
-													<ns:Prtry>
-														<ns:Id>OWNE</ns:Id>
-														<ns:SchmeNm>RLTP</ns:SchmeNm>
-													</ns:Prtry>
-												</ns:OwnrTp>
-												<ns:StartDt>1950-02-11</ns:StartDt>
-											</ns:Role>
-										</ns:SdBoxAndPties>
-									</ns:InfRspnFin002>
-								</ns:Document>
-							</ns:Rslt>
-						</ns:InvstgtnRslt>
-					</ns:RtrInd>
-				</ns:InfReqRspn>
-			</iso:Document>
-		</ApplicationResponse>
-	</SOAP-ENV:Body>
+                           <X509Certificate>MIIHuTCCBaGgAwIBAgIEBgVM/TANBgkqhkiG9w0BAQsFADB0MQswCQYDVQQGEwJG
+STEjMCEGA1UEChMaVmFlc3RvcmVraXN0ZXJpa2Vza3VzIFRFU1QxGDAWBgNVBAsT
+D1Rlc3RpdmFybWVudGVldDEmMCQGA1UEAxMdVlJLIENBIGZvciBUZXN0IFB1cnBv
+c2VzIC0gRzMwHhcNMjAwMzE3MTE0MDAwWhcNMjIwMzE3MjE1OTU5WjByMQswCQYD
+VQQGEwJGSTEQMA4GA1UECBMHRmlubGFuZDERMA8GA1UEBxMISGVsc2lua2kxDjAM
+BgNVBAoTBVR1bGxpMRMwEQYDVQQFEwpGSTAyNDU0NDI4MRkwFwYDVQQDExBhYy10
+ZXN0LnR1bGxpLmZpMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA5saz
+wL8QwFol7Ujnb5XJ6g56qp5uGPy+8q6SfAdrPE0Q1OPnQhUBGwIUop2fNhiMScu4
+GhkiZ6Gm1PMnJgdtPvvtB+vWV8bKRCXmqHIBeDElXT4BbHMA0uS488P2tt0mY+uR
+qQSACmx3E1f+24F8OfgMAwoUEEW6o+TNe14Dv0tZbPpaMUludxXO+/5DuKFkm60Y
++4KMjTcQ0EzrpNA1fZQhpx/E7MSjBWx/NvkKuHrzeHoxtk2Jh7X7k/izKAFmPDH1
+CcUOjqXooLa5BfRg/OuHDF2LNo7w/eE5FrUzr0jUjLSPKqQo8XXNhHW1XvlqxuS4
+JlEiE/ZVnOgEa+pAs6PpI1KpNLmV5z7UZ9MsZarj4KQh+EZ34IF+oOaO7lXbC7Zo
+rQz0IpC53iV8K1+JNVfv72NNn2WGd3Mu9+S5WN65rs8AYdhaNHS2SqnWGxrlirKs
+gEH8sl45pQj/8gZPw2xltGS5YlH4gHVZCMb7t093KW8zHRVWBa7hNuFkw1eBWkGx
+8wiglwBPUW+HKSkIhOjea8wKJAU7OXIoK1TVW5YioIQPjQc5xTUw29/QSmAsRPfn
+nyXkHkWnIuJ6YQGb/jnDcwsEcwCUtDz8yNICI074lV6iAHDlUmPduc269n7MPAsP
+eonE3TbYg88/nrJSs22XX2hbNREYUhB7E3IpzIUCAwEAAaOCAlMwggJPMB8GA1Ud
+IwQYMBaAFFvOhpzHU0PmArn7cWyMbaMg5bH4MB0GA1UdDgQWBBTmqFeQiXz7T6Cj
+3LIi02Fmyn8TbTAOBgNVHQ8BAf8EBAMCBLAwgdcGA1UdIASBzzCBzDAIBgYEAI96
+AQcwgb8GCSqBdoQFYwoiATCBsTAnBggrBgEFBQcCARYbaHR0cDovL3d3dy5maW5l
+aWQuZmkvY3BzOTkvMIGFBggrBgEFBQcCAjB5GndWYXJtZW5uZXBvbGl0aWlra2Eg
+b24gc2FhdGF2aWxsYSAtIENlcnRpZmlrYXQgcG9saWN5IGZpbm5zIC0gQ2VydGlm
+aWNhdGUgcG9saWN5IGlzIGF2YWlsYWJsZSBodHRwOi8vd3d3LmZpbmVpZC5maS9j
+cHM5OTAbBgNVHREEFDASghBhYy10ZXN0LnR1bGxpLmZpMA8GA1UdEwEB/wQFMAMB
+AQAwNwYDVR0fBDAwLjAsoCqgKIYmaHR0cDovL3Byb3h5LmZpbmVpZC5maS9jcmwv
+dnJrdHAzYy5jcmwwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMG4GCCsG
+AQUFBwEBBGIwYDAwBggrBgEFBQcwAoYkaHR0cDovL3Byb3h5LmZpbmVpZC5maS9j
+YS92cmt0cDMuY3J0MCwGCCsGAQUFBzABhiBodHRwOi8vb2NzcHRlc3QuZmluZWlk
+LmZpL3Zya3RwMzAtBggrBgEFBQcBAwQhMB8wCAYGBACORgEBMBMGBgQAjkYBBjAJ
+BgcEAI5GAQYDMA0GCSqGSIb3DQEBCwUAA4ICAQCK0W7YI46zLNPhoLfHwFMh5K2B
+mciV3/dCUr6pncKI20VeWDkn12zWWZvVoplADvBPxlj1G7O6ljBtm43XeL32qZ/A
+kW1n+I708AyNYAWlslCUVLwlpl6704EjWe1ym1Ybp8iea/dyWatvvLJRp960yaGI
+L1/7cALzIIJGQX3H+vhMFno6rS69/jzZmyW+YSyZHNOnqFO2awNJU/2fFFB9S4Lh
+GBLnHfvZXMiwLGuOP1FbaOkVj5cakI0SDZavAYFQn5bQK1/45LXO69hdRO8T1tAF
+uMiLdox0qdo6BguDXFw8kspttv34oQ+SEQpC3VHb617SnmvovIZzLawk30xh6wP9
+hqmhJClXCoLHFSSCePmyU1jbvzeS17U7VTjOaSHh3J+017qov0WLmCZKRxtql9G8
+mL2UOSq+bfpMsS0HlrhheA4tiwag8uoQpL8Yb3NrUZQ1ChwNDkzojwApIrs1xR2h
+PYLERFt+yxYGNmuyfIdCa1kQ7KFGObGugcqxbwas5j+tl+PKm9fooWbRkfkLG/5k
+mcVmY3wmrbNbw7e074FVDXKF7lAJXE5E8cjQhLFgXCsdpIaQETHCJrywHiyHFOjp
++VZzv47X+WJzOsK0q9RzRa+ndxPCgxWeH0y1yK+YJEMCf8kN62uh9QOX1tq9mSUm
+grUHxeTf87icp8Wb6w==</X509Certificate>
+                        </X509Data>
+                     </KeyInfo>
+                  </Signature>
+               </urn1:Sgntr>
+            </ns:Rltd>
+         </AppHdr>
+         <Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01">
+            <ns:InfReqRspn xmlns:ns="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01">
+               <ns:RspnId>ABC1234</ns:RspnId>
+               <ns:InvstgtnId>ABC1234</ns:InvstgtnId>
+               <ns:RspnSts>COMP</ns:RspnSts>
+               <ns:SchCrit>
+                  <ns:CstmrId>
+                     <ns:Pty>
+                        <ns:Id>
+                           <ns:OrgId>
+                              <ns:Othr>
+                                 <ns:Id>3723210-4</ns:Id>
+                                 <ns:SchmeNm>
+                                    <ns:Cd>COID</ns:Cd>
+                                 </ns:SchmeNm>
+                              </ns:Othr>
+                           </ns:OrgId>
+                        </ns:Id>
+                     </ns:Pty>
+                     <ns:AuthrtyReq>
+                        <ns:Tp>
+                           <ns:MsgNmId>supl.027.001.01</ns:MsgNmId>
+                        </ns:Tp>
+                        <ns:InvstgtdRoles>
+                           <ns:Cd>ALLP</ns:Cd>
+                        </ns:InvstgtdRoles>
+                     </ns:AuthrtyReq>
+                     <ns:AuthrtyReq>
+                        <ns:Tp>
+                           <ns:MsgNmId>fin.002.001.02</ns:MsgNmId>
+                        </ns:Tp>
+                        <ns:InvstgtdRoles>
+                           <ns:Cd>ALLP</ns:Cd>
+                        </ns:InvstgtdRoles>
+                     </ns:AuthrtyReq>
+                     <ns:AuthrtyReq>
+                        <ns:Tp>
+                           <ns:MsgNmId>fin.013.001.04</ns:MsgNmId>
+                        </ns:Tp>
+                        <ns:InvstgtdRoles>
+                           <ns:Cd>ALLP</ns:Cd>
+                        </ns:InvstgtdRoles>
+                     </ns:AuthrtyReq>
+                  </ns:CstmrId>
+               </ns:SchCrit>
+               <ns:RtrInd>
+                  <ns:AuthrtyReqTp>
+                     <ns:MsgNmId>supl.027.001.01</ns:MsgNmId>
+                  </ns:AuthrtyReqTp>
+                  <ns:InvstgtnRslt>
+                     <ns:InvstgtnSts>NFOU</ns:InvstgtnSts>
+                  </ns:InvstgtnRslt>
+               </ns:RtrInd>
+               <ns:RtrInd>
+                  <ns:AuthrtyReqTp>
+                     <ns:MsgNmId>fin.002.001.02</ns:MsgNmId>
+                  </ns:AuthrtyReqTp>
+                  <ns:InvstgtnRslt>
+                     <ns:InvstgtnSts>NFOU</ns:InvstgtnSts>
+                  </ns:InvstgtnRslt>
+               </ns:RtrInd>
+               <ns:RtrInd>
+                  <ns:AuthrtyReqTp>
+                     <ns:MsgNmId>fin.013.001.04</ns:MsgNmId>
+                  </ns:AuthrtyReqTp>
+                  <ns:InvstgtnRslt>
+                     <ns:InvstgtnSts>NFOU</ns:InvstgtnSts>
+                  </ns:InvstgtnRslt>
+               </ns:RtrInd>
+            </ns:InfReqRspn>
+         </Document>
+      </ApplicationResponse>
+   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
