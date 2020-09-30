@@ -46,8 +46,8 @@ Version|Date|Decription
 1.0.37|24.8.2020|The paragraph “Limiting submessages in the search result” was added. The words “at most” were deleted from the sentence “one search result sub-message … is returned per Business ID for each search result type”.|
 1.0.38|24.8.2020|Both the Business ID and the VAT number are accepted as the serialNumber attribute in the data traffic certificate and the signature certificate.|
 1.0.39|25.8.2020|Both the Business ID and the VAT number are accepted as the serialNumber attribute in the data traffic certificate and the signature certificate.|
-1.0.40|17.9.2020|Fixed version fin.002.001.01 message references to version fin.002.001.02|
-1.0.41|18.9.2020|Query response size is too large -message was added to table 4.12.1.|
+1.0.40|17.9.2020|Corrected references to fin.002.001.01 message to correspond with version fin.002.001.02|
+1.0.41|18.9.2020|Query response size is too large -error was added to table 4.12.1.|
 
 ## Table of contents
 
