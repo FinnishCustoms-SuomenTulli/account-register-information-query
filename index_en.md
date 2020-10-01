@@ -85,7 +85,7 @@ WSDL| (Web Service Description Language) A structural description language descr
 
 This document is part of the order issued by Finnish Customs regarding a bank and payment account monitoring system. The purpose of the document is to issue instructions regarding the query interface of the data retrieval system. This document is supplemented by the deployment and maintenance instructions for the data retrieval system.
 
-### 1.3 Viittaukset
+### 1.3 References
 
 [WSDL for the data retrieval system](wsdl/data-retrieval-system-wsdl.xml)
 
@@ -105,7 +105,7 @@ This document is part of the order issued by Finnish Customs regarding a bank an
 
 [Guidelines on the Information Security of e-Services](http://julkaisut.valtioneuvosto.fi/bitstream/handle/10024/80012/VM_25_2017.pdf)
 
-### 1.4 General decsription
+### 1.4 General description
 
 Customs has established an Account Register Project implementing the bank and payment account monitoring system, based on Finnish legislation and implementing EU Directive 2018/843. 
 
@@ -254,7 +254,7 @@ Example 3.1. Example SignedInfo
 
 The signature algorithm therefore is RSA-SHA256 and C14N is Exclusive XML Canonicalization. The reference URI is “#applicationRequest” or “#applicationResponse“, depending on if it’s a query or response message. Only “ApplicationRequest” or “ApplicationResponse” element is signed. When forming the signature, the SHA256 algorithm must be used for establishing the digests to be calculated.
 
-In terms of cryptographic strength, the cryptographic algorithms used in signatures must correspond at least with the cryptographic strength requirements set out by the Finnish Transport and Communications Agency as concerns national protection level ST IV. Current strength requirements are described in the Finnish-language document available at this link: [Kryptografiset vahvuusvaatimukset luottamuksellisuuden suojaamiseen -kansalliset suojaustasot (pdf)](#https://www.kyberturvallisuuskeskus.fi/sites/default/files/media/regulation/ohje-kryptografiset-vahvuusvaatimukset-kansalliset-suojaustasot.pdf) (Record No.: 190/651/2015).
+In terms of cryptographic strength, the cryptographic algorithms used in signatures must correspond at least with the cryptographic strength requirements set out by the Finnish Transport and Communications Agency as concerns national protection level ST IV. Current strength requirements are described in the Finnish-language document available at this link: [Cryptographic requirements for confidentiality - national protection levels (in Finnish)](#https://www.kyberturvallisuuskeskus.fi/sites/default/files/media/regulation/ohje-kryptografiset-vahvuusvaatimukset-kansalliset-suojaustasot.pdf) (Record No.: 190/651/2015).
 
 The possibility of limiting the IP space of requests in the data retrieval system will be further specified at a later stage.
 
@@ -262,7 +262,7 @@ The possibility of limiting the IP space of requests in the data retrieval syste
 ### 3.2 Protecting the connections
 
 The connections of the query interface of the data retrieval system must be protected with TLS encryption using version 1.2 or later of the TLS protocol. Both ends of the connection are identified with the server certificates described above, using two-way handshaking. The connection must be established using the ephemeral Diffie-Hellman (DHE) key exchange protocol where a new unique private encryption key is created for each session. The purpose of this procedure is to ensure that encryption has the forward secrecy feature so that possible discovery of the encryption key afterwards would not lead to a disclosure of the encrypted information.
-The cryptographic algorithms used in TLS encryption must have a cryptographic strength at least equal to the cryptographic strengths the Finnish Transport and Communications Agency has specified for national protection level ST IV. The current strength requirements are described in document [Kryptografiset vahvuusvaatimukset luottamuksellisuuden suojaamiseen -kansalliset suojaustasot (pdf)](#https://www.kyberturvallisuuskeskus.fi/sites/default/files/media/regulation/ohje-kryptografiset-vahvuusvaatimukset-kansalliset-suojaustasot.pdf) (Record no: 190/651/2015).
+The cryptographic algorithms used in TLS encryption must have a cryptographic strength at least equal to the cryptographic strengths the Finnish Transport and Communications Agency has specified for national protection level ST IV. The current strength requirements are described in document [Cryptographic requirements for confidentiality - national protection levels (in Finnish)](#https://www.kyberturvallisuuskeskus.fi/sites/default/files/media/regulation/ohje-kryptografiset-vahvuusvaatimukset-kansalliset-suojaustasot.pdf) (Record no: 190/651/2015).
 
 
 ### 3.3 Permitted HTTP-version
@@ -340,11 +340,11 @@ The more detailed message descriptions are presented in the subchapters of this 
 
 |Detail|Message(s)|Description|
 |:---|:---|:---|
-|IBAN-numero|supl.027|See [Use of CustomerAccount](#CustomerAccount1)|
-|Tilin avaamispäivä|supl.027|Returned in the field AddtlInf|
-|Tilin sulkemispäivä|supl.027|See [Use of CustomerAccount](#CustomerAccount1)|
-|Tilin osalliset|supl.027|Account holders and account access right holders|
-|Kiistanalainen|auth.002|Supplementary Data in accordance with [the disputed schema](schemas/disputed.xsd)|
+|IBAN|supl.027|See [Use of CustomerAccount](#CustomerAccount1)|
+|Date of opening the account|supl.027|Returned in the field AddtlInf|
+|Date of closing the account|supl.027|See [Use of CustomerAccount](#CustomerAccount1)|
+|Persons involved in the account|supl.027|Account holders and account access right holders|
+|Disputed|auth.002|Supplementary Data in accordance with [the disputed schema](schemas/disputed.xsd)|
 
 *__Table 4.3.4:__ Safety-deposit box, details specified for each message*
 
@@ -385,7 +385,7 @@ The more detailed message descriptions are presented in the subchapters of this 
 |Message id|Name of the message|ID of the extended ISO 20022 message|Purpose and functionality|
 |---|---|---|---|
 |supl.027.001.01|InformationResponseSD1V01|auth.002.001.01|Includes the account details corresponding to the search parameters|
-|FIN002|InformationResponseFIN002|auth.002.001.01|Sisältää Includes the details of safe-deposit boxes corresponding to the search parameters|
+|FIN002|InformationResponseFIN002|auth.002.001.01|Includes the details of safe-deposit boxes corresponding to the search parameters|
 |FIN013|InformationResponseFIN013|auth.002.001.01|Includes separately the customer details of account and safe-deposit boxes that correspond to the search parameters|
 
 The message replies of the query interface will include all such information that corresponds to the search criteria and whose temporal scope is derived from chapter 3, section 3 of the Act on the Prevention of Money Laundering and Terrorism Financing that lays down precise and well-defined provisions on the customer due diligence information and its storage. All involvement details delated to accounts and safe-deposit boxes are returned, i.e. all persons involved are also returned in addition to the persons (legal or natural) complying with the search parameters. However, other account and safe-deposit box details of the involved persons than those complying with the search parameters are not returned. Instead, new queries have to be made for them with the appropriate legal basis.
@@ -520,7 +520,7 @@ The message extension is appended to the Xpath location of the ISO 20022 message
 
 ### <a name="InformationRequestResponseV01"></a> 4.7 InformationRequestResponseV01
 
-Taulukossa on kuvattu sanoman tietuNoden käyttö.
+The table describes the use of records in the message.
 
 |Name|Type|In use|[min..max]|Description|
 |:---|:---|:---|:---|:---|
@@ -732,7 +732,7 @@ The table describes the use of records in the message.
 |&nbsp;&nbsp;&nbsp;&nbsp;Role|AccountRole1|Yes|[1..*]|For the account-related roles, see the second table below. Every role must be provided separately. For example, if a natural person is both the account holder and has access right to the account, there are two Role elements, one of which has OwnrTp=OWNE and the other OwnrTp=ACCE, see Use of AccountRole1. Every role has a start date and optional end date. In addition to this, the customership connected to each role must be indicated in the fin.013 submessage once per party. For example, in this case one customership is indicated for the person in the example.|
 |&nbsp;&nbsp;&nbsp;&nbsp;AddtlInf|Max256Text|Yes|[1..1]|The date of opening the account, as a string of characters in ISODate format.|
 
-#### <a name="CustomerAccount1"></a> CustomerAccount1 käyttö
+#### <a name="CustomerAccount1"></a> Use of CustomerAccount1
 
 |Name|Type|In use|[min..max]|Description|
 |:---|:---|:---|:---|:---|
@@ -753,7 +753,7 @@ The table describes the use of records in the message.
 |&nbsp;&nbsp;&nbsp;&nbsp;ClsgDt|ISODate|Yes|[0..1]|Date of closing the account|
 |&nbsp;&nbsp;&nbsp;&nbsp;Rstrctn||No|||
 
-#### AccountRole1 käyttö
+#### Use of AccountRole1
 
 |Name|Type|In use|[min..max]|Description|
 |:---|:---|:---|:---|:---|
@@ -775,7 +775,7 @@ The message extension is appended to the Xpath location of the ISO 20022 message
 |&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|[1..1]|BranchAndFinancialInstitutionIdentification4|Yes|Used as follows: Element `SvcrId/FinInstnId/Othr/SchmeNm/Cd` includes the value “Y”, and element `SvcrId/FinInstnId/Othr/Id` includes the sender's Business ID.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SdBoxAndPties|[0..*]|SafetyDepositBoxAndParties|Yes|Safety-deposit box and parties, see [Use of SafetyDepositBoxAndParties](#SafetyDepositBoxAndParties)|
 
-#### <a name="SafetyDepositBoxAndParties"></a> SafetyDepositBoxAndParties käyttö
+#### <a name="SafetyDepositBoxAndParties"></a> Use of SafetyDepositBoxAndParties
 
 |Name|Type|In use|[min..max]|Description|
 |:---|:---|:---|:---|:---|
