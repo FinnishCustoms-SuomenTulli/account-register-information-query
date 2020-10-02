@@ -191,7 +191,7 @@ a) the certificate was issued by the Population Register Centre, the certificate
 
 or
 
-b) the certificate is an NoDAS-approved website identification certificate, the certificate is valid and is not included in the certificate revocation list of party providing the certificate, and the organizationIdentifier attribute of the Subject field of the certificate consists of the Business ID or VAT identifier of the party submitting the information.
+b) the certificate is an eIDAS-approved website identification certificate, the certificate is valid and is not included in the certificate revocation list of party providing the certificate, and the organizationIdentifier attribute of the Subject field of the certificate consists of the Business ID or VAT identifier of the party submitting the information.
 
 Please note: For the message signatures to meet the information security requirements of the National Cyber Security Centre referred to below, the RSA public key of the certificate used for signatures must have at least 3072 bits. The uses of the certificate used for signatures must also include “digital signature”. These factors must be taken into account when ordering a certificate.
 
@@ -217,7 +217,7 @@ c) the serialNumber attribute of the Subject field of the certificate consists o
 
 #### Data traffic certificate of the data supplier or the party authorised by the data supplier
 
-The competent authority contacting the query interface identifies the data supplier or the party authorised by the data supplier with the help of the server certificate. The party authorised by the data supplier refers, for example, to a service centre which the data supplier has authorised to compile and/or send the reports on its behalf.A contact with the data supplier must be accepted provided that
+The competent authority contacting the query interface identifies the data supplier or the party authorised by the data supplier with the help of the server certificate. The party authorised by the data supplier refers, for example, to a service centre which the data supplier has authorised to compile and/or send the reports on its behalf. A contact with the data supplier must be accepted provided that
 
 either 
 
@@ -225,7 +225,7 @@ a) the server certificate was issued by the Population Register Centre, the cert
 
 or
 
-b) the server certificate is an NoDAS-approved website identification certificate, the certificate is valid and is not included in the certificate revocation list of party providing the certificate, and the organizationIdentifier attribute of the subject of the certificate consists of the Business ID or VAT identifier of the party submitting the information or the party authorised by that party.
+b) the server certificate is an eIDAS-approved website identification certificate, the certificate is valid and is not included in the certificate revocation list of party providing the certificate, and the organizationIdentifier attribute of the subject of the certificate consists of the Business ID or VAT identifier of the party submitting the information or the party authorised by that party.
 
 If the same Business ID or VAT identifier is used in the data traffic certificate and outgoing message signature certificate of the party submitting the information, the same certificate can be used for both purposes.
 
@@ -846,7 +846,7 @@ The message extension is appended to the Xpath location of the ISO 20022 message
 |StartDt|ISODate|Yes|[0..1]|Start date of role|
 |EndDt|ISODate|Yes|[0..1]|End date of role|
 
-### <a name="Id-element_usage"></a> Use of 4.11 Id element
+### <a name="Id-element_usage"></a> 4.11 Use of Id element
 
 All messages use the equivalent identification structure for legal persons and natural persons under the Id-element (Party8Choice). Use of the Id element at the query interface is described here.
 
