@@ -1,6 +1,6 @@
 # Query interface description of the data retrieval system
 
-*Document version 1.0.41*
+*Document version 1.0.42*
 
 ## Vesion history
 
@@ -43,11 +43,12 @@ Version|Date|Decription
 1.0.34|3.7.2020|It was specified that the search criteria “company name” and “the natural person’s name” are not case sensitive.|
 1.0.35|23.7.2020|The links to the iso20022.org website were updated.|
 1.0.36|13.8.2020|In the table “Search by company name”, the tag for “company name” was amended (Id -> Nm).|
-1.0.37|24.8.2020|The paragraph “Limiting submessages in the search result” was added. The words “at most” were deleted from the sentence “one search result sub-message … is returned per Business ID for each search result type”.|
-1.0.38|24.8.2020|Both the Business ID and the VAT number are accepted as the serialNumber attribute in the data traffic certificate and the signature certificate.|
+1.0.37|24.8.2020|A specifying note regarding the lengths of keys used in data communications and message signatures was added.|
+1.0.38|24.8.2020|The paragraph “Limiting submessages in the search result” was added. The words “at most” were deleted from the sentence “one search result sub-message … is returned per Business ID for each search result type”.|
 1.0.39|25.8.2020|Both the Business ID and the VAT number are accepted as the serialNumber attribute in the data traffic certificate and the signature certificate.|
 1.0.40|17.9.2020|Corrected references to fin.002.001.01 message to correspond with version fin.002.001.02|
 1.0.41|18.9.2020|Query response size is too large -error was added to table 4.12.1.|
+1.0.42|25.9.2020|Replaced links to iso20022.org's files with references to local files since iso20022.org often changes the file locations.|
 
 ## Table of contents
 
@@ -89,13 +90,13 @@ This document is part of the order issued by Finnish Customs regarding a bank an
 
 [WSDL for the data retrieval system](wsdl/data-retrieval-system-wsdl.xml)
 
-[ISO 20022 External Code Sets](https://www.iso20022.org/external_code_list.page)
+[ISO 20022 External Code Sets](assets/iso20022org/ExternalCodeSets_2Q2020_August2020_v1.xlsx)
 
-[ISO 20022 auth.001.001.01 InformationRequestOpeningV01 MDR](https://www.iso20022.org/business-area/36/download)
+[ISO 20022 auth.001.001.01 InformationRequestOpeningV01 MDR](assets/iso20022org/archive_business_area_authorities.zip)
 
-[ISO 20022 auth.002.001.01 InformationRequestResponseV01 MDR](https://www.iso20022.org/business-area/36/download)
+[ISO 20022 auth.002.001.01 InformationRequestResponseV01 MDR](assets/iso20022org/archive_business_area_authorities.zip)
 
-[ISO 20022 head.001.001.01 schema](https://www.iso20022.org/business-area/136/download)
+[ISO 20022 head.001.001.01 schema](assets/iso20022org/archive_business_area_business_application_header.zip)
 
 [fin.002.001.02](schemas/fin.002.001.02.xsd)
 
@@ -282,7 +283,7 @@ The query interface will be implemented as a SOAP/XML Web Service, of which a [W
 
 SOAP protocol version 1.1 is used.
 
-ISO 20022 code set references are used in the messages. The code set references are found at the ISO 20022 page [External Code Sets](https://www.iso20022.org/external_code_list.page).
+ISO 20022 code set references are used in the messages. The code set references are found at the ISO 20022 page [External Code Sets](assets/iso20022org/ExternalCodeSets_2Q2020_August2020_v1.xlsx).
 
 The query interface has one endpoint with its query and response message structure described in this chapter.
 
@@ -297,15 +298,15 @@ The details of the Business Application Header message are shown in the table be
 
 |Message id|Name of the message|
 |:---|:---|
-|[head.001.001.01](https://www.iso20022.org/message-set/651/download)|Business Application Header|
+|[head.001.001.01](assets/iso20022org/archive_business_application_header_2.zip)|Business Application Header|
 
 The BAH must always be the first element of the SOAP body.
 
 ### <a name="4-3"></a> 4.3 Messages of the query interface
 
-The query interface of the data retrieval system uses the ISO 20022 messages [InformationRequestOpeningV01 (auth.001.001.01)](https://www.iso20022.org/message/10186/download) and [InformationRequestResponseV01 (auth.002.001.01)](https://www.iso20022.org/message/10191/download) to which the required submessages ([Supplementary Data](http://www.iso20022.org/sites/default/files/documents/D7/InformationResponse_SupplementaryData.zip)) are appended.
+The query interface of the data retrieval system uses the ISO 20022 messages [InformationRequestOpeningV01 (auth.001.001.01)](assets/iso20022org/auth.001.001.01.xsd) and [InformationRequestResponseV01 (auth.002.001.01)](assets/iso20022org/auth.002.001.01.xsd) to which the required submessages ([Supplementary Data](assets/iso20022org/InformationResponse_SupplementaryData.zip)) are appended.
 
-The submessages used at the upper level are divided into three concepts: customership, account and safety-deposit box. The customer and beneficiary details are returned in the message [fin.013.001.04](schemas/fin.013.001.04.xsd), the account details in the message [supl.027.001.01](http://www.iso20022.org/sites/default/files/documents/D7/InformationResponse_SupplementaryData.zip) and the safety-deposit box details in the message [fin.002.001.02](schemas/fin.002.001.02) (NB. here the same code as in the manual processing in some existing systems). These submessages are appended to [auth.002.001.01](https://www.iso20022.org/message/10191/download) element `InformationRequestResponseV01/RtrInd`.
+The submessages used at the upper level are divided into three concepts: customership, account and safety-deposit box. The customer and beneficiary details are returned in the message [fin.013.001.04](schemas/fin.013.001.04.xsd), the account details in the message [supl.027.001.01](assets/iso20022org/InformationResponse_SupplementaryData.zip) and the safety-deposit box details in the message [fin.002.001.02](schemas/fin.002.001.02) (NB. here the same code as in the manual processing in some existing systems). These submessages are appended to [auth.002.001.01](assets/iso20022org/auth.002.001.01.xsd) element `InformationRequestResponseV01/RtrInd`.
 
 The tables 4.3.1–4.3.5 show the data content of the bank and payment account register as well as the Supplementary Data submessage, as part of which each detail is returned.
 
@@ -370,8 +371,8 @@ The more detailed message descriptions are presented in the subchapters of this 
 
 |Message id|Name of the message|Purpose|Corresponding organisation|Msg Def Report|
 |---|---|---|---|---| 
-|auth.001.001.01|InformationRequestOpeningV01|Query message of the query interface|FFI|[MDR](https://www.iso20022.org/business-area/36/download)|
-|auth.002.001.01|InformationRequestResponseV01|Response message of the query interface|FFI|[MDR](https://www.iso20022.org/business-area/36/download)|
+|auth.001.001.01|InformationRequestOpeningV01|Query message of the query interface|FFI|[MDR](assets/iso20022org/archive_business_area_authorities.zip)|
+|auth.002.001.01|InformationRequestResponseV01|Response message of the query interface|FFI|[MDR](assets/iso20022org/archive_business_area_authorities.zip)|
 
 
 *__Table 4.3.7:__ Submessage appended to the query message auth.001*
@@ -392,7 +393,7 @@ The message replies of the query interface will include all such information tha
 
 ### <a name="BusinessApplicationHeaderV01"></a> 4.4 BusinessApplicationHeaderV01
 
-The use of BAH elements is shown in the table below. The element types are described in the [head.001.001.01 schema](https://www.iso20022.org/business-area/136/download).
+The use of BAH elements is shown in the table below. The element types are described in the [head.001.001.01 schema](assets/iso20022org/archive_business_area_business_application_header.zip).
 
 |Name|Type|In use|Description|
 |:---|:---|:---|:---|
