@@ -43,8 +43,8 @@ Version|Date|Decription
 1.0.34|3.7.2020|It was specified that the search criteria “company name” and “the natural person’s name” are not case sensitive.|
 1.0.35|23.7.2020|The links to the iso20022.org website were updated.|
 1.0.36|13.8.2020|In the table “Search by company name”, the tag for “company name” was amended (Id -> Nm).|
-1.0.37|24.8.2020|The paragraph “Limiting submessages in the search result” was added. The words “at most” were deleted from the sentence “one search result sub-message … is returned per Business ID for each search result type”.|
-1.0.38|24.8.2020|Both the Business ID and the VAT number are accepted as the serialNumber attribute in the data traffic certificate and the signature certificate.|
+1.0.37|24.8.2020|A specifying note regarding the lengths of keys used in data communications and message signatures was added.|
+1.0.38|24.8.2020|The paragraph “Limiting submessages in the search result” was added. The words “at most” were deleted from the sentence “one search result sub-message … is returned per Business ID for each search result type”.|
 1.0.39|25.8.2020|Both the Business ID and the VAT number are accepted as the serialNumber attribute in the data traffic certificate and the signature certificate.|
 1.0.40|17.9.2020|Corrected references to fin.002.001.01 message to correspond with version fin.002.001.02|
 1.0.41|18.9.2020|Query response size is too large -error was added to table 4.12.1.|
