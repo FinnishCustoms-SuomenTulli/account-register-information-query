@@ -926,7 +926,7 @@ Beskrivning|Behandlingen av meddelandet lyckades i sin helhet.
 HTTP status code|202
 Påföljd|Meddelandena head.001.001.01 och auth.002.001.01 och eventuella undermeddelanden returneras|
 
-#### Skenaario 2 - Tapahtui virhe
+#### Scenario 2 - Ett fel inträffade
 
 | | |
 |---|---|  
