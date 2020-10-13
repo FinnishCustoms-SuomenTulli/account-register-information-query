@@ -303,7 +303,7 @@ BAH ska alltid vara det första elementet i SOAP body.
 
 I datasöksystemets frågegränssnitt används ISO 20022 -meddelandena [InformationRequestOpeningV01 (auth.001.001.01)](assets/iso20022org/auth.001.001.01.xsd) och [InformationRequestResponseV01 (auth.002.001.01)](assets/iso20022org/auth.002.001.01.xsd) till vilka behövliga undermeddelanden ([Supplementary Data](assets/iso20022org/InformationResponse_SupplementaryData.zip)) kopplas.
 
-Undermeddelanden som används på högre nivå delas in i tre begrepp: kundrelation, konto och bankfack. Uppgifterna om kundrelation och förmånstagare returneras i meddelandet [fin.013.001.04](schemas/fin.013.001.04.xsd), kontouppgifterna i meddelandet [supl.027.001.01](assets/iso20022org/InformationResponse_SupplementaryData.zip) och bankfacksuppgifterna i meddelandet [fin.002.001.02](schemas/fin.002.001.02) (Obs. samma kod som vid manuell behandling i vissa befintliga system). Dessa undermeddelanden kopplas till [auth.002.001.01](assets/iso20022org/auth.002.001.01.xsd)-elementet `InformationRequestResponseV01/RtrInd`.
+Undermeddelanden som används på högre nivå delas in i tre begrepp: kundrelation, konto och bankfack. Uppgifterna om kundrelation och förmånstagare returneras i meddelandet [fin.013.001.04](schemas/fin.013.001.04.xsd), kontouppgifterna i meddelandet [supl.027.001.01](assets/iso20022org/InformationResponse_SupplementaryData.zip) och bankfacksuppgifterna i meddelandet [fin.002.001.02](schemas/fin.002.001.02.xsd) (Obs. samma kod som vid manuell behandling i vissa befintliga system). Dessa undermeddelanden kopplas till [auth.002.001.01](assets/iso20022org/auth.002.001.01.xsd)-elementet `InformationRequestResponseV01/RtrInd`.
 
 I tabellerna *4.3.1*–*4.3.5* presenteras datainnehållet i registret över bank- och betalkonton, samt Supplementary Data-undermeddelandet, i vilken varje uppgift returneras.
 
@@ -428,7 +428,7 @@ Systemet returnerar endast de undermeddelanden som begärs i sökkriterierna (su
 
 |Tagg|Schemats sökväg InfReqOpng/SchCrit/|Beskrivning|Regel|
 |:---|:---|:---|:---|
-|\<MsgNmId\>|Sökning med personbeteckning, med kombinationen naturlig persons namn, medborgarskap och födelsedatum, med juridisk persons registreringsnummer, med företagets namn eller med bankfackets identifieringsuppgift:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Sökning med IBAN eller annan kontospecifikation:<br/>Acct/AuthrtyReqTp|"supl.027.001.01", "fin.002.001.02" tai "fin.013.001.04"||
+|\<MsgNmId\>|Sökning med personbeteckning, med kombinationen naturlig persons namn, medborgarskap och födelsedatum, med juridisk persons registreringsnummer, med företagets namn eller med bankfackets identifieringsuppgift:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Sökning med IBAN eller annan kontospecifikation:<br/>Acct/AuthrtyReqTp|"supl.027.001.01", "fin.002.001.02" eller "fin.013.001.04"||
 
 #### <a name=""></a> Sökning med personbeteckning
 
@@ -536,7 +536,7 @@ ReturnIndicator1 innehåller en enskild typ av sökresultat.
 |XPath|Typ|Beskrivning|
 |:---|:---|:---|
 |RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|Innehåller det utvidgade meddelandets meddelande-id (supl.027.001.01, fin.013.001.04 eller fin.002.001.01).|
-|RtrInd/InvstgtnRslt|InvestigationResult1Choice|Returneras `Rslt`-elementet av typen SupplementaryDataEnvelope1, som innehåller antingen [supl.027.001.01](#supl.027.001.01), [InformationResponseFIN002](#InformationResponseFIN002) eller [InformationResponseFIN013](#InformationResponseFIN013) eller `InvstgtnSts` med koden `NFOU`.
+|RtrInd/InvstgtnRslt|InvestigationResult1Choice|Returneras `Rslt`-elementet av typen SupplementaryDataEnvelope1, som innehåller antingen [supl.027.001.01](#InformationResponseSD1V01), [InformationResponseFIN002](#InformationResponseFIN002) eller [InformationResponseFIN013](#InformationResponseFIN013) eller `InvstgtnSts` med koden `NFOU`.
 
 För varje typ av sökresultat returneras ett undermeddelande med sökresultat (supl.027.001.01, fin.013.001.04 eller fin.002.001.02) per FO-nummer.
 
@@ -757,8 +757,8 @@ I tabellen beskrivs användningen av meddelandets poster.
 |AccountRole1| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|Ja|[1..*]|Se [Användning av Id-element](#Anvandning_av_Id-element)|
 |&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|Ja|[1..1]|`OwnrTp/Prtry/SchmeNm` förses med värdet “RLTP”, samt `OwnrTp/Prtry/Id`, med värdena "OWNE" (kontoinnehavare, “ägare”) eller “ACCE” (den som har dispositionsrätt till kontot, “dispositionsrätt”). I punkten `OwnrTp/Tp` anges värdet “TRUS”, som inte betyder någonting här.|
-|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|Ja|[1..1]|Roolin alkamispäivämäärä|
-|&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|Ja|[0..1]|Roolin päättymispäivämäärä|
+|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|Ja|[1..1]|Datum då rollen inleddes.|
+|&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|Ja|[0..1]|Datum då rollen upphörde.|
 
 ### <a name="InformationResponseFIN002"></a> 4.9 InformationResponseFIN002
 
@@ -858,7 +858,7 @@ I alla meddelanden används motsvarande identifieringsstruktur för en juridisk 
 |:---|:---|:---|:---|
 |Party8Choice| | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;OrgId|OrganisationIdentification6|[0..1]|Används på följande sätt: Elementet `OrgId/Othr/SchmeNm/Cd` innehåller typkoden för organisationsnumret och elementet `OrgId/Othr/Id` innehåller koden. Se koderna i tabellen nedan. Dessutom kan man i samband med svaret på förfrågan returnera den juridiska personens registreringsdatum, se [exempel](#rgdt) nedan.|
-|&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|PersonIdentification5|[0..1]|Ks. Se [Användning av PersonIdentification5-elementet](#PersonIdentification)|
+|&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|PersonIdentification5|[0..1]|Se [Användning av PersonIdentification5-elementet](#PersonIdentification)|
 
 #### <a name="PersonIdentification"></a> Användning av PersonIdentification5- ja PersonIdentification5b-elementen
 
