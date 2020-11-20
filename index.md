@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.42*
+*Dokumentin versio 1.0.43*
 
 ## Versiohistoria
 
@@ -55,6 +55,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.40|17.9.2020|Korjattu fin.002.001.01 sanoman viittauksia fin.002.001.02 versioon|
 1.0.41|18.9.2020|Lisätty Vastaussanoman koko on liian suuri -virhe taulukkoon 4.12.1.|
 1.0.42|25.9.2020|Korvattu iso20022.org -sivuston linkit viittauksilla paikallisiin tiedostoihin, koska tiedostojen sijainti iso20022.org -sivulla vaihtuu usein.|
+1.0.43|20.11.2020|Lisätty Vastaussanoma sisältää useita osumia -virhe taulukkoon 4.12.1.|
 
 ## Sisällysluettelo
 
@@ -985,6 +986,14 @@ Seuraamus|Palautetaan SOAP Fault ks. taulukko alla|
         <p><code>&lt;errorcode&gt;6&lt;/errorcode&gt;</code><br /></p>
       </td>
       <td>6</td>
+    </tr>
+    <tr>
+      <td >Vastaussanoma sisältää useita osumia</td>
+      <td >SOAP-ENV:Client</td><td  colspan="1">Query response has multiple hits. Please refine the query.</td>
+      <td  colspan="1">
+        <p><code>&lt;errorcode&gt;7&lt;/errorcode&gt;</code><br /></p>
+      </td>
+      <td>7</td>
     </tr>
     <tr>
       <td  colspan="1">Palvelimen virhe</td>

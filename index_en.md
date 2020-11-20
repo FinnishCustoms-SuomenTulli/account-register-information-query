@@ -1,6 +1,6 @@
 # Query interface description of the data retrieval system
 
-*Document version 1.0.42*
+*Document version 1.0.43*
 
 ## Vesion history
 
@@ -49,6 +49,7 @@ Version|Date|Decription
 1.0.40|17.9.2020|Corrected references to fin.002.001.01 message to correspond with version fin.002.001.02|
 1.0.41|18.9.2020|Query response size is too large -error was added to table 4.12.1.|
 1.0.42|25.9.2020|Replaced links to iso20022.org's files with references to local files since iso20022.org often changes the file locations.|
+1.0.43|20.11.2020|Query response has multiple hits -error was added to table 4.12.1.|
 
 ## Table of contents
 
@@ -996,6 +997,14 @@ Consequence|SOAP Fault is returned, see table below.|
         <p><code>&lt;errorcode&gt;6&lt;/errorcode&gt;</code><br /></p>
       </td>
       <td>6</td>
+    </tr>
+    <tr>
+      <td >Query response has multiple hits</td>
+      <td >SOAP-ENV:Client</td><td  colspan="1">Query response has multiple hits. Please refine the query.</td>
+      <td  colspan="1">
+        <p><code>&lt;errorcode&gt;7&lt;/errorcode&gt;</code><br /></p>
+      </td>
+      <td>7</td>
     </tr>
     <tr>
       <td  colspan="1">Server error</td>

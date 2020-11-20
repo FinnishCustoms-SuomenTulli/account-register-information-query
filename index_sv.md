@@ -2,7 +2,7 @@
 
 # Datasöksystemets frågegränssnitt
 
-*Dokumentversion 1.0.42*
+*Dokumentversion 1.0.43*
 
 ## Versionshistorik
 
@@ -51,6 +51,7 @@ Version|Datum|Beskrivning
 1.0.40|17.9.2020|Beriktiged meddelande fin.002.001.01 hänvisning till fin.002.001.02 version.|
 1.0.41|18.9.2020|Tillagd svarsmeddelandestorlek är för stor fel i tabell 4.12.1.|
 1.0.42|25.9.2020|Ersatt iso20022.org-länkar med referenser till lokala filer eftersom platsen för filer på iso20022.org ändras ofta.|
+1.0.43|20.11.2020|Tillagd svarsmeddelandet har flera träffar fel i tabell 4.12.1.|
 
 ## Innehåll
 
@@ -978,7 +979,7 @@ Påföljd|SOAP Fault returneras, se tabellen nedan|
       <td>4</td>
     </tr>
     <tr>
-      <td >Användaren som  anges i meddelandet har ingen användarrätt.</td>
+      <td >Användaren som anges i meddelandet har ingen användarrätt.</td>
       <td >SOAP-ENV:Client</td><td  colspan="1">Unauthorized</td>
       <td  colspan="1">
         <p><code>&lt;errorcode&gt;5&lt;/errorcode&gt;</code><br /></p>
@@ -993,6 +994,14 @@ Påföljd|SOAP Fault returneras, se tabellen nedan|
       </td>
       <td>6</td>
     </tr>
+    <tr>
+      <td >Svarsmeddelandet har flera träffar</td>
+      <td >SOAP-ENV:Client</td><td  colspan="1">Query response has multiple hits. Please refine the query.</td>
+      <td  colspan="1">
+        <p><code>&lt;errorcode&gt;7&lt;/errorcode&gt;</code><br /></p>
+      </td>
+      <td>7</td>
+    </tr>    
     <tr>
       <td  colspan="1">Systemfel</td>
       <td  colspan="1">SOAP-ENV:Server</td>
