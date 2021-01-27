@@ -1,6 +1,6 @@
 # Query interface description of the data retrieval system
 
-*Document version 1.0.44*
+*Document version 1.0.45*
 
 ## Vesion history
 
@@ -51,6 +51,7 @@ Version|Date|Decription
 1.0.42|25.9.2020|Replaced links to iso20022.org's files with references to local files since iso20022.org often changes the file locations.|
 1.0.43|20.11.2020|Query response has multiple hits -error was added to table 4.12.1.|
 1.0.44|27.1.2020|Clarified the use of DtAndPlcOfBirth element.|
+1.0.45|27.1.2020|Clarified the use of DateOrDateTimePeriodChoice element.|
 
 ## Table of contents
 
@@ -424,7 +425,7 @@ The table describes the use of records in the message.
 |&nbsp;&nbsp;&nbsp;&nbsp;LglMndtBsis|LegalMandate1|Yes|Legal basis Numerical value between 100..n The first digits indicate the authority and the last two digits the legal basis. Legal bases are compiled, as agreed with Finance Finland (FFI), in a code table jointly maintained by the authorities. The table will be given to the party that implements the data retrieval system in connection with the contract negotiations (the table is not public).|
 |&nbsp;&nbsp;&nbsp;&nbsp;CnfdtltySts|YesNoIndicator|Yes|Always "true"|
 |&nbsp;&nbsp;&nbsp;&nbsp;DueDt|DueDate1|No||
-|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Yes|Date or date interval that the search concerns. The date interval is always today or in the past. The interval search must be performed in such way that if some interval determined in the data content (all date records in the tables 4.3.1–4.3.5) are included partly or entirely in the given InvstgtnPrd interval, the data row in question must be added to the search result.|
+|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Yes|Date or date interval that the search concerns. The date interval is always today or in the past. The interval search must be performed in such way that if some interval determined in the data content (all date records in the tables 4.3.1–4.3.5) are included partly or entirely in the given InvstgtnPrd interval, the data row in question must be added to the search result. Only the Dt element is used.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Yes|Search criterion. The search criterion used must always be as specific as possible. See [further specifications](#SearchCriteria1Choice) below.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Yes|Includes message extension [InformationRequestFIN012](#InformationRequestFIN012)|
 

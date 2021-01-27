@@ -2,7 +2,7 @@
 
 # Datasöksystemets frågegränssnitt
 
-*Dokumentversion 1.0.44*
+*Dokumentversion 1.0.45*
 
 ## Versionshistorik
 
@@ -52,7 +52,8 @@ Version|Datum|Beskrivning
 1.0.41|18.9.2020|Tillagd svarsmeddelandestorlek är för stor fel i tabell 4.12.1.|
 1.0.42|25.9.2020|Ersatt iso20022.org-länkar med referenser till lokala filer eftersom platsen för filer på iso20022.org ändras ofta.|
 1.0.43|20.11.2020|Tillagd svarsmeddelandet innehåller flera träff fel i tabell 4.12.1.|
-1.0.44|27.1.2020|Användningen av DtAndPlcOfBirth elementet har preciserats.|
+1.0.44|27.1.2020|Användningen av DtAndPlcOfBirth-elementet har preciserats.|
+1.0.45|27.1.2020|Användningen av DateOrDateTimePeriodChoice-elementet har preciserats.|
 
 ## Innehåll
 
@@ -420,7 +421,7 @@ I tabellen beskrivs användningen av meddelandets poster.
 |&nbsp;&nbsp;&nbsp;&nbsp;LglMndtBsis|LegalMandate1|Ja|Laglighetsgrund. Ett numeriskt värde mellan 100..n. De första siffrorna anger myndigheten och de två sista laglighetsgrunden. Laglighetsgrunderna samlas  i myndigheternas gemensamma kodtabell så som överenskommits med Finance Finland. Tabellen ges i samband med avtalsförhandlingarna till dem som bygger upp datasöksystem (tabellen är inte offentlig).|
 |&nbsp;&nbsp;&nbsp;&nbsp;CnfdtltySts|YesNoIndicator|Ja|Alltid "true"|
 |&nbsp;&nbsp;&nbsp;&nbsp;DueDt|DueDate1|Nej||
-|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Ja|Datum eller datumintervall som sökningen riktar sig till. Datumintervallet är alltid i dag eller i det förflutna. Sökning med tidsintervall ska göras så att om tidsintervallet för någon uppgift (alla datumposter i tabellerna 4.3.1–4.3.5) ingår delvis eller helt i det angivna InvstgtnPrd-tidsintervallet, ska uppgiftsraden i fråga läggas till i sökresultatet.|
+|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Ja|Datum eller datumintervall som sökningen riktar sig till. Datumintervallet är alltid i dag eller i det förflutna. Sökning med tidsintervall ska göras så att om tidsintervallet för någon uppgift (alla datumposter i tabellerna 4.3.1–4.3.5) ingår delvis eller helt i det angivna InvstgtnPrd-tidsintervallet, ska uppgiftsraden i fråga läggas till i sökresultatet. Endast Dt-elementet används.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Ja|Sökkriterium. Ett så exakt sökkriterium som möjligt ska alltid användas. Se [närmare specificering](#SearchCriteria1Choice) nedan.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Ja|Innehåller det utvidgade meddelandet [InformationRequestFIN012](#InformationRequestFIN012).|
 

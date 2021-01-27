@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.44*
+*Dokumentin versio 1.0.45*
 
 ## Versiohistoria
 
@@ -57,6 +57,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.42|25.9.2020|Korvattu iso20022.org -sivuston linkit viittauksilla paikallisiin tiedostoihin, koska tiedostojen sijainti iso20022.org -sivulla vaihtuu usein.|
 1.0.43|20.11.2020|Lisätty Vastaussanoma sisältää useita osumia -virhe taulukkoon 4.12.1.|
 1.0.44|27.1.2020|Selvennetty DtAndPlcOfBirth elementin käyttöä.|
+1.0.45|27.1.2020|Selvennetty DateOrDateTimePeriodChoice elementin käyttöä.|
 
 ## Sisällysluettelo
 
@@ -413,7 +414,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |&nbsp;&nbsp;&nbsp;&nbsp;LglMndtBsis|LegalMandate1|Kyllä|Lainsäädäntöperuste. Numeroarvo välillä 100..n. Ensimmäiset numerot kertovat viranomaisen ja kaksi viimeistä numeroa lainsäädäntöperusteen. Lainsäädäntöperusteita kootaan Finanssiala Ry:n kanssa sovitun mukaisesti viranomaisten yhteisesti ylläpitämään kooditaulukkoon. Taulukko toimitetaan tiedonhakujärjestelmän toteuttajille sopimusneuvottelujen yhteydessä (taulukko ei ole julkinen).|
 |&nbsp;&nbsp;&nbsp;&nbsp;CnfdtltySts|YesNoIndicator|Kyllä|Aina "true"|
 |&nbsp;&nbsp;&nbsp;&nbsp;DueDt|DueDate1|Ei||
-|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Kyllä|Päivä tai päivämääräväli, johon haku kohdistuu. Päivämääräväli on aina tänään tai menneisyydessä. Aikavälihaku on sisällyttävä siten, että jos jokin tietosisältöön määritetty aikaväli (kaikki taulukoiden 4.3.1-4.3.5 päivämäärätietueet) sisältyy osittain tai kokonaan annettuun InvstgtnPrd-aikaväliin, on kyseinen tietorivi lisättävä hakutulokseen. |
+|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Kyllä|Päivä tai päivämääräväli, johon haku kohdistuu. Päivämääräväli on aina tänään tai menneisyydessä. Aikavälihaku on sisällyttävä siten, että jos jokin tietosisältöön määritetty aikaväli (kaikki taulukoiden 4.3.1-4.3.5 päivämäärätietueet) sisältyy osittain tai kokonaan annettuun InvstgtnPrd-aikaväliin, on kyseinen tietorivi lisättävä hakutulokseen. Käytetään vain Dt elementtiä. |
 |&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Kyllä|Hakukriteeri. Käytettävä aina mahdollisimman täsmällistä hakukriteeriä. Ks. [tarkempi erittely](#SearchCriteria1Choice) alla.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Kyllä|Sisältää sanomalaajennuksen [InformationRequestFIN012](#InformationRequestFIN012)|
 
