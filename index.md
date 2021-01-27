@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.43*
+*Dokumentin versio 1.0.44*
 
 ## Versiohistoria
 
@@ -56,6 +56,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.41|18.9.2020|Lisätty Vastaussanoman koko on liian suuri -virhe taulukkoon 4.12.1.|
 1.0.42|25.9.2020|Korvattu iso20022.org -sivuston linkit viittauksilla paikallisiin tiedostoihin, koska tiedostojen sijainti iso20022.org -sivulla vaihtuu usein.|
 1.0.43|20.11.2020|Lisätty Vastaussanoma sisältää useita osumia -virhe taulukkoon 4.12.1.|
+1.0.44|27.1.2020|Selvennetty DtAndPlcOfBirth elementin käyttöä.|
 
 ## Sisällysluettelo
 
@@ -879,10 +880,12 @@ PrvtId koodit
 
 Syntymäaika
 
-|Nimi|Tyyppi||Kuvaus|
-|:---|:---|:---|:---|
-|DtAndPlcOfBirth| | | |
-|BirthDt|ISODate|Syntymäaika.| 
+|Nimi|Tyyppi|Kuvaus|
+|:---|:---|:---|
+|DtAndPlcOfBirth| | |
+|BirthDt|ISODate|Syntymäaika.|
+|CityOfBirth|Max35Text|CityOfBirth arvoksi asetetaan ”not in use”.|
+|CtryOfBirth|CountryCode|CtryOfBirth arvoksi asetetaan "XX".|
 
 #### <a name="rgdt"></a> Esimerkki oikeushenkilön rekisteröitymispäivän palauttamisesta
 
