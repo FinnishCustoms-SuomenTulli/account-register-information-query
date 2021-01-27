@@ -2,7 +2,7 @@
 
 # Datasöksystemets frågegränssnitt
 
-*Dokumentversion 1.0.45*
+*Dokumentversion 1.0.44*
 
 ## Versionshistorik
 
@@ -52,8 +52,7 @@ Version|Datum|Beskrivning
 1.0.41|18.9.2020|Tillagd svarsmeddelandestorlek är för stor fel i tabell 4.12.1.|
 1.0.42|25.9.2020|Ersatt iso20022.org-länkar med referenser till lokala filer eftersom platsen för filer på iso20022.org ändras ofta.|
 1.0.43|20.11.2020|Tillagd svarsmeddelandet innehåller flera träff fel i tabell 4.12.1.|
-1.0.44|27.1.2020|Användningen av DtAndPlcOfBirth-elementet har preciserats.|
-1.0.45|27.1.2020|Användningen av DateOrDateTimePeriodChoice-elementet har preciserats.|
+1.0.44|27.1.2020|Användningen av DtAndPlcOfBirth och DateOrDateTimePeriodChoice elementer har preciserats.|
 
 ## Innehåll
 

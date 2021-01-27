@@ -1,6 +1,6 @@
 # Query interface description of the data retrieval system
 
-*Document version 1.0.45*
+*Document version 1.0.44*
 
 ## Vesion history
 
@@ -50,8 +50,7 @@ Version|Date|Decription
 1.0.41|18.9.2020|Query response size is too large -error was added to table 4.12.1.|
 1.0.42|25.9.2020|Replaced links to iso20022.org's files with references to local files since iso20022.org often changes the file locations.|
 1.0.43|20.11.2020|Query response has multiple hits -error was added to table 4.12.1.|
-1.0.44|27.1.2020|Clarified the use of DtAndPlcOfBirth element.|
-1.0.45|27.1.2020|Clarified the use of DateOrDateTimePeriodChoice element.|
+1.0.44|27.1.2020|Clarified the use of DtAndPlcOfBirth and DateOrDateTimePeriodChoice elements.|
 
 ## Table of contents
 
