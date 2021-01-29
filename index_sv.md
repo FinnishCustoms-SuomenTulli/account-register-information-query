@@ -2,7 +2,7 @@
 
 # Datasöksystemets frågegränssnitt
 
-*Dokumentversion 1.0.43*
+*Dokumentversion 1.0.44*
 
 ## Versionshistorik
 
@@ -52,6 +52,7 @@ Version|Datum|Beskrivning
 1.0.41|18.9.2020|Tillagd svarsmeddelandestorlek är för stor fel i tabell 4.12.1.|
 1.0.42|25.9.2020|Ersatt iso20022.org-länkar med referenser till lokala filer eftersom platsen för filer på iso20022.org ändras ofta.|
 1.0.43|20.11.2020|Tillagd svarsmeddelandet innehåller flera träff fel i tabell 4.12.1.|
+1.0.44|27.1.2021|Användningen av DtAndPlcOfBirth och DateOrDateTimePeriodChoice elementer har preciserats.|
 
 ## Innehåll
 
@@ -419,7 +420,7 @@ I tabellen beskrivs användningen av meddelandets poster.
 |&nbsp;&nbsp;&nbsp;&nbsp;LglMndtBsis|LegalMandate1|Ja|Laglighetsgrund. Ett numeriskt värde mellan 100..n. De första siffrorna anger myndigheten och de två sista laglighetsgrunden. Laglighetsgrunderna samlas  i myndigheternas gemensamma kodtabell så som överenskommits med Finance Finland. Tabellen ges i samband med avtalsförhandlingarna till dem som bygger upp datasöksystem (tabellen är inte offentlig).|
 |&nbsp;&nbsp;&nbsp;&nbsp;CnfdtltySts|YesNoIndicator|Ja|Alltid "true"|
 |&nbsp;&nbsp;&nbsp;&nbsp;DueDt|DueDate1|Nej||
-|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Ja|Datum eller datumintervall som sökningen riktar sig till. Datumintervallet är alltid i dag eller i det förflutna. Sökning med tidsintervall ska göras så att om tidsintervallet för någon uppgift (alla datumposter i tabellerna 4.3.1–4.3.5) ingår delvis eller helt i det angivna InvstgtnPrd-tidsintervallet, ska uppgiftsraden i fråga läggas till i sökresultatet.|
+|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Ja|Datum eller datumintervall som sökningen riktar sig till. Datumintervallet är alltid i dag eller i det förflutna. Sökning med tidsintervall ska göras så att om tidsintervallet för någon uppgift (alla datumposter i tabellerna 4.3.1–4.3.5) ingår delvis eller helt i det angivna InvstgtnPrd-tidsintervallet, ska uppgiftsraden i fråga läggas till i sökresultatet. Endast Dt-elementet används.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Ja|Sökkriterium. Ett så exakt sökkriterium som möjligt ska alltid användas. Se [närmare specificering](#SearchCriteria1Choice) nedan.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Ja|Innehåller det utvidgade meddelandet [InformationRequestFIN012](#InformationRequestFIN012).|
 
@@ -480,7 +481,7 @@ Systemet returnerar endast de undermeddelanden som begärs i sökkriterierna (su
 |\<Nm\>|CstmrId/Pty|Nimi|Exakt träff 1:1 inkl. specialtecken. Inte skiftlägeskänsligt  Formatet är fritt.|
 |\<Id\>|CstmrId/Pty/Id/PrvtId/Othr|Landskod|
 |\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchmeNm|"NATI"|
-|\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth|Födelsedatum. `CtryOfBirth` ges värdet "XX" ja `CityOfBirth` ges värdet ”not in use”|
+|\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth|Födelsedatum. `CtryOfBirth` ges värdet "XX" och `CityOfBirth` ges värdet ”not in use”|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
 #### <a name=""></a> Sökning med bankfackets identifieringsuppgift
@@ -770,7 +771,7 @@ Det utvidgade meddelandet kopplas till ISO 20022-meddelandets XPath-läge som an
 |InformationResponseFIN002| | | | |[auth.002](#InformationRequestResponseV01)|/Document/InfReqRspn/RtrInd/InvstgtnRslt/Rslt|
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|[1..1]|Max35Text|Ja|Case id för undersökningen.|
 |&nbsp;&nbsp;&nbsp;&nbsp;CreDtTm|[1..1]|ISODateTime|Ja|Tid då meddelandet skapades.|
-|&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|[1..1]|BranchAndFinancialInstitutionIdentification4|Ja|Används på följande sätt: Elementet `SvcrId/FinInstnId/Othr/SchmeNm/Cd` innehåller värdet "Y" ja och elementet `SvcrId/FinInstnId/Othr/Id` innehåller avsändarens FO-nummer.|
+|&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|[1..1]|BranchAndFinancialInstitutionIdentification4|Ja|Används på följande sätt: Elementet `SvcrId/FinInstnId/Othr/SchmeNm/Cd` innehåller värdet "Y" och elementet `SvcrId/FinInstnId/Othr/Id` innehåller avsändarens FO-nummer.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SdBoxAndPties|[0..*]|SafetyDepositBoxAndParties|Ja|Bankfack och parter, se  [Användning av SafetyDepositBoxAndParties](#SafetyDepositBoxAndParties)|
 
 #### <a name="SafetyDepositBoxAndParties"></a> Användning av SafetyDepositBoxAndParties
@@ -861,7 +862,7 @@ I alla meddelanden används motsvarande identifieringsstruktur för en juridisk 
 |&nbsp;&nbsp;&nbsp;&nbsp;OrgId|OrganisationIdentification6|[0..1]|Används på följande sätt: Elementet `OrgId/Othr/SchmeNm/Cd` innehåller typkoden för organisationsnumret och elementet `OrgId/Othr/Id` innehåller koden. Se koderna i tabellen nedan. Dessutom kan man i samband med svaret på förfrågan returnera den juridiska personens registreringsdatum, se [exempel](#rgdt) nedan.|
 |&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|PersonIdentification5|[0..1]|Se [Användning av PersonIdentification5-elementet](#PersonIdentification)|
 
-#### <a name="PersonIdentification"></a> Användning av PersonIdentification5- ja PersonIdentification5b-elementen
+#### <a name="PersonIdentification"></a> Användning av PersonIdentification5- och PersonIdentification5b-elementen
 
 |XPath|Typ|Beskrivning|
 |:---|:---|:---|
@@ -886,10 +887,12 @@ PrvtId koodit
 
 Födelsedatum
 
-|Namn|Typ||Beskrivning|
-|:---|:---|:---|:---|
-|DtAndPlcOfBirth| | | |
-|BirthDt|ISODate|Födelsedatum| 
+|Namn|Typ|Beskrivning|
+|:---|:---|:---|
+|DtAndPlcOfBirth| | |
+|BirthDt|ISODate|Födelsedatum|
+|CityOfBirth|Max35Text|CityOfBirth ges värdet ”not in use”.|
+|CtryOfBirth|CountryCode|CtryOfBirth ges värdet "XX".|
 
 #### <a name="rgdt"></a> Exempel på returnering av en juridisk persons registreringsdatum
 
