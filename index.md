@@ -57,6 +57,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.42|25.9.2020|Korvattu iso20022.org -sivuston linkit viittauksilla paikallisiin tiedostoihin, koska tiedostojen sijainti iso20022.org -sivulla vaihtuu usein.|
 1.0.43|20.11.2020|Lisätty Vastaussanoma sisältää useita osumia -virhe taulukkoon 4.12.1.|
 1.0.44|27.1.2021|Selvennetty DtAndPlcOfBirth ja DateOrDateTimePeriodChoice elementtien käyttöä.|
+1.0.45|12.2.2021|Lisätty tarkennus ja taulukko 4.3.9 tietojen palautettavista tiedoista kappaleessa 4.3. Korvattu VRK -> DVV. 
 
 ## Sisällysluettelo
 
@@ -192,7 +193,7 @@ Tiedonhakujärjestelmän kyselyrajapinnan hyödyntäjät sekä tiedon luovuttaja
 Tiedon luovuttajan on allekirjoitettava lähettämänsä sanomat käyttäen x.509 palvelinvarmennetta, josta käy ilmi ko. tiedon luovuttajan Y-tunnus tai ALV-tunnus. Saapuvien sanomien allekirjoitus on tarkistettava. Vastaanottaja ei saa hyväksyä sanomaa ilman hyväksyttävää allekirjoitusta. Allekirjoituksen hyväksyminen edellyttää, että XML-allekirjoitus on validi ja että
 
 joko  
-a) varmenne on VRK:n myöntämä, voimassa, eikä esiinny VRK:n ylläpitämällä sulkulistalla ja varmenteen kohteen serialNumber attribuuttina on kyseisen tiedon luovuttajan Y-tunnus tai ALV-tunnus
+a) varmenne on DVV:n myöntämä, voimassa, eikä esiinny DVV:n ylläpitämällä sulkulistalla ja varmenteen kohteen serialNumber attribuuttina on kyseisen tiedon luovuttajan Y-tunnus tai ALV-tunnus
 
 tai  
 b) varmenne on eIDAS-hyväksytty sivustojen tunnistamisvarmenne, voimassa, eikä esiinny varmenteen tarjoajan ylläpitämällä ajantasaisella sulkulistalla ja varmenteen kohteen organizationIdentifier-attribuuttina on kyseisen tiedon luovuttajan Y-tunnus tai ALV-tunnus.
@@ -202,14 +203,14 @@ Huom. Jotta sanomien allekirjoitukset täyttävät alla viitatut Kyberturvallisu
 #### Toimivaltaisen viranomaisen allekirjoitusvarmenne
 
 Toimivaltaisen viranomaisen on allekirjoitettava lähettämänsä sanomat käyttäen x.509 palvelinvarmennetta, josta käy ilmi ko. viranomaisen Y-tunnus. Saapuvien sanomien allekirjoitus on tarkistettava. Vastaanottaja ei saa hyväksyä sanomaa ilman hyväksyttävää allekirjoitusta. Toimivaltaisen viranomaisen allekirjoituksen hyväksyminen edellyttää, että XML-allekirjoitus on validi ja että  
-a) varmenne on VRK:n myöntämä, voimassa, eikä esiinny VRK:n ylläpitämällä sulkulistalla  
+a) varmenne on DVV:n myöntämä, voimassa, eikä esiinny DVV:n ylläpitämällä sulkulistalla  
 b) varmenteen kohteen serialNumber attribuuttina on sanoman lähettäneen toimivaltaisen viranomaisen Y-tunnus tai tunnus, joka muodostuu kirjaimista “FI” ja Y-tunnuksen numero-osasta ilman väliviivaa (ALV-tunnuksen muotoinen tunnus).
 
 #### Yhteydenottajan tietoliikennevarmenne
 
 Tiedon luovuttaja tai tiedon luovuttajan valtuuttama taho tunnistaa toimivaltaisen viranomaisen, joka ottaa yhteyden tiedonhakujärjestelmän kyselyrajapintaan, palvelinvarmenteen avulla. Yhteys toimivaltaiselta viranomaiselta on hyväksyttävä seuraavin edellytyksin: 
-a) Toimivaltaisen viranomaisen varmenteen on myöntänyt VRK  
-b) varmenne on voimassa, eikä esiinny VRK:n sulkulistalla  
+a) Toimivaltaisen viranomaisen varmenteen on myöntänyt DVV  
+b) varmenne on voimassa, eikä esiinny DVV:n sulkulistalla  
 c) varmenteen kohteen serialNumber attribuuttina on toimivaltaisen viranomaisen tai sen puolesta toimivan valtion palvelukeskuksen Y-tunnus tai tunnus, joka muodostuu kirjaimista “FI” ja Y-tunnuksen numero-osasta ilman väliviivaa (ALV-tunnuksen muotoinen tunnus).
 
 #### Tiedon luovuttajan tai tiedon luovuttajan valtuuttaman tahon tietoliikennevarmenne
@@ -219,7 +220,7 @@ Toimivaltainen viranomainen, joka ottaa yhteyden kyselyrajapintaan, tunnistaa ti
 Yhteys tiedon luovuttajaan on hyväksyttävä seuraavin edellytyksin:
 
 joko  
-a) palvelinvarmenteen on myöntänyt VRK, varmenne on voimassa, eikä esiinny VRK:n sulkulistalla, varmenteen kohteen serialNumber attribuuttina on kyseisen tiedon luovuttajan tai tiedon luovuttajan valtuuttaman tahon Y-tunnus tai ALV-tunnus
+a) palvelinvarmenteen on myöntänyt DVV, varmenne on voimassa, eikä esiinny DVV:n sulkulistalla, varmenteen kohteen serialNumber attribuuttina on kyseisen tiedon luovuttajan tai tiedon luovuttajan valtuuttaman tahon Y-tunnus tai ALV-tunnus
 
 tai  
 b) palvelinvarmenne on eIDAS-hyväksytty sivustojen tunnistamisvarmenne, voimassa, eikä esiinny varmenteen tarjoajan ylläpitämällä ajantasaisella sulkulistalla ja varmenteen kohteen organizationIdentifier-attribuuttina on kyseisen tiedon luovuttajan tai tiedon luovuttajan valtuuttaman tahon Y-tunnus tai ALV-tunnus.
@@ -381,6 +382,52 @@ Tarkemmat sanomakuvaukset ovat tämän luvun aliluvuissa 4.4 alkaen.
 |FIN013|InformationResponseFIN013|auth.002.001.01|Sisältää tili- ja tallelokerotiedoista erillisenä hakuparametreja vastaavat asiakkuustiedot|
 
 Kyselyrajapinnan sanomavastauksiin sisällytetään kaikki hakukriteereitä vastaavat tiedot, joiden ajallinen ulottuvuus johdetaan rahanpesun ja terrorismin rahoittamisen estämistä koskevan lain 3 luvun 3 §:stä, jossa on täsmällisesti ja tarkkarajaisesti säädetty asiakkaan tuntemistiedot ja niiden säilyttämisestä. Tileihin ja tallelokeroihin liittyvät kaikki osallisuustiedot palautetaan, eli kyselyparametrina annetun hakuehdon mukaisten henkilöiden (oikeus- tai luonnollinen) lisäksi palautetaan myös kaikki osalliset henkilöt. Osallisten henkilöiden muita kuin kyselyn hakuparametria vastaavia tilejä ja tallelokeroita sen sijaan ei palauteta, vaan niitä koskien on tehtävä uudet kyselyt lainsäädäntöperusteineen.
+
+Haettaessa edunsaajan tiedoilla tulee palauttaa myös oikeushenkilön tilitiedot, tallelokerotiedot sekä asiakkuustiedot, jolloin selviää edunsaajan suhde yritykseen. Yrityksen tiedot palautetaan omassa LegalPersonInfo-elementissä, jonka Beneficiaries-elementeistä henkilön tiedot löytyvät.
+
+*__Taulukko 4.3.9:__ Hakuehdolla palautettavat tiedot*
+
+<table>
+<tr><th>Hakuehto</th><th colspan="8" align="left">Palautettava tietue</th></tr>
+<tr>
+  <th></th><th>
+Tosiasiallinen edunsaaja</th>
+  <th>Pankki- ja maksutili</th>
+  <th>Pankki- ja maksutilin haltija</th>
+  <th>Pankki- ja maksutilin käyttöoikeuden haltija</th>
+  <th>Tallelokero</th>
+  <th>Tallelokeron haltija</th>
+  <th>Tallelokeron käyttöoikeuden haltija</th>
+  <th>Asiakkuus</th>
+</tr>
+<tr>
+  <td><strong>Suomalainen henkilötunnus</strong></td><td>2</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td>
+</tr>
+<tr>
+  <td><strong>Luonnollisen henkilön nimi, syntymäaika ja kansalaisuus</strong></td><td>2</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td>
+</tr>
+<tr>
+  <td><strong>Oikeushenkilön nimi</strong></td><td>3</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td>
+</tr>
+<tr>
+  <td><strong>Oikeushenkilön rekisterinumero</strong></td><td>3</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td>
+</tr>
+<tr>
+  <td><strong>IBAN</strong></td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td>
+</tr>
+<tr>
+  <td><strong>Muu tilin yksilöintitunniste (maksutili)</strong></td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td>
+</tr>
+<tr>
+  <td><strong>Tallelokeron tunniste</strong></td><td>3</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td>
+</tr>
+</table>
+
+0) Tietuetta ei palauteta
+1) Tietue palautetaan
+2) Palautetaan luonnollinen henkilö edunsaajana
+3) Palautetaan kaikki oikeushenkilön edunsaajat
+
 
 ### <a name="BusinessApplicationHeaderV01"></a> 4.4 BusinessApplicationHeaderV01
 
