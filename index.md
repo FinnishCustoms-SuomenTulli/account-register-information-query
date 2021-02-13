@@ -385,49 +385,6 @@ Kyselyrajapinnan sanomavastauksiin sisällytetään kaikki hakukriteereitä vast
 
 Haettaessa edunsaajan tiedoilla tulee palauttaa myös oikeushenkilön tilitiedot, tallelokerotiedot sekä asiakkuustiedot, jolloin selviää edunsaajan suhde yritykseen. Yrityksen tiedot palautetaan omassa LegalPersonInfo-elementissä, jonka Beneficiaries-elementeistä henkilön tiedot löytyvät.
 
-*__Taulukko 4.3.9:__ Hakuehdolla palautettavat tiedot*
-
-<table>
-<tr><th>Hakuehto</th><th colspan="8" align="left">Palautettava tietue</th></tr>
-<tr>
-  <th></th><th>
-Tosiasiallinen edunsaaja</th>
-  <th>Pankki- ja maksutili</th>
-  <th>Pankki- ja maksutilin haltija</th>
-  <th>Pankki- ja maksutilin käyttöoikeuden haltija</th>
-  <th>Tallelokero</th>
-  <th>Tallelokeron haltija</th>
-  <th>Tallelokeron käyttöoikeuden haltija</th>
-  <th>Asiakkuus</th>
-</tr>
-<tr>
-  <td><strong>Suomalainen henkilötunnus</strong></td><td>2</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td>
-</tr>
-<tr>
-  <td><strong>Luonnollisen henkilön nimi, syntymäaika ja kansalaisuus</strong></td><td>2</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td>
-</tr>
-<tr>
-  <td><strong>Oikeushenkilön nimi</strong></td><td>3</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td>
-</tr>
-<tr>
-  <td><strong>Oikeushenkilön rekisterinumero</strong></td><td>3</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td>
-</tr>
-<tr>
-  <td><strong>IBAN</strong></td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td>
-</tr>
-<tr>
-  <td><strong>Muu tilin yksilöintitunniste (maksutili)</strong></td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td>
-</tr>
-<tr>
-  <td><strong>Tallelokeron tunniste</strong></td><td>3</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td>
-</tr>
-</table>
-
-0) Tietuetta ei palauteta
-1) Tietue palautetaan
-2) Palautetaan luonnollinen henkilö edunsaajana
-3) Palautetaan kaikki oikeushenkilön edunsaajat
-
 
 ### <a name="BusinessApplicationHeaderV01"></a> 4.4 BusinessApplicationHeaderV01
 
