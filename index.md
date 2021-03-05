@@ -57,7 +57,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.42|25.9.2020|Korvattu iso20022.org -sivuston linkit viittauksilla paikallisiin tiedostoihin, koska tiedostojen sijainti iso20022.org -sivulla vaihtuu usein.|
 1.0.43|20.11.2020|Lisätty Vastaussanoma sisältää useita osumia -virhe taulukkoon 4.12.1.|
 1.0.44|27.1.2021|Selvennetty DtAndPlcOfBirth ja DateOrDateTimePeriodChoice elementtien käyttöä.|
-1.0.45|12.2.2021|Lisätty tarkennus haussa palautettavista tiedoista kappaleessa 4.3. Korvattu VRK -> DVV. 
+1.0.45|5.3.2021|Lisätty tarkennus haussa palautettavista tiedoista kappaleessa 4.3. Korvattu VRK -> DVV. 
 
 ## Sisällysluettelo
 

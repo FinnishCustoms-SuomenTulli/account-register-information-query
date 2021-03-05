@@ -2,7 +2,7 @@
 
 # Datasöksystemets frågegränssnitt
 
-*Dokumentversion 1.0.44*
+*Dokumentversion 1.0.45*
 
 ## Versionshistorik
 
@@ -53,6 +53,7 @@ Version|Datum|Beskrivning
 1.0.42|25.9.2020|Ersatt iso20022.org-länkar med referenser till lokala filer eftersom platsen för filer på iso20022.org ändras ofta.|
 1.0.43|20.11.2020|Tillagd svarsmeddelandet innehåller flera träff fel i tabell 4.12.1.|
 1.0.44|27.1.2021|Användningen av DtAndPlcOfBirth och DateOrDateTimePeriodChoice elementer har preciserats.|
+1.0.45|5.3.2021|Lagt till förfining av de data som ska returneras i sökningen i avsnitt 4.3. Ersatt BRC -> MDB.|
 
 ## Innehåll
 
@@ -189,7 +190,7 @@ Uppgiftslämnaren ska signera sina meddelanden med x.509-servercertifikat av vil
 
 antingen
 
-a) att certifikatet har utfärdats av BRC, är i kraft och inte finns på BRC:s spärrlista och att attributet serialNumber för objektet för certifikatet är FO-numret eller momsnumret för uppgiftslämnaren
+a) att certifikatet har utfärdats av MDB, är i kraft och inte finns på MDB:s spärrlista och att attributet serialNumber för objektet för certifikatet är FO-numret eller momsnumret för uppgiftslämnaren
 
 eller
 
@@ -201,7 +202,7 @@ Obs. För att meddelandenas signaturer ska uppfylla de datasäkerhetskrav från 
 
 Behöriga myndigheter ska signera sina meddelanden med x.509-servercertifikat av vilket framgår myndighetens FO-nummer. Inkommande meddelandens signatur ska kontrolleras. Mottagaren får inte godkänna meddelanden utan godtagbar signatur. Godkännandet av behöriga myndigheters signatur förutsätter att XML-signaturen är giltig och att
 
-a)	certifikatet har utfärdats av BRC, är i kraft och inte finns på BRC:s spärrlista
+a)	certifikatet har utfärdats av MDB, är i kraft och inte finns på MDB:s spärrlista
 
 b)	objektet för certifikatet har som serialNumber-attribut FO-numret för den behöriga myndighet som skickat meddelandet, eller det nummer som bildas av bokstäverna ”FI” och sifferdelen i myndighetens FO-nummer utan bindestreck (identifikation med momsnummerformat).
 
@@ -210,9 +211,9 @@ b)	objektet för certifikatet har som serialNumber-attribut FO-numret för den b
 
 Uppgiftslämnaren eller den som uppgiftslämnaren befullmäktigat identifierar med hjälp av servercertifikatet den behöriga myndighet som tar kontakt med datasöksystemets frågegränssnitt. Kontakten från den behöriga myndigheten ska godkännas under följande förutsättningar:
 
-a)	Certifikatet för den behöriga myndigheten har utfärdats av BRC.
+a)	Certifikatet för den behöriga myndigheten har utfärdats av MDB.
 
-b)	Certifikatet är i kraft och finns inte på BRC:s spärrlista.
+b)	Certifikatet är i kraft och finns inte på MDB:s spärrlista.
 
 c)	objektet för certifikatet har som serialNumber-attribut FO-numret för den behöriga myndigheten eller den statliga servicecentral som agerar på myndighetens vägnar, eller det nummer som bildas av bokstäverna ”FI” och sifferdelen i myndighetens eller servicecentralens FO-nummer utan bindestreck (identifikation med momsnummerformat).
 
@@ -225,7 +226,7 @@ Kontakten till uppgiftslämnaren ska godkännas under följande förutsättninga
 
 antingen
 
-a) att servercertifikatet har utfärdats av BRC, är i kraft och inte finns på BRC:s spärrlista och att attributet serialNumber för objektet för certifikatet är FO-numret eller momsnumret för uppgiftslämnaren eller en aktör som befullmäktigats av denne
+a) att servercertifikatet har utfärdats av MDB, är i kraft och inte finns på MDB:s spärrlista och att attributet serialNumber för objektet för certifikatet är FO-numret eller momsnumret för uppgiftslämnaren eller en aktör som befullmäktigats av denne
 
 eller
 
@@ -388,6 +389,8 @@ Närmare meddelandebeskrivningar finns i detta kapitel fr.o.m. punkt 4.4 nedan.
 |FIN013|InformationResponseFIN013|auth.002.001.01|Innehåller kundrelationsuppgifter som motsvarar sökparametrarna, separat från uppgifterna om konton och bankfack.|
 
 I frågegränssnittets svarsmeddelanden inkluderas alla sådana uppgifter som motsvarar sökkriterierna och vars utsträckning i tiden härleds från 3 kap. 3 § i lagen om förhindrande av penningtvätt och av finansiering av terrorism där det på ett exakt och väl avgränsat sätt föreskrivs om uppgifterna om kundkontroll och bevarande av uppgifterna. Alla delaktighetsuppgifter i anslutning till konton och bankfack returneras, det vill säga förutom personer (juridiska eller fysiska) som uppfyller sökvillkoret som angetts som frågeparameter returneras också alla berörda personer. Däremot returneras inte de berörda personernas konton eller bankfack som inte motsvarar sökparametern, utan i fråga om dem måste en ny förfrågan som grundar sig på lagstiftningen göras.
+
+Vid sökning med förmånstagarens uppgifter ska också den juridiska personens uppgifter om konton, bankfack och kundrelationer returneras. Då kommer förmånstagarens relation till företaget fram. Företagets uppgifter returneras i ett eget LegalPersonInfo-element i vars Beneficiaries-element personens uppgifter finns.
 
 ### <a name="BusinessApplicationHeaderV01"></a> 4.4 BusinessApplicationHeaderV01
 

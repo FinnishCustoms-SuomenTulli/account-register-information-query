@@ -51,6 +51,7 @@ Version|Date|Decription
 1.0.42|25.9.2020|Replaced links to iso20022.org's files with references to local files since iso20022.org often changes the file locations.|
 1.0.43|20.11.2020|Query response has multiple hits -error was added to table 4.12.1.|
 1.0.44|27.1.2021|Clarified the use of DtAndPlcOfBirth and DateOrDateTimePeriodChoice elements.|
+1.0.45|5.3.2021|Added refinement of the data to be returned in the search in section 4.3. Replaced Population Register Centre with Digital And Population Data Services Agency.|
 
 ## Table of contents
 
@@ -190,7 +191,7 @@ Data suppliers must sign the messages they send using the server certificate x.5
 
 either
 
-a) the certificate was issued by the Population Register Centre, the certificate is valid and is not included in the certificate revocation list of the Population Register Centre, and the serialNumber attribute of the Subject field of the certificate consists of the Business ID or VAT identifier of the party submitting the information
+a) the certificate was issued by the Digital And Population Data Services Agency, the certificate is valid and is not included in the certificate revocation list of the Digital And Population Data Services Agency, and the serialNumber attribute of the Subject field of the certificate consists of the Business ID or VAT identifier of the party submitting the information
 
 or
 
@@ -202,7 +203,7 @@ Please note: For the message signatures to meet the information security require
 
 The competent authority must sign the messages it sends using the server certificate x.509 that indicates the Business ID of the authority. The signatures in incoming messages must be checked. The recipient cannot accept a message without an acceptable signature. Accepting the competent authority’s signature requires that the XML signature is valid and that
 
-a) the signature certificate used for the signature was issued by the Population Register Centre, the certificate is valid and is not included in the certificate revocation list maintained by the Population Register Centre
+a) the signature certificate used for the signature was issued by the Digital And Population Data Services Agency, the certificate is valid and is not included in the certificate revocation list maintained by the Digital And Population Data Services Agency
 
 b) the serialNumber attribute of the Subject field of the certificate consists of the Business ID of the competent authority that sent the message or of the identifier that is formed of the letters “FI” and the digit part of the authority’s Business ID without the hyphen (ID in the format of a VAT-number).
 
@@ -211,9 +212,9 @@ b) the serialNumber attribute of the Subject field of the certificate consists o
 
 The data supplier or the party authorised by the data supplier identifies the competent authority contacting the query interface of the data retrieval system with the help of the server certificate. A contact made by the competent authority must be accepted provided that
 
-a) the certificate of the competent authority was issued by the Population Register Centre 
+a) the certificate of the competent authority was issued by the Digital And Population Data Services Agency 
 
-b) the certificate is valid and is not included in the certificate revocation list of the Population Register Centre
+b) the certificate is valid and is not included in the certificate revocation list of the Digital And Population Data Services Agency
 
 c) the serialNumber attribute of the Subject field of the certificate consists of the Business ID of the competent authority or the state service centre acting on its behalf, or of the identifier that is formed of the letters “FI” and the digit part of the authority’s or the centre’s Business ID without the hyphen (ID in the format of a VAT-number).
 
@@ -224,7 +225,7 @@ The competent authority contacting the query interface identifies the data suppl
 
 either 
 
-a) the server certificate was issued by the Population Register Centre, the certificate is valid and is not included in the certificate revocation list of the Population Register Centre, and the serialNumber attribute of the subject of the certificate consists of the Business ID or VAT identifier of the party submitting the information or the party authorised by that party
+a) the server certificate was issued by the Digital And Population Data Services Agency, the certificate is valid and is not included in the certificate revocation list of the Digital And Population Data Services Agency, and the serialNumber attribute of the subject of the certificate consists of the Business ID or VAT identifier of the party submitting the information or the party authorised by that party
 
 or
 
@@ -392,6 +393,8 @@ The more detailed message descriptions are presented in the subchapters of this 
 |FIN013|InformationResponseFIN013|auth.002.001.01|Includes separately the customer details of account and safe-deposit boxes that correspond to the search parameters|
 
 The message replies of the query interface will include all such information that corresponds to the search criteria and whose temporal scope is derived from chapter 3, section 3 of the Act on the Prevention of Money Laundering and Terrorism Financing that lays down precise and well-defined provisions on the customer due diligence information and its storage. All involvement details delated to accounts and safe-deposit boxes are returned, i.e. all persons involved are also returned in addition to the persons (legal or natural) complying with the search parameters. However, other account and safe-deposit box details of the involved persons than those complying with the search parameters are not returned. Instead, new queries have to be made for them with the appropriate legal basis.
+
+When searching with beneficiary information, the legal entity's account information, safe deposit box information and customer information must also be returned, thus determining the beneficiary's relationship with the company. Company information is returned in its own LegalPersonInfo element, whose Beneficiaries elements contain the person's information.
 
 ### <a name="BusinessApplicationHeaderV01"></a> 4.4 BusinessApplicationHeaderV01
 
