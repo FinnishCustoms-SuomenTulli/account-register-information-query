@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.44*
+*Dokumentin versio 1.0.45*
 
 ## Versiohistoria
 
@@ -29,7 +29,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.14|17.3.2020|Päivitetty XML-allekirjoituksen esimerkki.|
 1.0.15|17.3.2020|Palautettu fin013 Beneficiaries-kentän sisällöksi PartyIdentification41. Muutettu Contract-kenttä optionaaliseksi.|
 1.0.16|26.3.2020|Päivitetty fin.013 skeema ja sen käyttö.|
-1.0.17|26.3.2020|Lisätty kuvaus hausta tallelokeron tunnisteella. päivitetty InformationRequestFIN012 versioon fin.012.001.02.|
+1.0.17|26.3.2020|Lisätty kuvaus hausta tallelokeron tunnisteella. Päivitetty InformationRequestFIN012 versioon fin.012.001.02.|
 1.0.18|26.3.2020|Päivitetty oikeushenkilön rekisterinumeron käyttö ja kooditus|
 1.0.19|31.3.2020|Tarkennettu termistöä. Lisätty kuvaus pitkien tilitunnisteiden esitystavasta. Poistettu ylimääräinen tekstikappale. Tarkennuksia varmenteiden osapuolista. Tarkennettu allekirjoitusvaatimuksia.
 1.0.20|17.4.2020|Lisätty InformationResponseFIN013 Beneficiary-kentälle roolin alkamis- ja päättymispäivät. Päivitetty InformationResponseFIN013 versioon fin.013.001.03.|
@@ -57,6 +57,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.42|25.9.2020|Korvattu iso20022.org -sivuston linkit viittauksilla paikallisiin tiedostoihin, koska tiedostojen sijainti iso20022.org -sivulla vaihtuu usein.|
 1.0.43|20.11.2020|Lisätty Vastaussanoma sisältää useita osumia -virhe taulukkoon 4.12.1.|
 1.0.44|27.1.2021|Selvennetty DtAndPlcOfBirth ja DateOrDateTimePeriodChoice elementtien käyttöä.|
+1.0.45|??.??.2021|Poistettu tili-, tallelokero- ja edunsaajaroolien alku- ja loppupäivät. Päivitetty fin.013 skeema versioon fin.013.001.05 ja fin.002 skeema versioon fin.002.001.03.|
 
 ## Sisällysluettelo
 
@@ -106,11 +107,11 @@ Tämä dokumentti on osa Tullin julkaisemaa määräystä pankki- ja maksutilien
 
 [ISO 20022 head.001.001.01 skeema](assets/iso20022org/archive_business_area_business_application_header.zip)
 
-[fin.002.001.02](schemas/fin.002.001.02.xsd)
+[fin.002.001.03](schemas/fin.002.001.03.xsd)
 
 [fin.012.001.03](schemas/fin.012.001.03.xsd)
 
-[fin.013.001.04](schemas/fin.013.001.04.xsd)
+[fin.013.001.05](schemas/fin.013.001.05.xsd)
 
 [Sähköisen asioinnin tietoturvallisuus -ohje](http://julkaisut.valtioneuvosto.fi/bitstream/handle/10024/80012/VM_25_2017.pdf)
 
@@ -298,7 +299,7 @@ BAH on oltava aina SOAP bodyn ensimmäinen elementti.
 
 Tiedonhakujärjestelmän kyselyrajapinnassa käytetään ISO 20022 -sanomia [InformationRequestOpeningV01 (auth.001.001.01)](assets/iso20022org/auth.001.001.01.xsd) ja [InformationRequestResponseV01 (auth.002.001.01)](assets/iso20022org/auth.002.001.01.xsd), joihin liitetään tarvittavat alisanomat ([Supplementary Data](assets/iso20022org/InformationResponse_SupplementaryData.zip)).
 
-Ylätasolla käytettävät alisanomat jakautuvat kolmeen käsitteeseen: asiakkuus, tili ja tallelokero. Asiakkuus- ja edunsaajatiedot palautetaan sanomassa [fin.013.001.04](schemas/fin.013.001.04.xsd), tilitiedot sanomassa [supl.027.001.01](assets/iso20022org/InformationResponse_SupplementaryData.zip) ja tallelokerotiedot sanomassa [fin.002.001.02](schemas/fin.002.001.02) (huom. tässä sama koodi eräiden olemassaolevien järjestelmien manuaalisen käsittelyn kanssa). Nämä alisanomat liitetään [auth.002.001.01](assets/iso20022org/auth.002.001.01.xsd) elementtiin `InformationRequestResponseV01/RtrInd`.
+Ylätasolla käytettävät alisanomat jakautuvat kolmeen käsitteeseen: asiakkuus, tili ja tallelokero. Asiakkuus- ja edunsaajatiedot palautetaan sanomassa [fin.013.001.05](schemas/fin.013.001.05.xsd), tilitiedot sanomassa [supl.027.001.01](assets/iso20022org/InformationResponse_SupplementaryData.zip) ja tallelokerotiedot sanomassa [fin.002.001.03](schemas/fin.002.001.03) (huom. tässä sama koodi eräiden olemassaolevien järjestelmien manuaalisen käsittelyn kanssa). Nämä alisanomat liitetään [auth.002.001.01](assets/iso20022org/auth.002.001.01.xsd) elementtiin `InformationRequestResponseV01/RtrInd`.
 
 Taulukoissa *4.3.1*-*4.3.5* on esitetty pankki- ja maksutilirekisterin tietosisältö, sekä Supplementary Data -alisanoma, jonka osana kukin tieto palautetaan.  
 
@@ -419,11 +420,11 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 
 #### <a name="SearchCriteria1Choice"></a> Hakutuloksen alisanomien rajaaminen
 
-Järjestelmä palauttaa ainoastaan hakukriteereissä pyydetyt alisanomat (supl.027.001.01, fin.002.001.02, fin.013.001.04). Kutakin alisanomaa pyydetään erillisessä AuthorityRequestType1 -tyyppisessä elementissä, joita siis tulee esiintyä hakukriteereissä 1-3 kappaletta.
+Järjestelmä palauttaa ainoastaan hakukriteereissä pyydetyt alisanomat (supl.027.001.01, fin.002.001.03, fin.013.001.05). Kutakin alisanomaa pyydetään erillisessä AuthorityRequestType1 -tyyppisessä elementissä, joita siis tulee esiintyä hakukriteereissä 1-3 kappaletta.
 
 |Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
 |:---|:---|:---|:---|
-|\<MsgNmId\>|Haku henkilötunnuksella, luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä, oikeushenkilön rekisterinumerolla, yrityksen nimellä tai tallelokeron tunnisteella:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Haku IBANilla tai muulla tilin yksilöintitunnuksella:<br/>Acct/AuthrtyReqTp|"supl.027.001.01", "fin.002.001.02" tai "fin.013.001.04"||
+|\<MsgNmId\>|Haku henkilötunnuksella, luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä, oikeushenkilön rekisterinumerolla, yrityksen nimellä tai tallelokeron tunnisteella:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Haku IBANilla tai muulla tilin yksilöintitunnuksella:<br/>Acct/AuthrtyReqTp|"supl.027.001.01", "fin.002.001.03" tai "fin.013.001.05"||
 
 #### <a name=""></a> Haku henkilötunnuksella
 
@@ -530,16 +531,16 @@ ReturnIndicator1 sisältää yksittäisen hakutulostyypin esiintymän.
 
 |XPath|Tyyppi|Kuvaus|
 |:---|:---|:---|
-|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|sisältää sanomalaajennuksen sanoma-id:n (supl.027.001.01, fin.013.001.04 tai fin.002.001.02)|
+|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|sisältää sanomalaajennuksen sanoma-id:n (supl.027.001.01, fin.013.001.05 tai fin.002.001.03)|
 |RtrInd/InvstgtnRslt|InvestigationResult1Choice|palautetaan `Rslt` elementti tyyppiä SupplementaryDataEnvelope1, joka sisältää joko [supl.027.001.01](#supl.027.001.01), [InformationResponseFIN002](#InformationResponseFIN002) tai [InformationResponseFIN013](#InformationResponseFIN013) tai `InvstgtnSts` koodilla `NFOU`.
 
-Jokaista hakutulostyyppiä kohti palautetaan yksi hakutulos-alisanoma (supl.027.001.01, fin.013.001.04 tai fin.002.001.02) per Y-tunnus. 
+Jokaista hakutulostyyppiä kohti palautetaan yksi hakutulos-alisanoma (supl.027.001.01, fin.013.001.05 tai fin.002.001.03) per Y-tunnus. 
 
 __Esimerkki 1.__  
 
 Kyselysanomassa esiintynyttä `Document/InfReqOpng/SchCrit` hakutermiä vastaavia tuloksia on löytynyt kolme kappaletta: yksi asiakkuus ja kaksi tiliä. Tallelokeroita ei löytynyt.
 
-Vastaussanomaan liitetään kolme kappaletta `RtrInd`-elementtiä, joista supl.027.001.01 ja fin.013.001.04 osalta liitetään hakutulokset Rslt-elementteihin ja fin.002.001.02 osalta palautetaan `InvstgtnSts` koodilla `NFOU`:
+Vastaussanomaan liitetään kolme kappaletta `RtrInd`-elementtiä, joista supl.027.001.01 ja fin.013.001.05 osalta liitetään hakutulokset Rslt-elementteihin ja fin.002.001.03 osalta palautetaan `InvstgtnSts` koodilla `NFOU`:
 
 ```
 <!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
@@ -559,11 +560,11 @@ Vastaussanomaan liitetään kolme kappaletta `RtrInd`-elementtiä, joista supl.0
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.013.001.04</n1:MsgNmId>
+    <n1:MsgNmId>fin.013.001.05</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:Rslt>
-      <n1:Document xmlns:n3="fin.013.001.04" ...">
+      <n1:Document xmlns:n3="fin.013.001.05" ...">
       	<n1:InfRspnFin013>
           <!-- Hakutuloksen asiakkuus #1 tiedot -->
         </n1:InfRspnFin013>
@@ -573,7 +574,7 @@ Vastaussanomaan liitetään kolme kappaletta `RtrInd`-elementtiä, joista supl.0
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.002.001.02</n1:MsgNmId>
+    <n1:MsgNmId>fin.002.001.03</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -587,7 +588,7 @@ Rajapinta on koosteinen: yksi rajapinta palauttaa hakutuloksia useiden Y-tunnust
 
 Kyselysanomassa esiintynyttä `Document/InfReqOpng/SchCrit` hakutermiä vastaavia tuloksia on löytynyt neljä kappaletta: yksi tili (tili #1) Y-tunnukselle 0190983-0 ja kolme tiliä (tili #2, tili #3, tili #4) Y-tunnukselle 0828972-6. 
 
-Vastaussanomaan liitetään neljä kappaletta `RtrInd`-elementtiä, joista supl.027.001.0 osalta liitetään hakutulokset Rslt-elementteihin, ja fin.013.001.04 sekä fin.002.001.02 osalta palautetaan `InvstgtnSts` koodilla `NFOU`:
+Vastaussanomaan liitetään neljä kappaletta `RtrInd`-elementtiä, joista supl.027.001.0 osalta liitetään hakutulokset Rslt-elementteihin, ja fin.013.001.05 sekä fin.002.001.03 osalta palautetaan `InvstgtnSts` koodilla `NFOU`:
 
 ```
 <!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
@@ -653,7 +654,7 @@ Vastaussanomaan liitetään neljä kappaletta `RtrInd`-elementtiä, joista supl.
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.013.001.04</n1:MsgNmId>
+    <n1:MsgNmId>fin.013.001.05</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -661,7 +662,7 @@ Vastaussanomaan liitetään neljä kappaletta `RtrInd`-elementtiä, joista supl.
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.002.001.02</n1:MsgNmId>
+    <n1:MsgNmId>fin.002.001.03</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -687,7 +688,7 @@ Vastaussanomaan liitetään kolme kappaletta `InvstgtnSts` elementtiä koodilla 
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.013.001.04</n1:MsgNmId>
+    <n1:MsgNmId>fin.013.001.05</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -695,7 +696,7 @@ Vastaussanomaan liitetään kolme kappaletta `InvstgtnSts` elementtiä koodilla 
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.002.001.02</n1:MsgNmId>
+    <n1:MsgNmId>fin.002.001.03</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -721,7 +722,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |:---|:---|:---|:---|:---|
 |AccountAndParties2| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Acct|CustomerAccount1|kyllä|[1..1]|Tilin tiedot ks. CustomerAccount1 käyttö| 
-|&nbsp;&nbsp;&nbsp;&nbsp;Role|AccountRole1|kyllä|[1..*]|Tiliin liittyvät roolit ks. toinen taulukko alla. Jokainen rooli on ilmoitettava erikseen, esim. jos luonnollisella henkilöllä on sekä tilin haltijuus että tilin käyttöoikeuden haltijuus tiliin, niin Role-elementtejä on tällöin kaksi kappaletta, joista yhden OwnrTp=OWNE ja toisen OwnrTp=ACCE, ks. AccountRole1 käyttö. Jokaisella roolilla on alkupäivämäärä ja valinnainen loppupäivämäärä. Tämän lisäksi jokaiseen rooliin liittyvä asiakkuus on ilmoitettava fin.013-alisanomassa yhden kerran per osallinen. Em. esimerkin henkilölle ilmoitetaan siis yksi asiakkuus tässä tapauksessa.|
+|&nbsp;&nbsp;&nbsp;&nbsp;Role|AccountRole1|kyllä|[1..*]|Tiliin liittyvät roolit ks. toinen taulukko alla. Jokainen rooli on ilmoitettava erikseen, esim. jos luonnollisella henkilöllä on sekä tilin haltijuus että tilin käyttöoikeuden haltijuus tiliin, niin Role-elementtejä on tällöin kaksi kappaletta, joista yhden OwnrTp=OWNE ja toisen OwnrTp=ACCE, ks. AccountRole1 käyttö. Tämän lisäksi jokaiseen rooliin liittyvä asiakkuus on ilmoitettava fin.013-alisanomassa yhden kerran per osallinen. Em. esimerkin henkilölle ilmoitetaan siis yksi asiakkuus tässä tapauksessa.|
 |&nbsp;&nbsp;&nbsp;&nbsp;AddtlInf|Max256Text|kyllä|[1..1]|Tilin avaamispäivämäärä merkkijonona ISODate-formaatissa|
 
 #### <a name="CustomerAccount1"></a> CustomerAccount1 käyttö
@@ -752,8 +753,6 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |AccountRole1| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|kyllä|[1..*]|ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
 |&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|kyllä|[1..1]|Käytetään `OwnrTp/Prtry/SchmeNm` arvolla "RLTP", sekä `OwnrTp/Prtry/Id`, jossa arvot "OWNE" (tilin haltija, "omistaja") tai "ACCE" (tilin käyttöoikeuden haltija, "käyttöoikeus"). Kohtaan `OwnrTp/Tp` laitetaan arvo "TRUS", joka ei tässä tarkoita mitään.|
-|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|kyllä|[1..1]|Roolin alkamispäivämäärä|
-|&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|kyllä|[0..1]|Roolin päättymispäivämäärä|
 
 ### <a name="InformationResponseFIN002"></a> 4.9 InformationResponseFIN002
 
@@ -772,14 +771,14 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
 |SafetyDepositBoxAndParties| | | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;SdBox|SdBox|kyllä|[1..1]|Tilin tiedot ks. SdBox käyttö| 
+|&nbsp;&nbsp;&nbsp;&nbsp;SdBox|SdBox|kyllä|[1..1]|Tallelokeron tiedot ks. SdBox käyttö| 
 |&nbsp;&nbsp;&nbsp;&nbsp;Role|SdBoxRole|kyllä|[1..*]|Tallelokeroon liittyvät roolit ks. toinen taulukko alla. Jokainen rooli on ilmoitettava erikseen koodille OwnrTp=OWNE. Tämän lisäksi jokaiseen rooliin liittyvä asiakkuus on ilmoitettava fin.013-alisanomassa yhden kerran per osallinen.|
 
 #### <a name="SdBox"></a> SdBox käyttö
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
-|CustomerAccount1| | | | |
+|SdBox| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Id|Max34Text|kyllä|[1..1]|Yksilöllinen tallelokeron tunniste|
 |&nbsp;&nbsp;&nbsp;&nbsp;OpngDt||kyllä|[0..1]|Vuokra-ajan alkupäivämäärä*|
 |&nbsp;&nbsp;&nbsp;&nbsp;ClsgDt||kyllä|[0..1]|Vuokra-ajan päättymispäivämäärä*|
@@ -790,11 +789,9 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
-|AccountRole1| | | | |
+|SdBoxRole| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|kyllä|[1..*]|ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
 |&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|kyllä|[1..1]|Käytetään `OwnrTp/Prtry/SchmeNm` arvolla "RLTP", sekä `OwnrTp/Prtry/Id`, jossa arvo "OWNE" (tallelokeron haltija, "omistaja") tai "ACCE" (tallelokeron käyttöoikeuden haltija, "käyttöoikeus"|
-|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|kyllä|[1..1]|Roolin alkamispäivämäärä|
-|&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|kyllä|[0..1]|Roolin päättymispäivämäärä|
 
 ### <a name="InformationResponseFIN013"></a> 4.10 InformationResponseFIN013
 
@@ -835,8 +832,6 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |:---|:---|:---|:---|:---|
 |Nm|Max140Text|Kyllä|[1..1]|Edunsaajan nimi. Formaatti vapaamuotoinen.|
 |PrvtId|PersonIdentification5b|Kyllä|[1..1]|Luonnollinen henkilö. Ks. [PersonIdentification5b-elementin käyttö](#PersonIdentification)|
-|StartDt|ISODate|Kyllä|[0..1]|Roolin alkamispäivämäärä|
-|EndDt|ISODate|Kyllä|[0..1]|Roolin päättymispäivämäärä|
 
 ### <a name="Id-elementin_kaytto"></a> 4.11 Id-elementin käyttö
 

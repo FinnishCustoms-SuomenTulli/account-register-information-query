@@ -225,7 +225,7 @@ grUHxeTf87icp8Wb6w==</X509Certificate>
 							</ns:AuthrtyReq>
 							<ns:AuthrtyReq>
 								<ns:Tp>
-									<ns:MsgNmId>fin.002.001.02</ns:MsgNmId>
+									<ns:MsgNmId>fin.002.001.03</ns:MsgNmId>
 								</ns:Tp>
 								<ns:InvstgtdRoles>
 									<ns:Cd>ALLP</ns:Cd>
@@ -233,7 +233,7 @@ grUHxeTf87icp8Wb6w==</X509Certificate>
 							</ns:AuthrtyReq>
 							<ns:AuthrtyReq>
 								<ns:Tp>
-									<ns:MsgNmId>fin.013.001.04</ns:MsgNmId>
+									<ns:MsgNmId>fin.013.001.05</ns:MsgNmId>
 								</ns:Tp>
 								<ns:InvstgtdRoles>
 									<ns:Cd>ALLP</ns:Cd>
@@ -243,11 +243,11 @@ grUHxeTf87icp8Wb6w==</X509Certificate>
 					</ns:SchCrit>
 					<ns:RtrInd>
 						<ns:AuthrtyReqTp>
-							<ns:MsgNmId>fin.013.001.04</ns:MsgNmId>
+							<ns:MsgNmId>fin.013.001.05</ns:MsgNmId>
 						</ns:AuthrtyReqTp>
 						<ns:InvstgtnRslt>
 							<ns:Rslt>
-								<ns:Document xmlns:ns="urn:fin.013.001.04">
+								<ns:Document xmlns:ns="urn:fin.013.001.05">
 									<ns:InfRspnFin013>
 										<ns:InvstgtnId>ABC1234</ns:InvstgtnId>
 										<ns:CreDtTm>2021-01-26T15:28:11.527+02:00</ns:CreDtTm>
@@ -321,7 +321,6 @@ grUHxeTf87icp8Wb6w==</X509Certificate>
 															</ns:SchmeNm>
 														</ns:Othr>
 													</ns:PrvtId>
-													<ns:StartDt>1970-08-04</ns:StartDt>
 												</ns:Id>
 												<ns:Id>
 													<ns:Nm>Dahlbacka, Rafael Stellan</ns:Nm>
@@ -336,7 +335,6 @@ grUHxeTf87icp8Wb6w==</X509Certificate>
 															</ns:SchmeNm>
 														</ns:Othr>
 													</ns:PrvtId>
-													<ns:StartDt>1971-12-27</ns:StartDt>
 												</ns:Id>
 											</ns:Beneficiaries>
 										</ns:LegalPersonInfo>
@@ -378,8 +376,6 @@ grUHxeTf87icp8Wb6w==</X509Certificate>
 															</ns:SchmeNm>
 														</ns:Othr>
 													</ns:PrvtId>
-													<ns:StartDt>1995-04-29</ns:StartDt>
-													<ns:EndDt>2019-12-11</ns:EndDt>
 												</ns:Id>
 												<ns:Id>
 													<ns:Nm>Simmons, Annele Suvi-Elina</ns:Nm>
@@ -394,7 +390,6 @@ grUHxeTf87icp8Wb6w==</X509Certificate>
 															</ns:SchmeNm>
 														</ns:Othr>
 													</ns:PrvtId>
-													<ns:StartDt>1990-08-21</ns:StartDt>
 												</ns:Id>
 											</ns:Beneficiaries>
 										</ns:LegalPersonInfo>
@@ -459,8 +454,6 @@ grUHxeTf87icp8Wb6w==</X509Certificate>
 														<ns:SchmeNm>RLTP</ns:SchmeNm>
 													</ns:Prtry>
 												</ns:OwnrTp>
-												<ns:StartDt>1972-02-04</ns:StartDt>
-												<ns:EndDt>2021-01-20</ns:EndDt>
 											</ns:Role>
 											<ns:Role>
 												<ns:Pty>
@@ -488,8 +481,6 @@ grUHxeTf87icp8Wb6w==</X509Certificate>
 														<ns:SchmeNm>RLTP</ns:SchmeNm>
 													</ns:Prtry>
 												</ns:OwnrTp>
-												<ns:StartDt>2012-01-30</ns:StartDt>
-												<ns:EndDt>2021-01-20</ns:EndDt>
 											</ns:Role>
 											<ns:AddtlInf>1968-04-20</ns:AddtlInf>
 										</ns:AcctAndPties>
@@ -500,11 +491,11 @@ grUHxeTf87icp8Wb6w==</X509Certificate>
 					</ns:RtrInd>
 					<ns:RtrInd>
 						<ns:AuthrtyReqTp>
-							<ns:MsgNmId>fin.002.001.02</ns:MsgNmId>
+							<ns:MsgNmId>fin.002.001.03</ns:MsgNmId>
 						</ns:AuthrtyReqTp>
 						<ns:InvstgtnRslt>
 							<ns:Rslt>
-								<ns:Document xmlns:ns="urn:fin.002.001.02">
+								<ns:Document xmlns:ns="urn:fin.002.001.03">
 									<ns:InfRspnFin002>
 										<ns:InvstgtnId>ABC1234</ns:InvstgtnId>
 										<ns:CreDtTm>2021-01-26T15:28:11.528+02:00</ns:CreDtTm>
@@ -550,7 +541,6 @@ grUHxeTf87icp8Wb6w==</X509Certificate>
 														<ns:SchmeNm>RLTP</ns:SchmeNm>
 													</ns:Prtry>
 												</ns:OwnrTp>
-												<ns:StartDt>2011-07-30</ns:StartDt>
 											</ns:Role>
 											<ns:Role>
 												<ns:Pty>
@@ -576,8 +566,6 @@ grUHxeTf87icp8Wb6w==</X509Certificate>
 														<ns:SchmeNm>RLTP</ns:SchmeNm>
 													</ns:Prtry>
 												</ns:OwnrTp>
-												<ns:StartDt>2015-11-30</ns:StartDt>
-												<ns:EndDt>2020-11-26</ns:EndDt>
 											</ns:Role>
 										</ns:SdBoxAndPties>
 									</ns:InfRspnFin002>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<xs:schema xmlns="urn:fin.002.001.02" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:fin.002.001.02" elementFormDefault="qualified">
+<xs:schema xmlns="urn:fin.002.001.03" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:fin.002.001.03" elementFormDefault="qualified">
 	<xs:element name="Document" type="Document"/>
 	<xs:complexType name="SafetyDepositBoxAndParties">
 		<xs:sequence>
@@ -20,8 +20,6 @@
 		<xs:sequence>
 			<xs:element name="Pty" type="PartyIdentification41"/>
 			<xs:element name="OwnrTp" type="OwnerType1"/>
-			<xs:element name="StartDt" type="ISODate" maxOccurs="1"/>
-			<xs:element name="EndDt" type="ISODate" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="SdBoxSchemeNameChoice">

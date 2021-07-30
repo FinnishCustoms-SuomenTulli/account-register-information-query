@@ -1,6 +1,6 @@
 # Query interface description of the data retrieval system
 
-*Document version 1.0.44*
+*Document version 1.0.45*
 
 ## Vesion history
 
@@ -51,6 +51,7 @@ Version|Date|Decription
 1.0.42|25.9.2020|Replaced links to iso20022.org's files with references to local files since iso20022.org often changes the file locations.|
 1.0.43|20.11.2020|Query response has multiple hits -error was added to table 4.12.1.|
 1.0.44|27.1.2021|Clarified the use of DtAndPlcOfBirth and DateOrDateTimePeriodChoice elements.|
+1.0.45|??.??.2021|Removed start and end dates from account role, safety deposit box role and beneficiary role. Updated fin.013 schema to version fin.013.001.05 and fin.002 to version fin.002.001.03.|
 
 ## Table of contents
 
@@ -100,11 +101,11 @@ This document is part of the order issued by Finnish Customs regarding a bank an
 
 [ISO 20022 head.001.001.01 schema](assets/iso20022org/archive_business_area_business_application_header.zip)
 
-[fin.002.001.02](schemas/fin.002.001.02.xsd)
+[fin.002.001.03](schemas/fin.002.001.03.xsd)
 
 [fin.012.001.03](schemas/fin.012.001.03.xsd)
 
-[fin.013.001.04](schemas/fin.013.001.04.xsd)
+[fin.013.001.05](schemas/fin.013.001.05.xsd)
 
 [Guidelines on the Information Security of e-Services](http://julkaisut.valtioneuvosto.fi/bitstream/handle/10024/80012/VM_25_2017.pdf)
 
@@ -308,7 +309,7 @@ The BAH must always be the first element of the SOAP body.
 
 The query interface of the data retrieval system uses the ISO 20022 messages [InformationRequestOpeningV01 (auth.001.001.01)](assets/iso20022org/auth.001.001.01.xsd) and [InformationRequestResponseV01 (auth.002.001.01)](assets/iso20022org/auth.002.001.01.xsd) to which the required submessages ([Supplementary Data](assets/iso20022org/InformationResponse_SupplementaryData.zip)) are appended.
 
-The submessages used at the upper level are divided into three concepts: customership, account and safety-deposit box. The customer and beneficiary details are returned in the message [fin.013.001.04](schemas/fin.013.001.04.xsd), the account details in the message [supl.027.001.01](assets/iso20022org/InformationResponse_SupplementaryData.zip) and the safety-deposit box details in the message [fin.002.001.02](schemas/fin.002.001.02) (NB. here the same code as in the manual processing in some existing systems). These submessages are appended to [auth.002.001.01](assets/iso20022org/auth.002.001.01.xsd) element `InformationRequestResponseV01/RtrInd`.
+The submessages used at the upper level are divided into three concepts: customership, account and safety-deposit box. The customer and beneficiary details are returned in the message [fin.013.001.05](schemas/fin.013.001.05.xsd), the account details in the message [supl.027.001.01](assets/iso20022org/InformationResponse_SupplementaryData.zip) and the safety-deposit box details in the message [fin.002.001.03](schemas/fin.002.001.03) (NB. here the same code as in the manual processing in some existing systems). These submessages are appended to [auth.002.001.01](assets/iso20022org/auth.002.001.01.xsd) element `InformationRequestResponseV01/RtrInd`.
 
 The tables 4.3.1–4.3.5 show the data content of the bank and payment account register as well as the Supplementary Data submessage, as part of which each detail is returned.
 
@@ -430,11 +431,11 @@ The table describes the use of records in the message.
 
 #### <a name="SearchCriteria1Choice"></a> Limiting submessages in the search result
 
-The system only returns the submessages requested in the search criteria (supl.027.001.01, fin.002.001.02, fin.013.001.04). Each submessage is requested in a separate element of the type AuthorityRequestType1, and 1–3 of these elements must be included in the search criteria.
+The system only returns the submessages requested in the search criteria (supl.027.001.01, fin.002.001.03, fin.013.001.05). Each submessage is requested in a separate element of the type AuthorityRequestType1, and 1–3 of these elements must be included in the search criteria.
 
 |Tag|Scheme path InfReqOpng/SchCrit/|Description|
 |:---|:---|:---|
-|\<MsgNmId\>|Search by personal identity code, by the combination of the name, nationality and date of birth of a natural person, by the registration number of a legal person, by company name or by safety-deposit box ID:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Search by IBAN or other unique identifier of the account:<br/>Acct/AuthrtyReqTp|“supl.027.001.01”, “fin.002.001.02” or “fin.013.001.04”|
+|\<MsgNmId\>|Search by personal identity code, by the combination of the name, nationality and date of birth of a natural person, by the registration number of a legal person, by company name or by safety-deposit box ID:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Search by IBAN or other unique identifier of the account:<br/>Acct/AuthrtyReqTp|“supl.027.001.01”, “fin.002.001.03” or “fin.013.001.05”|
 
 #### <a name=""></a> Search by personal identity code
 
@@ -541,16 +542,16 @@ ReturnIndicator1 includes the presence of a single type of search result.
 
 |XPath|Type|Description|
 |:---|:---|:---|
-|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|Includes the message ID of a message extension (supl.027.001.01, fin.013.001.04 or fin.002.001.02)|
+|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|Includes the message ID of a message extension (supl.027.001.01, fin.013.001.05 or fin.002.001.03)|
 |RtrInd/InvstgtnRslt|InvestigationResult1Choice|`Rslt` element of type SupplementaryDataEnvelope1 is returned, including either [supl.027.001.01](#supl.027.001.01), [InformationResponseFIN002](#InformationResponseFIN002) or [InformationResponseFIN013](#InformationResponseFIN013) or `InvstgtnSts` with code `NFOU`.
 
-One search result sub-message (supl.027.001.01, fin.013.001.04 or fin.002.001.02) is returned per Business ID for each search result type.
+One search result sub-message (supl.027.001.01, fin.013.001.05 or fin.002.001.03) is returned per Business ID for each search result type.
 
 __Example 1.__  
 
 Three results corresponding to the `Document/InfReqOpng/SchCrit` search criterion present in the query message have been found: one customer and two accounts. No safety-deposit boxes were found.  
 
-To the response message, three `RtrInd` elements shall be appended: regarding supl.027.001.01 and fin.013.001.04, the search results are appended to `Rslt` elements and regarding fin.002.001.02, `InvstgtnSts` shall be returned using code `NFOU`:
+To the response message, three `RtrInd` elements shall be appended: regarding supl.027.001.01 and fin.013.001.05, the search results are appended to `Rslt` elements and regarding fin.002.001.03, `InvstgtnSts` shall be returned using code `NFOU`:
 
 ```
 <!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
@@ -570,11 +571,11 @@ To the response message, three `RtrInd` elements shall be appended: regarding su
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.013.001.04</n1:MsgNmId>
+    <n1:MsgNmId>fin.013.001.05</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:Rslt>
-      <n1:Document xmlns:n3="fin.013.001.04" ...">
+      <n1:Document xmlns:n3="fin.013.001.05" ...">
       	<n1:InfRspnFin013>
           <!-- Search result for customership #1 -->
         </n1:InfRspnFin013>
@@ -584,7 +585,7 @@ To the response message, three `RtrInd` elements shall be appended: regarding su
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.002.001.02</n1:MsgNmId>
+    <n1:MsgNmId>fin.002.001.03</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -598,7 +599,7 @@ The interface is a compilation: one interface returns search results under sever
 
 Four results corresponding to the `Document/InfReqOpng/SchCrit` search criterion present in the query message have been found: one account (account #1) for Business ID 0190983-0 and three accounts (account #2, account #3, account #4) for Business ID 0828972-6.
 
-To the response message, four `RtrInd` elements shall be appended: regarding supl.027.001.0, the search results are appended to `Rslt` elements and regarding fin.013.001.04 and fin.002.001.02, `InvstgtnSts` shall be returned using the code `NFOU`: 
+To the response message, four `RtrInd` elements shall be appended: regarding supl.027.001.0, the search results are appended to `Rslt` elements and regarding fin.013.001.05 and fin.002.001.03, `InvstgtnSts` shall be returned using the code `NFOU`: 
 
 ```
 <!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
@@ -664,7 +665,7 @@ To the response message, four `RtrInd` elements shall be appended: regarding sup
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.013.001.04</n1:MsgNmId>
+    <n1:MsgNmId>fin.013.001.05</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -672,7 +673,7 @@ To the response message, four `RtrInd` elements shall be appended: regarding sup
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.002.001.02</n1:MsgNmId>
+    <n1:MsgNmId>fin.002.001.03</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -698,7 +699,7 @@ To the response message, three `InvstgtnSts` elements shall be appended using th
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.013.001.04</n1:MsgNmId>
+    <n1:MsgNmId>fin.013.001.05</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -706,7 +707,7 @@ To the response message, three `InvstgtnSts` elements shall be appended using th
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.002.001.02</n1:MsgNmId>
+    <n1:MsgNmId>fin.002.001.03</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -732,7 +733,7 @@ The table describes the use of records in the message.
 |:---|:---|:---|:---|:---|
 |AccountAndParties2| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Acct|CustomerAccount1|Yes|[1..1]|For account details, see the use of CustomerAccount1| 
-|&nbsp;&nbsp;&nbsp;&nbsp;Role|AccountRole1|Yes|[1..*]|For the account-related roles, see the second table below. Every role must be provided separately. For example, if a natural person is both the account holder and has access right to the account, there are two Role elements, one of which has OwnrTp=OWNE and the other OwnrTp=ACCE, see Use of AccountRole1. Every role has a start date and optional end date. In addition to this, the customership connected to each role must be indicated in the fin.013 submessage once per party. For example, in this case one customership is indicated for the person in the example.|
+|&nbsp;&nbsp;&nbsp;&nbsp;Role|AccountRole1|Yes|[1..*]|For the account-related roles, see the second table below. Every role must be provided separately. For example, if a natural person is both the account holder and has access right to the account, there are two Role elements, one of which has OwnrTp=OWNE and the other OwnrTp=ACCE, see Use of AccountRole1. In addition to this, the customership connected to each role must be indicated in the fin.013 submessage once per party. For example, in this case one customership is indicated for the person in the example.|
 |&nbsp;&nbsp;&nbsp;&nbsp;AddtlInf|Max256Text|Yes|[1..1]|The date of opening the account, as a string of characters in ISODate format.|
 
 #### <a name="CustomerAccount1"></a> Use of CustomerAccount1
@@ -763,8 +764,6 @@ The table describes the use of records in the message.
 |AccountRole1| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|Yes|[1..*]|See [Use of Id element](#Id-element_usage)|
 |&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|Yes|[1..1]|“RLTP” is set as the content of `OwnrTp/Prtry/SchmeNm`, and “OWNE” (account holder, “owner”) or “ACCE” (holder of access right to the account, “access right”) is set as the content of `OwnrTp/Prtry/Id`. In `OwnrTp/Tp`, enter value “TRUS”, which doesn’t mean anything here.|
-|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|Yes|[1..1]|Start date of the role|
-|&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|Yes|[0..1]|End date of the role|
 
 ### <a name="InformationResponseFIN002"></a> 4.9 InformationResponseFIN002
 
@@ -783,14 +782,14 @@ The message extension is appended to the Xpath location of the ISO 20022 message
 |Name|Type|In use|[min..max]|Description|
 |:---|:---|:---|:---|:---|
 |SafetyDepositBoxAndParties| | | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;SdBox|SdBox|Yes|[1..1]|Account details see Use of SdBox| 
+|&nbsp;&nbsp;&nbsp;&nbsp;SdBox|SdBox|Yes|[1..1]|Safety-deposit box details see Use of SdBox| 
 |&nbsp;&nbsp;&nbsp;&nbsp;Role|SdBoxRole|Yes|[1..*]|For the safety-deposit box-related roles, see the second table below. Every role must be indicated separately for the code OwnrTp=OWNE. In addition to this, the customership connected to each role must be indicated in the fin.013 submessage once per party.|
 
 #### <a name="SdBox"></a> Use of SdBox
 
 |Name|Type|In use|[min..max]|Description|
 |:---|:---|:---|:---|:---|
-|CustomerAccount1| | | | |
+|SdBox| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Id|Max34Text|Yes|[1..1]|Unique safety-deposit box ID|
 |&nbsp;&nbsp;&nbsp;&nbsp;OpngDt||Yes|[0..1]|Start date of the rental period**|
 |&nbsp;&nbsp;&nbsp;&nbsp;ClsgDt||Yes|[0..1]|End date of the rental period**|
@@ -801,11 +800,9 @@ The message extension is appended to the Xpath location of the ISO 20022 message
 
 |Name|Type|In use|[min..max]|Description|
 |:---|:---|:---|:---|:---|
-|AccountRole1| | | | |
+|SdBoxRole| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|Yes|[1..*]|See [Use of Id element](#Id-element_usage)|
 |&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|Yes|[1..1]|Use `OwnrTp/Prtry/SchmeNm` with value "RLTP", as well as `OwnrTp/Prtry/Id`, in which the values “OWNE” (safety-deposit box holder, “owner”) or “ACCE” (holder of access right to the safety-deposit box, “access right”).|
-|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|Yes|[1..1]|Start date of role|
-|&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|Yes|[0..1]|End date of role|
 
 ### <a name="InformationResponseFIN013"></a> 4.10 InformationResponseFIN013
 
@@ -846,8 +843,6 @@ The message extension is appended to the Xpath location of the ISO 20022 message
 |:---|:---|:---|:---|:---|
 |Nm|Max140Text|Yes|[1..1]|Beneficiary’s name. Free-form format.|
 |PrvtId|PersonIdentification5b|Yes|[1..1]|Natural person. See [Use of PersonIdentification5b element](#PersonIdentification)|
-|StartDt|ISODate|Yes|[0..1]|Start date of role|
-|EndDt|ISODate|Yes|[0..1]|End date of role|
 
 ### <a name="Id-element_usage"></a> 4.11 Use of Id element
 
