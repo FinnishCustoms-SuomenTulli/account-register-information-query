@@ -2,7 +2,7 @@
 
 # Datasöksystemets frågegränssnitt
 
-*Dokumentversion 1.0.44*
+*Dokumentversion 1.0.45*
 
 ## Versionshistorik
 
@@ -53,6 +53,7 @@ Version|Datum|Beskrivning
 1.0.42|25.9.2020|Ersatt iso20022.org-länkar med referenser till lokala filer eftersom platsen för filer på iso20022.org ändras ofta.|
 1.0.43|20.11.2020|Tillagd svarsmeddelandet innehåller flera träff fel i tabell 4.12.1.|
 1.0.44|27.1.2021|Användningen av DtAndPlcOfBirth och DateOrDateTimePeriodChoice elementer har preciserats.|
+1.0.45|pp.kk.2021|[SV]Poistettu tili-, tallelokero- ja edunsaajaroolien alku- ja loppupäivät. Päivitetty fin.013 skeema versioon fin.013.001.05 ja fin.002 skeema versioon fin.002.001.03. Korjattu virhe WSDL:ssä. ApplicationRequest- ja ApplicationResponse-elementtien sisältämät AppHdr- ja Document-elementit olivat virheellisesti wsdl_root-nimiavaruudessa.|
 
 ## Innehåll
 
@@ -102,11 +103,11 @@ Detta dokument ingår i Tullens föreskrift om ett övervakningssystem för bank
 
 [ISO 20022 head.001.001.01 schema](assets/iso20022org/archive_business_area_business_application_header.zip)
 
-[fin.002.001.02](schemas/fin.002.001.02.xsd)
+[fin.002.001.03](schemas/fin.002.001.03.xsd)
 
 [fin.012.001.03](schemas/fin.012.001.03.xsd)
 
-[fin.013.001.04](schemas/fin.013.001.04.xsd)
+[fin.013.001.05](schemas/fin.013.001.05.xsd)
 
 [Anvisning om informationssäkerheten inom elektronisk ärendehantering på Finska](http://julkaisut.valtioneuvosto.fi/bitstream/handle/10024/80012/VM_25_2017.pdf)
 
@@ -305,7 +306,7 @@ BAH ska alltid vara det första elementet i SOAP body.
 
 I datasöksystemets frågegränssnitt används ISO 20022 -meddelandena [InformationRequestOpeningV01 (auth.001.001.01)](assets/iso20022org/auth.001.001.01.xsd) och [InformationRequestResponseV01 (auth.002.001.01)](assets/iso20022org/auth.002.001.01.xsd) till vilka behövliga undermeddelanden ([Supplementary Data](assets/iso20022org/InformationResponse_SupplementaryData.zip)) kopplas.
 
-Undermeddelanden som används på högre nivå delas in i tre begrepp: kundrelation, konto och bankfack. Uppgifterna om kundrelation och förmånstagare returneras i meddelandet [fin.013.001.04](schemas/fin.013.001.04.xsd), kontouppgifterna i meddelandet [supl.027.001.01](assets/iso20022org/InformationResponse_SupplementaryData.zip) och bankfacksuppgifterna i meddelandet [fin.002.001.02](schemas/fin.002.001.02.xsd) (Obs. samma kod som vid manuell behandling i vissa befintliga system). Dessa undermeddelanden kopplas till [auth.002.001.01](assets/iso20022org/auth.002.001.01.xsd)-elementet `InformationRequestResponseV01/RtrInd`.
+Undermeddelanden som används på högre nivå delas in i tre begrepp: kundrelation, konto och bankfack. Uppgifterna om kundrelation och förmånstagare returneras i meddelandet [fin.013.001.05](schemas/fin.013.001.05.xsd), kontouppgifterna i meddelandet [supl.027.001.01](assets/iso20022org/InformationResponse_SupplementaryData.zip) och bankfacksuppgifterna i meddelandet [fin.002.001.03](schemas/fin.002.001.03.xsd) (Obs. samma kod som vid manuell behandling i vissa befintliga system). Dessa undermeddelanden kopplas till [auth.002.001.01](assets/iso20022org/auth.002.001.01.xsd)-elementet `InformationRequestResponseV01/RtrInd`.
 
 I tabellerna *4.3.1*–*4.3.5* presenteras datainnehållet i registret över bank- och betalkonton, samt Supplementary Data-undermeddelandet, i vilken varje uppgift returneras.
 
@@ -426,11 +427,11 @@ I tabellen beskrivs användningen av meddelandets poster.
 
 #### <a name="SearchCriteria1Choice"></a> Begränsning av undermeddelanden i sökresultatet
 
-Systemet returnerar endast de undermeddelanden som begärs i sökkriterierna (supl.027.001.01, fin.002.001.02, fin.013.001.04). Varje undermeddelande begärs i ett separat element av typen AuthorityRequestType1, som det alltså ska finnas 1–3 av i sökkriterierna.
+Systemet returnerar endast de undermeddelanden som begärs i sökkriterierna (supl.027.001.01, fin.002.001.03, fin.013.001.05). Varje undermeddelande begärs i ett separat element av typen AuthorityRequestType1, som det alltså ska finnas 1–3 av i sökkriterierna.
 
 |Tagg|Schemats sökväg InfReqOpng/SchCrit/|Beskrivning|Regel|
 |:---|:---|:---|:---|
-|\<MsgNmId\>|Sökning med personbeteckning, med kombinationen naturlig persons namn, medborgarskap och födelsedatum, med juridisk persons registreringsnummer, med företagets namn eller med bankfackets identifieringsuppgift:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Sökning med IBAN eller annan kontospecifikation:<br/>Acct/AuthrtyReqTp|"supl.027.001.01", "fin.002.001.02" eller "fin.013.001.04"||
+|\<MsgNmId\>|Sökning med personbeteckning, med kombinationen naturlig persons namn, medborgarskap och födelsedatum, med juridisk persons registreringsnummer, med företagets namn eller med bankfackets identifieringsuppgift:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Sökning med IBAN eller annan kontospecifikation:<br/>Acct/AuthrtyReqTp|"supl.027.001.01", "fin.002.001.03" eller "fin.013.001.05"||
 
 #### <a name=""></a> Sökning med personbeteckning
 
@@ -537,16 +538,16 @@ ReturnIndicator1 innehåller en enskild typ av sökresultat.
 
 |XPath|Typ|Beskrivning|
 |:---|:---|:---|
-|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|Innehåller det utvidgade meddelandets meddelande-id (supl.027.001.01, fin.013.001.04 eller fin.002.001.01).|
+|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|Innehåller det utvidgade meddelandets meddelande-id (supl.027.001.01, fin.013.001.05 eller fin.002.001.01).|
 |RtrInd/InvstgtnRslt|InvestigationResult1Choice|Returneras `Rslt`-elementet av typen SupplementaryDataEnvelope1, som innehåller antingen [supl.027.001.01](#InformationResponseSD1V01), [InformationResponseFIN002](#InformationResponseFIN002) eller [InformationResponseFIN013](#InformationResponseFIN013) eller `InvstgtnSts` med koden `NFOU`.
 
-För varje typ av sökresultat returneras ett undermeddelande med sökresultat (supl.027.001.01, fin.013.001.04 eller fin.002.001.02) per FO-nummer.
+För varje typ av sökresultat returneras ett undermeddelande med sökresultat (supl.027.001.01, fin.013.001.05 eller fin.002.001.03) per FO-nummer.
 
 __Exempel 1.__  
 
 Det fanns tre resultat som motsvarande söktermen `Document/InfReqOpng/SchCrit` i frågemeddelandet: en kundrelation och två konton. Inga bankfack hittades.
 
-Till svarsmeddelandet kopplas tre `RtrInd`-element. I fråga om två av dessa, supl.027.001.01 och fin.013.001.04, kopplas sökresultaten till Rslt-element och i fråga om fin.002.001.02 returneras `InvstgtnSts` med koden `NFOU`:
+Till svarsmeddelandet kopplas tre `RtrInd`-element. I fråga om två av dessa, supl.027.001.01 och fin.013.001.05, kopplas sökresultaten till Rslt-element och i fråga om fin.002.001.03 returneras `InvstgtnSts` med koden `NFOU`:
 
 ```
 <!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
@@ -566,11 +567,11 @@ Till svarsmeddelandet kopplas tre `RtrInd`-element. I fråga om två av dessa, s
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.013.001.04</n1:MsgNmId>
+    <n1:MsgNmId>fin.013.001.05</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:Rslt>
-      <n1:Document xmlns:n3="fin.013.001.04" ...">
+      <n1:Document xmlns:n3="fin.013.001.05" ...">
       	<n1:InfRspnFin013>
           <!-- Sökresultat för kundrelation #1 -->
         </n1:InfRspnFin013>
@@ -580,7 +581,7 @@ Till svarsmeddelandet kopplas tre `RtrInd`-element. I fråga om två av dessa, s
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.002.001.02</n1:MsgNmId>
+    <n1:MsgNmId>fin.002.001.03</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -594,7 +595,7 @@ Gränssnittet är sammanfattat: ett gränssnitt returnerar sökresultaten under 
 
 Det fanns fyra resultat som motsvarande söktermen `Document/InfReqOpng/SchCrit` i frågemeddelandet: ett konto (konto #1) för FO-nummer 0190983-0 och tre konton (konto #2, konto #3, konto #4) för FO-nummer 0828972-6.
 
-Till svarsmeddelandet kopplas fyra `RtrInd`-element. I fråga om ett av dessa, supl.027.001.0, kopplas sökresultaten till Rslt-element och i fråga om fin.013.001.04 och fin.002.001.02 returneras `InvstgtnSts` med koden `NFOU`:
+Till svarsmeddelandet kopplas fyra `RtrInd`-element. I fråga om ett av dessa, supl.027.001.0, kopplas sökresultaten till Rslt-element och i fråga om fin.013.001.05 och fin.002.001.03 returneras `InvstgtnSts` med koden `NFOU`:
 
 ```
 <!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
@@ -660,7 +661,7 @@ Till svarsmeddelandet kopplas fyra `RtrInd`-element. I fråga om ett av dessa, s
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.013.001.04</n1:MsgNmId>
+    <n1:MsgNmId>fin.013.001.05</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -668,7 +669,7 @@ Till svarsmeddelandet kopplas fyra `RtrInd`-element. I fråga om ett av dessa, s
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.002.001.02</n1:MsgNmId>
+    <n1:MsgNmId>fin.002.001.03</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -694,7 +695,7 @@ Till svarsmeddelandet kopplas tre `InvstgtnSts`-element med koden `NFOU`.
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.013.001.04</n1:MsgNmId>
+    <n1:MsgNmId>fin.013.001.05</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -702,7 +703,7 @@ Till svarsmeddelandet kopplas tre `InvstgtnSts`-element med koden `NFOU`.
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.002.001.02</n1:MsgNmId>
+    <n1:MsgNmId>fin.002.001.03</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -728,7 +729,7 @@ I tabellen beskrivs användningen av meddelandets poster.
 |:---|:---|:---|:---|:---|
 |AccountAndParties2| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Acct|CustomerAccount1|Ja|[1..1]|Kontouppgifter, se CustomerAccount1 användning.| 
-|&nbsp;&nbsp;&nbsp;&nbsp;Role|AccountRole1|Ja|[1..*]|Roller med anknytning till kontot, se den andra tabellen nedan. Varje roll ska anges separat, dvs. om en fysisk person är både kontoinnehavare och den som har dispositionsrätt till kontot, finns det då två Role-element: OwnrTp=OWNE och OwnrTp=ACCE, se AccountRole1 användning. Varje roll har ett startdatum och ett valfritt slutdatum. Därtill ska kundrelationen med anknytning till varje roll anges i undermeddelandet fin.013 en gång per part. |
+|&nbsp;&nbsp;&nbsp;&nbsp;Role|AccountRole1|Ja|[1..*]|Roller med anknytning till kontot, se den andra tabellen nedan. Varje roll ska anges separat, dvs. om en fysisk person är både kontoinnehavare och den som har dispositionsrätt till kontot, finns det då två Role-element: OwnrTp=OWNE och OwnrTp=ACCE, se AccountRole1 användning. Därtill ska kundrelationen med anknytning till varje roll anges i undermeddelandet fin.013 en gång per part. |
 |&nbsp;&nbsp;&nbsp;&nbsp;AddtlInf|Max256Text|Ja|[1..1]|För personen enligt exemplet ovan anges således en kundrelation i detta fall.|
 
 #### <a name="CustomerAccount1"></a> CustomerAccount1 användning
@@ -759,8 +760,6 @@ I tabellen beskrivs användningen av meddelandets poster.
 |AccountRole1| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|Ja|[1..*]|Se [Användning av Id-element](#Anvandning_av_Id-element)|
 |&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|Ja|[1..1]|`OwnrTp/Prtry/SchmeNm` förses med värdet “RLTP”, samt `OwnrTp/Prtry/Id`, med värdena "OWNE" (kontoinnehavare, “ägare”) eller “ACCE” (den som har dispositionsrätt till kontot, “dispositionsrätt”). I punkten `OwnrTp/Tp` anges värdet “TRUS”, som inte betyder någonting här.|
-|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|Ja|[1..1]|Datum då rollen inleddes.|
-|&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|Ja|[0..1]|Datum då rollen upphörde.|
 
 ### <a name="InformationResponseFIN002"></a> 4.9 InformationResponseFIN002
 
@@ -779,14 +778,14 @@ Det utvidgade meddelandet kopplas till ISO 20022-meddelandets XPath-läge som an
 |Namn|Typ|Används|[min..max]|Beskrivning|
 |:---|:---|:---|:---|:---|
 |SafetyDepositBoxAndParties| | | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;SdBox|SdBox|Ja|[1..1]|Kontouppgifter, se användning av SdBox.| 
+|&nbsp;&nbsp;&nbsp;&nbsp;SdBox|SdBox|Ja|[1..1]|Bankfackuppgifter, se användning av SdBox.| 
 |&nbsp;&nbsp;&nbsp;&nbsp;Role|SdBoxRole|Ja|[1..*]|Roller med anknytning till bankfacket, se andra tabellen nedan. Varje roll ska anges separat för koden OwnrTp=OWNE. Därtill ska kundrelationen med anknytning till varje roll anges i undermeddelandet fin.013 en gång per part.|
 
 #### <a name="SdBox"></a> Användning av SdBox
 
 |Namn|Typ|Används|[min..max]|Beskrivning|
 |:---|:---|:---|:---|:---|
-|CustomerAccount1| | | | |
+|SdBox| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Id|Max34Text|Ja|[1..1]|Individuell identifieringsuppgift för bankfacket|
 |&nbsp;&nbsp;&nbsp;&nbsp;OpngDt||Ja|[0..1]|Startdatum för hyrestid*|
 |&nbsp;&nbsp;&nbsp;&nbsp;ClsgDt||Ja|[0..1]|Slutdatum för hyrestid*|
@@ -797,11 +796,9 @@ Det utvidgade meddelandet kopplas till ISO 20022-meddelandets XPath-läge som an
 
 |Namn|Typ|Används|[min..max]|Beskrivning|
 |:---|:---|:---|:---|:---|
-|AccountRole1| | | | |
+|SdBoxRole| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|Ja|[1..*]|Se [Användning av Id-element](#Anvandning_av_Id-element)|
 |&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|Ja|[1..1]|`OwnrTp/Prtry/SchmeNm` förses med värdet “RLTP”, samt `OwnrTp/Prtry/Id`, med värdena “OWNE” (innehavare av bankfacket, “ägare”) eller “ACCE” (den som har dispositionsrätt till bankfacket, “dispositionsrätt”).|
-|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|Ja|[1..1]|Startdatum för rollen|
-|&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|Ja|[0..1]|Slutdatum för rollen|
 
 ### <a name="InformationResponseFIN013"></a> 4.10 InformationResponseFIN013
 
@@ -842,8 +839,6 @@ Det utvidgade meddelandet kopplas till ISO 20022-meddelandets XPath-läge som an
 |:---|:---|:---|:---|:---|
 |Nm|Max140Text|Ja|[1..1]|Förmånstagarens namn. Formatet är fritt.|
 |PrvtId|PersonIdentification5b|Ja|[1..1]|Fysisk person. Se [Användning av PersonIdentification5b-elementet](#PersonIdentification)|
-|StartDt|ISODate|Ja|[0..1]|Startdatum för rollen|
-|EndDt|ISODate|Ja|[0..1]|Slutdatum för rollen|
 
 ### <a name="Anvandning_av_Id-element"></a> 4.11 Användning av Id-element
 
