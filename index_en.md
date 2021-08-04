@@ -51,7 +51,8 @@ Version|Date|Decription
 1.0.42|25.9.2020|Replaced links to iso20022.org's files with references to local files since iso20022.org often changes the file locations.|
 1.0.43|20.11.2020|Query response has multiple hits -error was added to table 4.12.1.|
 1.0.44|27.1.2021|Clarified the use of DtAndPlcOfBirth and DateOrDateTimePeriodChoice elements.|
-1.0.45|??.??.2021|Removed start and end dates from account role, safety deposit box role and beneficiary role. Updated fin.013 schema to version fin.013.001.05 and fin.002 to version fin.002.001.03.|
+1.0.45|??.??.2021|Removed start and end dates from account role, safety deposit box role and beneficiary role. Updated fin.013 schema to version fin.013.001.05 and fin.002 to version fin.002.001.03. 
+Fixed an error in WSDL. ApplicationRequest and ApplicationResponse elements' child elements AppHdr and Document were incorrectly in wsdl_root namespace.|
 
 ## Table of contents
 

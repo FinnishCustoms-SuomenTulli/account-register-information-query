@@ -57,7 +57,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.42|25.9.2020|Korvattu iso20022.org -sivuston linkit viittauksilla paikallisiin tiedostoihin, koska tiedostojen sijainti iso20022.org -sivulla vaihtuu usein.|
 1.0.43|20.11.2020|Lisätty Vastaussanoma sisältää useita osumia -virhe taulukkoon 4.12.1.|
 1.0.44|27.1.2021|Selvennetty DtAndPlcOfBirth ja DateOrDateTimePeriodChoice elementtien käyttöä.|
-1.0.45|??.??.2021|Poistettu tili-, tallelokero- ja edunsaajaroolien alku- ja loppupäivät. Päivitetty fin.013 skeema versioon fin.013.001.05 ja fin.002 skeema versioon fin.002.001.03.|
+1.0.45|pp.kk.2021|Poistettu tili-, tallelokero- ja edunsaajaroolien alku- ja loppupäivät. Päivitetty fin.013 skeema versioon fin.013.001.05 ja fin.002 skeema versioon fin.002.001.03. Korjattu virhe WSDL:ssä. ApplicationRequest- ja ApplicationResponse-elementtien sisältämät AppHdr- ja Document-elementit olivat virheellisesti wsdl_root-nimiavaruudessa.|
 
 ## Sisällysluettelo
 
