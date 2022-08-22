@@ -78,7 +78,7 @@ Versio|Päivämäärä|Kuvaus
   4.11 [Id-elementin käyttö](#Id-elementin_kaytto)    
   4.12 [Kyselyrajapinnan WS-sanomaliikenteen skenaariot](#4-12)    
   4.13 [Kiistanalaisten tietojen palauttaminen](#4-13)  
-
+  4.14 [Kyselyjen palauttamien tietojoukkojen rajaukset asiakaskategorioittain](#4-14)  
 
 ## 1. Johdanto <a name="luku1"></a>
 
@@ -1067,3 +1067,67 @@ Kyselyvastauksessa esitetyistä tiedoista osa voi olla kiistanalaisia. Tällöin
   </Disputed>
 </Document>
 ```
+
+
+### <a name="4-14"></a> 4.14 Kyselyjen palauttamien tietojoukkojen rajaukset asiakaskategorioittain
+
+Tiedonhakujärjestelmään liittyvien lakien asettamien vaatimusten takia tarpeen tehdä erinäisiä rajoituksia kyselyille palautettavaan tietoon. Tässä kappaleessa on eritelty kyselyissä palautettavien tietojoukkojen lakisääteiset erikoisrajoitukset riippuen tiedonlähteen asiakaskategoriasta.
+
+Tiedonlähteet on jaettu kahteen kategoriaan: asiakaskategoria 1 joka kattaa luottolaitokset, sekä asiakaskategoria 2 johon kuuluvat maksulaitokset, sähkörahayhteisöt ja virtuaaluutan tarjoajat.
+
+#### <a name="4-14-1"></a> 4.14.1 Asiakaskategoria 1
+
+*__Taulukko 4.14.1.1:__ Henkilöhakujen rajaukset. Tähän hakukategoriaan kuuluvat haut henkilötunnuksella ja haut luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä*
+|Rajaus|Alisanoma|Elementti|Kuvaus|
+|:---|:---|:---|:---|
+|Asiakkuustieto|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo kenttää ei palauteta|
+|Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Tiliroolin alkupäivää ei palauteta.|
+|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Tiliroolin loppupäivämäärää ei palauteta.|
+|Tilin avaamispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Tilin avaamispäivämäärää ei palauteta, jos kyseessä on asianajajan asiakasvaratili. Ks. [CustomerAccount-käyttö](#CustomerAccount1).|
+|Tilin sulkemispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Tilin sulkemispäivämäärää ei palauteta, jos kyseessä on asianajajan asiakasvaratili. Ks. [CustomerAccount-käyttö](#CustomerAccount1).|
+
+*__Taulukko 4.14.1.2:__ Organisaatiohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut yrityksen nimellä ja haut oikeushenkilön rekisterinumerolla*
+|Rajaus|Alisanoma|Elementti|Kuvaus|
+|:---|:---|:---|:---|
+|Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Tiliroolin alkupäivää ei palauteta.|
+|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Tiliroolin loppupäivämäärää ei palauteta.|
+
+*__Taulukko 4.14.1.3:__ Tilihakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tilin IBAN-numerolla ja haut muulla tilin yksilöintitunnuksella*
+|Rajaus|Alisanoma|Elementti|Kuvaus|
+|:---|:---|:---|:---|
+|Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Tiliroolin alkupäivää ei palauteta.|
+|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Tiliroolin loppupäivämäärää ei palauteta.|
+|Tilin avaamispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Tilin avaamispäivämäärää ei palauteta, jos kyseessä on asianajajan asiakasvaratili. Ks. [CustomerAccount-käyttö](#CustomerAccount1).|
+|Tilin sulkemispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Tilin sulkemispäivämäärää ei palauteta, jos kyseessä on asianajajan asiakasvaratili. Ks. [CustomerAccount-käyttö](#CustomerAccount1).|
+|Asiakkuustieto|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo kenttää ei palauteta, jos kyseinen oikeushenkilö on myös luonnollinen henkilö.|
+|Edunsaajatiedot|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Ei palauteta oikeushenkilöön liittyviä edunsaajatietoja.|
+
+#### <a name="4-14-2"></a> 4.14.2 Asiakaskategoria 2
+
+*__Taulukko 4.14.2.1:__ Henkilöhakujen rajaukset. Tähän hakukategoriaan kuuluvat haut henkilötunnuksella ja haut luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä*
+|Rajaus|Alisanoma|Elementti|Kuvaus|
+|:---|:---|:---|:---|
+|Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Tiliroolin alkupäivää ei palauteta.|
+|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Tiliroolin loppupäivämäärää ei palauteta.|
+|Tilin avaamispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Tilin avaamispäivämäärää ei palauteta.|
+|Tilin sulkemispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Tilin sulkemispäivämäärää ei palauteta.|
+|Organisaatiot edunsaajaroolin perusteella|InformationResponseFIN013|/LegalPersonInfo|Ei palauteta haettuun luonnolliseen henkilöön liittyviä organisaation oikeushenkilötietoja InformationResponseFIN013 alisanomalla, joissa haettu luonnollinen henkilö on edunsaajana.|
+
+*__Taulukko 4.14.2.2:__ Organisaatiohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut yrityksen nimellä ja haut oikeushenkilön rekisterinumerolla*
+|Rajaus|Alisanoma|Elementti|Kuvaus|
+|:---|:---|:---|:---|
+|Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Tiliroolin alkupäivää ei palauteta.|
+|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Tiliroolin loppupäivämäärää ei palauteta.|
+|Tilin avaamispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Tilin avaamispäivämäärää ei palauteta.|
+|Tilin sulkemispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Tilin sulkemispäivämäärää ei palauteta.|
+|Edunsaajatiedot|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Ei palauteta oikeushenkilöön liittyviä edunsaajatietoja.|
+
+*__Taulukko 4.14.2.3:__ Tilihakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tilin IBAN-numerolla ja haut muulla tilin yksilöintitunnuksella*
+|Rajaus|Alisanoma|Elementti|Kuvaus|
+|:---|:---|:---|:---|
+|Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Tiliroolin alkupäivää ei palauteta.|
+|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Tiliroolin loppupäivämäärää ei palauteta.|
+|Tilin avaamispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Tilin avaamispäivämäärää ei palauteta.|
+|Tilin sulkemispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Tilin sulkemispäivämäärää ei palauteta.|
+|Asiakkuustieto|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo kenttää ei palauteta, jos kyseiseen luonnolliseen henkilöön liittyvä tili on asiakasvaratili. Ks. [CustomerAccount-käyttö](#CustomerAccount1).|
+|Edunsaajatiedot|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Ei palauteta oikeushenkilöön liittyviä edunsaajatietoja.|
