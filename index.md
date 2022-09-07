@@ -1103,6 +1103,7 @@ Asiakaskategorian 1 organisaatiohaussa vastauksena palautetaan haetun organisaat
 |Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Tiliroolin loppupäivämäärää ei palauteta.|
 |Tilin avaamispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Tilin avaamispäivämäärää ei palauteta, jos kyseessä on asianajajan asiakasvaratili. Ks. [CustomerAccount-käyttö](#CustomerAccount1).|
 |Tilin sulkemispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Tilin sulkemispäivämäärää ei palauteta, jos kyseessä on asianajajan asiakasvaratili. Ks. [CustomerAccount-käyttö](#CustomerAccount1).
+|Muut tiliin liittyvät henkilöt|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|Henkilöhaussa palautettavan tilin mukana ei palauteta muita kuin hakuun liittyvän henkilön rooli.|
 
 ##### <a name="4-14-1-3"></a> 4.14.1.3 Tilihaku
 
@@ -1158,6 +1159,7 @@ Asiakaskategorian 2 organisaatiohaussa vastauksena palautetaan haetun organisaat
 |Tilin avaamispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Tilin avaamispäivämäärää ei palauteta.|
 |Tilin sulkemispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Tilin sulkemispäivämäärää ei palauteta.|
 |Edunsaajatiedot|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Ei palauteta oikeushenkilöön liittyviä edunsaajatietoja.|
+|Muut tiliin liittyvät henkilöt|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|Henkilöhaussa palautettavan tilin mukana ei palauteta muita kuin hakuun liittyvän henkilön rooli.|
 
 ##### <a name="4-14-2-3"></a> 4.14.2.3 Tilihaku
 
