@@ -1093,6 +1093,8 @@ Tiedonlähteet on jaettu kahteen kategoriaan: asiakaskategoria 1 joka kattaa luo
 |:---|:---|:---|:---|
 |Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Tiliroolin alkupäivää ei palauteta.|
 |Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Tiliroolin loppupäivämäärää ei palauteta.|
+|Tilin avaamispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Tilin avaamispäivämäärää ei palauteta, jos kyseessä on asianajajan asiakasvaratili. Ks. [CustomerAccount-käyttö](#CustomerAccount1).|
+|Tilin sulkemispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Tilin sulkemispäivämäärää ei palauteta, jos kyseessä on asianajajan asiakasvaratili. Ks. [CustomerAccount-käyttö](#CustomerAccount1).
 
 *__Taulukko 4.14.1.3:__ Tilihakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tilin IBAN-numerolla ja haut muulla tilin yksilöintitunnuksella*
 |Rajaus|Alisanoma|Elementti|Kuvaus|
@@ -1101,6 +1103,14 @@ Tiedonlähteet on jaettu kahteen kategoriaan: asiakaskategoria 1 joka kattaa luo
 |Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Tiliroolin loppupäivämäärää ei palauteta.|
 |Tilin avaamispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Tilin avaamispäivämäärää ei palauteta, jos kyseessä on asianajajan asiakasvaratili. Ks. [CustomerAccount-käyttö](#CustomerAccount1).|
 |Tilin sulkemispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Tilin sulkemispäivämäärää ei palauteta, jos kyseessä on asianajajan asiakasvaratili. Ks. [CustomerAccount-käyttö](#CustomerAccount1).|
+|Asiakkuustieto|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo kenttää ei palauteta, jos kyseinen oikeushenkilö on myös luonnollinen henkilö.|
+|Edunsaajatiedot|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Ei palauteta oikeushenkilöön liittyviä edunsaajatietoja.|
+
+*__Taulukko 4.14.1.4:__ Tallelokerohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tallelokeron yksilöintitunnuksella*
+|Rajaus|Alisanoma|Elementti|Kuvaus|
+|:---|:---|:---|:---|
+|Tallelokeroroolin alkupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Tallelokeroroolin alkupäivää ei palauteta.|
+|Tallelokeroroolin loppupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Tallelokeroroolin loppupäivämäärää ei palauteta.|
 |Asiakkuustieto|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo kenttää ei palauteta, jos kyseinen oikeushenkilö on myös luonnollinen henkilö.|
 |Edunsaajatiedot|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Ei palauteta oikeushenkilöön liittyviä edunsaajatietoja.|
 
