@@ -1071,9 +1071,9 @@ Kyselyvastauksessa esitetyistä tiedoista osa voi olla kiistanalaisia. Tällöin
 
 ### <a name="4-14"></a> 4.14 Kyselyjen palauttamien tietojoukkojen rajaukset asiakaskategorioittain
 
-Tiedonhakujärjestelmään liittyvien lakien asettamien vaatimusten takia tarpeen tehdä erinäisiä rajoituksia kyselyille palautettavaan tietoon. Tässä kappaleessa on eritelty kyselyissä palautettavien tietojoukkojen lakisääteiset erikoisrajoitukset riippuen tiedonlähteen asiakaskategoriasta.
+Erilaiset hakukriteerit tuottavat vastauksena erilaiset tietojoukot. Tässä kappaleessa kuvataan kuhunkin hakuun vastauksena palautettava tietojoukko, joka riippuu käytetyn hakukriteerin lisäksi tiedon luovuttajan asiakaskategoriasta.
 
-Tiedonlähteet on jaettu kahteen kategoriaan: asiakaskategoria 1 joka kattaa luottolaitokset, sekä asiakaskategoria 2 johon kuuluvat maksulaitokset, sähkörahayhteisöt ja virtuaaluutan tarjoajat.
+Tiedon luovuttajat on jaettu kahteen kategoriaan: asiakaskategoria 1, joka kattaa luottolaitokset, sekä asiakaskategoria 2, johon kuuluvat maksulaitokset, sähkörahayhteisöt ja virtuaalivaluutan tarjoajat.
 
 #### <a name="4-14-1"></a> 4.14.1 Asiakaskategoria 1
 
