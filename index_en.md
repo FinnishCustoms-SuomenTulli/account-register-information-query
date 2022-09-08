@@ -1081,17 +1081,17 @@ Some of the details presented in the query response could be disputed. In that c
 ```
 
 
-### <a name="4-14"></a> 4.14 Limitations of data returned by query based on servicer category
+### <a name="4-14"></a> 4.14 Limitations of data returned by query based on category
 
-The data returned by query is based on the search criteria used. This chapter describes how the data returned by each query type is also limited by the servicer category, in addition to the search criteria.
+The data returned by a query varies based on the search criteria used. This chapter describes how the data returned by each query type depends on the customer category, in addition to the search criteria.
 
-Information providers have been divided into two categories: servicer category 1 that represents the credit institutions and servicer category 2 that represents payment institutions, electric money institutions and virtual currency providers.
+Data providers have been divided into two categories: customer category 1 that represents the credit institutions and customer category 2 that represents payment institutions, electric money institutions and virtual currency providers.
 
-#### <a name="4-14-1"></a> 4.14.1 Servicer category 1
+#### <a name="4-14-1"></a> 4.14.1 Customer category 1
 
 ##### <a name="4-14-1-1"></a> 4.14.1.1 Natural person query
 
-Asiakaskategorian 1 henkilöhaussa vastauksena palautetaan haetun henkilön tiedot, sellaisten organisaatioiden tiedot, joissa haettu henkilö on edunsaajana, sekä sellaisten tilien ja tallelokeroiden tiedot, joissa haettu henkilö on omistajana tai pääsyoikeuden haltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita omistajia tai pääsyoikeuden haltijoita ei palauteta. Customer informationja ei palauteta.
+In customer category 1 natural person query, the response includes the information of the person who was the object of the query, information of organisations where the person is a beneficiary, and information of accounts and safety deposit boxes the person owns or has access to during the investigation period. Other legal persons who own or have access to these accounts or safety deposit boxes are not returned. Customership information is not returned. 
 
 *__Table 4.14.1.1:__ Henkilöhakujen rajaukset. Tähän hakukategoriaan kuuluvat haut henkilötunnuksella ja haut luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä*
 |Limitation|Submessage|Element|Description|
@@ -1106,7 +1106,7 @@ Asiakaskategorian 1 henkilöhaussa vastauksena palautetaan haetun henkilön tied
 
 ##### <a name="4-14-1-2"></a> 4.14.1.2 Organisation query
 
-Asiakaskategorian 1 organisaatiohaussa vastauksena palautetaan haetun organisaation tiedot, sellaisten henkilöiden tiedot, jotka ovat haetun organisaation edunsaajia, organisaation asiakkuus sekä sellaisten tilien ja tallelokeroiden tiedot, joissa haettu organisaatio on omistajana tai pääsyoikeuden haltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita omistajia tai pääsyoikeuden haltijoita ei palauteta. 
+In customer category 1 organisation query, the response includes the information of the organisation that was the object of the query, information of persons who are beneficiaries of the organisation, customership information of the organisation, and information of accounts and safety deposit boxes the organisation owns or has access to during the investigation period. Other legal persons who own or have access to these accounts or safety deposit boxes are not returned. 
 
 *__Table 4.14.1.2:__ Organisaatiohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut yrityksen nimellä ja haut oikeushenkilön rekisterinumerolla*
 |Limitation|Submessage|Element|Description|
@@ -1119,6 +1119,7 @@ Asiakaskategorian 1 organisaatiohaussa vastauksena palautetaan haetun organisaat
 
 ##### <a name="4-14-1-3"></a> 4.14.1.3 Account query
 
+In customer category 1 account query the respones includes the information of the account that was the object of the query, information of legal persons who are account owners or have access to the account during the investigation period.
 Asiakaskategorian 1 tilihaussa vastauksena palautetaan haetun tilin tiedot sekä sellaisten oikeushenkilöiden tiedot, jotka ovat tilin omistajia tai pääsyoikeuden haltijoita käytetyllä hakuaikavälillä. Customer information palautetaan sellaisista tilin omistajista tai pääsyoikeuden haltijoista, jotka ovat organisaatioita. Organisaatioiden edunsaajatietoja ei palauteta.
 
 *__Table 4.14.1.3:__ Tilihakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tilin IBAN-numerolla ja haut muulla tilin yksilöintitunnuksella*
