@@ -78,7 +78,7 @@ Versio|Päivämäärä|Kuvaus
   4.11 [Id-elementin käyttö](#Id-elementin_kaytto)    
   4.12 [Kyselyrajapinnan WS-sanomaliikenteen skenaariot](#4-12)    
   4.13 [Kiistanalaisten tietojen palauttaminen](#4-13)  
-  4.14 [Kyselyjen palauttamien tietojoukkojen rajaukset asiakaskategorioittain](#4-14)  
+5. [Kyselyjen palauttamien tietojoukkojen rajaukset asiakaskategorioittain](#luku5)  
 
 ## 1. Johdanto <a name="luku1"></a>
 
@@ -1069,19 +1069,19 @@ Kyselyvastauksessa esitetyistä tiedoista osa voi olla kiistanalaisia. Tällöin
 ```
 
 
-### <a name="4-14"></a> 4.14 Kyselyjen palauttamien tietojoukkojen rajaukset asiakaskategorioittain
+## <a name="luku5"></a> 5. Kyselyjen palauttamien tietojoukkojen rajaukset asiakaskategorioittain
 
 Erilaiset hakukriteerit tuottavat vastauksena erilaiset tietojoukot. Tässä kappaleessa kuvataan kuhunkin hakuun vastauksena palautettava tietojoukko, joka riippuu käytetyn hakukriteerin lisäksi tiedon luovuttajan asiakaskategoriasta.
 
 Tiedon luovuttajat on jaettu kahteen kategoriaan: asiakaskategoria 1, joka kattaa luottolaitokset, sekä asiakaskategoria 2, johon kuuluvat maksulaitokset, sähkörahayhteisöt ja virtuaalivaluutan tarjoajat.
 
-#### <a name="4-14-1"></a> 4.14.1 Asiakaskategoria 1
+### <a name="5-1"></a> 5.1 Asiakaskategoria 1
 
-##### <a name="4-14-1-1"></a> 4.14.1.1 Henkilöhaku
+#### <a name="5-1-1"></a> 5.1.1 Henkilöhaku
 
 Asiakaskategorian 1 henkilöhaussa vastauksena palautetaan haetun henkilön tiedot, sellaisten organisaatioiden tiedot, joissa haettu henkilö on edunsaajana, sekä sellaisten tilien ja tallelokeroiden tiedot, joissa haettu henkilö on omistajana tai pääsyoikeuden haltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita omistajia tai pääsyoikeuden haltijoita ei palauteta. Asiakkuustietoja ei palauteta.
 
-*__Taulukko 4.14.1.1:__ Henkilöhakujen rajaukset. Tähän hakukategoriaan kuuluvat haut henkilötunnuksella ja haut luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä*
+*__Taulukko 5.1.1.1:__ Henkilöhakujen rajaukset. Tähän hakukategoriaan kuuluvat haut henkilötunnuksella ja haut luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä*
 |Rajaus|Alisanoma|Elementti|Kuvaus|
 |:---|:---|:---|:---|
 |Asiakkuustieto|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo kenttää ei palauteta|
@@ -1092,11 +1092,11 @@ Asiakaskategorian 1 henkilöhaussa vastauksena palautetaan haetun henkilön tied
 |Muut tiliin liittyvät henkilöt|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|Henkilöhaussa palautettavan tilin mukana ei palauteta muita kuin hakuun liittyvän henkilön rooli.|
 |Muut organisaatioon liittyvät henkilöt|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Henkilöhaussa palautettavan organisaation mukana ei palauteta muita kuin hakuun liittyvän henkilön rooli.|
 
-##### <a name="4-14-1-2"></a> 4.14.1.2 Organisaatiohaku
+#### <a name="5-1-2"></a> 5.1.2 Organisaatiohaku
 
 Asiakaskategorian 1 organisaatiohaussa vastauksena palautetaan haetun organisaation tiedot, sellaisten henkilöiden tiedot, jotka ovat haetun organisaation edunsaajia, organisaation asiakkuus sekä sellaisten tilien ja tallelokeroiden tiedot, joissa haettu organisaatio on omistajana tai pääsyoikeuden haltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita omistajia tai pääsyoikeuden haltijoita ei palauteta. 
 
-*__Taulukko 4.14.1.2:__ Organisaatiohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut yrityksen nimellä ja haut oikeushenkilön rekisterinumerolla*
+*__Taulukko 5.1.2.1:__ Organisaatiohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut yrityksen nimellä ja haut oikeushenkilön rekisterinumerolla*
 |Rajaus|Alisanoma|Elementti|Kuvaus|
 |:---|:---|:---|:---|
 |Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Tiliroolin alkupäivää ei palauteta.|
@@ -1105,11 +1105,11 @@ Asiakaskategorian 1 organisaatiohaussa vastauksena palautetaan haetun organisaat
 |Tilin sulkemispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Tilin sulkemispäivämäärää ei palauteta, jos kyseessä on asianajajan asiakasvaratili. Ks. [CustomerAccount-käyttö](#CustomerAccount1).
 |Muut tiliin liittyvät henkilöt|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|Henkilöhaussa palautettavan tilin mukana ei palauteta muita kuin hakuun liittyvän henkilön rooli.|
 
-##### <a name="4-14-1-3"></a> 4.14.1.3 Tilihaku
+#### <a name="5-1-3"></a> 5.1.3 Tilihaku
 
 Asiakaskategorian 1 tilihaussa vastauksena palautetaan haetun tilin tiedot sekä sellaisten oikeushenkilöiden tiedot, jotka ovat tilin omistajia tai pääsyoikeuden haltijoita käytetyllä hakuaikavälillä. Asiakkuustieto palautetaan sellaisista tilin omistajista tai pääsyoikeuden haltijoista, jotka ovat organisaatioita. Organisaatioiden edunsaajatietoja ei palauteta.
 
-*__Taulukko 4.14.1.3:__ Tilihakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tilin IBAN-numerolla ja haut muulla tilin yksilöintitunnuksella*
+*__Taulukko 5.1.3.1:__ Tilihakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tilin IBAN-numerolla ja haut muulla tilin yksilöintitunnuksella*
 |Rajaus|Alisanoma|Elementti|Kuvaus|
 |:---|:---|:---|:---|
 |Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Tiliroolin alkupäivää ei palauteta.|
@@ -1119,11 +1119,11 @@ Asiakaskategorian 1 tilihaussa vastauksena palautetaan haetun tilin tiedot sekä
 |Asiakkuustieto|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo kenttää ei palauteta, jos kyseinen oikeushenkilö on myös luonnollinen henkilö.|
 |Edunsaajatiedot|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Ei palauteta oikeushenkilöön liittyviä edunsaajatietoja.|
 
-##### <a name="4-14-1-4"></a> 4.14.1.4 Tallelokerohaku
+#### <a name="5-1-4"></a> 5.1.4 Tallelokerohaku
 
 Asiakaskategorian 1 tallelokerohaussa vastauksena palautetaan haetun tallelokeron tiedot sekä sellaisten oikeushenkilöiden tiedot, jotka ovat tallelokeron omistajia tai pääsyoikeuden haltijoita käytetyllä hakuaikavälillä. Asiakkuustieto palautetaan sellaisista tallelokeron omistajista tai pääsyoikeuden haltijoista, jotka ovat organisaatioita. Organisaatioiden edunsaajatietoja ei palauteta.
 
-*__Taulukko 4.14.1.4:__ Tallelokerohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tallelokeron yksilöintitunnuksella*
+*__Taulukko 5.1.4.1:__ Tallelokerohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tallelokeron yksilöintitunnuksella*
 |Rajaus|Alisanoma|Elementti|Kuvaus|
 |:---|:---|:---|:---|
 |Tallelokeroroolin alkupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Tallelokeroroolin alkupäivää ei palauteta.|
@@ -1131,13 +1131,13 @@ Asiakaskategorian 1 tallelokerohaussa vastauksena palautetaan haetun tallelokero
 |Asiakkuustieto|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo kenttää ei palauteta, jos kyseinen oikeushenkilö on myös luonnollinen henkilö.|
 |Edunsaajatiedot|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Ei palauteta oikeushenkilöön liittyviä edunsaajatietoja.|
 
-#### <a name="4-14-2"></a> 4.14.2 Asiakaskategoria 2
+### <a name="5-2"></a> 5.2 Asiakaskategoria 2
 
-##### <a name="4-14-2-1"></a> 4.14.2.1 Henkilöhaku
+#### <a name="5-2-1"></a> 5.2.1 Henkilöhaku
 
 Asiakaskategorian 2 henkilöhaussa vastauksena palautetaan haetun henkilön tiedot, henkilön asiakkuustieto, sekä sellaisten tilien tiedot, joissa haettu henkilö on omistajana tai pääsyoikeuden haltijana käytetyllä hakuaikavälillä. Tilien mahdollisia muita omistajia tai pääsyoikeuden haltijoita ei palauteta. Edunsaajuustietoja ei palauteta.
 
-*__Taulukko 4.14.2.1:__ Henkilöhakujen rajaukset. Tähän hakukategoriaan kuuluvat haut henkilötunnuksella ja haut luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä*
+*__Taulukko 5.2.1.1:__ Henkilöhakujen rajaukset. Tähän hakukategoriaan kuuluvat haut henkilötunnuksella ja haut luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä*
 |Rajaus|Alisanoma|Elementti|Kuvaus|
 |:---|:---|:---|:---|
 |Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Tiliroolin alkupäivää ei palauteta.|
@@ -1147,11 +1147,11 @@ Asiakaskategorian 2 henkilöhaussa vastauksena palautetaan haetun henkilön tied
 |Organisaatiot edunsaajaroolin perusteella|InformationResponseFIN013|/LegalPersonInfo|Ei palauteta haettuun luonnolliseen henkilöön liittyviä organisaation oikeushenkilötietoja InformationResponseFIN013 alisanomalla, joissa haettu luonnollinen henkilö on edunsaajana.|
 |Muut tiliin liittyvät henkilöt|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|Henkilöhaussa palautettavan tilin mukana ei palauteta muita kuin hakuun liittyvän henkilön rooli.|
 
-##### <a name="4-14-2-2"></a> 4.14.2.2 Organisaatiohaku
+#### <a name="5-2-2"></a> 5.2.2 Organisaatiohaku
 
 Asiakaskategorian 2 organisaatiohaussa vastauksena palautetaan haetun organisaation tiedot, organisaation asiakkuustieto, sekä sellaisten tilien tiedot, joissa haettu organisaatio on omistajana tai pääsyoikeuden haltijana käytetyllä hakuaikavälillä. Tilien mahdollisia muita omistajia tai pääsyoikeuden haltijoita ei palauteta. Edunsaajuustietoja ei palauteta.
 
-*__Taulukko 4.14.2.2:__ Organisaatiohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut yrityksen nimellä ja haut oikeushenkilön rekisterinumerolla*
+*__Taulukko 5.2.2.1:__ Organisaatiohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut yrityksen nimellä ja haut oikeushenkilön rekisterinumerolla*
 |Rajaus|Alisanoma|Elementti|Kuvaus|
 |:---|:---|:---|:---|
 |Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Tiliroolin alkupäivää ei palauteta.|
@@ -1161,11 +1161,11 @@ Asiakaskategorian 2 organisaatiohaussa vastauksena palautetaan haetun organisaat
 |Edunsaajatiedot|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Ei palauteta oikeushenkilöön liittyviä edunsaajatietoja.|
 |Muut tiliin liittyvät henkilöt|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|Henkilöhaussa palautettavan tilin mukana ei palauteta muita kuin hakuun liittyvän henkilön rooli.|
 
-##### <a name="4-14-2-3"></a> 4.14.2.3 Tilihaku
+#### <a name="5-2-3"></a> 5.2.3 Tilihaku
 
 Asiakaskategorian 2 tilihaussa vastauksena palautetaan haetun tilin tiedot, sekä sellaisten oikeushenkilöiden tiedot, jotka ovat tilin omistajia tai pääsyoikeuden haltijoita käytetyllä hakuaikavälillä. Asiakkuustieto palautetaan kaikista tilin omistajista ja pääsyoikeuden haltijoista. Organisaatioiden edunsaajatietoja ei palauteta.
 
-*__Taulukko 4.14.2.3:__ Tilihakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tilin IBAN-numerolla ja haut muulla tilin yksilöintitunnuksella*
+*__Taulukko 5.2.3.1:__ Tilihakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tilin IBAN-numerolla ja haut muulla tilin yksilöintitunnuksella*
 |Rajaus|Alisanoma|Elementti|Kuvaus|
 |:---|:---|:---|:---|
 |Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Tiliroolin alkupäivää ei palauteta.|
