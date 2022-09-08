@@ -1099,8 +1099,8 @@ In customer category 1 natural person query, the response includes the informati
 |Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo element is not returned|
 |Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
 |Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Account role end date is not returned.|
-|Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
-|Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1)|
+|Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
+|Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#CustomerAccount1)|
 |Other persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In natural person query, only the role related to the person defined in the query is returned with the account data.|
 |Other persons related to an organisation|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|In natural person query, only the role related to the person defined in the query is returned with the organisation data.|
 
@@ -1113,8 +1113,8 @@ In customer category 1 organisation query, the response includes the information
 |:---|:---|:---|:---|
 |Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
 |Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Account role end date is not returned.|
-|Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
-|Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
+|Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
+|Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
 |Other persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In natural person query, only the role related to the person defined in the query is returned with the account data.|
 
 ##### <a name="4-14-1-3"></a> 4.14.1.3 Account query
@@ -1126,8 +1126,8 @@ In customer category 1 account query the response includes the information of th
 |:---|:---|:---|:---|
 |Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
 |Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Account role end date is not returned.|
-|Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
-|Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
+|Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
+|Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
 |Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is not returned, if the legal person in question is also a natural person.|
 |Beneficiaries|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Beneficiaries related to a legal person are not returned.|
 
@@ -1184,5 +1184,5 @@ In customer category 2 account query the response includes the information of th
 |Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Account role end date is not returned.|
 |Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned.|
 |Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned.|
-|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
+|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
 |Beneficiaries|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Beneficiaries related to a legal person are not returned.|
