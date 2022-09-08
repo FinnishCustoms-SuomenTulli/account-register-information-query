@@ -1119,8 +1119,7 @@ In customer category 1 organisation query, the response includes the information
 
 ##### <a name="4-14-1-3"></a> 4.14.1.3 Account query
 
-In customer category 1 account query the respones includes the information of the account that was the object of the query, information of legal persons who are account owners or have access to the account during the investigation period.
-Asiakaskategorian 1 tilihaussa vastauksena palautetaan haetun tilin tiedot sekä sellaisten oikeushenkilöiden tiedot, jotka ovat tilin omistajia tai pääsyoikeuden haltijoita käytetyllä hakuaikavälillä. Customer information palautetaan sellaisista tilin omistajista tai pääsyoikeuden haltijoista, jotka ovat organisaatioita. Organisaatioiden edunsaajatietoja ei palauteta.
+In customer category 1 account query the respones includes the information of the account that was the object of the query and information of the legal persons who are account owners or have access to the account during the investigation period. Customership information is returned for organisations that are account owners or have access to the account. Organisation's beneficiary information is not returned.
 
 *__Table 4.14.1.3:__ Tilihakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tilin IBAN-numerolla ja haut muulla tilin yksilöintitunnuksella*
 |Limitation|Submessage|Element|Description|
