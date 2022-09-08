@@ -73,16 +73,15 @@ Version|Date|Decription
   4.12 [WS message traffic scenarios at the query interface](#4-12)    
   4.13 [Returning disputed details](#4-13)  
 5. [Limitations of data returned by query based on servicer category](#chapter5)   
-  5.1 [Customer category 1](#5-1)
-    5.1.1 [Natural person query](#5-1-1)
-    5.1.2 [Organisation query](#5-1-2)
-    5.1.3 [Account query](#5-1-3)
-    5.1.4 [Safety deposit box query](#5-1-4)
-  5.2 [Customer category 2](#5-2)
-    5.2.1 [Natural person query](#5-2-1)
-    5.2.2 [Organisation query](#5-2-2)
-    5.2.3 [Account query](#5-2-3)
-
+  5.1 [Customer category 1](#5-1)  
+    5.1.1 [Natural person query](#5-1-1)  
+    5.1.2 [Organisation query](#5-1-2)  
+    5.1.3 [Account query](#5-1-3)  
+    5.1.4 [Safety deposit box query](#5-1-4)  
+  5.2 [Customer category 2](#5-2)  
+    5.2.1 [Natural person query](#5-2-1)  
+    5.2.2 [Organisation query](#5-2-2)  
+    5.2.3 [Account query](#5-2-3)  
 
 ## 1. Introduction <a name="chapter1"></a>
 
