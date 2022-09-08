@@ -752,7 +752,7 @@ The table describes the use of records in the message.
 |&nbsp;&nbsp;&nbsp;&nbsp;MnthlyRcvdVal||No|||
 |&nbsp;&nbsp;&nbsp;&nbsp;MnthlyTxNb||No|||
 |&nbsp;&nbsp;&nbsp;&nbsp;AvrgBal||No|||
-|&nbsp;&nbsp;&nbsp;&nbsp;AcctPurp|Max140Text|Yes|[0..1]|Returned only when the account is attorney's customer asset account. In this case the calue is "customer_asset_account".|
+|&nbsp;&nbsp;&nbsp;&nbsp;AcctPurp|Max140Text|Yes|[0..1]|Returned only when the account is lawyer's customer asset account. In this case the calue is "customer_asset_account".|
 |&nbsp;&nbsp;&nbsp;&nbsp;FlrNtfctnAmt||No|||
 |&nbsp;&nbsp;&nbsp;&nbsp;ClngNtfctnAmt||No|||
 |&nbsp;&nbsp;&nbsp;&nbsp;StmtCycl||No|||
