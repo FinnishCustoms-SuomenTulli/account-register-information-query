@@ -1093,12 +1093,12 @@ Data providers have been divided into two categories: customer category 1 that r
 
 In customer category 1 natural person query, the response includes the information of the person who was the object of the query, information of organisations where the person is a beneficiary, and information of accounts and safety deposit boxes the person owns or has access to during the investigation period. Other legal persons who own or have access to these accounts or safety deposit boxes are not returned. Customership information is not returned. 
 
-*__Table 4.14.1.1:__ Henkilöhakujen rajaukset. Tähän hakukategoriaan kuuluvat haut henkilötunnuksella ja haut luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä*
+*__Table 4.14.1.1:__ Limitations to queries for a person. This query category contains queries with a personal ID and queries with a natural person's name, nationality and birth date combination*
 |Limitation|Submessage|Element|Description|
 |:---|:---|:---|:---|
-|Customer information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo element is not returned|
+|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo element is not returned|
 |Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
-|Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Account role end date is not returned.|
+|Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Account role end date is not returned.|
 |Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
 |Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1)|
 |Other persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In natural person query, only the role related to the person defined in the query is returned with the account data.|
@@ -1108,81 +1108,81 @@ In customer category 1 natural person query, the response includes the informati
 
 In customer category 1 organisation query, the response includes the information of the organisation that was the object of the query, information of persons who are beneficiaries of the organisation, customership information of the organisation, and information of accounts and safety deposit boxes the organisation owns or has access to during the investigation period. Other legal persons who own or have access to these accounts or safety deposit boxes are not returned. 
 
-*__Table 4.14.1.2:__ Organisaatiohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut yrityksen nimellä ja haut oikeushenkilön rekisterinumerolla*
+*__Table 4.14.1.2:__ Limitations to queries for an organisation. This query category contains queries with a company's name and queries with legal person's registration number*
 |Limitation|Submessage|Element|Description|
 |:---|:---|:---|:---|
 |Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
-|Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Account role end date is not returned.|
+|Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Account role end date is not returned.|
 |Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
 |Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
 |Other persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In natural person query, only the role related to the person defined in the query is returned with the account data.|
 
 ##### <a name="4-14-1-3"></a> 4.14.1.3 Account query
 
-In customer category 1 account query the respones includes the information of the account that was the object of the query and information of the legal persons who are account owners or have access to the account during the investigation period. Customership information is returned for organisations that are account owners or have access to the account. Organisation's beneficiary information is not returned.
+In customer category 1 account query the response includes the information of the account that was the object of the query and information of the legal persons who are account owners or have access to the account during the investigation period. Customership information is returned for organisations (but not persons) that are account owners or have access to the account. Organisation's beneficiary information is not returned.
 
-*__Table 4.14.1.3:__ Tilihakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tilin IBAN-numerolla ja haut muulla tilin yksilöintitunnuksella*
+*__Table 4.14.1.3:__ Limitations to queries for an account. This query category contains queries with an account's IBAN number and queries with other account identifications*
 |Limitation|Submessage|Element|Description|
 |:---|:---|:---|:---|
 |Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
-|Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Account role end date is not returned.|
+|Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Account role end date is not returned.|
 |Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
 |Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
-|Customer information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is not returned, if the legal person in question is also a natural person.|
+|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is not returned, if the legal person in question is also a natural person.|
 |Beneficiaries|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Beneficiaries related to a legal person are not returned.|
 
 ##### <a name="4-14-1-4"></a> 4.14.1.4 Safety deposit box query
 
-Asiakaskategorian 1 tallelokerohaussa vastauksena palautetaan haetun tallelokeron tiedot sekä sellaisten oikeushenkilöiden tiedot, jotka ovat tallelokeron omistajia tai pääsyoikeuden haltijoita käytetyllä hakuaikavälillä. Customer information palautetaan sellaisista tallelokeron omistajista tai pääsyoikeuden haltijoista, jotka ovat organisaatioita. Organisaatioiden edunsaajatietoja ei palauteta.
+In customer category 1 safety deposit box query the response includes the information of the safety deposit box that was the object of the query and information of the legal persons who are own or have access to the safety deposit box during the investigation period. Customership information is returned for organisations (but not persons) that are safety deposit box owners or have access to it. Organisation's beneficiary information is not returned.
 
-*__Table 4.14.1.4:__ Tallelokerohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tallelokeron yksilöintitunnuksella*
+*__Table 4.14.1.4:__ Limitations to queries for a safety deposit box. This query category contains queries with a safety deposit box's identification*
 |Limitation|Submessage|Element|Description|
 |:---|:---|:---|:---|
-|Tallelokeroroolin alkupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Safety deposit box role starting date is not returned.|
-|Tallelokeroroolin loppupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Safety deposit box role ending date is not returned.|
-|Customer information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is not returned, if the legal person in question is also a natural person.|
+|Safety deposit box role start date|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Safety deposit box role starting date is not returned.|
+|Safety deposit box role end date|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Safety deposit box role ending date is not returned.|
+|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is not returned, if the legal person in question is also a natural person.|
 |Beneficiaries|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Beneficiaries related to a legal person are not returned.|
 
-#### <a name="4-14-2"></a> 4.14.2 Servicer category 2
+#### <a name="4-14-2"></a> 4.14.2 Customer category 2
 
 ##### <a name="4-14-2-1"></a> 4.14.2.1 Natural person query
 
-Asiakaskategorian 2 henkilöhaussa vastauksena palautetaan haetun henkilön tiedot, henkilön Customer information, sekä sellaisten tilien tiedot, joissa haettu henkilö on omistajana tai pääsyoikeuden haltijana käytetyllä hakuaikavälillä. Tilien mahdollisia muita omistajia tai pääsyoikeuden haltijoita ei palauteta. Edunsaajuustietoja ei palauteta.
+In customer category 2 natural person query, the response includes the information of the person who was the object of the query, customership information of the person and information of accounts the person owns or has access to during the investigation period. Other legal persons who own or have access to these accounts are not returned. Organisation's beneficiary information is not returned.
 
-*__Table 4.14.2.1:__ Henkilöhakujen rajaukset. Tähän hakukategoriaan kuuluvat haut henkilötunnuksella ja haut luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä*
+*__Table 4.14.2.1:__ Limitations to queries for a person. This query category contains queries with a personal ID and queries with a natural person's name, nationality and birth date combination*
 |Limitation|Submessage|Element|Description|
 |:---|:---|:---|:---|
 |Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
-|Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Account role end date is not returned.|
+|Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Account role end date is not returned.|
 |Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned.|
 |Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned.|
-|Organisaatiot edunsaajaroolin perusteella|InformationResponseFIN013|/LegalPersonInfo|No data related to legal persons where the queried natural person is a beneficiary is returned with the InformationResponseFIN013 Submessage.|
+|Organisations based on beneficiary role|InformationResponseFIN013|/LegalPersonInfo|No data related to legal persons where the queried natural person is a beneficiary is returned with the InformationResponseFIN013 Submessage.|
 |Other persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In natural person query, only the role related to the person defined in the query is returned with the account data.|
 
 ##### <a name="4-14-2-2"></a> 4.14.2.2 Organisation query
 
-Asiakaskategorian 2 organisaatiohaussa vastauksena palautetaan haetun organisaation tiedot, organisaation Customer information, sekä sellaisten tilien tiedot, joissa haettu organisaatio on omistajana tai pääsyoikeuden haltijana käytetyllä hakuaikavälillä. Tilien mahdollisia muita omistajia tai pääsyoikeuden haltijoita ei palauteta. Edunsaajuustietoja ei palauteta.
+In customer category 2 organisation query, the response includes the information of the organisation that was the object of the query, customership information of the organisation and information of accounts the organisation owns or has access to during the investigation period. Other legal persons who own or have access to these accounts are not returned. Organisation's beneficiary information is not returned.
 
-*__Table 4.14.2.2:__ Organisaatiohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut yrityksen nimellä ja haut oikeushenkilön rekisterinumerolla*
+*__Table 4.14.2.2:__ Limitations to queries for an organisation. This query category contains queries with a company's name and queries with legal person's registration number*
 |Limitation|Submessage|Element|Description|
 |:---|:---|:---|:---|
 |Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
-|Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Account role end date is not returned.|
+|Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Account role end date is not returned.|
 |Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned.|
 |Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned.|
 |Beneficiaries|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Beneficiaries related to a legal person are not returned.|
-|MOther persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In natural person query, only the role related to the person defined in the query is returned with the account data.|
+|Other persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In natural person query, only the role related to the person defined in the query is returned with the account data.|
 
 ##### <a name="4-14-2-3"></a> 4.14.2.3 Account query
 
-Asiakaskategorian 2 tilihaussa vastauksena palautetaan haetun tilin tiedot, sekä sellaisten oikeushenkilöiden tiedot, jotka ovat tilin omistajia tai pääsyoikeuden haltijoita käytetyllä hakuaikavälillä. Customer information palautetaan kaikista tilin omistajista ja pääsyoikeuden haltijoista. Organisaatioiden edunsaajatietoja ei palauteta.
+In customer category 2 account query the response includes the information of the account that was the object of the query and information of the legal persons who are account owners or have access to the account during the investigation period. Customership information is returned for all legal persons that are account owners or have access to the account. Organisation's beneficiary information is not returned.
 
-*__Table 4.14.2.3:__ Tilihakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tilin IBAN-numerolla ja haut muulla tilin yksilöintitunnuksella*
+*__Table 4.14.2.3:__ Limitations to queries for an account. This query category contains queries with an account's IBAN number and queries with other account identifications*
 |Limitation|Submessage|Element|Description|
 |:---|:---|:---|:---|
 |Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
 |Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Account role end date is not returned.|
 |Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned.|
 |Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned.|
-|Customer information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
+|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
 |Beneficiaries|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Beneficiaries related to a legal person are not returned.|
