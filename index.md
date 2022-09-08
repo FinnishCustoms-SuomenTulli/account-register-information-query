@@ -79,6 +79,15 @@ Versio|Päivämäärä|Kuvaus
   4.12 [Kyselyrajapinnan WS-sanomaliikenteen skenaariot](#4-12)    
   4.13 [Kiistanalaisten tietojen palauttaminen](#4-13)  
 5. [Kyselyjen palauttamien tietojoukkojen rajaukset asiakaskategorioittain](#luku5)  
+  5.1 [Asiakaskategoria 1](#5-1)  
+    5.1.1 [Henkilöhaku](#5-1-1)  
+    5.1.2 [Organisaatiohaku](#5-1-2)  
+    5.1.3 [Tilihaku](#5-1-3)  
+    5.1.4 [Tallelokerohaku](#5-1-4)  
+  5.2 [Asiakaskategoria 2](#5-2)  
+    5.2.1 [Henkilöhaku](#5-2-1)  
+    5.2.2 [Organisaatiohaku](#5-2-2)  
+    5.2.3 [Tilihaku](#5-2-3)  
 
 ## 1. Johdanto <a name="luku1"></a>
 
