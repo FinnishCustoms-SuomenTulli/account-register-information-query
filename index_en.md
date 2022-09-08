@@ -1102,6 +1102,7 @@ In customer category 1 natural person query, the response includes the informati
 |Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
 |Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#CustomerAccount1)|
 |Other legal persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In natural person query, only the role related to the legal person defined in the query is returned with the account data.|
+|Other legal persons related to a safety deposit box|InformationResponseFIN002|/SdBoxAndPties/Role|In natural person query, only the role related to the legal person defined in the query is returned with the safety deposit box data.|
 |Other persons related to an organisation|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|In natural person query, only the role related to the person defined in the query is returned with the organisation data.|
 
 #### <a name="5-1-2"></a> 5.1.2 Organisation query
@@ -1116,6 +1117,7 @@ In customer category 1 organisation query, the response includes the information
 |Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
 |Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
 |Other legal persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In organisation query, only the role related to the legal person defined in the query is returned with the account data.|
+|Other legal persons related to a safety deposit box|InformationResponseFIN002|/SdBoxAndPties/Role|In organisation query, only the role related to the legal person defined in the query is returned with the safety deposit box data.|
 
 #### <a name="5-1-3"></a> 5.1.3 Account query
 
