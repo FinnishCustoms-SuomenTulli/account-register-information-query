@@ -1079,3 +1079,110 @@ Some of the details presented in the query response could be disputed. In that c
   </Disputed>
 </Document>
 ```
+
+
+### <a name="4-14"></a> 4.14 Limitations of data returned by query based on servicer category
+
+The data returned by query is based on the search criteria used. This chapter describes how the data returned by each query type is also limited by the servicer category, in addition to the search criteria.
+
+Information providers have been divided into two categories: servicer category 1 that represents the credit institutions and servicer category 2 that represents payment institutions, electric money institutions and virtual currency providers.
+
+#### <a name="4-14-1"></a> 4.14.1 Servicer category 1
+
+##### <a name="4-14-1-1"></a> 4.14.1.1 Natural person query
+
+Asiakaskategorian 1 henkilöhaussa vastauksena palautetaan haetun henkilön tiedot, sellaisten organisaatioiden tiedot, joissa haettu henkilö on edunsaajana, sekä sellaisten tilien ja tallelokeroiden tiedot, joissa haettu henkilö on omistajana tai pääsyoikeuden haltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita omistajia tai pääsyoikeuden haltijoita ei palauteta. Customer informationja ei palauteta.
+
+*__Table 4.14.1.1:__ Henkilöhakujen rajaukset. Tähän hakukategoriaan kuuluvat haut henkilötunnuksella ja haut luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä*
+|Limitation|Submessage|Element|Description|
+|:---|:---|:---|:---|
+|Customer information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo element is not returned|
+|Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
+|Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Account role end date is not returned.|
+|Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
+|Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1)|
+|Other persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In natural person query, only the role related to the person defined in the query is returned with the account data.|
+|Other persons related to an organisation|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|In natural person query, only the role related to the person defined in the query is returned with the organisation data.|
+
+##### <a name="4-14-1-2"></a> 4.14.1.2 Organisation query
+
+Asiakaskategorian 1 organisaatiohaussa vastauksena palautetaan haetun organisaation tiedot, sellaisten henkilöiden tiedot, jotka ovat haetun organisaation edunsaajia, organisaation asiakkuus sekä sellaisten tilien ja tallelokeroiden tiedot, joissa haettu organisaatio on omistajana tai pääsyoikeuden haltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita omistajia tai pääsyoikeuden haltijoita ei palauteta. 
+
+*__Table 4.14.1.2:__ Organisaatiohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut yrityksen nimellä ja haut oikeushenkilön rekisterinumerolla*
+|Limitation|Submessage|Element|Description|
+|:---|:---|:---|:---|
+|Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
+|Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Account role end date is not returned.|
+|Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
+|Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
+|Other persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In natural person query, only the role related to the person defined in the query is returned with the account data.|
+
+##### <a name="4-14-1-3"></a> 4.14.1.3 Account query
+
+Asiakaskategorian 1 tilihaussa vastauksena palautetaan haetun tilin tiedot sekä sellaisten oikeushenkilöiden tiedot, jotka ovat tilin omistajia tai pääsyoikeuden haltijoita käytetyllä hakuaikavälillä. Customer information palautetaan sellaisista tilin omistajista tai pääsyoikeuden haltijoista, jotka ovat organisaatioita. Organisaatioiden edunsaajatietoja ei palauteta.
+
+*__Table 4.14.1.3:__ Tilihakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tilin IBAN-numerolla ja haut muulla tilin yksilöintitunnuksella*
+|Limitation|Submessage|Element|Description|
+|:---|:---|:---|:---|
+|Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
+|Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Account role end date is not returned.|
+|Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
+|Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
+|Customer information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is not returned, if the legal person in question is also a natural person.|
+|Beneficiaries|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Beneficiaries related to a legal person are not returned.|
+
+##### <a name="4-14-1-4"></a> 4.14.1.4 Safety deposit box query
+
+Asiakaskategorian 1 tallelokerohaussa vastauksena palautetaan haetun tallelokeron tiedot sekä sellaisten oikeushenkilöiden tiedot, jotka ovat tallelokeron omistajia tai pääsyoikeuden haltijoita käytetyllä hakuaikavälillä. Customer information palautetaan sellaisista tallelokeron omistajista tai pääsyoikeuden haltijoista, jotka ovat organisaatioita. Organisaatioiden edunsaajatietoja ei palauteta.
+
+*__Table 4.14.1.4:__ Tallelokerohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tallelokeron yksilöintitunnuksella*
+|Limitation|Submessage|Element|Description|
+|:---|:---|:---|:---|
+|Tallelokeroroolin alkupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Safety deposit box role starting date is not returned.|
+|Tallelokeroroolin loppupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Safety deposit box role ending date is not returned.|
+|Customer information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is not returned, if the legal person in question is also a natural person.|
+|Beneficiaries|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Beneficiaries related to a legal person are not returned.|
+
+#### <a name="4-14-2"></a> 4.14.2 Servicer category 2
+
+##### <a name="4-14-2-1"></a> 4.14.2.1 Natural person query
+
+Asiakaskategorian 2 henkilöhaussa vastauksena palautetaan haetun henkilön tiedot, henkilön Customer information, sekä sellaisten tilien tiedot, joissa haettu henkilö on omistajana tai pääsyoikeuden haltijana käytetyllä hakuaikavälillä. Tilien mahdollisia muita omistajia tai pääsyoikeuden haltijoita ei palauteta. Edunsaajuustietoja ei palauteta.
+
+*__Table 4.14.2.1:__ Henkilöhakujen rajaukset. Tähän hakukategoriaan kuuluvat haut henkilötunnuksella ja haut luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä*
+|Limitation|Submessage|Element|Description|
+|:---|:---|:---|:---|
+|Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
+|Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Account role end date is not returned.|
+|Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned.|
+|Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned.|
+|Organisaatiot edunsaajaroolin perusteella|InformationResponseFIN013|/LegalPersonInfo|No data related to legal persons where the queried natural person is a beneficiary is returned with the InformationResponseFIN013 Submessage.|
+|Other persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In natural person query, only the role related to the person defined in the query is returned with the account data.|
+
+##### <a name="4-14-2-2"></a> 4.14.2.2 Organisation query
+
+Asiakaskategorian 2 organisaatiohaussa vastauksena palautetaan haetun organisaation tiedot, organisaation Customer information, sekä sellaisten tilien tiedot, joissa haettu organisaatio on omistajana tai pääsyoikeuden haltijana käytetyllä hakuaikavälillä. Tilien mahdollisia muita omistajia tai pääsyoikeuden haltijoita ei palauteta. Edunsaajuustietoja ei palauteta.
+
+*__Table 4.14.2.2:__ Organisaatiohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut yrityksen nimellä ja haut oikeushenkilön rekisterinumerolla*
+|Limitation|Submessage|Element|Description|
+|:---|:---|:---|:---|
+|Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
+|Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Account role end date is not returned.|
+|Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned.|
+|Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned.|
+|Beneficiaries|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Beneficiaries related to a legal person are not returned.|
+|MOther persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In natural person query, only the role related to the person defined in the query is returned with the account data.|
+
+##### <a name="4-14-2-3"></a> 4.14.2.3 Account query
+
+Asiakaskategorian 2 tilihaussa vastauksena palautetaan haetun tilin tiedot, sekä sellaisten oikeushenkilöiden tiedot, jotka ovat tilin omistajia tai pääsyoikeuden haltijoita käytetyllä hakuaikavälillä. Customer information palautetaan kaikista tilin omistajista ja pääsyoikeuden haltijoista. Organisaatioiden edunsaajatietoja ei palauteta.
+
+*__Table 4.14.2.3:__ Tilihakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tilin IBAN-numerolla ja haut muulla tilin yksilöintitunnuksella*
+|Limitation|Submessage|Element|Description|
+|:---|:---|:---|:---|
+|Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
+|Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Account role end date is not returned.|
+|Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned.|
+|Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned.|
+|Customer information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is not returned if the account in question is attorney's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
+|Beneficiaries|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Beneficiaries related to a legal person are not returned.|
