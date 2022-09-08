@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 1.0.45*
+*Dokumentin versio 2.0.0*
 
 ## Versiohistoria
 
@@ -57,7 +57,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.42|25.9.2020|Korvattu iso20022.org -sivuston linkit viittauksilla paikallisiin tiedostoihin, koska tiedostojen sijainti iso20022.org -sivulla vaihtuu usein.|
 1.0.43|20.11.2020|Lisätty Vastaussanoma sisältää useita osumia -virhe taulukkoon 4.12.1.|
 1.0.44|27.1.2021|Selvennetty DtAndPlcOfBirth ja DateOrDateTimePeriodChoice elementtien käyttöä.|
-1.0.45|22.8.2022|Päivitetty määritelmiä lakimuutoksen mukaisiksi.|
+2.0.0|22.8.2022|Päivitetty määritelmiä lakimuutoksen mukaisiksi.|
 
 ## Sisällysluettelo
 
