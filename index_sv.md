@@ -2,7 +2,7 @@
 [Deployment and maintenance instructions for the Data Retrieval System](instructions/Deployment_and_maintenance_instructions_for_the_Data_Retrieval_System_EN.pdf)  
 [Query interface description of the data retrieval system](index_en.md)  
 [Instruktioner för produktionssättning och underhåll av datasöksystemet](instructions/Instruktioner_för_produktionssättning_och_underhåll_av_datasöksystemet_SV.pdf)  
-[Datasöksystemets frågegränssnitt](index_sv.md)  
+[Beskrivning av datasöksystemets frågegränssnitt](index_sv.md)  
 
 # Beskrivning av datasöksystemets frågegränssnitt
 
@@ -81,13 +81,13 @@ Version|Datum|Beskrivning
 5. [Begränsningar av datamängder för returnerade förfrågningar enligt kundkategori](#paragraf5)    
   5.1 [Kundkategori 1](#5-1)   
     5.1.1 [Sökning på person](#5-1-1)  
-    5.1.2 [Sökning på organisation](#5-1-2) 
-    5.1.3 [Sökning på konto](#5-1-3) 
-    5.1.4 [Sökning på bankfack](#5-1-4) 
-  5.1 [Kundkategori 2](#5-2)  
-    5.1.1 [Sökning på person](#5-2-1)  
-    5.1.2 [Sökning på organisation](#5-2-2) 
-    5.1.3 [Sökning på konto](#5-2-3) 
+    5.1.2 [Sökning på organisation](#5-1-2)  
+    5.1.3 [Sökning på konto](#5-1-3)  
+    5.1.4 [Sökning på bankfack](#5-1-4)  
+  5.2 [Kundkategori 2](#5-2)  
+    5.2.1 [Sökning på person](#5-2-1)  
+    5.2.2 [Sökning på organisation](#5-2-2)  
+    5.2.3 [Sökning på konto](#5-2-3) 
 
 
 ## 1. Inledning <a name="paragraf1"></a>
