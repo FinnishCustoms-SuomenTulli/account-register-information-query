@@ -6,7 +6,7 @@
 
 # Query interface description of the data retrieval system
 
-*Document version 2.0.0*
+*Document version 2.0.1*
 
 ## Vesion history
 
@@ -58,6 +58,7 @@ Version|Date|Decription
 1.0.43|20.11.2020|Query response has multiple hits -error was added to table 4.12.1.|
 1.0.44|27.1.2021|Clarified the use of DtAndPlcOfBirth and DateOrDateTimePeriodChoice elements.|
 2.0.0|22.8.2022|Updated specifications to match the updated legal requirements.|
+2.0.1|16.9.2022|Updated WSDL and example files.|
 
 ## Table of contents
 
