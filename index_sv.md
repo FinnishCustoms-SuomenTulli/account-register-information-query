@@ -6,7 +6,7 @@
 
 # Beskrivning av datasöksystemets frågegränssnitt
 
-*Dokumentversion 2.0.0*
+*Dokumentversion 2.0.1*
 
 ## Versionshistorik
 
@@ -58,6 +58,7 @@ Version|Datum|Beskrivning
 1.0.43|20.11.2020|Felkoden Svarsmeddelandet innehåller flera träffar har lagts till i tabell 4.12.1.|
 1.0.44|27.1.2021|Användningen av elementen DtAndPlcOfBirth och DateOrDateTimePeriodChoice har förtydligats.|
 2.0.0|22.8.2022|Definitioner har uppdaterats enligt lagändringen.|
+2.0.1|16.9.2022|Uppdaterade WSDL och exempelfiler.|
 
 ## Innehåll
 

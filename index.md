@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 2.0.0*
+*Dokumentin versio 2.0.1*
 
 ## Versiohistoria
 
@@ -58,6 +58,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.43|20.11.2020|Lisätty Vastaussanoma sisältää useita osumia -virhe taulukkoon 4.12.1.|
 1.0.44|27.1.2021|Selvennetty DtAndPlcOfBirth ja DateOrDateTimePeriodChoice elementtien käyttöä.|
 2.0.0|22.8.2022|Päivitetty määritelmiä lakimuutoksen mukaisiksi.|
+2.0.1|16.9.2022|Päivitetty WSDL- ja esimerkkitiedostoja|
 
 ## Sisällysluettelo
 
