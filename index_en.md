@@ -1108,6 +1108,7 @@ Data providers have been divided into two categories: customer category 1 that r
 In customer category 1 natural person query, the response includes the information of the person who was the object of the query, information of organisations where the person is a beneficiary, and information of accounts and safety deposit boxes the person owns or has access to during the investigation period. Other legal persons who own or have access to these accounts or safety deposit boxes are not returned. Customership information is not returned. 
 
 *__Table 5.1.1.1:__ Limitations to queries for a person. This query category contains queries with a personal ID and queries with a natural person's name, nationality and birth date combination*
+
 |Limitation|Submessage|Element|Description|
 |:---|:---|:---|:---|
 |Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo element is not returned|
@@ -1124,6 +1125,7 @@ In customer category 1 natural person query, the response includes the informati
 In customer category 1 organisation query, the response includes the information of the organisation that was the object of the query, information of persons who are beneficiaries of the organisation, customership information of the organisation, and information of accounts and safety deposit boxes the organisation owns or has access to during the investigation period. Other legal persons who own or have access to these accounts or safety deposit boxes are not returned. 
 
 *__Table 5.1.2.1:__ Limitations to queries for an organisation. This query category contains queries with a company's name and queries with legal person's registration number*
+
 |Limitation|Submessage|Element|Description|
 |:---|:---|:---|:---|
 |Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
@@ -1138,6 +1140,7 @@ In customer category 1 organisation query, the response includes the information
 In customer category 1 account query the response includes the information of the account that was the object of the query and information of the legal persons who are account owners or have access to the account during the investigation period. Customership information is returned for organisations (but not persons) that are account owners or have access to the account. Organisation's beneficiary information is not returned.
 
 *__Table 5.1.3.1:__ Limitations to queries for an account. This query category contains queries with an account's IBAN number and queries with other account identifications*
+
 |Limitation|Submessage|Element|Description|
 |:---|:---|:---|:---|
 |Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
@@ -1152,6 +1155,7 @@ In customer category 1 account query the response includes the information of th
 In customer category 1 safety deposit box query the response includes the information of the safety deposit box that was the object of the query and information of the legal persons who are own or have access to the safety deposit box during the investigation period. Customership information is returned for organisations (but not persons) that are safety deposit box owners or have access to it. Organisation's beneficiary information is not returned.
 
 *__Table 5.1.4.1:__ Limitations to queries for a safety deposit box. This query category contains queries with a safety deposit box's identification*
+
 |Limitation|Submessage|Element|Description|
 |:---|:---|:---|:---|
 |Safety deposit box role start date|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Safety deposit box role starting date is not returned.|
@@ -1166,6 +1170,7 @@ In customer category 1 safety deposit box query the response includes the inform
 In customer category 2 natural person query, the response includes the information of the person who was the object of the query, customership information of the person and information of accounts the person owns or has access to during the investigation period. Other legal persons who own or have access to these accounts are not returned. Organisation's beneficiary information is not returned.
 
 *__Table 5.2.1.1:__ Limitations to queries for a person. This query category contains queries with a personal ID and queries with a natural person's name, nationality and birth date combination*
+
 |Limitation|Submessage|Element|Description|
 |:---|:---|:---|:---|
 |Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
@@ -1180,6 +1185,7 @@ In customer category 2 natural person query, the response includes the informati
 In customer category 2 organisation query, the response includes the information of the organisation that was the object of the query, customership information of the organisation and information of accounts the organisation owns or has access to during the investigation period. Other legal persons who own or have access to these accounts are not returned. Organisation's beneficiary information is not returned.
 
 *__Table 5.2.2.1:__ Limitations to queries for an organisation. This query category contains queries with a company's name and queries with legal person's registration number*
+
 |Limitation|Submessage|Element|Description|
 |:---|:---|:---|:---|
 |Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
@@ -1194,6 +1200,7 @@ In customer category 2 organisation query, the response includes the information
 In customer category 2 account query the response includes the information of the account that was the object of the query and information of the legal persons who are account owners or have access to the account during the investigation period. Customership information is returned for all legal persons that are account owners or have access to the account. Organisation's beneficiary information is not returned.
 
 *__Table 5.2.3.1:__ Limitations to queries for an account. This query category contains queries with an account's IBAN number and queries with other account identifications*
+
 |Limitation|Submessage|Element|Description|
 |:---|:---|:---|:---|
 |Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|

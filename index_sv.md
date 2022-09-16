@@ -1095,6 +1095,7 @@ Leverantörer av uppgifter är delade i två kategorier: kundkategori 1, som omf
 I sökningen på person i kundkategori 1, returneras som svar den sökta personens uppgifter, uppgifter om organisationer där personen är förmånstagare, samt uppgifter om sådana konton och bankfack där den sökta personen är ägare eller har tillträdesrättigheter som innehavare under sökintervallet.  Övriga eventuella ägare eller innehavare av tillträdesrättigheter till kontona eller bankfacken returneras inte. Inga uppgifter om kundrelation returneras.
 
 *__Tabell 5.1.1.1:__ Begränsningar för sökningar på person. Till denna sökkategori hör sökningar med personbeteckning och sökningar med kombinationen av namn, medborgarskap och födelsedatum för naturlig person*
+
 |Begränsning|Undermeddelande|Element|Beskrivning|
 |:---|:---|:---|:---|
 |Kundrelationsuppgift|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|Fältet CustomerInfo returneras inte|
@@ -1111,6 +1112,7 @@ I sökningen på person i kundkategori 1, returneras som svar den sökta persone
 I sökningen på organisation i kundkategori 1, returneras som svar den sökta organisationens uppgifter, uppgifter om personer inom organisationen som är den sökta organisationens förmånstagare, organisationens kundrelation samt uppgifter om sådana konton och bankfack där den sökta organisationen är ägare eller har tillträdesrättigheter som innehavare under sökintervallet.  Övriga eventuella ägare eller innehavare av tillträdesrättigheter till kontona eller bankfacken returneras inte.
 
 *__Tabell 5.1.2.1:__ Begränsningar för sökning på organisation. Till denna sökkategori hör sökningar med organisationens namn och sökningar med den juridiska personens registernummer*
+
 |Begränsning|Undermeddelande|Element|Beskrivning|
 |:---|:---|:---|:---|
 |Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Kontorollens startdatum returneras inte.|
@@ -1125,6 +1127,7 @@ I sökningen på organisation i kundkategori 1, returneras som svar den sökta o
 I sökningen på konto i kundkategori 1, returneras som svar det sökta kontots uppgifter samt uppgifter om juridiska personer som är kontots ägare eller som har tillträdesrättigheter som innehavare under sökintervallet.  Uppgifter om kundrelation returneras för kontots ägare eller innehavare av tillträdesrättigheter som är organisationer. Uppgifter om organisationens förmånstagare returneras inte.
 
 *__Tabell 5.1.3.1:__ Begränsningar för sökningar på konto. Till denna sökkategori hör sökning med kontots IBAN och sökningar med en annan kontospecifikation*
+
 |Begränsning|Undermeddelande|Element|Beskrivning|
 |:---|:---|:---|:---|
 |Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Kontorollens startdatum returneras inte.|
@@ -1139,6 +1142,7 @@ I sökningen på konto i kundkategori 1, returneras som svar det sökta kontots 
 I sökningen på bankfack i kundkategori 1, returneras som svar det sökta bankfackets uppgifter samt uppgifter om juridiska personer som är kontots ägare eller som har tillträdesrättigheter som innehavare under sökintervallet.  Uppgifter om kundrelation returneras för bankfackets ägare eller innehavare av tillträdesrättigheter som är organisationer. Uppgifter om organisationens förmånstagare returneras inte. 
 
 *__Tabell 5.1.4.1:__ Begränsningar för sökning på bankfack. Till denna sökkategori hör sökningar med bankfackets identifieringsuppgifter*
+
 |Begränsning|Undermeddelande|Element|Beskrivning|
 |:---|:---|:---|:---|
 |Bankfackrollens startdatum|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Bankfackrollens startdatum returneras inte.|
@@ -1153,6 +1157,7 @@ I sökningen på bankfack i kundkategori 1, returneras som svar det sökta bankf
 I sökningen på person i kundkategori 2 returneras som svar den sökta personens uppgifter, personens kundrelation, samt uppgifter om sådana konton där den sökta personen är ägare eller har tillträdesrättigheter som innehavare under sökintervallet.  Övriga eventuella ägare eller innehavare av tillträdesrättigheter till kontona returneras inte. Inga uppgifter om förmånstagare returneras.
 
 *__Tabell 5.2.1.1:__ Begränsningar för sökningar på person. Till denna sökkategori hör sökningar med personbeteckning och sökningar med kombinationen av namn, medborgarskap och födelsedatum för naturlig person*
+
 |Begränsning|Undermeddelande|Element|Beskrivning|
 |:---|:---|:---|:---|
 |Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Kontorollens startdatum returneras inte.|
@@ -1167,6 +1172,7 @@ I sökningen på person i kundkategori 2 returneras som svar den sökta personen
 I sökningen på organisation i kundkategori 2, returneras den sökta organisationens uppgifter, organisationens kundrelationsuppgifter samt uppgifter för sådana konton där den sökta organisationen är ägare eller innehavare med tillträdesrättigheter under sökintervallet. Övriga eventuella ägare eller innehavare av tillträdesrättigheter till kontona returneras inte. Inga uppgifter om förmånstagare returneras.
 
 *__Tabell 5.2.2.1:__ Begränsningar för sökningar på organisation Till denna sökkategori hör sökningar med organisationens namn och sökningar med den juridiska personens registernummer*
+
 |Begränsning|Undermeddelande|Element|Beskrivning|
 |:---|:---|:---|:---|
 |Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Kontorollens startdatum returneras inte.|
@@ -1181,6 +1187,7 @@ I sökningen på organisation i kundkategori 2, returneras den sökta organisati
 I sökningen på konto i kundkategori 2, returneras som svar det sökta kontots uppgifter samt uppgifter om juridiska personer som är kontots ägare eller innehavare av tillträdesrättigheter under sökintervallet. Uppgifter om kundrelation returneras för alla kontots ägare eller innehavare av tillträdesrättigheter. Uppgifter om organisationens förmånstagare returneras inte.
 
 *__Tabell 5.2.3.1:__ Begränsningar för sökningar på konto. Till denna sökkategori hör sökning med kontots IBAN och sökningar med en annan kontospecifikation*
+
 |Begränsning|Undermeddelande|Element|Beskrivning|
 |:---|:---|:---|:---|
 |Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Kontorollens startdatum returneras inte.|
