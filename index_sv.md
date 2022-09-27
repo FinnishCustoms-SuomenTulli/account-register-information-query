@@ -59,6 +59,7 @@ Version|Datum|Beskrivning
 1.0.44|27.1.2021|Användningen av elementen DtAndPlcOfBirth och DateOrDateTimePeriodChoice har förtydligats.|
 2.0.0|22.8.2022|Definitioner har uppdaterats enligt lagändringen.|
 2.0.1|16.9.2022|Uppdaterade WSDL och exempelfiler.|
+2.0.2|27.9.2022|Hantering av dublikater i sökning på person har förtydligats i avsnitt 4.5.|
 
 ## Innehåll
 
@@ -494,6 +495,8 @@ Systemet returnerar endast de undermeddelanden som begärs i sökkriterierna (su
 |\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchmeNm|"NATI"|
 |\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth|Födelsetid. `CtryOfBirth` ges värdet "XX" och `CityOfBirth` ges värdet ”not in use”|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
+
+Om sökkriterier producerar mer än en motsvarande person, felkod 7 returneras (se [felkoder](#4-12)).
 
 #### <a name=""></a> Sökning med bankfackets identifieringsuppgift
 
