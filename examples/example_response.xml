@@ -281,7 +281,7 @@ EDr0</X509Certificate>
                      </auth002:AuthrtyReq>
                      <auth002:AuthrtyReq>
                         <auth002:Tp>
-                           <auth002:MsgNmId>fin.002.001.02</auth002:MsgNmId>
+                           <auth002:MsgNmId>fin.002.001.03</auth002:MsgNmId>
                         </auth002:Tp>
                         <auth002:InvstgtdRoles>
                            <auth002:Cd>ALLP</auth002:Cd>
@@ -423,11 +423,11 @@ EDr0</X509Certificate>
                </auth002:RtrInd>
                <auth002:RtrInd>
                   <auth002:AuthrtyReqTp>
-                     <auth002:MsgNmId>fin.002.001.02</auth002:MsgNmId>
+                     <auth002:MsgNmId>fin.002.001.03</auth002:MsgNmId>
                   </auth002:AuthrtyReqTp>
                   <auth002:InvstgtnRslt>
                      <auth002:Rslt>
-                        <fin002:Document xmlns:fin002="urn:fin.002.001.02">
+                        <fin002:Document xmlns:fin002="urn:fin.002.001.03">
                            <fin002:InfRspnFin002>
                               <fin002:InvstgtnId>ABC1234</fin002:InvstgtnId>
                               <fin002:CreDtTm>2022-09-28T11:16:34.315203+03:00</fin002:CreDtTm>

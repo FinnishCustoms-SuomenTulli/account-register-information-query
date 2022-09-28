@@ -59,7 +59,7 @@ Version|Date|Decription
 1.0.44|27.1.2021|Clarified the use of DtAndPlcOfBirth and DateOrDateTimePeriodChoice elements.|
 2.0.0|22.8.2022|Updated specifications to match the updated legal requirements.|
 2.0.1|16.9.2022|Updated WSDL and example files.|
-2.0.2|28.9.2022|Updated safety deposit box role date limitations. Updated example and schema files.|
+2.0.2|28.9.2022|Updated safety deposit box role date limitations. Updated example and fin.002.001.03 schema files.|
 
 ## Table of contents
 
@@ -118,7 +118,7 @@ This document is part of the order issued by Finnish Customs regarding a bank an
 
 [ISO 20022 head.001.001.01 schema](assets/iso20022org/archive_business_area_business_application_header.zip)
 
-[fin.002.001.02](schemas/fin.002.001.02.xsd)
+[fin.002.001.03](schemas/fin.002.001.03.xsd)
 
 [fin.012.001.03](schemas/fin.012.001.03.xsd)
 
@@ -326,7 +326,7 @@ The BAH must always be the first element of the SOAP body.
 
 The query interface of the data retrieval system uses the ISO 20022 messages [InformationRequestOpeningV01 (auth.001.001.01)](assets/iso20022org/auth.001.001.01.xsd) and [InformationRequestResponseV01 (auth.002.001.01)](assets/iso20022org/auth.002.001.01.xsd) to which the required submessages ([Supplementary Data](assets/iso20022org/InformationResponse_SupplementaryData.zip)) are appended.
 
-The submessages used at the upper level are divided into three concepts: customership, account and safety-deposit box. The customer and beneficiary details are returned in the message [fin.013.001.04](schemas/fin.013.001.04.xsd), the account details in the message [supl.027.001.01](assets/iso20022org/InformationResponse_SupplementaryData.zip) and the safety-deposit box details in the message [fin.002.001.02](schemas/fin.002.001.02) (NB. here the same code as in the manual processing in some existing systems). These submessages are appended to [auth.002.001.01](assets/iso20022org/auth.002.001.01.xsd) element `InformationRequestResponseV01/RtrInd`.
+The submessages used at the upper level are divided into three concepts: customership, account and safety-deposit box. The customer and beneficiary details are returned in the message [fin.013.001.04](schemas/fin.013.001.04.xsd), the account details in the message [supl.027.001.01](assets/iso20022org/InformationResponse_SupplementaryData.zip) and the safety-deposit box details in the message [fin.002.001.03](schemas/fin.002.001.03) (NB. here the same code as in the manual processing in some existing systems). These submessages are appended to [auth.002.001.01](assets/iso20022org/auth.002.001.01.xsd) element `InformationRequestResponseV01/RtrInd`.
 
 The tables 4.3.1–4.3.5 show the data content of the bank and payment account register as well as the Supplementary Data submessage, as part of which each detail is returned.
 
@@ -449,11 +449,11 @@ The table describes the use of records in the message.
 
 #### <a name="SearchCriteria1Choice"></a> Limiting submessages in the search result
 
-The system only returns the submessages requested in the search criteria (supl.027.001.01, fin.002.001.02, fin.013.001.04). Each submessage is requested in a separate element of the type AuthorityRequestType1, and 1–3 of these elements must be included in the search criteria.
+The system only returns the submessages requested in the search criteria (supl.027.001.01, fin.002.001.03, fin.013.001.04). Each submessage is requested in a separate element of the type AuthorityRequestType1, and 1–3 of these elements must be included in the search criteria.
 
 |Tag|Scheme path InfReqOpng/SchCrit/|Description|
 |:---|:---|:---|
-|\<MsgNmId\>|Search by personal identity code, by the combination of the name, nationality and date of birth of a natural person, by the registration number of a legal person, by company name or by safety-deposit box ID:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Search by IBAN or other unique identifier of the account:<br/>Acct/AuthrtyReqTp|“supl.027.001.01”, “fin.002.001.02” or “fin.013.001.04”|
+|\<MsgNmId\>|Search by personal identity code, by the combination of the name, nationality and date of birth of a natural person, by the registration number of a legal person, by company name or by safety-deposit box ID:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Search by IBAN or other unique identifier of the account:<br/>Acct/AuthrtyReqTp|“supl.027.001.01”, “fin.002.001.03” or “fin.013.001.04”|
 
 #### <a name=""></a> Search by personal identity code
 
@@ -560,16 +560,16 @@ ReturnIndicator1 includes the presence of a single type of search result.
 
 |XPath|Type|Description|
 |:---|:---|:---|
-|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|Includes the message ID of a message extension (supl.027.001.01, fin.013.001.04 or fin.002.001.02)|
+|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|Includes the message ID of a message extension (supl.027.001.01, fin.013.001.04 or fin.002.001.03)|
 |RtrInd/InvstgtnRslt|InvestigationResult1Choice|`Rslt` element of type SupplementaryDataEnvelope1 is returned, including either [supl.027.001.01](#supl.027.001.01), [InformationResponseFIN002](#InformationResponseFIN002) or [InformationResponseFIN013](#InformationResponseFIN013) or `InvstgtnSts` with code `NFOU`.
 
-One search result sub-message (supl.027.001.01, fin.013.001.04 or fin.002.001.02) is returned per Business ID for each search result type.
+One search result sub-message (supl.027.001.01, fin.013.001.04 or fin.002.001.03) is returned per Business ID for each search result type.
 
 __Example 1.__  
 
 Three results corresponding to the `Document/InfReqOpng/SchCrit` search criterion present in the query message have been found: one customer and two accounts. No safety-deposit boxes were found.  
 
-To the response message, three `RtrInd` elements shall be appended: regarding supl.027.001.01 and fin.013.001.04, the search results are appended to `Rslt` elements and regarding fin.002.001.02, `InvstgtnSts` shall be returned using code `NFOU`:
+To the response message, three `RtrInd` elements shall be appended: regarding supl.027.001.01 and fin.013.001.04, the search results are appended to `Rslt` elements and regarding fin.002.001.03, `InvstgtnSts` shall be returned using code `NFOU`:
 
 ```
 <!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
@@ -603,7 +603,7 @@ To the response message, three `RtrInd` elements shall be appended: regarding su
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.002.001.02</n1:MsgNmId>
+    <n1:MsgNmId>fin.002.001.03</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -617,7 +617,7 @@ The interface is a compilation: one interface returns search results under sever
 
 Four results corresponding to the `Document/InfReqOpng/SchCrit` search criterion present in the query message have been found: one account (account #1) for Business ID 0190983-0 and three accounts (account #2, account #3, account #4) for Business ID 0828972-6.
 
-To the response message, four `RtrInd` elements shall be appended: regarding supl.027.001.0, the search results are appended to `Rslt` elements and regarding fin.013.001.04 and fin.002.001.02, `InvstgtnSts` shall be returned using the code `NFOU`: 
+To the response message, four `RtrInd` elements shall be appended: regarding supl.027.001.0, the search results are appended to `Rslt` elements and regarding fin.013.001.04 and fin.002.001.03, `InvstgtnSts` shall be returned using the code `NFOU`: 
 
 ```
 <!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
@@ -691,7 +691,7 @@ To the response message, four `RtrInd` elements shall be appended: regarding sup
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.002.001.02</n1:MsgNmId>
+    <n1:MsgNmId>fin.002.001.03</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -725,7 +725,7 @@ To the response message, three `InvstgtnSts` elements shall be appended using th
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.002.001.02</n1:MsgNmId>
+    <n1:MsgNmId>fin.002.001.03</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>

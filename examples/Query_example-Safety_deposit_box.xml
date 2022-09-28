@@ -136,7 +136,7 @@ EDr0</X509Certificate>
                             </urn2:AuthrtyReq>
                             <urn2:AuthrtyReq>
                                 <urn2:Tp>
-                                    <urn2:MsgNmId>fin.002.001.02</urn2:MsgNmId>
+                                    <urn2:MsgNmId>fin.002.001.03</urn2:MsgNmId>
                                 </urn2:Tp>
                                 <urn2:InvstgtdRoles>
                                     <urn2:Cd>ALLP</urn2:Cd>

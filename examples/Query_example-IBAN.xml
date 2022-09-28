@@ -137,7 +137,7 @@ EDr0</X509Certificate>
                                 <urn2:MsgNmId>supl.027.001.01</urn2:MsgNmId>
                             </urn2:AuthrtyReqTp>
                             <urn2:AuthrtyReqTp>
-                                <urn2:MsgNmId>fin.002.001.02</urn2:MsgNmId>
+                                <urn2:MsgNmId>fin.002.001.03</urn2:MsgNmId>
                             </urn2:AuthrtyReqTp>
                             <urn2:AuthrtyReqTp>
                                 <urn2:MsgNmId>fin.013.001.04</urn2:MsgNmId>
