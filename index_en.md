@@ -59,6 +59,7 @@ Version|Date|Decription
 1.0.44|27.1.2021|Clarified the use of DtAndPlcOfBirth and DateOrDateTimePeriodChoice elements.|
 2.0.0|22.8.2022|Updated specifications to match the updated legal requirements.|
 2.0.1|16.9.2022|Updated WSDL and example files.|
+2.0.2|28.9.2022|Updated safety deposit box role date limitations. Updated example and schema files.|
 
 ## Table of contents
 
@@ -822,7 +823,7 @@ The message extension is appended to the Xpath location of the ISO 20022 message
 |AccountRole1| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|Yes|[1..*]|See [Use of Id element](#Id-element_usage)|
 |&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|Yes|[1..1]|Use `OwnrTp/Prtry/SchmeNm` with value "RLTP", as well as `OwnrTp/Prtry/Id`, in which the values “OWNE” (safety-deposit box holder, “owner”) or “ACCE” (holder of access right to the safety-deposit box, “access right”).|
-|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|Yes|[1..1]|Start date of role|
+|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|Yes|[0..1]|Start date of role|
 |&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|Yes|[0..1]|End date of role|
 
 ### <a name="InformationResponseFIN013"></a> 4.10 InformationResponseFIN013
@@ -1120,6 +1121,8 @@ In customer category 1 natural person query, the response includes the informati
 |Other legal persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In natural person query, only the role related to the legal person defined in the query is returned with the account data.|
 |Other legal persons related to a safety deposit box|InformationResponseFIN002|/SdBoxAndPties/Role|In natural person query, only the role related to the legal person defined in the query is returned with the safety deposit box data.|
 |Other persons related to an organisation|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|In natural person query, only the role related to the person defined in the query is returned with the organisation data.|
+|Safety deposit box role start date|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Safety deposit box role starting date is not returned.|
+|Safety deposit box role end date|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Safety deposit box role ending date is not returned.|
 
 #### <a name="5-1-2"></a> 5.1.2 Organisation query
 
@@ -1135,6 +1138,8 @@ In customer category 1 organisation query, the response includes the information
 |Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
 |Other legal persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In organisation query, only the role related to the legal person defined in the query is returned with the account data.|
 |Other legal persons related to a safety deposit box|InformationResponseFIN002|/SdBoxAndPties/Role|In organisation query, only the role related to the legal person defined in the query is returned with the safety deposit box data.|
+|Safety deposit box role start date|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Safety deposit box role starting date is not returned.|
+|Safety deposit box role end date|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Safety deposit box role ending date is not returned.|
 
 #### <a name="5-1-3"></a> 5.1.3 Account query
 

@@ -59,6 +59,7 @@ Version|Datum|Beskrivning
 1.0.44|27.1.2021|Användningen av elementen DtAndPlcOfBirth och DateOrDateTimePeriodChoice har förtydligats.|
 2.0.0|22.8.2022|Definitioner har uppdaterats enligt lagändringen.|
 2.0.1|16.9.2022|Uppdaterade WSDL och exempelfiler.|
+2.0.2|28.9.2022|Uppdaterade begränsningar för rolldatum för bankfack. Uppdaterade exempel- och schemafiler.|
 
 ## Innehåll
 
@@ -811,7 +812,7 @@ Det utvidgade meddelandet kopplas till ISO 20022-meddelandets XPath-läge som an
 |AccountRole1| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|Ja|[1..*]|Se [Användning av Id-element](#Anvandning_av_Id-element)|
 |&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|Ja|[1..1]|`OwnrTp/Prtry/SchmeNm` används med värdet “RLTP”, samt `OwnrTp/Prtry/Id` med värdet “OWNE” (kontoinnehavare, “ägare”) eller “ACCE” (den som har dispositionsrätt till kontot, “dispositionsrätt”).|
-|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|Ja|[1..1]|Startdatum för rollen|
+|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|Ja|[0..1]|Startdatum för rollen|
 |&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|Ja|[0..1]|Slutdatum för rollen|
 
 ### <a name="InformationResponseFIN013"></a> 4.10 InformationResponseFIN013
@@ -1107,6 +1108,8 @@ I sökningen på person i kundkategori 1, returneras som svar den sökta persone
 |Andra juridiska personer kopplade till kontot|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|Vid sökning på person returneras med kontot inga andra än den juridiska persons roll som är kopplad till sökningen.|
 |Andra juridiska personer kopplade till bankfacket|InformationResponseFIN002|/SdBoxAndPties/Role|Vid sökning på person returneras med bankfacket inga andra än den juridiska persons roll som är kopplad till sökningen.|
 |Andra personer som är kopplade till organisationen|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Vid sökning på person returneras med organisationen inga andra än den persons roll som är kopplad till sökningen.|
+|Bankfackrollens startdatum|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Bankfackrollens startdatum returneras inte.|
+|Bankfackrollens slutdatum|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Bankfackrollens slutdatum returneras inte.|
 
 #### <a name="5-1-2"></a>  Sökning på organisation
 
@@ -1122,6 +1125,8 @@ I sökningen på organisation i kundkategori 1, returneras som svar den sökta o
 |Kontots avslutningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Kontots avslutningsdatum returneras inte, om det är fråga om ett gemensamt konto som förvaltas av en advokat. Se [användning av CustomerAccount](#CustomerAccount1).|
 |Andra juridiska personer kopplade till kontot|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|Vid sökning på organisation returneras med kontot inga andra än den juridiska persons roll som är kopplad till sökningen.|
 |Andra juridiska personer kopplade till bankfacket|InformationResponseFIN002|/SdBoxAndPties/Role|Vid sökning på organisation returneras med bankfacket inga andra än den juridiska persons roll som är kopplad till sökningen. |
+|Bankfackrollens startdatum|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Bankfackrollens startdatum returneras inte.|
+|Bankfackrollens slutdatum|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Bankfackrollens slutdatum returneras inte.|
 
 #### <a name="5-1-3"></a> 5.1.3 Sökning på konto
 

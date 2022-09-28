@@ -59,6 +59,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.44|27.1.2021|Selvennetty DtAndPlcOfBirth ja DateOrDateTimePeriodChoice elementtien käyttöä.|
 2.0.0|22.8.2022|Päivitetty määritelmiä lakimuutoksen mukaisiksi.|
 2.0.1|16.9.2022|Päivitetty WSDL- ja esimerkkitiedostoja.|
+2.0.2|28.9.2022|Tarkennettu tallelokeroroolien päivämäärien määritystä. Korjattu esimerkki- ja skeematiedostoja.|
 
 ## Sisällysluettelo
 
@@ -805,7 +806,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |AccountRole1| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|kyllä|[1..*]|ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
 |&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|kyllä|[1..1]|Käytetään `OwnrTp/Prtry/SchmeNm` arvolla "RLTP", sekä `OwnrTp/Prtry/Id`, jossa arvo "OWNE" (tallelokeron haltija, "omistaja") tai "ACCE" (tallelokeron käyttöoikeuden haltija, "käyttöoikeus"|
-|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|kyllä|[1..1]|Roolin alkamispäivämäärä|
+|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|kyllä|[0..1]|Roolin alkamispäivämäärä|
 |&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|kyllä|[0..1]|Roolin päättymispäivämäärä|
 
 ### <a name="InformationResponseFIN013"></a> 4.10 InformationResponseFIN013
@@ -1103,6 +1104,8 @@ Asiakaskategorian 1 henkilöhaussa vastauksena palautetaan haetun henkilön tied
 |Muut tiliin liittyvät oikeushenkilöt|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|Henkilöhaussa palautettavan tilin mukana ei palauteta muita kuin hakuun liittyvän oikeushenkilön rooli.|
 |Muut tallelokeroon liittyvät oikeushenkilöt|InformationResponseFIN002|/SdBoxAndPties/Role|Henkilöhaussa palautettavan tallelokeron mukana ei palauteta muita kuin hakuun liittyvän oikeushenkilön rooli.|
 |Muut organisaatioon liittyvät henkilöt|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Henkilöhaussa palautettavan organisaation mukana ei palauteta muita kuin hakuun liittyvän henkilön rooli.|
+|Tallelokeroroolin alkupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Tallelokeroroolin alkupäivää ei palauteta.|
+|Tallelokeroroolin loppupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Tallelokeroroolin loppupäivämäärää ei palauteta.|
 
 #### <a name="5-1-2"></a> 5.1.2 Organisaatiohaku
 
@@ -1118,6 +1121,8 @@ Asiakaskategorian 1 organisaatiohaussa vastauksena palautetaan haetun organisaat
 |Tilin sulkemispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Tilin sulkemispäivämäärää ei palauteta, jos kyseessä on asianajajan asiakasvaratili. Ks. [CustomerAccount-käyttö](#CustomerAccount1).
 |Muut tiliin liittyvät oikeushenkilöt|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|Organisaatiohaussa palautettavan tilin mukana ei palauteta muita kuin hakuun liittyvän oikeushenkilön rooli.|
 |Muut tallelokeroon liittyvät oikeushenkilöt|InformationResponseFIN002|/SdBoxAndPties/Role|Organisaatiohaussa palautettavan tallelokeron mukana ei palauteta muita kuin hakuun liittyvän oikeushenkilön rooli.|
+|Tallelokeroroolin alkupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Tallelokeroroolin alkupäivää ei palauteta.|
+|Tallelokeroroolin loppupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Tallelokeroroolin loppupäivämäärää ei palauteta.|
 
 #### <a name="5-1-3"></a> 5.1.3 Tilihaku
 

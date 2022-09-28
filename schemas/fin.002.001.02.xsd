@@ -20,7 +20,7 @@
 		<xs:sequence>
 			<xs:element name="Pty" type="PartyIdentification41"/>
 			<xs:element name="OwnrTp" type="OwnerType1"/>
-			<xs:element name="StartDt" type="ISODate" maxOccurs="1"/>
+			<xs:element name="StartDt" type="ISODate" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="EndDt" type="ISODate" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
