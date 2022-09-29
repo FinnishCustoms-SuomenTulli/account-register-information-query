@@ -59,7 +59,7 @@ Version|Datum|Beskrivning
 1.0.44|27.1.2021|Användningen av elementen DtAndPlcOfBirth och DateOrDateTimePeriodChoice har förtydligats.|
 2.0.0|22.8.2022|Definitioner har uppdaterats enligt lagändringen.|
 2.0.1|16.9.2022|Uppdaterade WSDL och exempelfiler.|
-2.0.2|28.9.2022|Uppdaterade begränsningar för rolldatum för bankfack. Uppdaterade exempel- och fin.002.001.03-schemafiler.|
+2.0.2|29.9.2022|Uppdaterade begränsningar för rolldatum för bankfack och förmånstagare. Uppdaterade exempel- och fin.002.001.03-schemafiler.|
 
 ## Innehåll
 
@@ -1110,6 +1110,8 @@ I sökningen på person i kundkategori 1, returneras som svar den sökta persone
 |Andra personer som är kopplade till organisationen|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Vid sökning på person returneras med organisationen inga andra än den persons roll som är kopplad till sökningen.|
 |Bankfackrollens startdatum|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Bankfackrollens startdatum returneras inte.|
 |Bankfackrollens slutdatum|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Bankfackrollens slutdatum returneras inte.|
+|Förmånstagarerollens startdatum|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/StartDt|Förmånstagarerollens startdatum returneras inte.|
+|Förmånstagarerollens slutdatum|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/EndDt|Förmånstagarerollens slutdatum returneras inte.|
 
 #### <a name="5-1-2"></a>  Sökning på organisation
 
@@ -1127,6 +1129,8 @@ I sökningen på organisation i kundkategori 1, returneras som svar den sökta o
 |Andra juridiska personer kopplade till bankfacket|InformationResponseFIN002|/SdBoxAndPties/Role|Vid sökning på organisation returneras med bankfacket inga andra än den juridiska persons roll som är kopplad till sökningen. |
 |Bankfackrollens startdatum|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Bankfackrollens startdatum returneras inte.|
 |Bankfackrollens slutdatum|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Bankfackrollens slutdatum returneras inte.|
+|Förmånstagarerollens startdatum|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/StartDt|Förmånstagarerollens startdatum returneras inte.|
+|Förmånstagarerollens slutdatum|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/EndDt|Förmånstagarerollens slutdatum returneras inte.|
 
 #### <a name="5-1-3"></a> 5.1.3 Sökning på konto
 

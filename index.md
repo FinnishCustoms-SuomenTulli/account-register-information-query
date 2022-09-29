@@ -59,7 +59,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.44|27.1.2021|Selvennetty DtAndPlcOfBirth ja DateOrDateTimePeriodChoice elementtien käyttöä.|
 2.0.0|22.8.2022|Päivitetty määritelmiä lakimuutoksen mukaisiksi.|
 2.0.1|16.9.2022|Päivitetty WSDL- ja esimerkkitiedostoja.|
-2.0.2|28.9.2022|Tarkennettu tallelokeroroolien päivämäärien määritystä. Päivitetty esimerkki- ja fin.002.001.03-skeematiedostoja.|
+2.0.2|29.9.2022|Tarkennettu tallelokero- ja edunsaajaroolien päivämäärien määritystä. Päivitetty esimerkki- ja fin.002.001.03-skeematiedostoja.|
 
 ## Sisällysluettelo
 
@@ -1106,6 +1106,8 @@ Asiakaskategorian 1 henkilöhaussa vastauksena palautetaan haetun henkilön tied
 |Muut organisaatioon liittyvät henkilöt|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Henkilöhaussa palautettavan organisaation mukana ei palauteta muita kuin hakuun liittyvän henkilön rooli.|
 |Tallelokeroroolin alkupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Tallelokeroroolin alkupäivää ei palauteta.|
 |Tallelokeroroolin loppupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Tallelokeroroolin loppupäivämäärää ei palauteta.|
+|Edunsaajaroolin alkupäivä|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/StartDt|Edunsaajaroolin alkupäivää ei palauteta.|
+|Edunsaajaroolin loppupäivä|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/EndDt|Edunsaajaroolin loppupäivämäärää ei palauteta.|
 
 #### <a name="5-1-2"></a> 5.1.2 Organisaatiohaku
 
@@ -1123,6 +1125,8 @@ Asiakaskategorian 1 organisaatiohaussa vastauksena palautetaan haetun organisaat
 |Muut tallelokeroon liittyvät oikeushenkilöt|InformationResponseFIN002|/SdBoxAndPties/Role|Organisaatiohaussa palautettavan tallelokeron mukana ei palauteta muita kuin hakuun liittyvän oikeushenkilön rooli.|
 |Tallelokeroroolin alkupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Tallelokeroroolin alkupäivää ei palauteta.|
 |Tallelokeroroolin loppupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Tallelokeroroolin loppupäivämäärää ei palauteta.|
+|Edunsaajaroolin alkupäivä|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/StartDt|Edunsaajaroolin alkupäivää ei palauteta.|
+|Edunsaajaroolin loppupäivä|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/EndDt|Edunsaajaroolin loppupäivämäärää ei palauteta.|
 
 #### <a name="5-1-3"></a> 5.1.3 Tilihaku
 
