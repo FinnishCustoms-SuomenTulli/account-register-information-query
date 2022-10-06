@@ -59,7 +59,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.44|27.1.2021|Selvennetty DtAndPlcOfBirth ja DateOrDateTimePeriodChoice elementtien käyttöä.|
 2.0.0|22.8.2022|Päivitetty määritelmiä lakimuutoksen mukaisiksi.|
 2.0.1|16.9.2022|Päivitetty WSDL- ja esimerkkitiedostoja.|
-2.0.2|27.9.2022|Tarkennettu duplikaattien käsittelyä henkilöhaussa lukuun 4.5.|
+2.0.2|27.9.2022|Tarkennettu duplikaattien käsittelyä henkilö- ja yrityshaussa lukuun 4.5.|
 
 ## Sisällysluettelo
 
@@ -464,6 +464,7 @@ Järjestelmä palauttaa ainoastaan hakukriteereissä pyydetyt alisanomat (supl.0
 |\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchmeNm|"NAME"|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
+Jos annetuilla hakukriteereillä löytyy useampi kuin yksi niitä vastaava yritys, palautetaan virhekoodi 7 (ks. [virhekoodit](#4-12)).
 
 #### <a name=""></a> Haku IBANilla
 
