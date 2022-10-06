@@ -59,7 +59,7 @@ Version|Date|Decription
 1.0.44|27.1.2021|Clarified the use of DtAndPlcOfBirth and DateOrDateTimePeriodChoice elements.|
 2.0.0|22.8.2022|Updated specifications to match the updated legal requirements.|
 2.0.1|16.9.2022|Updated WSDL and example files.|
-2.0.2|27.9.2022|Clarified handling of duplicates in query for a person in chapter 4.5.|
+2.0.2|27.9.2022|Clarified handling of duplicates in query for a person and query for an organisation in chapter 4.5.|
 
 ## Table of contents
 
@@ -481,6 +481,7 @@ The system only returns the submessages requested in the search criteria (supl.0
 |\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchmeNm|"NAME"|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
+If the given search criteria results in more than one matching company, fault code 7 is returned (see [fault codes](#4-12)).
 
 #### <a name=""></a> Search by IBAN
 
