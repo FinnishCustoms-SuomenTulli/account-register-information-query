@@ -59,7 +59,7 @@ Version|Date|Decription
 1.0.44|27.1.2021|Clarified the use of DtAndPlcOfBirth and DateOrDateTimePeriodChoice elements.|
 2.0.0|22.8.2022|Updated specifications to match the updated legal requirements.|
 2.0.1|16.9.2022|Updated WSDL and example files.|
-2.0.2|27.9.2022|Clarified handling of duplicates in query for a person and query for an organisation in chapter 4.5.|
+2.0.2|6.10.2022|Clarified handling of duplicates in query for a person and query for an organisation in chapter 4.5.|
 
 ## Table of contents
 
