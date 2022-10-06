@@ -59,7 +59,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.44|27.1.2021|Selvennetty DtAndPlcOfBirth ja DateOrDateTimePeriodChoice elementtien käyttöä.|
 2.0.0|22.8.2022|Päivitetty määritelmiä lakimuutoksen mukaisiksi.|
 2.0.1|16.9.2022|Päivitetty WSDL- ja esimerkkitiedostoja.|
-2.0.2|29.9.2022|Tarkennettu tallelokero- ja edunsaajaroolien päivämäärien määritystä. Päivitetty esimerkki- ja fin.002.001.03-skeematiedostoja.|
+2.0.2|6.10.2022|Tarkennettu tallelokero- ja edunsaajaroolien päivämäärien määritystä. Päivitetty esimerkki- ja fin.002.001.03-skeematiedostoja. Tarkennettu duplikaattien käsittelyä henkilöhaussa lukuun 4.5.|
 
 ## Sisällysluettelo
 
@@ -489,6 +489,8 @@ Järjestelmä palauttaa ainoastaan hakukriteereissä pyydetyt alisanomat (supl.0
 |\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchmeNm|"NATI"|
 |\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth|Syntymäaika. `CtryOfBirth` arvoksi asetetaan "XX" ja `CityOfBirth` arvoksi asetetaan ”not in use”|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
+
+Jos annetuilla hakukriteereillä löytyy useampi kuin yksi niitä vastaava henkilö, palautetaan virhekoodi 7 (ks. [virhekoodit](#4-12)).
 
 #### <a name=""></a> Haku Tallelokeron tunnisteella
 
