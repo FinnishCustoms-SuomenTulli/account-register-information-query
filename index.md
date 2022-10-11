@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 2.0.1*
+*Dokumentin versio 2.0.2*
 
 ## Versiohistoria
 
@@ -59,6 +59,7 @@ Versio|Päivämäärä|Kuvaus
 1.0.44|27.1.2021|Selvennetty DtAndPlcOfBirth ja DateOrDateTimePeriodChoice elementtien käyttöä.|
 2.0.0|22.8.2022|Päivitetty määritelmiä lakimuutoksen mukaisiksi.|
 2.0.1|16.9.2022|Päivitetty WSDL- ja esimerkkitiedostoja.|
+2.0.2|6.10.2022|Tarkennettu tallelokero- ja edunsaajaroolien päivämäärien määritystä. Päivitetty esimerkki- ja fin.002.001.03-skeematiedostoja. Tarkennettu duplikaattien käsittelyä henkilö- ja yrityshaussa lukuun 4.5.|
 
 ## Sisällysluettelo
 
@@ -117,7 +118,7 @@ Tämä dokumentti on osa Tullin julkaisemaa määräystä pankki- ja maksutilien
 
 [ISO 20022 head.001.001.01 skeema](assets/iso20022org/archive_business_area_business_application_header.zip)
 
-[fin.002.001.02](schemas/fin.002.001.02.xsd)
+[fin.002.001.03](schemas/fin.002.001.03.xsd)
 
 [fin.012.001.03](schemas/fin.012.001.03.xsd)
 
@@ -309,7 +310,7 @@ BAH on oltava aina SOAP bodyn ensimmäinen elementti.
 
 Tiedonhakujärjestelmän kyselyrajapinnassa käytetään ISO 20022 -sanomia [InformationRequestOpeningV01 (auth.001.001.01)](assets/iso20022org/auth.001.001.01.xsd) ja [InformationRequestResponseV01 (auth.002.001.01)](assets/iso20022org/auth.002.001.01.xsd), joihin liitetään tarvittavat alisanomat ([Supplementary Data](assets/iso20022org/InformationResponse_SupplementaryData.zip)).
 
-Ylätasolla käytettävät alisanomat jakautuvat kolmeen käsitteeseen: asiakkuus, tili ja tallelokero. Asiakkuus- ja edunsaajatiedot palautetaan sanomassa [fin.013.001.04](schemas/fin.013.001.04.xsd), tilitiedot sanomassa [supl.027.001.01](assets/iso20022org/InformationResponse_SupplementaryData.zip) ja tallelokerotiedot sanomassa [fin.002.001.02](schemas/fin.002.001.02) (huom. tässä sama koodi eräiden olemassaolevien järjestelmien manuaalisen käsittelyn kanssa). Nämä alisanomat liitetään [auth.002.001.01](assets/iso20022org/auth.002.001.01.xsd) elementtiin `InformationRequestResponseV01/RtrInd`.
+Ylätasolla käytettävät alisanomat jakautuvat kolmeen käsitteeseen: asiakkuus, tili ja tallelokero. Asiakkuus- ja edunsaajatiedot palautetaan sanomassa [fin.013.001.04](schemas/fin.013.001.04.xsd), tilitiedot sanomassa [supl.027.001.01](assets/iso20022org/InformationResponse_SupplementaryData.zip) ja tallelokerotiedot sanomassa [fin.002.001.03](schemas/fin.002.001.03) (huom. tässä sama koodi eräiden olemassaolevien järjestelmien manuaalisen käsittelyn kanssa). Nämä alisanomat liitetään [auth.002.001.01](assets/iso20022org/auth.002.001.01.xsd) elementtiin `InformationRequestResponseV01/RtrInd`.
 
 Taulukoissa *4.3.1*-*4.3.5* on esitetty pankki- ja maksutilirekisterin tietosisältö, sekä Supplementary Data -alisanoma, jonka osana kukin tieto palautetaan.  
 
@@ -431,11 +432,11 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 
 #### <a name="SearchCriteria1Choice"></a> Hakutuloksen alisanomien rajaaminen
 
-Järjestelmä palauttaa ainoastaan hakukriteereissä pyydetyt alisanomat (supl.027.001.01, fin.002.001.02, fin.013.001.04). Kutakin alisanomaa pyydetään erillisessä AuthorityRequestType1 -tyyppisessä elementissä, joita siis tulee esiintyä hakukriteereissä 1-3 kappaletta.
+Järjestelmä palauttaa ainoastaan hakukriteereissä pyydetyt alisanomat (supl.027.001.01, fin.002.001.03, fin.013.001.04). Kutakin alisanomaa pyydetään erillisessä AuthorityRequestType1 -tyyppisessä elementissä, joita siis tulee esiintyä hakukriteereissä 1-3 kappaletta.
 
 |Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
 |:---|:---|:---|:---|
-|\<MsgNmId\>|Haku henkilötunnuksella, luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä, oikeushenkilön rekisterinumerolla, yrityksen nimellä tai tallelokeron tunnisteella:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Haku IBANilla tai muulla tilin yksilöintitunnuksella:<br/>Acct/AuthrtyReqTp|"supl.027.001.01", "fin.002.001.02" tai "fin.013.001.04"||
+|\<MsgNmId\>|Haku henkilötunnuksella, luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä, oikeushenkilön rekisterinumerolla, yrityksen nimellä tai tallelokeron tunnisteella:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Haku IBANilla tai muulla tilin yksilöintitunnuksella:<br/>Acct/AuthrtyReqTp|"supl.027.001.01", "fin.002.001.03" tai "fin.013.001.04"||
 
 #### <a name=""></a> Haku henkilötunnuksella
 
@@ -463,6 +464,7 @@ Järjestelmä palauttaa ainoastaan hakukriteereissä pyydetyt alisanomat (supl.0
 |\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchmeNm|"NAME"|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
+Jos annetuilla hakukriteereillä löytyy useampi kuin yksi niitä vastaava yritys, palautetaan virhekoodi 7 (ks. [virhekoodit](#4-12)).
 
 #### <a name=""></a> Haku IBANilla
 
@@ -488,6 +490,8 @@ Järjestelmä palauttaa ainoastaan hakukriteereissä pyydetyt alisanomat (supl.0
 |\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchmeNm|"NATI"|
 |\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth|Syntymäaika. `CtryOfBirth` arvoksi asetetaan "XX" ja `CityOfBirth` arvoksi asetetaan ”not in use”|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
+
+Jos annetuilla hakukriteereillä löytyy useampi kuin yksi niitä vastaava henkilö, palautetaan virhekoodi 7 (ks. [virhekoodit](#4-12)).
 
 #### <a name=""></a> Haku Tallelokeron tunnisteella
 
@@ -542,16 +546,16 @@ ReturnIndicator1 sisältää yksittäisen hakutulostyypin esiintymän.
 
 |XPath|Tyyppi|Kuvaus|
 |:---|:---|:---|
-|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|sisältää sanomalaajennuksen sanoma-id:n (supl.027.001.01, fin.013.001.04 tai fin.002.001.02)|
+|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|sisältää sanomalaajennuksen sanoma-id:n (supl.027.001.01, fin.013.001.04 tai fin.002.001.03)|
 |RtrInd/InvstgtnRslt|InvestigationResult1Choice|palautetaan `Rslt` elementti tyyppiä SupplementaryDataEnvelope1, joka sisältää joko [supl.027.001.01](#supl.027.001.01), [InformationResponseFIN002](#InformationResponseFIN002) tai [InformationResponseFIN013](#InformationResponseFIN013) tai `InvstgtnSts` koodilla `NFOU`.
 
-Jokaista hakutulostyyppiä kohti palautetaan yksi hakutulos-alisanoma (supl.027.001.01, fin.013.001.04 tai fin.002.001.02) per Y-tunnus. 
+Jokaista hakutulostyyppiä kohti palautetaan yksi hakutulos-alisanoma (supl.027.001.01, fin.013.001.04 tai fin.002.001.03) per Y-tunnus. 
 
 __Esimerkki 1.__  
 
 Kyselysanomassa esiintynyttä `Document/InfReqOpng/SchCrit` hakutermiä vastaavia tuloksia on löytynyt kolme kappaletta: yksi asiakkuus ja kaksi tiliä. Tallelokeroita ei löytynyt.
 
-Vastaussanomaan liitetään kolme kappaletta `RtrInd`-elementtiä, joista supl.027.001.01 ja fin.013.001.04 osalta liitetään hakutulokset Rslt-elementteihin ja fin.002.001.02 osalta palautetaan `InvstgtnSts` koodilla `NFOU`:
+Vastaussanomaan liitetään kolme kappaletta `RtrInd`-elementtiä, joista supl.027.001.01 ja fin.013.001.04 osalta liitetään hakutulokset Rslt-elementteihin ja fin.002.001.03 osalta palautetaan `InvstgtnSts` koodilla `NFOU`:
 
 ```
 <!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
@@ -585,7 +589,7 @@ Vastaussanomaan liitetään kolme kappaletta `RtrInd`-elementtiä, joista supl.0
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.002.001.02</n1:MsgNmId>
+    <n1:MsgNmId>fin.002.001.03</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -599,7 +603,7 @@ Rajapinta on koosteinen: yksi rajapinta palauttaa hakutuloksia useiden Y-tunnust
 
 Kyselysanomassa esiintynyttä `Document/InfReqOpng/SchCrit` hakutermiä vastaavia tuloksia on löytynyt neljä kappaletta: yksi tili (tili #1) Y-tunnukselle 0190983-0 ja kolme tiliä (tili #2, tili #3, tili #4) Y-tunnukselle 0828972-6. 
 
-Vastaussanomaan liitetään neljä kappaletta `RtrInd`-elementtiä, joista supl.027.001.0 osalta liitetään hakutulokset Rslt-elementteihin, ja fin.013.001.04 sekä fin.002.001.02 osalta palautetaan `InvstgtnSts` koodilla `NFOU`:
+Vastaussanomaan liitetään neljä kappaletta `RtrInd`-elementtiä, joista supl.027.001.0 osalta liitetään hakutulokset Rslt-elementteihin, ja fin.013.001.04 sekä fin.002.001.03 osalta palautetaan `InvstgtnSts` koodilla `NFOU`:
 
 ```
 <!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
@@ -673,7 +677,7 @@ Vastaussanomaan liitetään neljä kappaletta `RtrInd`-elementtiä, joista supl.
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.002.001.02</n1:MsgNmId>
+    <n1:MsgNmId>fin.002.001.03</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -707,7 +711,7 @@ Vastaussanomaan liitetään kolme kappaletta `InvstgtnSts` elementtiä koodilla 
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.002.001.02</n1:MsgNmId>
+    <n1:MsgNmId>fin.002.001.03</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -805,7 +809,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |AccountRole1| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|kyllä|[1..*]|ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
 |&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|kyllä|[1..1]|Käytetään `OwnrTp/Prtry/SchmeNm` arvolla "RLTP", sekä `OwnrTp/Prtry/Id`, jossa arvo "OWNE" (tallelokeron haltija, "omistaja") tai "ACCE" (tallelokeron käyttöoikeuden haltija, "käyttöoikeus"|
-|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|kyllä|[1..1]|Roolin alkamispäivämäärä|
+|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|kyllä|[0..1]|Roolin alkamispäivämäärä|
 |&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|kyllä|[0..1]|Roolin päättymispäivämäärä|
 
 ### <a name="InformationResponseFIN013"></a> 4.10 InformationResponseFIN013
@@ -1103,6 +1107,10 @@ Asiakaskategorian 1 henkilöhaussa vastauksena palautetaan haetun henkilön tied
 |Muut tiliin liittyvät oikeushenkilöt|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|Henkilöhaussa palautettavan tilin mukana ei palauteta muita kuin hakuun liittyvän oikeushenkilön rooli.|
 |Muut tallelokeroon liittyvät oikeushenkilöt|InformationResponseFIN002|/SdBoxAndPties/Role|Henkilöhaussa palautettavan tallelokeron mukana ei palauteta muita kuin hakuun liittyvän oikeushenkilön rooli.|
 |Muut organisaatioon liittyvät henkilöt|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Henkilöhaussa palautettavan organisaation mukana ei palauteta muita kuin hakuun liittyvän henkilön rooli.|
+|Tallelokeroroolin alkupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Tallelokeroroolin alkupäivää ei palauteta.|
+|Tallelokeroroolin loppupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Tallelokeroroolin loppupäivämäärää ei palauteta.|
+|Edunsaajaroolin alkupäivä|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/StartDt|Edunsaajaroolin alkupäivää ei palauteta.|
+|Edunsaajaroolin loppupäivä|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/EndDt|Edunsaajaroolin loppupäivämäärää ei palauteta.|
 
 #### <a name="5-1-2"></a> 5.1.2 Organisaatiohaku
 
@@ -1118,6 +1126,10 @@ Asiakaskategorian 1 organisaatiohaussa vastauksena palautetaan haetun organisaat
 |Tilin sulkemispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Tilin sulkemispäivämäärää ei palauteta, jos kyseessä on asianajajan asiakasvaratili. Ks. [CustomerAccount-käyttö](#CustomerAccount1).
 |Muut tiliin liittyvät oikeushenkilöt|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|Organisaatiohaussa palautettavan tilin mukana ei palauteta muita kuin hakuun liittyvän oikeushenkilön rooli.|
 |Muut tallelokeroon liittyvät oikeushenkilöt|InformationResponseFIN002|/SdBoxAndPties/Role|Organisaatiohaussa palautettavan tallelokeron mukana ei palauteta muita kuin hakuun liittyvän oikeushenkilön rooli.|
+|Tallelokeroroolin alkupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Tallelokeroroolin alkupäivää ei palauteta.|
+|Tallelokeroroolin loppupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Tallelokeroroolin loppupäivämäärää ei palauteta.|
+|Edunsaajaroolin alkupäivä|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/StartDt|Edunsaajaroolin alkupäivää ei palauteta.|
+|Edunsaajaroolin loppupäivä|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/EndDt|Edunsaajaroolin loppupäivämäärää ei palauteta.|
 
 #### <a name="5-1-3"></a> 5.1.3 Tilihaku
 

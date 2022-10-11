@@ -6,7 +6,7 @@
 
 # Beskrivning av datasöksystemets frågegränssnitt
 
-*Dokumentversion 2.0.1*
+*Dokumentversion 2.0.2*
 
 ## Versionshistorik
 
@@ -59,6 +59,7 @@ Version|Datum|Beskrivning
 1.0.44|27.1.2021|Användningen av elementen DtAndPlcOfBirth och DateOrDateTimePeriodChoice har förtydligats.|
 2.0.0|22.8.2022|Definitioner har uppdaterats enligt lagändringen.|
 2.0.1|16.9.2022|Uppdaterade WSDL och exempelfiler.|
+2.0.2|6.10.2022|Uppdaterade begränsningar för rolldatum för bankfack och förmånstagare. Uppdaterade exempel- och fin.002.001.03-schemafiler. Hantering av dublikater i sökning på person och sökning på organisation har förtydligats i avsnitt 4.5.|
 
 ## Innehåll
 
@@ -118,7 +119,7 @@ Detta dokument ingår i Tullens publicerade föreskrift om ett övervakningssyst
 
 [ISO 20022 head.001.001.01 schema](assets/iso20022org/archive_business_area_business_application_header.zip)
 
-[fin.002.001.02](schemas/fin.002.001.02.xsd)
+[fin.002.001.03](schemas/fin.002.001.03.xsd)
 
 [fin.012.001.03](schemas/fin.012.001.03.xsd)
 
@@ -316,7 +317,7 @@ BAH ska alltid vara det första elementet i SOAP body.
 
 I datasöksystemets frågegränssnitt används  ISO 20022 -meddelandena [InformationRequestOpeningV01 (auth.001.001.01)](assets/iso20022org/auth.001.001.01.xsd) och [InformationRequestResponseV01 (auth.002.001.01)](assets/iso20022org/auth.002.001.01.xsd) till vilka behövliga undermeddelanden ([Supplementary Data](assets/iso20022org/InformationResponse_SupplementaryData.zip)) kopplas.
 
-Undermeddelanden som används på högre nivå delas in i tre begrepp: kundrelation, konto och bankfack. Uppgifterna om kundrelation och förmånstagare returneras i meddelandet [fin.013.001.04](schemas/fin.013.001.04.xsd), kontouppgifterna i meddelandet [supl.027.001.01](assets/iso20022org/InformationResponse_SupplementaryData.zip) och bankfacksuppgifterna i meddelandet [fin.002.001.02](schemas/fin.002.001.02.xsd) (Obs. samma kod som vid manuell behandling i vissa befintliga system). Dessa undermeddelanden kopplas till [auth.002.001.01](assets/iso20022org/auth.002.001.01.xsd)-elementet `InformationRequestResponseV01/RtrInd`.
+Undermeddelanden som används på högre nivå delas in i tre begrepp: kundrelation, konto och bankfack. Uppgifterna om kundrelation och förmånstagare returneras i meddelandet [fin.013.001.04](schemas/fin.013.001.04.xsd), kontouppgifterna i meddelandet [supl.027.001.01](assets/iso20022org/InformationResponse_SupplementaryData.zip) och bankfacksuppgifterna i meddelandet [fin.002.001.03](schemas/fin.002.001.03.xsd) (Obs. samma kod som vid manuell behandling i vissa befintliga system). Dessa undermeddelanden kopplas till [auth.002.001.01](assets/iso20022org/auth.002.001.01.xsd)-elementet `InformationRequestResponseV01/RtrInd`.
 
 I tabellerna 4.3.1-4.3.5 presenteras datainnehållet i registret över bank- och betalkonton, samt Supplementary Data-undermeddelandet, i vilken varje uppgift returneras.
 
@@ -437,11 +438,11 @@ I tabellen beskrivs användningen av meddelandets poster.
 
 #### <a name="SearchCriteria1Choice"></a> Begränsning av undermeddelanden i sökresultatet
 
-Systemet returnerar endast de undermeddelanden som begärs i sökkriterierna (supl.027.001.01, fin.002.001.02, fin.013.001.04). Varje undermeddelande begärs i ett separat element av typen AuthorityRequestType1, som det alltså ska finnas 1–3 av i sökkriterierna.
+Systemet returnerar endast de undermeddelanden som begärs i sökkriterierna (supl.027.001.01, fin.002.001.03, fin.013.001.04). Varje undermeddelande begärs i ett separat element av typen AuthorityRequestType1, som det alltså ska finnas 1–3 av i sökkriterierna.
 
 |Tagg|Schemats sökväg InfReqOpng/SchCrit/|Beskrivning|Regel|
 |:---|:---|:---|:---|
-|\<MsgNmId\>|Sökning med personbeteckning, med kombinationen naturlig persons namn, medborgarskap och födelsedatum, med juridisk persons registreringsnummer, med företagets namn eller med bankfackets identifieringsuppgift:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Sökning med IBAN eller annan kontospecifikation:<br/>Acct/AuthrtyReqTp|"supl.027.001.01", "fin.002.001.02" eller "fin.013.001.04"||
+|\<MsgNmId\>|Sökning med personbeteckning, med kombinationen naturlig persons namn, medborgarskap och födelsedatum, med juridisk persons registreringsnummer, med företagets namn eller med bankfackets identifieringsuppgift:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Sökning med IBAN eller annan kontospecifikation:<br/>Acct/AuthrtyReqTp|"supl.027.001.01", "fin.002.001.03" eller "fin.013.001.04"||
 
 #### <a name=""></a> Sökning med personbeteckning
 
@@ -469,6 +470,7 @@ Systemet returnerar endast de undermeddelanden som begärs i sökkriterierna (su
 |\<Cd\>|CstmrId/Pty/Id/OrgId/Othr/SchmeNm|"NAME"|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
+Om sökkriterier producerar mer än ett motsvarande företag, felkod 7 returneras (se [felkoder](#4-12)).
 
 #### <a name=""></a> Sökning med IBAN
 
@@ -494,6 +496,8 @@ Systemet returnerar endast de undermeddelanden som begärs i sökkriterierna (su
 |\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchmeNm|"NATI"|
 |\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth|Födelsetid. `CtryOfBirth` ges värdet "XX" och `CityOfBirth` ges värdet ”not in use”|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
+
+Om sökkriterier producerar mer än en motsvarande person, felkod 7 returneras (se [felkoder](#4-12)).
 
 #### <a name=""></a> Sökning med bankfackets identifieringsuppgift
 
@@ -548,16 +552,16 @@ ReturnIndicator1 innehåller en enskild typ av sökresultat.
 
 |XPath|Typ|Beskrivning|
 |:---|:---|:---|
-|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|innehåller det utvidgade meddelandets meddelande-id (supl.027.001.01, fin.013.001.04 eller fin.002.001.02)|
+|RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|innehåller det utvidgade meddelandets meddelande-id (supl.027.001.01, fin.013.001.04 eller fin.002.001.03)|
 |RtrInd/InvstgtnRslt|InvestigationResult1Choice|Returneras `Rslt`-elementet av typen SupplementaryDataEnvelope1, som innehåller antingen [supl.027.001.01](#InformationResponseSD1V01), [InformationResponseFIN002](#InformationResponseFIN002) eller [InformationResponseFIN013](#InformationResponseFIN013) eller `InvstgtnSts` med koden `NFOU`.
 
-För varje typ av sökresultat returneras ett undermeddelande med sökresultat (supl.027.001.01, fin.013.001.04 eller fin.002.001.02) per FO-nummer.
+För varje typ av sökresultat returneras ett undermeddelande med sökresultat (supl.027.001.01, fin.013.001.04 eller fin.002.001.03) per FO-nummer.
 
 __Exempel 1.__  
 
 Det fanns tre resultat som motsvarande söktermen `Document/InfReqOpng/SchCrit` i frågemeddelandet: en kundrelation och två konton. Inga bankfack hittades.
 
-Till svarsmeddelandet kopplas tre `RtrInd`-element. I fråga om två av dessa, supl.027.001.01 och fin.013.001.04, kopplas sökresultaten till Rslt-element och i fråga om fin.002.001.02 returneras `InvstgtnSts` med koden `NFOU`:
+Till svarsmeddelandet kopplas tre `RtrInd`-element. I fråga om två av dessa, supl.027.001.01 och fin.013.001.04, kopplas sökresultaten till Rslt-element och i fråga om fin.002.001.03 returneras `InvstgtnSts` med koden `NFOU`:
 
 ```
 <!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
@@ -591,7 +595,7 @@ Till svarsmeddelandet kopplas tre `RtrInd`-element. I fråga om två av dessa, s
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.002.001.02</n1:MsgNmId>
+    <n1:MsgNmId>fin.002.001.03</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -605,7 +609,7 @@ Gränssnittet är sammanfattat: ett gränssnitt returnerar sökresultaten under 
 
 Det fanns fyra resultat som motsvarande söktermen `Document/InfReqOpng/SchCrit` i frågemeddelandet: ett konto (konto #1) för FO-nummer 0190983-0 och tre konton (konto #2, konto #3, konto #4) för FO-nummer 0828972-6.
 
-Till svarsmeddelandet kopplas fyra `RtrInd`-element. I fråga om ett av dessa, supl.027.001.0, kopplas sökresultaten till Rslt-element och i fråga om fin.013.001.04 och fin.002.001.02 returneras `InvstgtnSts` med koden `NFOU`:
+Till svarsmeddelandet kopplas fyra `RtrInd`-element. I fråga om ett av dessa, supl.027.001.0, kopplas sökresultaten till Rslt-element och i fråga om fin.013.001.04 och fin.002.001.03 returneras `InvstgtnSts` med koden `NFOU`:
 
 ```
 <!-- xmlns:n1="urn:iso:std:iso:20022:tech:xsd:auth.002.001.01" -->
@@ -679,7 +683,7 @@ Till svarsmeddelandet kopplas fyra `RtrInd`-element. I fråga om ett av dessa, s
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.002.001.02</n1:MsgNmId>
+    <n1:MsgNmId>fin.002.001.03</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -713,7 +717,7 @@ Till svarsmeddelandet kopplas tre `InvstgtnSts`-element med koden `NFOU`.
 </n1:RtrInd>
 <n1:RtrInd>
   <n1:AuthrtyReqTp>
-    <n1:MsgNmId>fin.002.001.02</n1:MsgNmId>
+    <n1:MsgNmId>fin.002.001.03</n1:MsgNmId>
   </n1:AuthrtyReqTp>
   <n1:InvstgtnRslt>
     <n1:InvstgtnSts>NFOU</n1:InvstgtnSts>
@@ -811,7 +815,7 @@ Det utvidgade meddelandet kopplas till ISO 20022-meddelandets XPath-läge som an
 |AccountRole1| | | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|Ja|[1..*]|Se [Användning av Id-element](#Anvandning_av_Id-element)|
 |&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|Ja|[1..1]|`OwnrTp/Prtry/SchmeNm` används med värdet “RLTP”, samt `OwnrTp/Prtry/Id` med värdet “OWNE” (kontoinnehavare, “ägare”) eller “ACCE” (den som har dispositionsrätt till kontot, “dispositionsrätt”).|
-|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|Ja|[1..1]|Startdatum för rollen|
+|&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|Ja|[0..1]|Startdatum för rollen|
 |&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|Ja|[0..1]|Slutdatum för rollen|
 
 ### <a name="InformationResponseFIN013"></a> 4.10 InformationResponseFIN013
@@ -1107,6 +1111,10 @@ I sökningen på person i kundkategori 1, returneras som svar den sökta persone
 |Andra juridiska personer kopplade till kontot|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|Vid sökning på person returneras med kontot inga andra än den juridiska persons roll som är kopplad till sökningen.|
 |Andra juridiska personer kopplade till bankfacket|InformationResponseFIN002|/SdBoxAndPties/Role|Vid sökning på person returneras med bankfacket inga andra än den juridiska persons roll som är kopplad till sökningen.|
 |Andra personer som är kopplade till organisationen|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Vid sökning på person returneras med organisationen inga andra än den persons roll som är kopplad till sökningen.|
+|Bankfackrollens startdatum|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Bankfackrollens startdatum returneras inte.|
+|Bankfackrollens slutdatum|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Bankfackrollens slutdatum returneras inte.|
+|Förmånstagarerollens startdatum|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/StartDt|Förmånstagarerollens startdatum returneras inte.|
+|Förmånstagarerollens slutdatum|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/EndDt|Förmånstagarerollens slutdatum returneras inte.|
 
 #### <a name="5-1-2"></a>  Sökning på organisation
 
@@ -1122,6 +1130,10 @@ I sökningen på organisation i kundkategori 1, returneras som svar den sökta o
 |Kontots avslutningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Kontots avslutningsdatum returneras inte, om det är fråga om ett gemensamt konto som förvaltas av en advokat. Se [användning av CustomerAccount](#CustomerAccount1).|
 |Andra juridiska personer kopplade till kontot|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|Vid sökning på organisation returneras med kontot inga andra än den juridiska persons roll som är kopplad till sökningen.|
 |Andra juridiska personer kopplade till bankfacket|InformationResponseFIN002|/SdBoxAndPties/Role|Vid sökning på organisation returneras med bankfacket inga andra än den juridiska persons roll som är kopplad till sökningen. |
+|Bankfackrollens startdatum|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Bankfackrollens startdatum returneras inte.|
+|Bankfackrollens slutdatum|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Bankfackrollens slutdatum returneras inte.|
+|Förmånstagarerollens startdatum|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/StartDt|Förmånstagarerollens startdatum returneras inte.|
+|Förmånstagarerollens slutdatum|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/EndDt|Förmånstagarerollens slutdatum returneras inte.|
 
 #### <a name="5-1-3"></a> 5.1.3 Sökning på konto
 
