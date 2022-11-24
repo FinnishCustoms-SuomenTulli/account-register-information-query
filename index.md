@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 2.0.2*
+*Dokumentin versio 2.0.3*
 
 ## Versiohistoria
 
@@ -60,6 +60,7 @@ Versio|Päivämäärä|Kuvaus
 2.0.0|22.8.2022|Päivitetty määritelmiä lakimuutoksen mukaisiksi.|
 2.0.1|16.9.2022|Päivitetty WSDL- ja esimerkkitiedostoja.|
 2.0.2|6.10.2022|Tarkennettu tallelokero- ja edunsaajaroolien päivämäärien määritystä. Päivitetty esimerkki- ja fin.002.001.03-skeematiedostoja. Tarkennettu duplikaattien käsittelyä henkilö- ja yrityshaussa lukuun 4.5.|
+2.0.3|24.11.2022|Päivitetty ohjetiedostoja.|
 
 ## Sisällysluettelo
 

@@ -6,7 +6,7 @@
 
 # Query interface description of the data retrieval system
 
-*Document version 2.0.2*
+*Document version 2.0.3*
 
 ## Vesion history
 
@@ -60,6 +60,7 @@ Version|Date|Decription
 2.0.0|22.8.2022|Updated specifications to match the updated legal requirements.|
 2.0.1|16.9.2022|Updated WSDL and example files.|
 2.0.2|6.10.2022|Updated safety deposit box and beneficiary role date limitations. Updated example and fin.002.001.03 schema files. Clarified handling of duplicates in query for a person and query for an organisation in chapter 4.5.|
+2.0.3|24.11.2022|Updated instructions files.|
 
 ## Table of contents
 

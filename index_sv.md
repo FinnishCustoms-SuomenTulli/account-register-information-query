@@ -6,7 +6,7 @@
 
 # Beskrivning av datasöksystemets frågegränssnitt
 
-*Dokumentversion 2.0.2*
+*Dokumentversion 2.0.3*
 
 ## Versionshistorik
 
@@ -60,6 +60,7 @@ Version|Datum|Beskrivning
 2.0.0|22.8.2022|Definitioner har uppdaterats enligt lagändringen.|
 2.0.1|16.9.2022|Uppdaterade WSDL och exempelfiler.|
 2.0.2|6.10.2022|Uppdaterade begränsningar för rolldatum för bankfack och förmånstagare. Uppdaterade exempel- och fin.002.001.03-schemafiler. Hantering av dublikater i sökning på person och sökning på organisation har förtydligats i avsnitt 4.5.|
+2.0.3|24.11.2022|Uppdaterade instruktioner filer.|
 
 ## Innehåll
 
