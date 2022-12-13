@@ -61,6 +61,7 @@ Version|Date|Decription
 2.0.1|16.9.2022|Updated WSDL and example files.|
 2.0.2|6.10.2022|Updated safety deposit box and beneficiary role date limitations. Updated example and fin.002.001.03 schema files. Clarified handling of duplicates in query for a person and query for an organisation in chapter 4.5.|
 2.0.3|24.11.2022|Updated instructions files.|
+2.0.4|13.12.2022|Updated limitations related to lawyer's customer asset accounts. Lawyer's customer asset accounts are not returned in InformationResponseSD1V01 supl.027.001.01 submessages, if the query type is natural person query or organisation query.|
 
 ## Table of contents
 
@@ -1111,7 +1112,7 @@ Data providers have been divided into two categories: customer category 1 that r
 
 #### <a name="5-1-1"></a> 5.1.1 Natural person query
 
-In customer category 1 natural person query, the response includes the information of the person who was the object of the query, information of organisations where the person is a beneficiary, and information of accounts and safety deposit boxes the person owns or has access to during the investigation period. Other legal persons who own or have access to these accounts or safety deposit boxes are not returned. Customership information is not returned. 
+In customer category 1 natural person query, the response includes the information of the person who was the object of the query, information of organisations where the person is a beneficiary, and information of accounts and safety deposit boxes the person owns or has access to during the investigation period. Other legal persons who own or have access to these accounts or safety deposit boxes are not returned. Customership information is not returned. Lawyer's customer asset accounts are not returned.
 
 *__Table 5.1.1.1:__ Limitations to queries for a person. This query category contains queries with a personal ID and queries with a natural person's name, nationality and birth date combination*
 
@@ -1120,8 +1121,6 @@ In customer category 1 natural person query, the response includes the informati
 |Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo element is not returned|
 |Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
 |Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Account role end date is not returned.|
-|Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
-|Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#CustomerAccount1)|
 |Other legal persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In natural person query, only the role related to the legal person defined in the query is returned with the account data.|
 |Other legal persons related to a safety deposit box|InformationResponseFIN002|/SdBoxAndPties/Role|In natural person query, only the role related to the legal person defined in the query is returned with the safety deposit box data.|
 |Other persons related to an organisation|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|In natural person query, only the role related to the person defined in the query is returned with the organisation data.|
@@ -1129,10 +1128,11 @@ In customer category 1 natural person query, the response includes the informati
 |Safety deposit box role end date|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Safety deposit box role ending date is not returned.|
 |Beneficiary role starting date|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/StartDt|Beneficiary role starting date is not returned.|
 |Beneficiary role ending date|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/EndDt|Beneficiary role ending date is not returned.|
+|Lawyer's customer asset account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties|An account is not returned, if it is a lawyer's customer asset account.|
 
 #### <a name="5-1-2"></a> 5.1.2 Organisation query
 
-In customer category 1 organisation query, the response includes the information of the organisation that was the object of the query, information of persons who are beneficiaries of the organisation, customership information of the organisation, and information of accounts and safety deposit boxes the organisation owns or has access to during the investigation period. Other legal persons who own or have access to these accounts or safety deposit boxes are not returned. 
+In customer category 1 organisation query, the response includes the information of the organisation that was the object of the query, information of persons who are beneficiaries of the organisation, customership information of the organisation, and information of accounts and safety deposit boxes the organisation owns or has access to during the investigation period. Other legal persons who own or have access to these accounts or safety deposit boxes are not returned. Lawyer's customer asset accounts are not returned.
 
 *__Table 5.1.2.1:__ Limitations to queries for an organisation. This query category contains queries with a company's name and queries with legal person's registration number*
 
@@ -1140,14 +1140,13 @@ In customer category 1 organisation query, the response includes the information
 |:---|:---|:---|:---|
 |Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
 |Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Account role end date is not returned.|
-|Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
-|Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
 |Other legal persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In organisation query, only the role related to the legal person defined in the query is returned with the account data.|
 |Other legal persons related to a safety deposit box|InformationResponseFIN002|/SdBoxAndPties/Role|In organisation query, only the role related to the legal person defined in the query is returned with the safety deposit box data.|
 |Safety deposit box role start date|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Safety deposit box role starting date is not returned.|
 |Safety deposit box role end date|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Safety deposit box role ending date is not returned.|
 |Beneficiary role starting date|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/StartDt|Beneficiary role starting date is not returned.|
 |Beneficiary role ending date|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/EndDt|Beneficiary role ending date is not returned.|
+|Lawyer's customer asset account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties|An account is not returned, if it is a lawyer's customer asset account.|
 
 #### <a name="5-1-3"></a> 5.1.3 Account query
 
@@ -1181,7 +1180,7 @@ In customer category 1 safety deposit box query the response includes the inform
 
 #### <a name="5-2-1"></a> 5.2.1 Natural person query
 
-In customer category 2 natural person query, the response includes the information of the person who was the object of the query, customership information of the person and information of accounts the person owns or has access to during the investigation period. Other legal persons who own or have access to these accounts are not returned. Organisation's beneficiary information is not returned.
+In customer category 2 natural person query, the response includes the information of the person who was the object of the query, customership information of the person and information of accounts the person owns or has access to during the investigation period. Other legal persons who own or have access to these accounts are not returned. Organisation's beneficiary information is not returned. Lawyer's customer asset accounts are not returned.
 
 *__Table 5.2.1.1:__ Limitations to queries for a person. This query category contains queries with a personal ID and queries with a natural person's name, nationality and birth date combination*
 
@@ -1193,10 +1192,11 @@ In customer category 2 natural person query, the response includes the informati
 |Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned.|
 |Organisations based on beneficiary role|InformationResponseFIN013|/LegalPersonInfo|No data related to legal persons where the queried natural person is a beneficiary is returned with the InformationResponseFIN013 Submessage.|
 |Other legal persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In natural person query, only the role related to the legal person defined in the query is returned with the account data.|
+|Lawyer's customer asset account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties|An account is not returned, if it is a lawyer's customer asset account.|
 
 #### <a name="5-2-2"></a> 5.2.2 Organisation query
 
-In customer category 2 organisation query, the response includes the information of the organisation that was the object of the query, customership information of the organisation and information of accounts the organisation owns or has access to during the investigation period. Other legal persons who own or have access to these accounts are not returned. Organisation's beneficiary information is not returned.
+In customer category 2 organisation query, the response includes the information of the organisation that was the object of the query, customership information of the organisation and information of accounts the organisation owns or has access to during the investigation period. Other legal persons who own or have access to these accounts are not returned. Organisation's beneficiary information is not returned. Lawyer's customer asset accounts are not returned.
 
 *__Table 5.2.2.1:__ Limitations to queries for an organisation. This query category contains queries with a company's name and queries with legal person's registration number*
 
@@ -1208,6 +1208,7 @@ In customer category 2 organisation query, the response includes the information
 |Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned.|
 |Beneficiaries|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Beneficiaries related to a legal person are not returned.|
 |Other legal persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In organisation query, only the role related to the legal person defined in the query is returned with the account data.|
+|Lawyer's customer asset account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties|An account is not returned, if it is a lawyer's customer asset account.|
 
 #### <a name="5-2-3"></a> 5.2.3 Account query
 
