@@ -1117,7 +1117,7 @@ I sökningen på person i kundkategori 1, returneras som svar den sökta persone
 |Förmånstagarerollens slutdatum|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/EndDt|Förmånstagarerollens slutdatum returneras inte.|
 |Ett gemensamt konto som förvaltas av en advokat|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties|Kontot returneras inte, om det är fråga om ett gemensamt konto som förvaltas av en advokat.|
 
-#### <a name="5-1-2"></a>  Sökning på organisation
+#### <a name="5-1-2"></a> 5.1.2 Sökning på organisation
 
 I sökningen på organisation i kundkategori 1, returneras som svar den sökta organisationens uppgifter, uppgifter om personer inom organisationen som är den sökta organisationens förmånstagare, organisationens kundrelation samt uppgifter om sådana konton och bankfack där den sökta organisationen är ägare eller har tillträdesrättigheter som innehavare under sökintervallet.  Övriga eventuella ägare eller innehavare av tillträdesrättigheter till kontona eller bankfacken returneras inte. Inga uppgifter returneras om gemensamma konton som förvaltas av en advokat.
 
