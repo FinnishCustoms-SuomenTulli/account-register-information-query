@@ -61,6 +61,7 @@ Versio|Päivämäärä|Kuvaus
 2.0.1|16.9.2022|Päivitetty WSDL- ja esimerkkitiedostoja.|
 2.0.2|6.10.2022|Tarkennettu tallelokero- ja edunsaajaroolien päivämäärien määritystä. Päivitetty esimerkki- ja fin.002.001.03-skeematiedostoja. Tarkennettu duplikaattien käsittelyä henkilö- ja yrityshaussa lukuun 4.5.|
 2.0.3|24.11.2022|Päivitetty ohjetiedostoja.|
+2.0.4|15.12.2022|Päivitetty ohjetiedostoja.|
 
 ## Sisällysluettelo
 
@@ -427,7 +428,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |&nbsp;&nbsp;&nbsp;&nbsp;LglMndtBsis|LegalMandate1|Kyllä|Lainsäädäntöperuste. Numeroarvo välillä 100..n. Ensimmäiset numerot kertovat viranomaisen ja kaksi viimeistä numeroa lainsäädäntöperusteen. Lainsäädäntöperusteita kootaan Finanssiala Ry:n kanssa sovitun mukaisesti viranomaisten yhteisesti ylläpitämään kooditaulukkoon. Taulukko toimitetaan tiedonhakujärjestelmän toteuttajille sopimusneuvottelujen yhteydessä (taulukko ei ole julkinen).|
 |&nbsp;&nbsp;&nbsp;&nbsp;CnfdtltySts|YesNoIndicator|Kyllä|Aina "true"|
 |&nbsp;&nbsp;&nbsp;&nbsp;DueDt|DueDate1|Ei||
-|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Kyllä|Päivä tai päivämääräväli, johon haku kohdistuu. Päivämääräväli on aina tänään tai menneisyydessä. Aikavälihaku on sisällyttävä siten, että jos jokin tietosisältöön määritetty aikaväli (kaikki taulukoiden 4.3.1-4.3.5 päivämäärätietueet) sisältyy osittain tai kokonaan annettuun InvstgtnPrd-aikaväliin, on kyseinen tietorivi lisättävä hakutulokseen. Käytetään vain Dt elementtiä. |
+|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Kyllä|Päivä tai päivämääräväli, johon haku kohdistuu. Päivämääräväli on aina tänään tai menneisyydessä. Aikavälihaku on sisällyttävä siten, että jos jokin tietosisältöön määritetty aikaväli (kaikki taulukoiden 4.3.1-4.3.5 päivämäärätietueet) sisältyy osittain tai kokonaan annettuun InvstgtnPrd-aikaväliin, on kyseinen tietorivi lisättävä hakutulokseen. Investigation period alku saa olla aikaisintaan 1.9.2020. Käytetään vain Dt elementtiä.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Kyllä|Hakukriteeri. Käytettävä aina mahdollisimman täsmällistä hakukriteeriä. Ks. [tarkempi erittely](#SearchCriteria1Choice) alla.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Kyllä|Sisältää sanomalaajennuksen [InformationRequestFIN012](#InformationRequestFIN012)|
 
@@ -983,7 +984,7 @@ Seuraamus|Palautetaan SOAP Fault ks. taulukko alla|
       <td>3</td>
     </tr>
     <tr>
-      <td >Sanomassa on validointivirheit&auml;</td>
+      <td >Sanomassa on validointivirheit&auml;, esimerkiksi virheellinen investigation period</td>
       <td >SOAP-ENV:Client</td><td  colspan="1">Bad Request</td>
       <td  colspan="1">
         <p>1 kpl ValidationError-elementti&auml; per validointivirhe esim.</p>
