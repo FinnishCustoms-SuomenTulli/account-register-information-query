@@ -6,7 +6,7 @@
 
 # Query interface description of the data retrieval system
 
-*Document version 2.0.3*
+*Document version 2.0.4*
 
 ## Vesion history
 
