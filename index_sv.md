@@ -989,7 +989,7 @@ Påföljd|SOAP Fault returneras, se tabellen nedan|
       <td>3</td>
     </tr>
     <tr>
-      <td >Meddelandet har valideringsfel</td>
+      <td >Meddelandet har valideringsfel, till exempel felaktig investigation period</td>
       <td >SOAP-ENV:Client</td><td  colspan="1">Bad Request</td>
       <td  colspan="1">
         <p>1 st. ValidationError-element per valideringsfel, t.ex.</p>
@@ -1006,7 +1006,7 @@ Påföljd|SOAP Fault returneras, se tabellen nedan|
       <td>5</td>
     </tr>
     <tr>
-      <td >Svarsmeddelandets storlek är för stor</td>
+      <td >Svarsmeddelandets storlek är för stor (över 5 Mb)</td>
       <td >SOAP-ENV:Client</td><td  colspan="1">Query response size is too large. Please refine the query.</td>
       <td  colspan="1">
         <p><code>&lt;errorcode&gt;6&lt;/errorcode&gt;</code><br /></p>
