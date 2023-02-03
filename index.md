@@ -1001,7 +1001,7 @@ Seuraamus|Palautetaan SOAP Fault ks. taulukko alla|
       <td>5</td>
     </tr>
     <tr>
-      <td >Vastaussanoman koko on liian suuri</td>
+      <td >Vastaussanoman koko on liian suuri (yli 5 Mb)</td>
       <td >SOAP-ENV:Client</td><td  colspan="1">Query response size is too large. Please refine the query.</td>
       <td  colspan="1">
         <p><code>&lt;errorcode&gt;6&lt;/errorcode&gt;</code><br /></p>
