@@ -1000,7 +1000,7 @@ Consequence|SOAP Fault is returned, see table below.|
       <td>3</td>
     </tr>
     <tr>
-      <td >There are validation errors in the message</td>
+      <td >There are validation errors in the message, for example incorrect investigation period</td>
       <td >SOAP-ENV:Client</td><td  colspan="1">Bad Request</td>
       <td  colspan="1">
         <p>1 ValidationError element per validation error eg.</p>
@@ -1017,7 +1017,7 @@ Consequence|SOAP Fault is returned, see table below.|
       <td>5</td>
     </tr>
     <tr>
-      <td >Query response size is too large</td>
+      <td >Query response size is too large (over 5 Mb)</td>
       <td >SOAP-ENV:Client</td><td  colspan="1">Query response size is too large. Please refine the query.</td>
       <td  colspan="1">
         <p><code>&lt;errorcode&gt;6&lt;/errorcode&gt;</code><br /></p>
