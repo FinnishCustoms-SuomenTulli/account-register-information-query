@@ -1,12 +1,12 @@
 [Käyttöönoton ja ylläpidon ohjeistus tiedonhakujärjestelmä](instructions/Käyttöönoton_ja_ylläpidon_ohjeistus_tiedonhakujärjestelmä.pdf)  
+[Tiedonhakujärjestelmän kyselyrajapintakuvaus](index.md)  
 [Deployment and maintenance instructions for the Data Retrieval System](instructions/Deployment_and_maintenance_instructions_for_the_Data_Retrieval_System_EN.pdf)  
 [Query interface description of the data retrieval system](index_en.md)  
 [Instruktioner för produktionssättning och underhåll av datasöksystemet](instructions/Instruktioner_för_produktionssättning_och_underhåll_av_datasöksystemet_SV.pdf)  
-[Beskrivning av datasöksystemets frågegränssnitt](index_sv.md)  
 
 # Beskrivning av datasöksystemets frågegränssnitt
 
-*Dokumentversion 2.0.3*
+*Dokumentversion 2.0.5*
 
 ## Versionshistorik
 
@@ -61,6 +61,8 @@ Version|Datum|Beskrivning
 2.0.1|16.9.2022|Uppdaterade WSDL och exempelfiler.|
 2.0.2|6.10.2022|Uppdaterade begränsningar för rolldatum för bankfack och förmånstagare. Uppdaterade exempel- och fin.002.001.03-schemafiler. Hantering av dublikater i sökning på person och sökning på organisation har förtydligats i avsnitt 4.5.|
 2.0.3|24.11.2022|Uppdaterade instruktioner filer.|
+2.0.4|13.12.2022|Uppdaterade begränsningar för gemensamma konton som förvaltas av en advokat. Gemensamma konton som förvaltas av en advokat returneras inte i InformationResponseSD1V01 supl.027.001.01 undermeddelandet om sökningen är på person eller på organisation.|
+2.0.5|6.2.2023|Preciseringar i avsnitt 4.12: Valideringsfel kan användas i händelse av felaktig investigation period. Maximal storlek för svarsmeddelandet är 5 Mb.|
 
 ## Innehåll
 
