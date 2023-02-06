@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 2.0.3*
+*Dokumentin versio 2.0.5*
 
 ## Versiohistoria
 
@@ -61,7 +61,8 @@ Versio|Päivämäärä|Kuvaus
 2.0.1|16.9.2022|Päivitetty WSDL- ja esimerkkitiedostoja.|
 2.0.2|6.10.2022|Tarkennettu tallelokero- ja edunsaajaroolien päivämäärien määritystä. Päivitetty esimerkki- ja fin.002.001.03-skeematiedostoja. Tarkennettu duplikaattien käsittelyä henkilö- ja yrityshaussa lukuun 4.5.|
 2.0.3|24.11.2022|Päivitetty ohjetiedostoja.|
-2.0.4|15.12.2022|Päivitetty ohjetiedostoja.|
+2.0.4|12.12.2022|Päivitetty asianajajan asiakasvaratiliin liittyviä rajoituksia. Asianajajan asiakasvaratilejä ei palauteta InformationResponseSD1V01 supl.027.001.01 alisanomassa, jos haun tyyppi on henkilö- tai organisaatiohaku.|
+2.0.5|6.2.2023|Tarkennuksia lukuun 4.12: Validointivirhettä voi käyttää virheellisen investigation periodin tapauksessa. Vastaussanoman maksimikoko on 5 Mb.|
 
 ## Sisällysluettelo
 
