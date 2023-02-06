@@ -1,12 +1,12 @@
 [Käyttöönoton ja ylläpidon ohjeistus tiedonhakujärjestelmä](instructions/Käyttöönoton_ja_ylläpidon_ohjeistus_tiedonhakujärjestelmä.pdf)  
-[Deployment and maintenance instructions for the Data Retrieval System](instructions/Deployment_and_maintenance_instructions_for_the_Data_Retrieval_System_EN.pdf)  
-[Query interface description of the data retrieval system](index_en.md)  
+[Tiedonhakujärjestelmän kyselyrajapintakuvaus](index.md)  
+[Deployment and maintenance instructions for the Data Retrieval System](instructions/Deployment_and_maintenance_instructions_for_the_Data_Retrieval_System_EN.pdf)    
 [Instruktioner för produktionssättning och underhåll av datasöksystemet](instructions/Instruktioner_för_produktionssättning_och_underhåll_av_datasöksystemet_SV.pdf)  
 [Beskrivning av datasöksystemets frågegränssnitt](index_sv.md)
 
 # Query interface description of the data retrieval system
 
-*Document version 2.0.3*
+*Document version 2.0.5*
 
 ## Vesion history
 
@@ -61,6 +61,8 @@ Version|Date|Decription
 2.0.1|16.9.2022|Updated WSDL and example files.|
 2.0.2|6.10.2022|Updated safety deposit box and beneficiary role date limitations. Updated example and fin.002.001.03 schema files. Clarified handling of duplicates in query for a person and query for an organisation in chapter 4.5.|
 2.0.3|24.11.2022|Updated instructions files.|
+2.0.4|13.12.2022|Updated limitations related to lawyer's customer asset accounts. Lawyer's customer asset accounts are not returned in InformationResponseSD1V01 supl.027.001.01 submessages, if the query type is natural person query or organisation query.|
+2.0.5|6.2.2023|Clarifications to chapter 4.12: Validation error can be used in case of incorrect investigation period. Maximum size for response message is 5 Mb.|
 
 ## Table of contents
 
