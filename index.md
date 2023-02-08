@@ -1116,7 +1116,7 @@ Asiakaskategorian 1 henkilöhaussa vastauksena palautetaan haetun henkilön tied
 
 #### <a name="5-1-2"></a> 5.1.2 Organisaatiohaku
 
-Asiakaskategorian 1 organisaatiohaussa vastauksena palautetaan haetun organisaation tiedot, sellaisten henkilöiden tiedot, jotka ovat haetun organisaation edunsaajia, organisaation asiakkuus sekä sellaisten tilien ja tallelokeroiden tiedot, joissa haettu organisaatio on omistajana tai pääsyoikeuden haltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita omistajia tai pääsyoikeuden haltijoita ei palauteta. Asianajajan asiakasvaratilejä ei palauteta. 
+Asiakaskategorian 1 organisaatiohaussa vastauksena palautetaan haetun organisaation tiedot, sellaisten henkilöiden tiedot, jotka ovat haetun organisaation edunsaajia, organisaation asiakkuus sekä sellaisten tilien ja tallelokeroiden tiedot, joissa haettu organisaatio on omistajana tai pääsyoikeuden haltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita omistajia tai pääsyoikeuden haltijoita ei palauteta. Asianajajan asiakasvaratilejä ei palauteta.
 
 *__Taulukko 5.1.2.1:__ Organisaatiohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut yrityksen nimellä ja haut oikeushenkilön rekisterinumerolla*
 

@@ -1113,7 +1113,7 @@ Data providers have been divided into two categories: customer category 1 that r
 
 #### <a name="5-1-1"></a> 5.1.1 Natural person query
 
-In customer category 1 natural person query, the response includes the information of the person who was the object of the query, information of organisations where the person is a beneficiary, and information of accounts and safety deposit boxes the person owns or has access to during the investigation period. Other legal persons who own or have access to these accounts or safety deposit boxes are not returned. Customership information is not returned. Lawyer's customer asset accounts are not returned. 
+In customer category 1 natural person query, the response includes the information of the person who was the object of the query, information of organisations where the person is a beneficiary, and information of accounts and safety deposit boxes the person owns or has access to during the investigation period. Other legal persons who own or have access to these accounts or safety deposit boxes are not returned. Customership information is not returned. Lawyer's customer asset accounts are not returned.
 
 *__Table 5.1.1.1:__ Limitations to queries for a person. This query category contains queries with a personal ID and queries with a natural person's name, nationality and birth date combination*
 
@@ -1133,7 +1133,7 @@ In customer category 1 natural person query, the response includes the informati
 
 #### <a name="5-1-2"></a> 5.1.2 Organisation query
 
-In customer category 1 organisation query, the response includes the information of the organisation that was the object of the query, information of persons who are beneficiaries of the organisation, customership information of the organisation, and information of accounts and safety deposit boxes the organisation owns or has access to during the investigation period. Other legal persons who own or have access to these accounts or safety deposit boxes are not returned. Lawyer's customer asset accounts are not returned. 
+In customer category 1 organisation query, the response includes the information of the organisation that was the object of the query, information of persons who are beneficiaries of the organisation, customership information of the organisation, and information of accounts and safety deposit boxes the organisation owns or has access to during the investigation period. Other legal persons who own or have access to these accounts or safety deposit boxes are not returned. Lawyer's customer asset accounts are not returned.
 
 *__Table 5.1.2.1:__ Limitations to queries for an organisation. This query category contains queries with a company's name and queries with legal person's registration number*
 
