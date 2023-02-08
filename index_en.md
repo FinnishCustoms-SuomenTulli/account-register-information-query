@@ -1,12 +1,12 @@
 [Käyttöönoton ja ylläpidon ohjeistus tiedonhakujärjestelmä](instructions/Käyttöönoton_ja_ylläpidon_ohjeistus_tiedonhakujärjestelmä.pdf)  
-[Deployment and maintenance instructions for the Data Retrieval System](instructions/Deployment_and_maintenance_instructions_for_the_Data_Retrieval_System_EN.pdf)  
-[Query interface description of the data retrieval system](index_en.md)  
+[Tiedonhakujärjestelmän kyselyrajapintakuvaus](index.md)  
+[Deployment and maintenance instructions for the Data Retrieval System](instructions/Deployment_and_maintenance_instructions_for_the_Data_Retrieval_System_EN.pdf)    
 [Instruktioner för produktionssättning och underhåll av datasöksystemet](instructions/Instruktioner_för_produktionssättning_och_underhåll_av_datasöksystemet_SV.pdf)  
 [Beskrivning av datasöksystemets frågegränssnitt](index_sv.md)
 
 # Query interface description of the data retrieval system
 
-*Document version 2.0.4*
+*Document version 2.0.5*
 
 ## Vesion history
 
@@ -62,6 +62,7 @@ Version|Date|Decription
 2.0.2|6.10.2022|Updated safety deposit box and beneficiary role date limitations. Updated example and fin.002.001.03 schema files. Clarified handling of duplicates in query for a person and query for an organisation in chapter 4.5.|
 2.0.3|24.11.2022|Updated instructions files.|
 2.0.4|13.12.2022|Updated limitations related to lawyer's customer asset accounts. Lawyer's customer asset accounts are not returned in InformationResponseSD1V01 supl.027.001.01 submessages, if the query type is natural person query or organisation query.|
+2.0.5|7.2.2023|Clarifications to chapter 4.12: Validation error can be used in case of incorrect investigation period. Maximum size for response message is 5 Mb. In chapter 3.1 replaced Population Register Centre with Digital and Population Data Services Agency.|
 
 ## Table of contents
 
@@ -210,7 +211,7 @@ Data suppliers must sign the messages they send using the server certificate x.5
 
 either
 
-a) the certificate was issued by the Population Register Centre, the certificate is valid and is not included in the certificate revocation list of the Population Register Centre, and the serialNumber attribute of the Subject field of the certificate consists of the Business ID or VAT identifier of the party submitting the information
+a) the certificate was issued by the Digital and Population Data Services Agency, the certificate is valid and is not included in the certificate revocation list of the Digital and Population Data Services Agency, and the serialNumber attribute of the Subject field of the certificate consists of the Business ID or VAT identifier of the party submitting the information
 
 or
 
@@ -222,7 +223,7 @@ Please note: For the message signatures to meet the information security require
 
 The competent authority must sign the messages it sends using the server certificate x.509 that indicates the Business ID of the authority. The signatures in incoming messages must be checked. The recipient cannot accept a message without an acceptable signature. Accepting the competent authority’s signature requires that the XML signature is valid and that
 
-a) the signature certificate used for the signature was issued by the Population Register Centre, the certificate is valid and is not included in the certificate revocation list maintained by the Population Register Centre
+a) the signature certificate used for the signature was issued by the Digital and Population Data Services Agency, the certificate is valid and is not included in the certificate revocation list maintained by the Digital and Population Data Services Agency
 
 b) the serialNumber attribute of the Subject field of the certificate consists of the Business ID of the competent authority that sent the message or of the identifier that is formed of the letters “FI” and the digit part of the authority’s Business ID without the hyphen (ID in the format of a VAT-number).
 
@@ -231,9 +232,9 @@ b) the serialNumber attribute of the Subject field of the certificate consists o
 
 The data supplier or the party authorised by the data supplier identifies the competent authority contacting the query interface of the data retrieval system with the help of the server certificate. A contact made by the competent authority must be accepted provided that
 
-a) the certificate of the competent authority was issued by the Population Register Centre 
+a) the certificate of the competent authority was issued by the Digital and Population Data Services Agency 
 
-b) the certificate is valid and is not included in the certificate revocation list of the Population Register Centre
+b) the certificate is valid and is not included in the certificate revocation list of the Digital and Population Data Services Agency
 
 c) the serialNumber attribute of the Subject field of the certificate consists of the Business ID of the competent authority or the state service centre acting on its behalf, or of the identifier that is formed of the letters “FI” and the digit part of the authority’s or the centre’s Business ID without the hyphen (ID in the format of a VAT-number).
 
@@ -244,7 +245,7 @@ The competent authority contacting the query interface identifies the data suppl
 
 either 
 
-a) the server certificate was issued by the Population Register Centre, the certificate is valid and is not included in the certificate revocation list of the Population Register Centre, and the serialNumber attribute of the subject of the certificate consists of the Business ID or VAT identifier of the party submitting the information or the party authorised by that party
+a) the server certificate was issued by the Digital and Population Data Services Agency, the certificate is valid and is not included in the certificate revocation list of the Digital and Population Data Services Agency, and the serialNumber attribute of the subject of the certificate consists of the Business ID or VAT identifier of the party submitting the information or the party authorised by that party
 
 or
 
@@ -1001,7 +1002,7 @@ Consequence|SOAP Fault is returned, see table below.|
       <td>3</td>
     </tr>
     <tr>
-      <td >There are validation errors in the message</td>
+      <td >There are validation errors in the message, for example incorrect investigation period</td>
       <td >SOAP-ENV:Client</td><td  colspan="1">Bad Request</td>
       <td  colspan="1">
         <p>1 ValidationError element per validation error eg.</p>
@@ -1018,7 +1019,7 @@ Consequence|SOAP Fault is returned, see table below.|
       <td>5</td>
     </tr>
     <tr>
-      <td >Query response size is too large</td>
+      <td >Query response size is too large (over 5 Mb)</td>
       <td >SOAP-ENV:Client</td><td  colspan="1">Query response size is too large. Please refine the query.</td>
       <td  colspan="1">
         <p><code>&lt;errorcode&gt;6&lt;/errorcode&gt;</code><br /></p>

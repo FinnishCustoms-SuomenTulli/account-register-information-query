@@ -1,12 +1,12 @@
 [Käyttöönoton ja ylläpidon ohjeistus tiedonhakujärjestelmä](instructions/Käyttöönoton_ja_ylläpidon_ohjeistus_tiedonhakujärjestelmä.pdf)  
+[Tiedonhakujärjestelmän kyselyrajapintakuvaus](index.md)  
 [Deployment and maintenance instructions for the Data Retrieval System](instructions/Deployment_and_maintenance_instructions_for_the_Data_Retrieval_System_EN.pdf)  
 [Query interface description of the data retrieval system](index_en.md)  
 [Instruktioner för produktionssättning och underhåll av datasöksystemet](instructions/Instruktioner_för_produktionssättning_och_underhåll_av_datasöksystemet_SV.pdf)  
-[Beskrivning av datasöksystemets frågegränssnitt](index_sv.md)  
 
 # Beskrivning av datasöksystemets frågegränssnitt
 
-*Dokumentversion 2.0.4*
+*Dokumentversion 2.0.5*
 
 ## Versionshistorik
 
@@ -62,6 +62,7 @@ Version|Datum|Beskrivning
 2.0.2|6.10.2022|Uppdaterade begränsningar för rolldatum för bankfack och förmånstagare. Uppdaterade exempel- och fin.002.001.03-schemafiler. Hantering av dublikater i sökning på person och sökning på organisation har förtydligats i avsnitt 4.5.|
 2.0.3|24.11.2022|Uppdaterade instruktioner filer.|
 2.0.4|13.12.2022|Uppdaterade begränsningar för gemensamma konton som förvaltas av en advokat. Gemensamma konton som förvaltas av en advokat returneras inte i InformationResponseSD1V01 supl.027.001.01 undermeddelandet om sökningen är på person eller på organisation.|
+2.0.5|6.2.2023|Preciseringar i avsnitt 4.12: Valideringsfel kan användas i händelse av felaktig investigation period. Maximal storlek för svarsmeddelandet är 5 Mb. I avsnitt 3.1 BRC har ersatts av MDB.|
 
 ## Innehåll
 
@@ -207,7 +208,7 @@ Användare av datasöksystemets frågegränssnitt samt uppgiftsleverantörer ell
 Uppgiftsleverantören ska signera sina meddelanden med x.509-servercertifikat av vilket framgår uppgiftsleverantörens FO-nummer eller momsnummer.  Inkommande meddelandens signatur ska kontrolleras. Mottagaren får inte godkänna meddelanden utan godtagbar signatur. Godkännandet av signaturen förutsätter att XML-signaturen är giltig och
 
 antingen  
-a) att certifikatet har utfärdats av BRC, är i kraft och inte finns på BRC:s spärrlista och att attributet serialNumber för objektet för certifikatet är uppgiftsleverantörens FO-nummer eller momsnummer.
+a) att certifikatet har utfärdats av Myndigheten för digitalisering och befolkningsdata (MDB), är i kraft och inte finns på MDB:s spärrlista och att attributet serialNumber för objektet för certifikatet är uppgiftsleverantörens FO-nummer eller momsnummer.
 
 eller  
 b) att certifikatet är ett eIDAS-godkänt identifieringscertifikat för webbplatser, är i kraft och inte finns på certifikatutfärdarens uppdaterade spärrlista och att attributet organizationIdentifier för objektet för certifikatet är uppgiftsleverantörens FO-nummer eller momsnummer.
@@ -218,7 +219,7 @@ Obs. För att meddelandenas signaturer ska uppfylla de datasäkerhetskrav från 
 
 Behöriga myndigheter ska signera sina meddelanden med x.509-servercertifikat av vilket framgår myndighetens FO-nummer.  Inkommande meddelandens signatur ska kontrolleras. Mottagaren får inte godkänna meddelanden utan godtagbar signatur. Godkännande av en behörig myndighets signatur förutsätter att XML-signaturen är giltig och att
 
-a) certifikatet har utfärdats av BRC, är i kraft och inte finns på BRC:s spärrlista
+a) certifikatet har utfärdats av MDB, är i kraft och inte finns på MDB:s spärrlista
 
 b) objektet för certifikatet har som serialNumber-attribut FO-numret för den behöriga myndighet som skickat meddelandet, eller det nummer som bildas av bokstäverna ”FI” och sifferdelen i myndighetens FO-nummer utan bindestreck (identifikation med momsnummerformat).
 
@@ -227,9 +228,9 @@ b) objektet för certifikatet har som serialNumber-attribut FO-numret för den b
 
 Uppgiftsleverantören eller den som uppgiftsleverantören befullmäktigat identifierar med hjälp av servercertifikatet den behöriga myndighet som tar kontakt med datasöksystemets frågegränssnitt. En behörig myndighets kontakt godkänns enligt följande förutsättningar: 
 
-a) Den behöriga myndighetens certifikat har utfärdats av BRC,
+a) Den behöriga myndighetens certifikat har utfärdats av MDB,
 
-b) certifikatet är i kraft och finns inte på BRC:s spärrlista,
+b) certifikatet är i kraft och finns inte på MDB:s spärrlista,
 
 c) objektet för certifikatet har som serialNumber-attribut FO-numret för den behöriga myndigheten eller den statliga servicecentral som agerar på myndighetens vägnar, eller det nummer som bildas av bokstäverna ”FI” och sifferdelen i myndighetens eller servicecentralens FO-nummer utan bindestreck (identifikation med momsnummerformat).
 
@@ -241,7 +242,7 @@ Den behöriga myndighet som tar kontakt med frågegränssnittet identifierar med
 Kontakten till uppgiftsleverantören ska godkännas under följande förutsättningar:
 
 antingen  
-a) certifikatet har utfärdats av BRC, är i kraft och inte finns på BRC:s spärrlista och attributet serialNumber för objektet för certifikatet är FO-numret eller momsnumret för leverantören av uppgifter eller en aktör som befullmäktigats av denne.
+a) certifikatet har utfärdats av MDB, är i kraft och inte finns på MDB:s spärrlista och attributet serialNumber för objektet för certifikatet är FO-numret eller momsnumret för leverantören av uppgifter eller en aktör som befullmäktigats av denne.
 
 eller  
 b) servercertifikatet är ett eIDAS-godkänt identifieringscertifikat för webbplatser, är i kraft och inte finns på certifikatutfärdarens uppdaterade spärrlista och attributet organizationIdentifier för objektet för certifikatet är FO-numret eller momsnumret för leverantören av uppgifter eller en aktör som befullmäktigats av denne.
@@ -990,7 +991,7 @@ Påföljd|SOAP Fault returneras, se tabellen nedan|
       <td>3</td>
     </tr>
     <tr>
-      <td >Meddelandet har valideringsfel</td>
+      <td >Meddelandet har valideringsfel, till exempel felaktig investigation period</td>
       <td >SOAP-ENV:Client</td><td  colspan="1">Bad Request</td>
       <td  colspan="1">
         <p>1 st. ValidationError-element per valideringsfel, t.ex.</p>
@@ -1007,7 +1008,7 @@ Påföljd|SOAP Fault returneras, se tabellen nedan|
       <td>5</td>
     </tr>
     <tr>
-      <td >Svarsmeddelandets storlek är för stor</td>
+      <td >Svarsmeddelandets storlek är för stor (över 5 Mb)</td>
       <td >SOAP-ENV:Client</td><td  colspan="1">Query response size is too large. Please refine the query.</td>
       <td  colspan="1">
         <p><code>&lt;errorcode&gt;6&lt;/errorcode&gt;</code><br /></p>
