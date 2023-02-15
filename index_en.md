@@ -63,6 +63,7 @@ Version|Date|Decription
 2.0.3|24.11.2022|Updated instructions files.|
 2.0.4|13.12.2022|Updated limitations related to lawyer's customer asset accounts. Lawyer's customer asset accounts are not returned in InformationResponseSD1V01 supl.027.001.01 submessages, if the query type is natural person query or organisation query.|
 2.0.5|7.2.2023|Clarifications to chapter 4.12: Validation error can be used in case of incorrect investigation period. Maximum size for response message is 5 Mb. In chapter 3.1 replaced Population Register Centre with Digital and Population Data Services Agency.|
+2.0.6|15.2.2023|Updated 'In use' and 'Description' in tables 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) and 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId)|
 
 ## Table of contents
 
@@ -442,8 +443,8 @@ The table describes the use of records in the message.
 |Name|Type|In use|Description|
 |:---|:---|:---|:---|
 |InformationRequestOpeningV01| | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|Yes|Case id of the investigation|
-|&nbsp;&nbsp;&nbsp;&nbsp;LglMndtBsis|LegalMandate1|Yes|Legal basis Numerical value between 100..n The first digits indicate the authority and the last two digits the legal basis. Legal bases are compiled, as agreed with Finance Finland (FFI), in a code table jointly maintained by the authorities. The table will be given to the party that implements the data retrieval system in connection with the contract negotiations (the table is not public).|
+|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|No|Always "Customs_aggr"|
+|&nbsp;&nbsp;&nbsp;&nbsp;LglMndtBsis|LegalMandate1|No|Always "Customs_aggr"|
 |&nbsp;&nbsp;&nbsp;&nbsp;CnfdtltySts|YesNoIndicator|Yes|Always "true"|
 |&nbsp;&nbsp;&nbsp;&nbsp;DueDt|DueDate1|No||
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Yes|Date or date interval that the search concerns. The date interval is always today or in the past. The interval search must be performed in such way that if some interval determined in the data content (all date records in the tables 4.3.1–4.3.5) are included partly or entirely in the given InvstgtnPrd interval, the data row in question must be added to the search result. Only the Dt element is used.|
@@ -540,11 +541,11 @@ The message extension is appended to the Xpath location of the ISO 20022 message
 
 #### <a name="AuthorityInquirySet"></a> AuthorityInquirySet
 
-|Name|[min..max]|Type|Description|
+|Name|Type|In use|Description|
 |:---|:---|:---|:---|
 |AuthorityInquirySet| | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|[0..1]|Max140Text|Identifier of the authority (person)|
-|&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|[0..1]|Max140Text|Identifier of the manager|
+|&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|Max140Text|No|Always "Customs_aggr"|
+|&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|Max140Text|No|Always "Customs_aggr"|
 
 ### <a name="InformationRequestResponseV01"></a> 4.7 InformationRequestResponseV01
 
