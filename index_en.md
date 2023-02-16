@@ -63,7 +63,7 @@ Version|Date|Decription
 2.0.3|24.11.2022|Updated instructions files.|
 2.0.4|13.12.2022|Updated limitations related to lawyer's customer asset accounts. Lawyer's customer asset accounts are not returned in InformationResponseSD1V01 supl.027.001.01 submessages, if the query type is natural person query or organisation query.|
 2.0.5|7.2.2023|Clarifications to chapter 4.12: Validation error can be used in case of incorrect investigation period. Maximum size for response message is 5 Mb. In chapter 3.1 replaced Population Register Centre with Digital and Population Data Services Agency.|
-2.0.6|15.2.2023|Updated 'In use' and 'Description' in tables 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) and 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId)|
+2.0.6|15.2.2023|Updated 'In use' and 'Description' in tables 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) and 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId). Updated example files.|
 
 ## Table of contents
 

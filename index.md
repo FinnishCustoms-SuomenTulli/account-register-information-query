@@ -63,7 +63,7 @@ Versio|Päivämäärä|Kuvaus
 2.0.3|24.11.2022|Päivitetty ohjetiedostoja.|
 2.0.4|12.12.2022|Päivitetty asianajajan asiakasvaratiliin liittyviä rajoituksia. Asianajajan asiakasvaratilejä ei palauteta InformationResponseSD1V01 supl.027.001.01 alisanomassa, jos haun tyyppi on henkilö- tai organisaatiohaku.|
 2.0.5|7.2.2023|Tarkennuksia lukuun 4.12: Validointivirhettä voi käyttää virheellisen investigation periodin tapauksessa. Vastaussanoman maksimikoko on 5 Mb. Luvussa 3.1 VRK korvattu DVV:llä.|
-2.0.6|15.2.2023|Päivitetty 'Käytössä' ja 'Kuvaus' taulukoissa 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) ja 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId)|
+2.0.6|15.2.2023|Päivitetty 'Käytössä' ja 'Kuvaus' taulukoissa 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) ja 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId). Päivitetty esimerkkitiedostoja.|
 
 ## Sisällysluettelo
 

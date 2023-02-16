@@ -63,7 +63,7 @@ Version|Datum|Beskrivning
 2.0.3|24.11.2022|Uppdaterade instruktioner filer.|
 2.0.4|13.12.2022|Uppdaterade begränsningar för gemensamma konton som förvaltas av en advokat. Gemensamma konton som förvaltas av en advokat returneras inte i InformationResponseSD1V01 supl.027.001.01 undermeddelandet om sökningen är på person eller på organisation.|
 2.0.5|6.2.2023|Preciseringar i avsnitt 4.12: Valideringsfel kan användas i händelse av felaktig investigation period. Maximal storlek för svarsmeddelandet är 5 Mb. I avsnitt 3.1 BRC har ersatts av MDB.|
-2.0.6|15.2.2023|Uppdaterade 'Används' och 'Beskrivning' i tabeller 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) och 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId)|
+2.0.6|15.2.2023|Uppdaterade 'Används' och 'Beskrivning' i tabeller 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) och 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId). Uppdaterade exempelfiler.|
 
 ## Innehåll
 
