@@ -123,7 +123,7 @@
                     <urn2:CnfdtltySts>true</urn2:CnfdtltySts>
                     <urn2:InvstgtnPrd>
                         <urn2:Dt>
-                            <urn2:FrDt>1900-01-01</urn2:FrDt>
+                            <urn2:FrDt>2020-09-01</urn2:FrDt>
                             <urn2:ToDt>2021-07-28</urn2:ToDt>
                         </urn2:Dt>
                     </urn2:InvstgtnPrd>
