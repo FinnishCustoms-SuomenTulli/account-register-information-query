@@ -6,7 +6,7 @@
 
 # Beskrivning av datasöksystemets frågegränssnitt
 
-*Dokumentversion 2.0.5*
+*Dokumentversion 2.0.6*
 
 ## Versionshistorik
 
