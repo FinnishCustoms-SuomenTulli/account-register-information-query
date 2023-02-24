@@ -443,8 +443,8 @@ The table describes the use of records in the message.
 |Name|Type|In use|Description|
 |:---|:---|:---|:---|
 |InformationRequestOpeningV01| | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|No|Always "Customs_aggr"|
-|&nbsp;&nbsp;&nbsp;&nbsp;LglMndtBsis|LegalMandate1|No|Always "Customs_aggr"|
+|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|Yes|Always "Customs_aggr"|
+|&nbsp;&nbsp;&nbsp;&nbsp;LglMndtBsis|LegalMandate1|Yes|Always "Customs_aggr"|
 |&nbsp;&nbsp;&nbsp;&nbsp;CnfdtltySts|YesNoIndicator|Yes|Always "true"|
 |&nbsp;&nbsp;&nbsp;&nbsp;DueDt|DueDate1|No||
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Yes|Date or date interval that the search concerns. The date interval is always today or in the past. The interval search must be performed in such way that if some interval determined in the data content (all date records in the tables 4.3.1–4.3.5) are included partly or entirely in the given InvstgtnPrd interval, the data row in question must be added to the search result. Only the Dt element is used.|
@@ -544,8 +544,8 @@ The message extension is appended to the Xpath location of the ISO 20022 message
 |Name|Type|In use|Description|
 |:---|:---|:---|:---|
 |AuthorityInquirySet| | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|Max140Text|No|Always "Customs_aggr"|
-|&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|Max140Text|No|Always "Customs_aggr"|
+|&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|Max140Text|Yes|Always "Customs_aggr"|
+|&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|Max140Text|Yes|Always "Customs_aggr"|
 
 ### <a name="InformationRequestResponseV01"></a> 4.7 InformationRequestResponseV01
 

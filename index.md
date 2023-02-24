@@ -426,8 +426,8 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |Nimi|Tyyppi|Käytössä|Kuvaus|
 |:---|:---|:---|:---|
 |InformationRequestOpeningV01| | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|Ei|Aina "Customs_aggr"|
-|&nbsp;&nbsp;&nbsp;&nbsp;LglMndtBsis|LegalMandate1|Ei|Aina "Customs_aggr"|
+|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|Kyllä|Aina "Customs_aggr"|
+|&nbsp;&nbsp;&nbsp;&nbsp;LglMndtBsis|LegalMandate1|Kyllä|Aina "Customs_aggr"|
 |&nbsp;&nbsp;&nbsp;&nbsp;CnfdtltySts|YesNoIndicator|Kyllä|Aina "true"|
 |&nbsp;&nbsp;&nbsp;&nbsp;DueDt|DueDate1|Ei||
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Kyllä|Päivä tai päivämääräväli, johon haku kohdistuu. Päivämääräväli on aina tänään tai menneisyydessä. Aikavälihaku on sisällyttävä siten, että jos jokin tietosisältöön määritetty aikaväli (kaikki taulukoiden 4.3.1-4.3.5 päivämäärätietueet) sisältyy osittain tai kokonaan annettuun InvstgtnPrd-aikaväliin, on kyseinen tietorivi lisättävä hakutulokseen. Investigation period alku saa olla aikaisintaan 1.9.2020. Käytetään vain Dt elementtiä.|
@@ -527,8 +527,8 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |Nimi|Tyyppi|Käytössä|Kuvaus|
 |:---|:---|:---|:---|
 |AuthorityInquirySet| | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|Max140Text|Ei|Aina "Customs_aggr"|
-|&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|Max140Text|Ei|Aina "Customs_aggr"|
+|&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|Max140Text|Kyllä|Aina "Customs_aggr"|
+|&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|Max140Text|Kyllä|Aina "Customs_aggr"|
 
 ### <a name="InformationRequestResponseV01"></a> 4.7 InformationRequestResponseV01
 

@@ -432,8 +432,8 @@ I tabellen beskrivs användningen av meddelandets poster.
 |Namn|Typ|Används|Beskrivning|
 |:---|:---|:---|:---|
 |InformationRequestOpeningV01| | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|Nej|Alltid "Customs_aggr"|
-|&nbsp;&nbsp;&nbsp;&nbsp;LglMndtBsis|LegalMandate1|Nej|Alltid "Customs_aggr"|
+|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|Ja|Alltid "Customs_aggr"|
+|&nbsp;&nbsp;&nbsp;&nbsp;LglMndtBsis|LegalMandate1|Ja|Alltid "Customs_aggr"|
 |&nbsp;&nbsp;&nbsp;&nbsp;CnfdtltySts|YesNoIndicator|Ja|Alltid "true"|
 |&nbsp;&nbsp;&nbsp;&nbsp;DueDt|DueDate1|Nej||
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Ja|Datum eller datumintervall som sökningen riktar sig till. Datumintervallet är alltid i dag eller i det förflutna. Sökning med tidsintervall ska göras så att om tidsintervallet i någon uppgift (alla datumposter i tabellerna 4.3.1-4.3.5) ingår delvis eller helt i det angivna InvstgtnPrd-tidsintervallet, ska uppgiftsraden i fråga läggas till i sökresultatet. Endast Dt elementet används.|
@@ -533,8 +533,8 @@ Det utvidgade meddelandet kopplas till ISO 20022-meddelandets XPath-läge som an
 |Namn|Typ|Används|Beskrivning|
 |:---|:---|:---|:---|
 |AuthorityInquirySet| | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|Max140Text|Nej|Alltid "Customs_aggr"|
-|&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|Max140Text|Nej|Alltid "Customs_aggr"|
+|&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|Max140Text|Ja|Alltid "Customs_aggr"|
+|&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|Max140Text|Ja|Alltid "Customs_aggr"|
 
 ### <a name="InformationRequestResponseV01"></a> 4.7 InformationRequestResponseV01
 
