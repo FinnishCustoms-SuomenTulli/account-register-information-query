@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 2.0.5*
+*Dokumentin versio 2.0.6*
 
 ## Versiohistoria
 
@@ -63,6 +63,7 @@ Versio|Päivämäärä|Kuvaus
 2.0.3|24.11.2022|Päivitetty ohjetiedostoja.|
 2.0.4|12.12.2022|Päivitetty asianajajan asiakasvaratiliin liittyviä rajoituksia. Asianajajan asiakasvaratilejä ei palauteta InformationResponseSD1V01 supl.027.001.01 alisanomassa, jos haun tyyppi on henkilö- tai organisaatiohaku.|
 2.0.5|7.2.2023|Tarkennuksia lukuun 4.12: Validointivirhettä voi käyttää virheellisen investigation periodin tapauksessa. Vastaussanoman maksimikoko on 5 Mb. Luvussa 3.1 VRK korvattu DVV:llä.|
+2.0.6|15.2.2023|Päivitetty 'Käytössä' ja 'Kuvaus' taulukoissa 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) ja 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId). Päivitetty esimerkkitiedostoja.|
 
 ## Sisällysluettelo
 
@@ -425,8 +426,8 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |Nimi|Tyyppi|Käytössä|Kuvaus|
 |:---|:---|:---|:---|
 |InformationRequestOpeningV01| | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|Kyllä|Tutkinnan case id|
-|&nbsp;&nbsp;&nbsp;&nbsp;LglMndtBsis|LegalMandate1|Kyllä|Lainsäädäntöperuste. Numeroarvo välillä 100..n. Ensimmäiset numerot kertovat viranomaisen ja kaksi viimeistä numeroa lainsäädäntöperusteen. Lainsäädäntöperusteita kootaan Finanssiala Ry:n kanssa sovitun mukaisesti viranomaisten yhteisesti ylläpitämään kooditaulukkoon. Taulukko toimitetaan tiedonhakujärjestelmän toteuttajille sopimusneuvottelujen yhteydessä (taulukko ei ole julkinen).|
+|&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Max35Text|Kyllä|Aina "Customs_aggr"|
+|&nbsp;&nbsp;&nbsp;&nbsp;LglMndtBsis|LegalMandate1|Kyllä|Aina "Customs_aggr"|
 |&nbsp;&nbsp;&nbsp;&nbsp;CnfdtltySts|YesNoIndicator|Kyllä|Aina "true"|
 |&nbsp;&nbsp;&nbsp;&nbsp;DueDt|DueDate1|Ei||
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Kyllä|Päivä tai päivämääräväli, johon haku kohdistuu. Päivämääräväli on aina tänään tai menneisyydessä. Aikavälihaku on sisällyttävä siten, että jos jokin tietosisältöön määritetty aikaväli (kaikki taulukoiden 4.3.1-4.3.5 päivämäärätietueet) sisältyy osittain tai kokonaan annettuun InvstgtnPrd-aikaväliin, on kyseinen tietorivi lisättävä hakutulokseen. Investigation period alku saa olla aikaisintaan 1.9.2020. Käytetään vain Dt elementtiä.|
@@ -523,11 +524,11 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 
 #### <a name="AuthorityInquirySet"></a> AuthorityInquirySet
 
-|Nimi|[min..max]|Tyyppi|Kuvaus|
+|Nimi|Tyyppi|Käytössä|Kuvaus|
 |:---|:---|:---|:---|
 |AuthorityInquirySet| | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|[0..1]|Max140Text|Viranomaisen (henkilön) tunniste|
-|&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|[0..1]|Max140Text|Esimiehen tunniste|
+|&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|Max140Text|Kyllä|Aina "Customs_aggr"|
+|&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|Max140Text|Kyllä|Aina "Customs_aggr"|
 
 ### <a name="InformationRequestResponseV01"></a> 4.7 InformationRequestResponseV01
 

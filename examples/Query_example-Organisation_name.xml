@@ -116,14 +116,14 @@
             </urn1:AppHdr>
             <urn2:Document>
                 <urn2:InfReqOpng>
-                    <urn2:InvstgtnId>ABC1234</urn2:InvstgtnId>
+                    <urn2:InvstgtnId>Customs_aggr</urn2:InvstgtnId>
                     <urn2:LglMndtBsis>
-                        <urn2:Prgrph>testi</urn2:Prgrph>
+                        <urn2:Prgrph>Customs_aggr</urn2:Prgrph>
                     </urn2:LglMndtBsis>
                     <urn2:CnfdtltySts>true</urn2:CnfdtltySts>
                     <urn2:InvstgtnPrd>
                         <urn2:Dt>
-                            <urn2:FrDt>1900-01-01</urn2:FrDt>
+                            <urn2:FrDt>2020-09-01</urn2:FrDt>
                             <urn2:ToDt>2021-07-28</urn2:ToDt>
                         </urn2:Dt>
                     </urn2:InvstgtnPrd>
@@ -173,8 +173,8 @@
                             <urn3:Document>
                                 <urn3:InfReqFin012>
                                     <urn3:AuthorityInquiry>
-                                        <urn3:OfficialId>Viranomaisen nimi</urn3:OfficialId>
-                                        <urn3:OfficialSuperiorId>Esimiehen nimi</urn3:OfficialSuperiorId>
+                                        <urn3:OfficialId>Customs_aggr</urn3:OfficialId>
+                                        <urn3:OfficialSuperiorId>Customs_aggr</urn3:OfficialSuperiorId>
                                     </urn3:AuthorityInquiry>
                                 </urn3:InfReqFin012>
                             </urn3:Document>
