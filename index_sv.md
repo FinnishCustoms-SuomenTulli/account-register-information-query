@@ -64,7 +64,7 @@ Version|Datum|Beskrivning
 2.0.4|13.12.2022|Uppdaterade begränsningar för gemensamma konton som förvaltas av en advokat. Gemensamma konton som förvaltas av en advokat returneras inte i InformationResponseSD1V01 supl.027.001.01 undermeddelandet om sökningen är på person eller på organisation.|
 2.0.5|6.2.2023|Preciseringar i avsnitt 4.12: Valideringsfel kan användas i händelse av felaktig investigation period. Maximal storlek för svarsmeddelandet är 5 Mb. I avsnitt 3.1 BRC har ersatts av MDB.|
 2.0.6|15.2.2023|Uppdaterade 'Används' och 'Beskrivning' i tabeller 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) och 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId). Uppdaterade exempelfiler.|
-2.0.7|15.3.2023|Uppdaterad beskrivning av 'Användning av PersonIdentification5- och PersonIdentification5b-elementen' avseende olika undermeddelanden i kapitel 4.11.|
+2.0.7|15.3.2023|Uppdaterad beskrivning av 'Användning av PersonIdentification5- och PersonIdentification5b-elementen' avseende olika undermeddelanden i kapitel 4.11. Lade till SHA512 till tillåtna algoritmer i kapitel 3.1.|
 
 ## Innehåll
 
@@ -272,7 +272,7 @@ Exempel 3.1 Exempel SignedInfo
 </SignedInfo>
 ```
 
-Signeringsalgoritmen är således RSA-SHA256 och C14N är Exclusive XML Canonicalization. Reference URI är antingen "#applicationRequest" eller "#applicationResponse", beroende på om det är frågan om ett fråge- eller svarsmeddelande. Dvs. endast "ApplicationRequest" eller "ApplicationResponse" elementet signeras. Då signaturen bildas ska man för bildandet av de kondensat som ska beräknas (Digest) använda algoritmen SHA256.
+Signeringsalgoritmen är således RSA-SHA256 eller RSA-SHA512 och C14N är Exclusive XML Canonicalization. Reference URI är antingen "#applicationRequest" eller "#applicationResponse", beroende på om det är frågan om ett fråge- eller svarsmeddelande. Dvs. endast "ApplicationRequest" eller "ApplicationResponse" elementet signeras. Då signaturen bildas ska man för bildandet av de kondensat som ska beräknas (Digest) använda algoritmen SHA256 eller SHA512.
 
 De kryptografiska algoritmer som används i signaturen ska till sin kryptografiska styrka motsvara minst Transport- och kommunikationsverkets krav på kryptografisk styrka för den nationella skyddsnivån ST IV. De nuvarande kraven gällande styrkan beskrivs på finska i dokumentet https://www.kyberturvallisuuskeskus.fi/sites/default/files/media/regulation/ohje-kryptografiset-vahvuusvaatimukset-kansalliset-suojaustasot.pdf (Dnro: 190/651/2015).
 
