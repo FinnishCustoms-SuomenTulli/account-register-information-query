@@ -6,7 +6,7 @@
 
 # Beskrivning av datasöksystemets frågegränssnitt
 
-*Dokumentversion 2.0.6*
+*Dokumentversion 2.0.7*
 
 ## Versionshistorik
 
@@ -64,6 +64,7 @@ Version|Datum|Beskrivning
 2.0.4|13.12.2022|Uppdaterade begränsningar för gemensamma konton som förvaltas av en advokat. Gemensamma konton som förvaltas av en advokat returneras inte i InformationResponseSD1V01 supl.027.001.01 undermeddelandet om sökningen är på person eller på organisation.|
 2.0.5|6.2.2023|Preciseringar i avsnitt 4.12: Valideringsfel kan användas i händelse av felaktig investigation period. Maximal storlek för svarsmeddelandet är 5 Mb. I avsnitt 3.1 BRC har ersatts av MDB.|
 2.0.6|15.2.2023|Uppdaterade 'Används' och 'Beskrivning' i tabeller 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) och 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId). Uppdaterade exempelfiler.|
+2.0.7|15.3.2023|Uppdaterad beskrivning av 'Användning av PersonIdentification5- och PersonIdentification5b-elementen' avseende olika undermeddelanden i kapitel 4.11.|
 
 ## Innehåll
 
@@ -883,11 +884,21 @@ I alla meddelanden används motsvarande identifieringsstruktur för en juridisk 
 
 #### <a name="PersonIdentification"></a> Användning av PersonIdentification5- och PersonIdentification5b-elementen
 
+PersonIdentification5-elementet används med InformationResponseSD1V01 supl.027.001.01 och InformationResponseFIN002 undermeddelanden.
+
 |XPath|Typ|Beskrivning|
 |:---|:---|:---|
 |Othr/SchmeNm/Cd|ExternalPersonIdentification1Code|Innehåller en typkod för personbeteckningen, eller en kod för medborgarskap om personen inte har en personbeteckning.|
 |Othr/Id|Max35Text|Innehåller beteckning eller landskod. Se koderna i tabellen nedan.|
 |DtAndPlcOfBirth|DateAndPlaceOfBirth|Se tabellen nedan.|
+
+PersonIdentification5b-elementet används med undermeddelandet InformationResponseFIN013.
+
+|XPath|Typ|Beskrivning|
+|:---|:---|:---|
+|Othr/SchmeNm/Cd|ExternalPersonIdentification1Code|Innehåller en typkod för personbeteckningen, eller en kod för medborgarskap om personen inte har en personbeteckning.|
+|Othr/Id|Max35Text|Innehåller beteckning eller landskod. Se koderna i tabellen nedan.|
+|DtAndPlcOfBirth|DateAndPlaceOfBirth2|Se tabellen nedan.|
 
 OrgId koder
 
@@ -908,10 +919,15 @@ Födelsedatum
 
 |Namn|Typ|Beskrivning|
 |:---|:---|:---|
-|DtAndPlcOfBirth| | |
+|DtAndPlcOfBirth|DateAndPlaceOfBirth| |
 |BirthDt|ISODate|Födelsedatum|
 |CityOfBirth|Max35Text|CityOfBirth ges värdet ”not in use”.|
 |CtryOfBirth|CountryCode|CtryOfBirth ges värdet "XX".|
+
+|Namn|Typ|Beskrivning|
+|:---|:---|:---|
+|DtAndPlcOfBirth|DateAndPlaceOfBirth2| |
+|BirthDt|ISODate|Födelsedatum|
 
 #### <a name="rgdt"></a> Exempel på returnering av en juridisk persons registreringsdatum
 

@@ -6,7 +6,7 @@
 
 # Query interface description of the data retrieval system
 
-*Document version 2.0.6*
+*Document version 2.0.7*
 
 ## Vesion history
 
@@ -64,6 +64,7 @@ Version|Date|Decription
 2.0.4|13.12.2022|Updated limitations related to lawyer's customer asset accounts. Lawyer's customer asset accounts are not returned in InformationResponseSD1V01 supl.027.001.01 submessages, if the query type is natural person query or organisation query.|
 2.0.5|7.2.2023|Clarifications to chapter 4.12: Validation error can be used in case of incorrect investigation period. Maximum size for response message is 5 Mb. In chapter 3.1 replaced Population Register Centre with Digital and Population Data Services Agency.|
 2.0.6|15.2.2023|Updated 'In use' and 'Description' in tables 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) and 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId). Updated example files.|
+2.0.7|15.3.2023|Updated 'Use of PersonIdentification5 and PersonIdentification5b elements' description regarding different sub messages in chapter 4.11.|
 
 ## Table of contents
 
@@ -894,11 +895,21 @@ All messages use the equivalent identification structure for legal persons and n
 
 #### <a name="PersonIdentification"></a> Use of PersonIdentification5 and PersonIdentification5b elements
 
+PersonIdentification5 element is used with InformationResponseSD1V01 supl.027.001.01 and InformationResponseFIN002 submessages.
+
 |XPath|Type|Description|
 |:---|:---|:---|
 |Othr/SchmeNm/Cd|ExternalPersonIdentification1Code|Contains the person identification type code or nationality code, if the person doesn’t have a personal identity code.|
 |Othr/Id|Max35Text|Contains the identification or country code. See codes table below.|
 |DtAndPlcOfBirth|DateAndPlaceOfBirth|See table below.
+
+PersonIdentification5b element is used with InformationResponseFIN013 submessage.
+
+|XPath|Type|Description|
+|:---|:---|:---|
+|Othr/SchmeNm/Cd|ExternalPersonIdentification1Code|Contains the person identification type code or nationality code, if the person doesn’t have a personal identity code.|
+|Othr/Id|Max35Text|Contains the identification or country code. See codes table below.|
+|DtAndPlcOfBirth|DateAndPlaceOfBirth2|See table below.
 
 OrgId codes  
 
@@ -919,10 +930,15 @@ Date of birth
 
 |Name|Type|Description|
 |:---|:---|:---|
-|DtAndPlcOfBirth| | |
+|DtAndPlcOfBirth|DateAndPlaceOfBirth| |
 |BirthDt|ISODate|Date of birth.| 
 |CityOfBirth|Max35Text|The value of CityOfBirth is set to “not in use”.|
 |CtryOfBirth|CountryCode|The value of CtryOfBirth is set to “XX”.|
+
+|Name|Type|Description|
+|:---|:---|:---|
+|DtAndPlcOfBirth|DateAndPlaceOfBirth2| |
+|BirthDt|ISODate|Date of birth.| 
 
 #### <a name="rgdt"></a> An example of returning the date of registration of a legal person
 

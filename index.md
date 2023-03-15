@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 2.0.6*
+*Dokumentin versio 2.0.7*
 
 ## Versiohistoria
 
@@ -64,6 +64,7 @@ Versio|Päivämäärä|Kuvaus
 2.0.4|12.12.2022|Päivitetty asianajajan asiakasvaratiliin liittyviä rajoituksia. Asianajajan asiakasvaratilejä ei palauteta InformationResponseSD1V01 supl.027.001.01 alisanomassa, jos haun tyyppi on henkilö- tai organisaatiohaku.|
 2.0.5|7.2.2023|Tarkennuksia lukuun 4.12: Validointivirhettä voi käyttää virheellisen investigation periodin tapauksessa. Vastaussanoman maksimikoko on 5 Mb. Luvussa 3.1 VRK korvattu DVV:llä.|
 2.0.6|15.2.2023|Päivitetty 'Käytössä' ja 'Kuvaus' taulukoissa 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) ja 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId). Päivitetty esimerkkitiedostoja.|
+2.0.7|15.3.2023|Päivitetty 'PersonIdentification5- ja PersonIdentification5b-elementtien käyttö' kuvausta alisanomien eroavaisuuksien osalta luvussa 4.11.|
 
 ## Sisällysluettelo
 
@@ -877,11 +878,21 @@ Kaikissa sanomissa käytetään vastaavaa oikeushenkilön ja luonnollisen henkil
 
 #### <a name="PersonIdentification"></a>PersonIdentification5- ja PersonIdentification5b-elementtien käyttö
 
+PersonIdentification5-elementtiä käytetään InformationResponseSD1V01 supl.027.001.01 ja InformationResponseFIN002-alisanomissa.
+
 |XPath|Tyyppi|Kuvaus|
 |:---|:---|:---|
 |Othr/SchmeNm/Cd|ExternalPersonIdentification1Code|Sisältää henkilötunnisteen tyyppikoodin, tai kansalaisuuskoodin jos henkilöllä ei ole henkilötunnusta.|
 |Othr/Id|Max35Text|Sisältää tunnuksen tai maakoodin. Ks. koodit taulukko alla.|
 |DtAndPlcOfBirth|DateAndPlaceOfBirth|Ks. taulukko alla.
+
+PersonIdentification5b-elementtiä käytetään InformationResponseFIN013-alisanomassa.
+
+|XPath|Tyyppi|Kuvaus|
+|:---|:---|:---|
+|Othr/SchmeNm/Cd|ExternalPersonIdentification1Code|Sisältää henkilötunnisteen tyyppikoodin, tai kansalaisuuskoodin jos henkilöllä ei ole henkilötunnusta.|
+|Othr/Id|Max35Text|Sisältää tunnuksen tai maakoodin. Ks. koodit taulukko alla.|
+|DtAndPlcOfBirth|DateAndPlaceOfBirth2|Ks. taulukko alla.
 
 OrgId koodit  
 
@@ -902,10 +913,15 @@ Syntymäaika
 
 |Nimi|Tyyppi|Kuvaus|
 |:---|:---|:---|
-|DtAndPlcOfBirth| | |
+|DtAndPlcOfBirth|DateAndPlaceOfBirth | |
 |BirthDt|ISODate|Syntymäaika.|
 |CityOfBirth|Max35Text|CityOfBirth arvoksi asetetaan ”not in use”.|
 |CtryOfBirth|CountryCode|CtryOfBirth arvoksi asetetaan "XX".|
+
+|Nimi|Tyyppi|Kuvaus|
+|:---|:---|:---|
+|DtAndPlcOfBirth|DateAndPlaceOfBirth2 | |
+|BirthDt|ISODate|Syntymäaika.|
 
 #### <a name="rgdt"></a> Esimerkki oikeushenkilön rekisteröitymispäivän palauttamisesta
 
