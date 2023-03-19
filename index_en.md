@@ -64,7 +64,7 @@ Version|Date|Decription
 2.0.4|13.12.2022|Updated limitations related to lawyer's customer asset accounts. Lawyer's customer asset accounts are not returned in InformationResponseSD1V01 supl.027.001.01 submessages, if the query type is natural person query or organisation query.|
 2.0.5|7.2.2023|Clarifications to chapter 4.12: Validation error can be used in case of incorrect investigation period. Maximum size for response message is 5 Mb. In chapter 3.1 replaced Population Register Centre with Digital and Population Data Services Agency.|
 2.0.6|15.2.2023|Updated 'In use' and 'Description' in tables 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) and 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId). Updated example files.|
-2.0.7|15.3.2023|Updated 'Use of PersonIdentification5 and PersonIdentification5b elements' description regarding different sub messages in chapter 4.11. Added SHA512 to allowed algorithms in chapter 3.1.|
+2.0.7|20.3.2023|Updated 'Use of PersonIdentification5 and PersonIdentification5b elements' description regarding different sub messages in chapter 4.11. Added SHA512 to allowed algorithms in chapter 3.1. Added a clarification of the ID format in Fr-element in chapter 4.4.|
 
 ## Table of contents
 
@@ -425,7 +425,7 @@ The use of BAH elements is shown in the table below. The element types are descr
 |:---|:---|:---|:---|
 |BusinessApplicationHeaderV01| | | |
 |CharSet|UnicodeChartsCode|yes|"UTF-8"|
-|Fr|Party9Choice|yes|Used as follows: Element `Fr/OrgId/Id/OrgId/Othr/SchmeNm/Cd` includes the value “Y” and element `Fr/OrgId/Id/OrgId/Othr/Id` includes the sender’s Business ID.|
+|Fr|Party9Choice|yes|Used as follows: Element `Fr/OrgId/Id/OrgId/Othr/SchmeNm/Cd` includes the value “Y” and element `Fr/OrgId/Id/OrgId/Othr/Id` includes the sender’s Business ID. When comparing the Business ID with the ID contained in the signature certificate, it must be noted that the ID in the certificate can be in either Business ID or VAT-number format.|
 |To|Party9Choice|Yes|Used as follows: Element `To/OrgId/Id/OrgId/Othr/SchmeNm/Cd` includes the value “Y” and element `To/OrgId/Id/OrgId/Othr/Id` includes the sender’s Business ID (For example in the data retrieval system, the Business ID 0245442-8)|
 |BizMsgIdr|Max35Text|yes|Use in accordance with the standard|
 |MsgDefIdr|Max35Text|yes|Includes the message id. The query messages use “auth.001.001.01”, the response messages include “auth.002.001.01”|

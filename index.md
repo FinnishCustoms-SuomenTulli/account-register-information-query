@@ -64,7 +64,7 @@ Versio|Päivämäärä|Kuvaus
 2.0.4|12.12.2022|Päivitetty asianajajan asiakasvaratiliin liittyviä rajoituksia. Asianajajan asiakasvaratilejä ei palauteta InformationResponseSD1V01 supl.027.001.01 alisanomassa, jos haun tyyppi on henkilö- tai organisaatiohaku.|
 2.0.5|7.2.2023|Tarkennuksia lukuun 4.12: Validointivirhettä voi käyttää virheellisen investigation periodin tapauksessa. Vastaussanoman maksimikoko on 5 Mb. Luvussa 3.1 VRK korvattu DVV:llä.|
 2.0.6|15.2.2023|Päivitetty 'Käytössä' ja 'Kuvaus' taulukoissa 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) ja 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId). Päivitetty esimerkkitiedostoja.|
-2.0.7|15.3.2023|Päivitetty 'PersonIdentification5- ja PersonIdentification5b-elementtien käyttö' kuvausta alisanomien eroavaisuuksien osalta luvussa 4.11. Lisätty SHA512 sallittuihin algoritmeihin luvussa 3.1.|
+2.0.7|20.3.2023|Päivitetty 'PersonIdentification5- ja PersonIdentification5b-elementtien käyttö' kuvausta alisanomien eroavaisuuksien osalta luvussa 4.11. Lisätty SHA512 sallittuihin algoritmeihin luvussa 3.1. Lisätty tarkennus tunnuksen formaatista luvun 4.4 Fr-elementtiin.|
 
 ## Sisällysluettelo
 
@@ -408,7 +408,7 @@ Seuraavassa taulukossa on esitetty BAH-elementtien käyttö. Elementtien tyypit 
 |:---|:---|:---|:---|
 |BusinessApplicationHeaderV01| | | |
 |CharSet|UnicodeChartsCode|kyllä|"UTF-8"|
-|Fr|Party9Choice|kyllä|Käytetään seuraavasti: Elementti `Fr/OrgId/Id/OrgId/Othr/SchmeNm/Cd` sisältää arvon "Y" ja elementti `Fr/OrgId/Id/OrgId/Othr/Id` sisältää lähettäjän Y-tunnuksen.|
+|Fr|Party9Choice|kyllä|Käytetään seuraavasti: Elementti `Fr/OrgId/Id/OrgId/Othr/SchmeNm/Cd` sisältää arvon "Y" ja elementti `Fr/OrgId/Id/OrgId/Othr/Id` sisältää lähettäjän Y-tunnuksen. Kun tunnusta verrataan sanoman allekirjoitusvarmenteeseen, tulee ottaa huomioon että varmenteen sisältämä tunnus voi olla joko Y- tai ALV-tunnus muodossa.|
 |To|Party9Choice|kyllä|Käytetään seuraavasti: Elementti `To/OrgId/Id/OrgId/Othr/SchmeNm/Cd` sisältää arvon "Y" ja elementti `To/OrgId/Id/OrgId/Othr/Id` sisältää vastaanottajan Y-tunnuksen (Esim. Tiedonhakujärjestelmässä Y-tunnus 0245442-8)|
 |BizMsgIdr|Max35Text|kyllä|Käyttö standardin mukaisesti.|
 |MsgDefIdr|Max35Text|kyllä|Sisältää sanoma-id:n. Kyselysanomassa käytetään "auth.001.001.01", vastaussanomassa sisältönä on "auth.002.001.01"|

@@ -64,7 +64,7 @@ Version|Datum|Beskrivning
 2.0.4|13.12.2022|Uppdaterade begränsningar för gemensamma konton som förvaltas av en advokat. Gemensamma konton som förvaltas av en advokat returneras inte i InformationResponseSD1V01 supl.027.001.01 undermeddelandet om sökningen är på person eller på organisation.|
 2.0.5|6.2.2023|Preciseringar i avsnitt 4.12: Valideringsfel kan användas i händelse av felaktig investigation period. Maximal storlek för svarsmeddelandet är 5 Mb. I avsnitt 3.1 BRC har ersatts av MDB.|
 2.0.6|15.2.2023|Uppdaterade 'Används' och 'Beskrivning' i tabeller 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) och 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId). Uppdaterade exempelfiler.|
-2.0.7|15.3.2023|Uppdaterad beskrivning av 'Användning av PersonIdentification5- och PersonIdentification5b-elementen' avseende olika undermeddelanden i kapitel 4.11. Lade till SHA512 till tillåtna algoritmer i kapitel 3.1.|
+2.0.7|20.3.2023|Uppdaterad beskrivning av 'Användning av PersonIdentification5- och PersonIdentification5b-elementen' avseende olika undermeddelanden i kapitel 4.11. Lade till SHA512 till tillåtna algoritmer i kapitel 3.1. Lade till ett förtydligande av ID-formatet i Fr-element i kapitel 4.4.|
 
 ## Innehåll
 
@@ -414,7 +414,7 @@ I tabellen nedan visas användningen av BAH-element. Elementtyperna beskrivs i [
 |:---|:---|:---|:---|
 |BusinessApplicationHeaderV01| | | |
 |CharSet|UnicodeChartsCode|Ja|"UTF-8"|
-|Fr|Party9Choice|Ja|Används på följande sätt:  Elementet `Fr/OrgId/Id/OrgId/Othr/SchmeNm/Cd` innehåller värdet ”Y” och elementet `Fr/OrgId/Id/OrgId/Othr/Id` innehåller avsändarens FO-nummer.|
+|Fr|Party9Choice|Ja|Används på följande sätt:  Elementet `Fr/OrgId/Id/OrgId/Othr/SchmeNm/Cd` innehåller värdet ”Y” och elementet `Fr/OrgId/Id/OrgId/Othr/Id` innehåller avsändarens FO-nummer. När man jämför FO-nummer med ID som finns i signeringscertifikatet, måste det noteras att ID:t i certifikatet kan vara antingen i formatet FO-nummer eller momsnummerformat.|
 |To|Party9Choice|Ja|Används på följande sätt:  Elementet `To/OrgId/Id/OrgId/Othr/SchmeNm/Cd` innehåller värdet ”Y” och elementet `To/OrgId/Id/OrgId/Othr/Id` innehåller mottagarens FO-nummer (T.ex. i datasöksystemet FO-nummer 0245442-8)|
 |BizMsgIdr|Max35Text|Ja|Används enligt standarden.|
 |MsgDefIdr|Max35Text|Ja|Innehåller meddelande-id. I frågemeddelandet används ”auth.001.001.01”, medan ”auth.002.001.01” används i svarsmeddelandet.|
