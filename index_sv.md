@@ -64,7 +64,7 @@ Version|Datum|Beskrivning
 2.0.4|13.12.2022|Uppdaterade begränsningar för gemensamma konton som förvaltas av en advokat. Gemensamma konton som förvaltas av en advokat returneras inte i InformationResponseSD1V01 supl.027.001.01 undermeddelandet om sökningen är på person eller på organisation.|
 2.0.5|6.2.2023|Preciseringar i avsnitt 4.12: Valideringsfel kan användas i händelse av felaktig investigation period. Maximal storlek för svarsmeddelandet är 5 Mb. I avsnitt 3.1 BRC har ersatts av MDB.|
 2.0.6|15.2.2023|Uppdaterade 'Används' och 'Beskrivning' i tabeller 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) och 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId). Uppdaterade exempelfiler.|
-2.0.7|20.3.2023|Uppdaterad beskrivning av 'Användning av PersonIdentification5- och PersonIdentification5b-elementen' avseende olika undermeddelanden i kapitel 4.11. Lade till SHA512 till tillåtna algoritmer i kapitel 3.1. Lade till ett förtydligande av ID-formatet i Fr-element i kapitel 4.4.|
+2.0.7|20.3.2023|Uppdaterad beskrivning av 'Användning av PersonIdentification5- och PersonIdentification5b-elementen' avseende olika undermeddelanden i kapitel 4.11. Lade till SHA512 till tillåtna algoritmer i kapitel 3.1. Lade till ett förtydligande av ID-formatet i Fr-element i kapitel 4.4. Förenade terminologi för kontoinnehavare, användningsrätt och juridisk person i avsnitt 5.|
 
 ## Innehåll
 
@@ -1117,7 +1117,7 @@ Leverantörer av uppgifter är delade i två kategorier: kundkategori 1, som omf
 
 #### <a name="5-1-1"></a> 5.1.1 Sökning på person
 
-I sökningen på person i kundkategori 1, returneras som svar den sökta personens uppgifter, uppgifter om organisationer där personen är förmånstagare, samt uppgifter om sådana konton och bankfack där den sökta personen är ägare eller har tillträdesrättigheter som innehavare under sökintervallet. Övriga eventuella ägare eller innehavare av tillträdesrättigheter till kontona eller bankfacken returneras inte. Inga uppgifter om kundrelation returneras. Inga uppgifter returneras om gemensamma konton som förvaltas av en advokat.
+I sökningen på person i kundkategori 1, returneras som svar den sökta personens uppgifter, uppgifter om organisationer där personen är förmånstagare, samt uppgifter om sådana konton och bankfack där den sökta personen är innehavare eller har användningsrätt till det under sökintervallet. Övriga eventuella innehavare eller innehavare av användningsrättigheter till kontona eller bankfacken returneras inte. Inga uppgifter om kundrelation returneras. Inga uppgifter returneras om gemensamma konton som förvaltas av en advokat.
 
 *__Tabell 5.1.1.1:__ Begränsningar för sökningar på person. Till denna sökkategori hör sökningar med personbeteckning och sökningar med kombinationen av namn, medborgarskap och födelsedatum för naturlig person*
 
@@ -1137,7 +1137,7 @@ I sökningen på person i kundkategori 1, returneras som svar den sökta persone
 
 #### <a name="5-1-2"></a> 5.1.2 Sökning på organisation
 
-I sökningen på organisation i kundkategori 1, returneras som svar den sökta organisationens uppgifter, uppgifter om personer inom organisationen som är den sökta organisationens förmånstagare, organisationens kundrelation samt uppgifter om sådana konton och bankfack där den sökta organisationen är ägare eller har tillträdesrättigheter som innehavare under sökintervallet.  Övriga eventuella ägare eller innehavare av tillträdesrättigheter till kontona eller bankfacken returneras inte. Inga uppgifter returneras om gemensamma konton som förvaltas av en advokat.
+I sökningen på organisation i kundkategori 1, returneras som svar den sökta organisationens uppgifter, uppgifter om personer inom organisationen som är den sökta organisationens förmånstagare, organisationens kundrelation samt uppgifter om sådana konton och bankfack där den sökta organisationen är innehavare eller har användningsrätt till det under sökintervallet.  Övriga eventuella innehavare eller innehavare av användningsrättigheter till kontona eller bankfacken returneras inte. Inga uppgifter returneras om gemensamma konton som förvaltas av en advokat.
 
 *__Tabell 5.1.2.1:__ Begränsningar för sökning på organisation. Till denna sökkategori hör sökningar med organisationens namn och sökningar med den juridiska personens registernummer*
 
@@ -1155,7 +1155,7 @@ I sökningen på organisation i kundkategori 1, returneras som svar den sökta o
 
 #### <a name="5-1-3"></a> 5.1.3 Sökning på konto
 
-I sökningen på konto i kundkategori 1, returneras som svar det sökta kontots uppgifter samt uppgifter om juridiska personer som är kontots ägare eller som har tillträdesrättigheter som innehavare under sökintervallet.  Uppgifter om kundrelation returneras för kontots ägare eller innehavare av tillträdesrättigheter som är organisationer. Uppgifter om organisationens förmånstagare returneras inte.
+I sökningen på konto i kundkategori 1, returneras som svar det sökta kontots uppgifter samt uppgifter om juridiska personer som är kontots innehavare eller som har användningsrätt till det under sökintervallet. Uppgifter om kundrelation returneras för kontots innehavare eller innehavare av användningsrättigheter som är organisationer. Uppgifter om organisationens förmånstagare returneras inte.
 
 *__Tabell 5.1.3.1:__ Begränsningar för sökningar på konto. Till denna sökkategori hör sökning med kontots IBAN och sökningar med en annan kontospecifikation*
 
@@ -1170,7 +1170,7 @@ I sökningen på konto i kundkategori 1, returneras som svar det sökta kontots 
 
 #### <a name="5-1-4"></a> 5.1.4 Sökning på bankfack
 
-I sökningen på bankfack i kundkategori 1, returneras som svar det sökta bankfackets uppgifter samt uppgifter om juridiska personer som är kontots ägare eller som har tillträdesrättigheter som innehavare under sökintervallet.  Uppgifter om kundrelation returneras för bankfackets ägare eller innehavare av tillträdesrättigheter som är organisationer. Uppgifter om organisationens förmånstagare returneras inte. 
+I sökningen på bankfack i kundkategori 1, returneras som svar det sökta bankfackets uppgifter samt uppgifter om juridiska personer som är kontots innehavare eller som har användningsrätt till det under sökintervallet.  Uppgifter om kundrelation returneras för bankfackets innehavare eller innehavare av användningsrättigheter som är organisationer. Uppgifter om organisationens förmånstagare returneras inte. 
 
 *__Tabell 5.1.4.1:__ Begränsningar för sökning på bankfack. Till denna sökkategori hör sökningar med bankfackets identifieringsuppgifter*
 
@@ -1185,7 +1185,7 @@ I sökningen på bankfack i kundkategori 1, returneras som svar det sökta bankf
 
 #### <a name="5-2-1"></a> 5.2.1 Sökning på person
 
-I sökningen på person i kundkategori 2 returneras som svar den sökta personens uppgifter, personens kundrelation, samt uppgifter om sådana konton där den sökta personen är ägare eller har tillträdesrättigheter som innehavare under sökintervallet.  Övriga eventuella ägare eller innehavare av tillträdesrättigheter till kontona returneras inte. Inga uppgifter om förmånstagare returneras. Inga uppgifter returneras om gemensamma konton som förvaltas av en advokat.
+I sökningen på person i kundkategori 2 returneras som svar den sökta personens uppgifter, personens kundrelation, samt uppgifter om sådana konton där den sökta personen är innehavare eller har användningsrätt till det under sökintervallet.  Övriga eventuella innehavare eller innehavare av användningsrättigheter till kontona returneras inte. Inga uppgifter om förmånstagare returneras. Inga uppgifter returneras om gemensamma konton som förvaltas av en advokat.
 
 *__Tabell 5.2.1.1:__ Begränsningar för sökningar på person. Till denna sökkategori hör sökningar med personbeteckning och sökningar med kombinationen av namn, medborgarskap och födelsedatum för naturlig person*
 
@@ -1201,7 +1201,7 @@ I sökningen på person i kundkategori 2 returneras som svar den sökta personen
 
 #### <a name="5-2-2"></a> 5.2.2 Sökning på organisation
 
-I sökningen på organisation i kundkategori 2, returneras den sökta organisationens uppgifter, organisationens kundrelationsuppgifter samt uppgifter för sådana konton där den sökta organisationen är ägare eller innehavare med tillträdesrättigheter under sökintervallet. Övriga eventuella ägare eller innehavare av tillträdesrättigheter till kontona returneras inte. Inga uppgifter om förmånstagare returneras. Inga uppgifter returneras om gemensamma konton som förvaltas av en advokat.
+I sökningen på organisation i kundkategori 2, returneras den sökta organisationens uppgifter, organisationens kundrelationsuppgifter samt uppgifter för sådana konton där den sökta organisationen är innehavare eller har användningsrätt till det under sökintervallet. Övriga eventuella innehavare eller innehavare av användningsrättigheter till kontona returneras inte. Inga uppgifter om förmånstagare returneras. Inga uppgifter returneras om gemensamma konton som förvaltas av en advokat.
 
 *__Tabell 5.2.2.1:__ Begränsningar för sökningar på organisation Till denna sökkategori hör sökningar med organisationens namn och sökningar med den juridiska personens registernummer*
 
@@ -1217,7 +1217,7 @@ I sökningen på organisation i kundkategori 2, returneras den sökta organisati
 
 #### <a name="5-2-3"></a> 5.2.3 Sökning på konto
 
-I sökningen på konto i kundkategori 2, returneras som svar det sökta kontots uppgifter samt uppgifter om juridiska personer som är kontots ägare eller innehavare av tillträdesrättigheter under sökintervallet. Uppgifter om kundrelation returneras för alla kontots ägare eller innehavare av tillträdesrättigheter. Uppgifter om organisationens förmånstagare returneras inte.
+I sökningen på konto i kundkategori 2, returneras som svar det sökta kontots uppgifter samt uppgifter om juridiska personer som är kontots innehavare eller har användningsrätt till det under sökintervallet. Uppgifter om kundrelation returneras för alla kontots innehavare eller innehavare av användningsrättigheter. Uppgifter om organisationens förmånstagare returneras inte.
 
 *__Tabell 5.2.3.1:__ Begränsningar för sökningar på konto. Till denna sökkategori hör sökning med kontots IBAN och sökningar med en annan kontospecifikation*
 
