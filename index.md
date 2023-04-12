@@ -64,7 +64,7 @@ Versio|Päivämäärä|Kuvaus
 2.0.4|12.12.2022|Päivitetty asianajajan asiakasvaratiliin liittyviä rajoituksia. Asianajajan asiakasvaratilejä ei palauteta InformationResponseSD1V01 supl.027.001.01 alisanomassa, jos haun tyyppi on henkilö- tai organisaatiohaku.|
 2.0.5|7.2.2023|Tarkennuksia lukuun 4.12: Validointivirhettä voi käyttää virheellisen investigation periodin tapauksessa. Vastaussanoman maksimikoko on 5 Mb. Luvussa 3.1 VRK korvattu DVV:llä.|
 2.0.6|15.2.2023|Päivitetty 'Käytössä' ja 'Kuvaus' taulukoissa 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) ja 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId). Päivitetty esimerkkitiedostoja.|
-2.0.7|20.3.2023|Päivitetty 'PersonIdentification5- ja PersonIdentification5b-elementtien käyttö' kuvausta alisanomien eroavaisuuksien osalta luvussa 4.11. Lisätty SHA512 sallittuihin algoritmeihin luvussa 3.1. Lisätty tarkennus tunnuksen formaatista luvun 4.4 Fr-elementtiin. Yhtenäistetty lukuun 5 terminologiaa oikeushenkilön ja käyttöoikeuden haltijan osalta.|
+2.0.7|20.3.2023|Päivitetty 'PersonIdentification5- ja PersonIdentification5b-elementtien käyttö' kuvausta alisanomien eroavaisuuksien osalta luvussa 4.11. Lisätty SHA512 sallittuihin algoritmeihin luvussa 3.1. Lisätty tarkennus tunnuksen formaatista luvun 4.4 Fr-elementtiin. Yhtenäistetty terminologiaa oikeushenkilön ja käyttöoikeuden haltijan osalta.|
 
 ## Sisällysluettelo
 
@@ -441,7 +441,7 @@ Järjestelmä palauttaa ainoastaan hakukriteereissä pyydetyt alisanomat (supl.0
 
 |Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
 |:---|:---|:---|:---|
-|\<MsgNmId\>|Haku henkilötunnuksella, luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä, oikeushenkilön rekisterinumerolla, yrityksen nimellä tai tallelokeron tunnisteella:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Haku IBANilla tai muulla tilin yksilöintitunnuksella:<br/>Acct/AuthrtyReqTp|"supl.027.001.01", "fin.002.001.03" tai "fin.013.001.04"||
+|\<MsgNmId\>|Haku luonnollisen henkilön henkilötunnuksella, luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä, oikeushenkilön rekisterinumerolla, oikeushenkilön nimellä tai tallelokeron tunnisteella:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Haku IBANilla tai muulla tilin yksilöintitunnuksella:<br/>Acct/AuthrtyReqTp|"supl.027.001.01", "fin.002.001.03" tai "fin.013.001.04"||
 
 #### <a name=""></a> Haku henkilötunnuksella
 
