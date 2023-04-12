@@ -1113,7 +1113,7 @@ Tiedon luovuttajat on jaettu kahteen kategoriaan: asiakaskategoria 1, joka katta
 
 #### <a name="5-1-1"></a> 5.1.1 Henkilöhaku
 
-Asiakaskategorian 1 henkilöhaussa vastauksena palautetaan haetun henkilön tiedot, sellaisten organisaatioiden tiedot, joissa haettu henkilö on edunsaajana, sekä sellaisten tilien ja tallelokeroiden tiedot, joissa haettu henkilö on omistajana tai käyttöoikeuden haltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita omistajia tai käyttöoikeuden haltijoita ei palauteta. Asiakkuustietoja ei palauteta. Asianajajan asiakasvaratilejä ei palauteta.
+Jos haettu henkilö on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhaltija, tallelokeron vuokraaja tai tallelokeron käyttöoikeudenhaltija, vastauksena palautetaan haetun henkilön tiedot, sellaisten organisaatioiden tiedot, joissa haettu henkilö on edunsaajana, sekä sellaisten tilien ja tallelokeroiden tiedot, joissa haettu henkilö on omistajana tai käyttöoikeuden haltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita omistajia tai käyttöoikeuden haltijoita ei palauteta. Asiakkuustietoja ei palauteta. Asianajajan asiakasvaratilejä ei palauteta. Jos haetulla henkilöllä ei ole tilejä tai tallelokeroita luottolaitoksessa, palautetaan vastaus "NFOU".
 
 *__Taulukko 5.1.1.1:__ Henkilöhakujen rajaukset. Tähän hakukategoriaan kuuluvat haut henkilötunnuksella ja haut luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä*
 
@@ -1133,7 +1133,7 @@ Asiakaskategorian 1 henkilöhaussa vastauksena palautetaan haetun henkilön tied
 
 #### <a name="5-1-2"></a> 5.1.2 Organisaatiohaku
 
-Asiakaskategorian 1 organisaatiohaussa vastauksena palautetaan haetun organisaation tiedot, sellaisten henkilöiden tiedot, jotka ovat haetun organisaation edunsaajia, organisaation asiakkuus sekä sellaisten tilien ja tallelokeroiden tiedot, joissa haettu organisaatio on omistajana tai käyttöoikeuden haltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita omistajia tai käyttöoikeuden haltijoita ei palauteta. Asianajajan asiakasvaratilejä ei palauteta.
+Jos haettu organisaatio on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhaltija, tallelokeron vuokraaja tai tallelokeron käyttöoikeudenhaltija, vastauksena palautetaan haetun organisaation tiedot, sellaisten henkilöiden tiedot, jotka ovat haetun organisaation edunsaajia, organisaation asiakkuus sekä sellaisten tilien ja tallelokeroiden tiedot, joissa haettu organisaatio on omistajana tai käyttöoikeuden haltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita omistajia tai käyttöoikeuden haltijoita ei palauteta. Asianajajan asiakasvaratilejä ei palauteta. Jos haetulla organisaatiolla ei ole tilejä tai tallelokeroita luottolaitoksessa, palautetaan vastaus "NFOU".
 
 *__Taulukko 5.1.2.1:__ Organisaatiohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut yrityksen nimellä ja haut oikeushenkilön rekisterinumerolla*
 
