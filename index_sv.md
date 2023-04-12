@@ -64,7 +64,7 @@ Version|Datum|Beskrivning
 2.0.4|13.12.2022|Uppdaterade begränsningar för gemensamma konton som förvaltas av en advokat. Gemensamma konton som förvaltas av en advokat returneras inte i InformationResponseSD1V01 supl.027.001.01 undermeddelandet om sökningen är på person eller på organisation.|
 2.0.5|6.2.2023|Preciseringar i avsnitt 4.12: Valideringsfel kan användas i händelse av felaktig investigation period. Maximal storlek för svarsmeddelandet är 5 Mb. I avsnitt 3.1 BRC har ersatts av MDB.|
 2.0.6|15.2.2023|Uppdaterade 'Används' och 'Beskrivning' i tabeller 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) och 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId). Uppdaterade exempelfiler.|
-2.0.7|20.3.2023|Uppdaterad beskrivning av 'Användning av PersonIdentification5- och PersonIdentification5b-elementen' avseende olika undermeddelanden i kapitel 4.11. Lade till SHA512 till tillåtna algoritmer i kapitel 3.1. Lade till ett förtydligande av ID-formatet i Fr-element i kapitel 4.4. Förenade terminologi för kontoinnehavare, användningsrätt och juridisk person i avsnitt 5.|
+2.0.7|20.3.2023|Uppdaterad beskrivning av 'Användning av PersonIdentification5- och PersonIdentification5b-elementen' avseende olika undermeddelanden i kapitel 4.11. Lade till SHA512 till tillåtna algoritmer i kapitel 3.1. Lade till ett förtydligande av ID-formatet i Fr-element i kapitel 4.4. Förenade terminologi för kontoinnehavare, användningsrätt och juridisk person.|
 
 ## Innehåll
 
@@ -447,7 +447,7 @@ Systemet returnerar endast de undermeddelanden som begärs i sökkriterierna (su
 
 |Tagg|Schemats sökväg InfReqOpng/SchCrit/|Beskrivning|Regel|
 |:---|:---|:---|:---|
-|\<MsgNmId\>|Sökning med personbeteckning, med kombinationen naturlig persons namn, medborgarskap och födelsedatum, med juridisk persons registreringsnummer, med företagets namn eller med bankfackets identifieringsuppgift:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Sökning med IBAN eller annan kontospecifikation:<br/>Acct/AuthrtyReqTp|"supl.027.001.01", "fin.002.001.03" eller "fin.013.001.04"||
+|\<MsgNmId\>|Sökning med naturlig persons personbeteckning, med kombinationen naturlig persons namn, medborgarskap och födelsedatum, med juridisk persons registreringsnummer, med juridisk persons namn eller med bankfackets identifieringsuppgift:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Sökning med IBAN eller annan kontospecifikation:<br/>Acct/AuthrtyReqTp|"supl.027.001.01", "fin.002.001.03" eller "fin.013.001.04"||
 
 #### <a name=""></a> Sökning med personbeteckning
 
