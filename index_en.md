@@ -415,8 +415,6 @@ The more detailed message descriptions are presented in the subchapters of this 
 |FIN002|InformationResponseFIN002|auth.002.001.01|Includes the details of safe-deposit boxes corresponding to the search parameters|
 |FIN013|InformationResponseFIN013|auth.002.001.01|Includes separately the customer details of account and safe-deposit boxes that correspond to the search parameters|
 
-The message replies of the query interface will include all such information that corresponds to the search criteria and whose temporal scope is derived from chapter 3, section 3 of the Act on the Prevention of Money Laundering and Terrorism Financing that lays down precise and well-defined provisions on the customer due diligence information and its storage. All involvement details delated to accounts and safe-deposit boxes are returned, i.e. all persons involved are also returned in addition to the persons (legal or natural) complying with the search parameters. However, other account and safe-deposit box details of the involved persons than those complying with the search parameters are not returned. Instead, new queries have to be made for them with the appropriate legal basis.
-
 ### <a name="BusinessApplicationHeaderV01"></a> 4.4 BusinessApplicationHeaderV01
 
 The use of BAH elements is shown in the table below. The element types are described in the [head.001.001.01 schema](assets/iso20022org/archive_business_area_business_application_header.zip).
@@ -1150,7 +1148,7 @@ In customer category 1 natural person query, the response includes the informati
 
 #### <a name="5-1-2"></a> 5.1.2 Organisation query
 
-In customer category 1 organisation query, the response includes the information of the organisation that was the object of the query, information of persons who are beneficiaries of the organisation, customership information of the organisation, and information of accounts and safety deposit boxes the organisation owns or has access right to during the investigation period. Other legal persons who own or have access right to these accounts or safety deposit boxes are not returned. Lawyer's customer asset accounts are not returned.
+In customer category 1 organisation query, the response includes the information of the organisation that was the object of the query, information of persons who are beneficiaries of the organisation and information of accounts and safety deposit boxes the organisation owns or has access right to during the investigation period. Other legal persons who own or have access right to these accounts or safety deposit boxes are not returned. If the organisation owns any accounts or safety deposit boxes in the credit institution, organisation's customership data is returned. Lawyer's customer asset accounts are not returned. If the organisation does not have any accounts in the credit institution, response "NFOU" is returned.
 
 *__Table 5.1.2.1:__ Limitations to queries for an organisation. This query category contains queries with a company's name and queries with legal person's registration number*
 
