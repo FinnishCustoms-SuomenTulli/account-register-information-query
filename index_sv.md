@@ -404,8 +404,6 @@ Närmare meddelandebeskrivningar finns i detta kapitel fr.o.m. punkt 4.4 nedan.
 |FIN002|InformationResponseFIN002|auth.002.001.01|Innehåller bankfacksuppgifter som motsvarar sökparametrarna|
 |FIN013|InformationResponseFIN013|auth.002.001.01|nnehåller kundrelationsuppgifter som motsvarar sökparametrarna, separat från uppgifterna om konton och bankfack.|
 
-I frågegränssnittets svarsmeddelanden inkluderas alla sådana uppgifter som motsvarar sökkriterierna och vars utsträckning i tiden härleds från 3 kap. 3 § i lagen om förhindrande av penningtvätt och av finansiering av terrorism där det på ett exakt och väl avgränsat sätt föreskrivs om uppgifterna om kundkontroll och bevarande av uppgifterna. Alla delaktighetsuppgifter i anslutning till konton och bankfack returneras, dvs. förutom personer (juridiska eller fysiska) som uppfyller sökvillkoret som angetts som frågeparameter returneras också alla berörda personer. Däremot returneras inte de berörda personernas konton eller bankfack som inte motsvarar sökparametern, utan i fråga om dem måste en ny förfrågan som grundar sig på lagstiftningen göras.
-
 ### <a name="BusinessApplicationHeaderV01"></a> 4.4 BusinessApplicationHeaderV01
 
 I tabellen nedan visas användningen av BAH-element. Elementtyperna beskrivs i [head.001.001.01-schemat](assets/iso20022org/archive_business_area_business_application_header.zip).
@@ -1137,7 +1135,7 @@ I sökningen på person i kundkategori 1, returneras som svar den sökta persone
 
 #### <a name="5-1-2"></a> 5.1.2 Sökning på organisation
 
-I sökningen på organisation i kundkategori 1, returneras som svar den sökta organisationens uppgifter, uppgifter om personer inom organisationen som är den sökta organisationens förmånstagare, organisationens kundrelation samt uppgifter om sådana konton och bankfack där den sökta organisationen är innehavare eller har användningsrätt till det under sökintervallet.  Övriga eventuella innehavare eller innehavare av användningsrättigheter till kontona eller bankfacken returneras inte. Inga uppgifter returneras om gemensamma konton som förvaltas av en advokat.
+I sökningen på organisation i kundkategori 1, returneras som svar den sökta organisationens uppgifter, uppgifter om personer inom organisationen som är den sökta organisationens förmånstagare, och uppgifter om sådana konton och bankfack där den sökta organisationen är innehavare eller har användningsrätt till det under sökintervallet. Övriga eventuella innehavare eller innehavare av användningsrättigheter till kontona eller bankfacken returneras inte. Om den sökta organisation är kontoinnehavare eller hyr ett bankfack i kreditinstituten, returneras organisations kundrelation uppgifter. Inga uppgifter returneras om gemensamma konton som förvaltas av en advokat.
 
 *__Tabell 5.1.2.1:__ Begränsningar för sökning på organisation. Till denna sökkategori hör sökningar med organisationens namn och sökningar med den juridiska personens registernummer*
 
