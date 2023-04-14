@@ -829,6 +829,8 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 
 #### <a name="LegalPersonInfo"></a>LegalPersonInfo-elementin käyttö
 
+Muutoin dokumentissa oikeushenkilö viittaa yrityksiin, yhdistyksiin, organisaatioihin ynnä muihin ei-luonnollisiin henkilöihin, mutta LegalPersonInfo-elementti voi tilanteesta riippuen sisältää sekä luonnollisen henkilön että oikeushenkilön tietoja.
+
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
 |Id|PartyIdentification41b|Kyllä|[1..1]|Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
