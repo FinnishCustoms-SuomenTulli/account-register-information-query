@@ -835,6 +835,8 @@ Det utvidgade meddelandet kopplas till ISO 20022-meddelandets XPath-läge som an
 
 #### <a name="LegalPersonInfo"></a> Användning av LegalPersonInfo-elementet
 
+Annars i dokumentet termen juridisk person refererar till företag, föreningar, organisationer och andra som inte är fysiska personer, men LegalPersonInfo elementet kan innehålla både fysisk persons uppgifter och juridisk persons uppgifter berående på situationen.
+
 |Namn|Typ|Används|[min..max]|Beskrivning|
 |:---|:---|:---|:---|:---|
 |Id|PartyIdentification41b|Ja|[1..1]|Se [Användning av Id-element](#Anvandning_av_Id-element)|
