@@ -846,6 +846,8 @@ The message extension is appended to the Xpath location of the ISO 20022 message
 
 #### <a name="LegalPersonInfo"></a>Use of LegalPersonInfo element
 
+Otherwise in this document, the term legal person refers to companies, associations, organisations and other not natural persons, but the LegalPersonInfo element can contain information about both a natural person and a legal person depending on the situation.
+
 |Name|Type|In use|[min..max]|Description|
 |:---|:---|:---|:---|:---|
 |Id|PartyIdentification41b|Yes|[1..1]|See [Use of Id element](#Id-element_usage)|
