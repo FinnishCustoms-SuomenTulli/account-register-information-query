@@ -1135,7 +1135,7 @@ I sökningen på person i kundkategori 1, returneras som svar den sökta persone
 
 #### <a name="5-1-2"></a> 5.1.2 Sökning på organisation
 
-I sökningen på organisation i kundkategori 1, returneras som svar den sökta organisationens uppgifter, uppgifter om personer inom organisationen som är den sökta organisationens förmånstagare, och uppgifter om sådana konton och bankfack där den sökta organisationen är innehavare eller har användningsrätt till det under sökintervallet. Övriga eventuella innehavare eller innehavare av användningsrättigheter till kontona eller bankfacken returneras inte. Om den sökta organisation är kontoinnehavare eller hyr ett bankfack i kreditinstituten, returneras organisations kundrelation uppgifter. Inga uppgifter returneras om gemensamma konton som förvaltas av en advokat.
+I sökningen på organisation i kundkategori 1, returneras som svar den sökta organisationens uppgifter, uppgifter om personer inom organisationen som är den sökta organisationens förmånstagare, och uppgifter om sådana konton och bankfack där den sökta organisationen är innehavare eller har användningsrätt till det under sökintervallet. Övriga eventuella innehavare eller innehavare av användningsrättigheter till kontona eller bankfacken returneras inte. Om den sökta organisation är kontoinnehavare eller hyr ett bankfack i kreditinstituten, returneras organisations kundrelation uppgifter. Inga uppgifter returneras om gemensamma konton som förvaltas av en advokat. Om den sökta organisation har inga konton eller bankfack i kreditinstituten, returneras svar "NFOU".
 
 *__Tabell 5.1.2.1:__ Begränsningar för sökning på organisation. Till denna sökkategori hör sökningar med organisationens namn och sökningar med den juridiska personens registernummer*
 
