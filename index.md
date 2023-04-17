@@ -64,7 +64,7 @@ Versio|Päivämäärä|Kuvaus
 2.0.4|12.12.2022|Päivitetty asianajajan asiakasvaratiliin liittyviä rajoituksia. Asianajajan asiakasvaratilejä ei palauteta InformationResponseSD1V01 supl.027.001.01 alisanomassa, jos haun tyyppi on henkilö- tai organisaatiohaku.|
 2.0.5|7.2.2023|Tarkennuksia lukuun 4.12: Validointivirhettä voi käyttää virheellisen investigation periodin tapauksessa. Vastaussanoman maksimikoko on 5 Mb. Luvussa 3.1 VRK korvattu DVV:llä.|
 2.0.6|15.2.2023|Päivitetty 'Käytössä' ja 'Kuvaus' taulukoissa 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) ja 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId). Päivitetty esimerkkitiedostoja.|
-2.0.7|20.3.2023|Päivitetty 'PersonIdentification5- ja PersonIdentification5b-elementtien käyttö' kuvausta alisanomien eroavaisuuksien osalta luvussa 4.11. Lisätty SHA512 sallittuihin algoritmeihin luvussa 3.1. Lisätty tarkennus tunnuksen formaatista luvun 4.4 Fr-elementtiin. Yhtenäistetty terminologiaa oikeushenkilön ja käyttöoikeuden haltijan osalta.|
+2.0.7|20.3.2023|Päivitetty 'PersonIdentification5- ja PersonIdentification5b-elementtien käyttö' kuvausta alisanomien eroavaisuuksien osalta luvussa 4.11. Lisätty SHA512 sallittuihin algoritmeihin luvussa 3.1. Lisätty tarkennus tunnuksen formaatista luvun 4.4 Fr-elementtiin. Yhtenäistetty terminologiaa oikeushenkilön ja käyttöoikeuden haltijan osalta. Lisätty jokaisen alisanoman kohdalle ohjeistus milloin palautetaan NFOU. Tarkennuksia sanoman kenttien käyttöön LegalPersonInfo-elementissä.|
 
 ## Sisällysluettelo
 
@@ -726,6 +726,8 @@ Vastaussanomaan liitetään kolme kappaletta `InvstgtnSts` elementtiä koodilla 
 
 Taulukossa on kuvattu sanoman tietueiden käyttö.
 
+Jos vastauksessa ei palauteta tilitietoja, supl.027 sanoma palautetaan statuskoodilla NFOU.
+
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
 |InformationResponseSD1V01 supl.027.001.01| | | | |
@@ -778,6 +780,8 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 
 Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijaintiin.
 
+Jos vastauksessa ei palauteta tallelokerotietoja, FIN002 sanoma palautetaan statuskoodilla NFOU.
+
 |Nimi|[min..max]|Tyyppi|Käytetään|Kuvaus|Liitetään sanomaan|XPath|
 |:---|:---|:---|:---|:---|:---|:---|
 |InformationResponseFIN002| | | | |[auth.002](#InformationRequestResponseV01)|/Document/InfReqRspn/RtrInd/InvstgtnRslt/Rslt|
@@ -819,6 +823,8 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 
 Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijaintiin.
 
+Jos vastauksessa ei palauteta edunsaajuustietoja eikä asiakkuustietoja (asiakkuuden alkamis- ja mahdollinen päättymispäivä), FIN013 sanoma palautetaan statuskoodilla NFOU.
+
 |Nimi|Käytetään|[min..max]|Tyyppi|Kuvaus|Liitetään sanomaan|XPath|
 |:---|:---|:---|:---|:---|:---|:---|
 |InformationResponseFIN013| | | | |[auth.002](#InformationRequestResponseV01)|/Document/InfReqRspn/RtrInd/InvstgtnRslt/Rslt|
@@ -833,8 +839,8 @@ Muutoin dokumentissa oikeushenkilö viittaa yrityksiin, yhdistyksiin, organisaat
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
-|Id|PartyIdentification41b|Kyllä|[1..1]|Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
-|CustomerInfo|CustomerInfo|Kyllä|[0..1]|Asiakkuustiedot. Ks. [CustomerInfo-elementin käyttö](#CustomerInfo)|
+|Id|PartyIdentification41b|Kyllä|[1..1]|Yleensä palautettavaan asiakkuustietoon (CustomerInfo) tai edunsaajuustietoon (Beneficiaries) liittyvän organisaation tunnistetiedot. Jos on kyseessä asiakaskategorian 2 vastaus henkilöhakuun, kentässä on palautettavaan asiakkuustietoon (CustomerInfo) liittyvän henkilön tiedot. Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|CustomerInfo|CustomerInfo|Kyllä|[0..1]|Asiakkuustiedot eli asiakkuuden alkamis- ja mahdollinen päättymispäivä. Ks. [CustomerInfo-elementin käyttö](#CustomerInfo)|
 |Beneficiaries|Beneficiaries|Kyllä|[0..1]|Edunsaajatiedot. Ks. [Beneficiaries-elementin käyttö](#Beneficiaries_kaytto)|
 
 #### <a name="CustomerInfo"></a>CustomerInfo-elementin käyttö
