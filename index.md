@@ -64,7 +64,7 @@ Versio|Päivämäärä|Kuvaus
 2.0.4|12.12.2022|Päivitetty asianajajan asiakasvaratiliin liittyviä rajoituksia. Asianajajan asiakasvaratilejä ei palauteta InformationResponseSD1V01 supl.027.001.01 alisanomassa, jos haun tyyppi on henkilö- tai organisaatiohaku.|
 2.0.5|7.2.2023|Tarkennuksia lukuun 4.12: Validointivirhettä voi käyttää virheellisen investigation periodin tapauksessa. Vastaussanoman maksimikoko on 5 Mb. Luvussa 3.1 VRK korvattu DVV:llä.|
 2.0.6|15.2.2023|Päivitetty 'Käytössä' ja 'Kuvaus' taulukoissa 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) ja 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId). Päivitetty esimerkkitiedostoja.|
-2.0.7|20.3.2023|Päivitetty 'PersonIdentification5- ja PersonIdentification5b-elementtien käyttö' kuvausta alisanomien eroavaisuuksien osalta luvussa 4.11. Lisätty SHA512 sallittuihin algoritmeihin luvussa 3.1. Lisätty tarkennus tunnuksen formaatista luvun 4.4 Fr-elementtiin. Yhtenäistetty terminologiaa oikeushenkilön ja käyttöoikeuden haltijan osalta. Lisätty jokaisen alisanoman kohdalle ohjeistus milloin palautetaan NFOU. Tarkennuksia sanoman kenttien käyttöön LegalPersonInfo-elementissä.|
+2.0.7|20.3.2023|Päivitetty 'PersonIdentification5- ja PersonIdentification5b-elementtien käyttö' kuvausta alisanomien eroavaisuuksien osalta luvussa 4.11. Lisätty SHA512 sallittuihin algoritmeihin luvussa 3.1. Lisätty tarkennus tunnuksen formaatista luvun 4.4 Fr-elementtiin. Yhtenäistetty terminologiaa oikeushenkilön ja käyttöoikeuden haltijan osalta, oikeushenkilö tarkoittaa organisaatiota. Lisätty jokaisen alisanoman kohdalle ohjeistus milloin palautetaan NFOU. Tarkennuksia sanoman kenttien käyttöön LegalPersonInfo-elementissä.|
 
 ## Sisällysluettelo
 
@@ -839,7 +839,7 @@ Muutoin dokumentissa oikeushenkilö viittaa yrityksiin, yhdistyksiin, organisaat
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
-|Id|PartyIdentification41b|Kyllä|[1..1]|Yleensä palautettavaan asiakkuustietoon (CustomerInfo) tai edunsaajuustietoon (Beneficiaries) liittyvän organisaation tunnistetiedot. Jos on kyseessä asiakaskategorian 2 vastaus henkilöhakuun, kentässä on palautettavaan asiakkuustietoon (CustomerInfo) liittyvän henkilön tiedot. Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|Id|PartyIdentification41b|Kyllä|[1..1]|Luottolaitokset palauttavat kentässä sen oikeushenkilön tiedot, joka liittyy sanomaan liitettävään asiakkuustietoon (CustomerInfo-elementti) tai edunsaajuustietoon (Beneficiaries-elementti). Muut tiedonluovuttajat palauttavat kentässä asiakkuustietoon (CustomerInfo-elementti) liittyvän oikeushenkilön tai luonnollisen henkilön tiedot. Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
 |CustomerInfo|CustomerInfo|Kyllä|[0..1]|Asiakkuustiedot eli asiakkuuden alkamis- ja mahdollinen päättymispäivä. Ks. [CustomerInfo-elementin käyttö](#CustomerInfo)|
 |Beneficiaries|Beneficiaries|Kyllä|[0..1]|Edunsaajatiedot. Ks. [Beneficiaries-elementin käyttö](#Beneficiaries_kaytto)|
 
