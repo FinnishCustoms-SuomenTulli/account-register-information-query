@@ -75,7 +75,7 @@ Versio|Päivämäärä|Kuvaus
   4.1 [Kyselyrajapinnan SOAP-operaatioiden sanomarakenne](#4-1)    
   4.2 [Business Application Header (BAH)](#4-2)    
   4.3 [Kyselyrajapinnan sanomat](#4-3)    
-  4.4 [BusinessApplicationHeaderV01](#BusinessApplicationHeaderV01)    
+  4.4 [BusinessApplicationHeaderV01](#4-4)    
   4.5 [InformationRequestOpeningV01](#InformationRequestOpeningV01)    
   4.6 [InformationRequestFIN012](#InformationRequestFIN012)    
   4.7 [InformationRequestResponseV01](#InformationRequestResponseV01)    
@@ -398,7 +398,7 @@ Tarkemmat sanomakuvaukset ovat tämän luvun aliluvuissa 4.4 alkaen.
 |FIN002|InformationResponseFIN002|auth.002.001.01|Sisältää hakuparametreja vastaavat tallelokerotiedot|
 |FIN013|InformationResponseFIN013|auth.002.001.01|Sisältää tili- ja tallelokerotiedoista erillisenä hakuparametreja vastaavat asiakkuustiedot|
 
-### <a name="BusinessApplicationHeaderV01"></a> 4.4 BusinessApplicationHeaderV01
+### <a name="4-4"></a> 4.4 BusinessApplicationHeaderV01
 
 Seuraavassa taulukossa on esitetty BAH-elementtien käyttö. Elementtien tyypit on kuvattu [head.001.001.01-skeemassa](assets/iso20022org/archive_business_area_business_application_header.zip).
 
