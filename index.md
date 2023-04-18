@@ -247,7 +247,7 @@ Huom. Jotta tietoliikenteen suojaus täyttää alla viitatut Kyberturvallisuuske
 
 #### <a name="xml-sig"></a> XML-allekirjoituksen muodostaminen
 
-Allekirjoituksen tyyppi on __enveloped signature__. Signature-elementti sijoitetaan [BAHin](#BusinessApplicationHeaderV01) Sgntr-elementin alle.
+Allekirjoituksen tyyppi on __enveloped signature__. Signature-elementti sijoitetaan [BAHin](#4-2) Sgntr-elementin alle.
 
 Esimerkki 3.1. Esimerkki SignedInfo
 ```
@@ -328,9 +328,9 @@ Tarkemmat sanomakuvaukset ovat tämän luvun aliluvuissa 4.4 alkaen.
 |Tieto|Sanoma(t)|Kuvaus|
 |:---|:---|:---|
 |Täydellinen nimi|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyssä Pty/Nm-elementissä, lähdejärjestelmän formaatissa. Jotta saavutetaan yhteensopivuus olemassaolevien järjestelmien kanssa, on käytettävä yhtä nimikenttää esittämään henkilön kaikki nimet. Tämän elementin formaattia etu- ja sukunimien suhteen ei ole tarkasti määritelty ISO 20022 -sanomatoteutuksissa, jotka on tiedonhakurajapinnan määrittelytyön pohjaksi annettu (auth.001: Document/InfReqOpng/SchCrit/CstmrId/Pty/Nm). Lisäksi on huomioitava, ettei etu- ja/tai sukunimeä esiinny globaalisti kaikilla henkilöillä.|
-|Syntymäaika|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
-|Henkilötunnus|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
-|Kansalaisuudet|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|Syntymäaika|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#id-elementin_kaytto)|
+|Henkilötunnus|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#id-elementin_kaytto)|
+|Kansalaisuudet|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#id-elementin_kaytto)|
 |Edunsaaja|fin.013|Organisaatiot, joissa luonnollinen henkilö on edunsaajana|
 |Kiistanalainen|auth.002|[disputed-skeeman](schemas/disputed.xsd) mukainen Supplementary Data|
 
@@ -865,7 +865,7 @@ Muutoin dokumentissa oikeushenkilö viittaa yrityksiin, yhdistyksiin, organisaat
 |StartDt|ISODate|Kyllä|[0..1]|Roolin alkamispäivämäärä|
 |EndDt|ISODate|Kyllä|[0..1]|Roolin päättymispäivämäärä|
 
-### <a name="4-11"></a> 4.11 Id-elementin käyttö
+### <a name="id-elementin_kaytto"></a> 4.11 Id-elementin käyttö
 
 Kaikissa sanomissa käytetään vastaavaa oikeushenkilön ja luonnollisen henkilön tunnistamisrakennetta Id-elementin (Party8Choice) alla. Tässä on kuvattu Id-elementin käyttö kyselyrajapinnassa.
 
