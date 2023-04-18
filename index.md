@@ -82,7 +82,7 @@ Versio|Päivämäärä|Kuvaus
   4.8 [InformationResponseSD1V01](#4-8)    
   4.9 [InformationResponseFIN002](#4-9)    
   4.10 [InformationResponseFIN013](#4-10)   
-  4.11 [Id-elementin käyttö](#Id-elementin-kaytto)    
+  4.11 [Id-elementin käyttö](#4-11)    
   4.12 [Kyselyrajapinnan WS-sanomaliikenteen skenaariot](#4-12)    
   4.13 [Kiistanalaisten tietojen palauttaminen](#4-13)  
 5. [Kyselyjen palauttamien tietojoukkojen rajaukset asiakaskategorioittain](#luku5)  
@@ -814,7 +814,7 @@ Jos vastauksessa ei palauteta tallelokerotietoja, FIN002 sanoma palautetaan stat
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
 |AccountRole1| | | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|kyllä|[1..*]|ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|kyllä|[1..*]|ks. [Id-elementin käyttö](#4-11)|
 |&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|kyllä|[1..1]|Käytetään `OwnrTp/Prtry/SchmeNm` arvolla "RLTP", sekä `OwnrTp/Prtry/Id`, jossa arvo "OWNE" (tallelokeron haltija, "omistaja") tai "ACCE" (tallelokeron käyttöoikeuden haltija, "käyttöoikeus"|
 |&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|kyllä|[0..1]|Roolin alkamispäivämäärä|
 |&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|kyllä|[0..1]|Roolin päättymispäivämäärä|
@@ -839,7 +839,7 @@ Muutoin dokumentissa oikeushenkilö viittaa yrityksiin, yhdistyksiin, organisaat
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
-|Id|PartyIdentification41b|Kyllä|[1..1]|Luottolaitokset palauttavat kentässä sen oikeushenkilön tiedot, joka liittyy sanomaan liitettävään asiakkuustietoon (CustomerInfo-elementti) tai edunsaajuustietoon (Beneficiaries-elementti). Muut tiedonluovuttajat palauttavat kentässä asiakkuustietoon (CustomerInfo-elementti) liittyvän oikeushenkilön tai luonnollisen henkilön tiedot. Ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|Id|PartyIdentification41b|Kyllä|[1..1]|Luottolaitokset palauttavat kentässä sen oikeushenkilön tiedot, joka liittyy sanomaan liitettävään asiakkuustietoon (CustomerInfo-elementti) tai edunsaajuustietoon (Beneficiaries-elementti). Muut tiedonluovuttajat palauttavat kentässä asiakkuustietoon (CustomerInfo-elementti) liittyvän oikeushenkilön tai luonnollisen henkilön tiedot. Ks. [Id-elementin käyttö](#4-11)|
 |CustomerInfo|CustomerInfo|Kyllä|[0..1]|Asiakkuustiedot eli asiakkuuden alkamis- ja mahdollinen päättymispäivä. Ks. [CustomerInfo-elementin käyttö](#CustomerInfo)|
 |Beneficiaries|Beneficiaries|Kyllä|[0..1]|Edunsaajatiedot. Ks. [Beneficiaries-elementin käyttö](#Beneficiaries_kaytto)|
 
@@ -865,7 +865,7 @@ Muutoin dokumentissa oikeushenkilö viittaa yrityksiin, yhdistyksiin, organisaat
 |StartDt|ISODate|Kyllä|[0..1]|Roolin alkamispäivämäärä|
 |EndDt|ISODate|Kyllä|[0..1]|Roolin päättymispäivämäärä|
 
-### <a name="Id-elementin-kaytto"></a> 4.11 Id-elementin käyttö
+### <a name="4-11"></a> 4.11 Id-elementin käyttö
 
 Kaikissa sanomissa käytetään vastaavaa oikeushenkilön ja luonnollisen henkilön tunnistamisrakennetta Id-elementin (Party8Choice) alla. Tässä on kuvattu Id-elementin käyttö kyselyrajapinnassa.
 
