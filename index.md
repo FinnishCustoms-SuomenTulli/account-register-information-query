@@ -349,20 +349,20 @@ Tarkemmat sanomakuvaukset ovat tämän luvun aliluvuissa 4.4 alkaen.
 
 |Tieto|Sanoma(t)|Kuvaus|
 |:---|:---|:---|
-|IBAN-numero|supl.027|Ks. [CustomerAccount-käyttö](#customerAccount1)|
+|IBAN-numero|supl.027|Ks. [CustomerAccount-käyttö](#customer-account1)|
 |Tilin avaamispäivä|supl.027|Palautetaan AddtlInf-kentässä|
-|Tilin sulkemispäivä|supl.027|Ks. [CustomerAccount-käyttö](#customerAccount1)|
+|Tilin sulkemispäivä|supl.027|Ks. [CustomerAccount-käyttö](#customer-account1)|
 |Tilin osalliset|supl.027|Tilin haltijat ja tilin käyttöoikeuden haltijat|
-|Tilin käyttötarkoitus|supl.027|Ks. [CustomerAccount-käyttö](#customerAccount1)|
+|Tilin käyttötarkoitus|supl.027|Ks. [CustomerAccount-käyttö](#customer-account1)|
 |Kiistanalainen|auth.002|[disputed-skeeman](schemas/disputed.xsd) mukainen Supplementary Data|
 
 *__Taulukko 4.3.4:__ Tallelokero, tiedot sanomakohtaisesti eriteltynä*
 
 |Tieto|Sanoma(t)|Kuvaus|
 |:---|:---|:---|
-|Yksilöintitieto|fin.002|ks. [SafetyDepositBoxAndParties käyttö](#SafetyDepositBoxAndParties)|
-|Vuokra-ajan alkamispäivämäärä|fin.002|ks. [SafetyDepositBoxAndParties käyttö](#SafetyDepositBoxAndParties)|
-|Vuokra-ajan päättymispäivämäärä|fin.002|ks. [SafetyDepositBoxAndParties käyttö](#SafetyDepositBoxAndParties)|
+|Yksilöintitieto|fin.002|ks. [SafetyDepositBoxAndParties käyttö](#safety-deposit-box-and-parties)|
+|Vuokra-ajan alkamispäivämäärä|fin.002|ks. [SafetyDepositBoxAndParties käyttö](#safety-deposit-box-and-parties)|
+|Vuokra-ajan päättymispäivämäärä|fin.002|ks. [SafetyDepositBoxAndParties käyttö](#safety-deposit-box-and-parties)|
 |Tallelokeron osalliset|fin.002|Tallelokeron haltijat ja tallelokeron käyttöoikeuden haltijat|
 |Kiistanalainen|auth.002|[disputed-skeeman](schemas/disputed.xsd) mukainen Supplementary Data|
 
@@ -745,7 +745,7 @@ Jos vastauksessa ei palauteta tilitietoja, supl.027 sanoma palautetaan statuskoo
 |&nbsp;&nbsp;&nbsp;&nbsp;Role|AccountRole1|kyllä|[1..*]|Tiliin liittyvät roolit ks. toinen taulukko alla. Jokainen rooli on ilmoitettava erikseen, esim. jos luonnollisella henkilöllä on sekä tilin haltijuus että tilin käyttöoikeuden haltijuus tiliin, niin Role-elementtejä on tällöin kaksi kappaletta, joista yhden OwnrTp=OWNE ja toisen OwnrTp=ACCE, ks. AccountRole1 käyttö. Jokaisella roolilla voi olla alkupäivämäärä ja valinnainen loppupäivämäärä. Tämän lisäksi jokaiseen rooliin liittyvä asiakkuus on ilmoitettava fin.013-alisanomassa yhden kerran per osallinen, jos sitä ei rajoitussäännöillä erikseen kielletä. Em. esimerkin henkilölle ilmoitetaan siis yksi asiakkuus tässä tapauksessa.|
 |&nbsp;&nbsp;&nbsp;&nbsp;AddtlInf|Max256Text|kyllä|[0..1]|Tilin avaamispäivämäärä merkkijonona ISODate-formaatissa|
 
-#### <a name="customerAccount1"></a> CustomerAccount1 käyttö
+#### <a name="customer-account1"></a> CustomerAccount1 käyttö
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
@@ -790,7 +790,7 @@ Jos vastauksessa ei palauteta tallelokerotietoja, FIN002 sanoma palautetaan stat
 |&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|[1..1]|BranchAndFinancialInstitutionIdentification4|kyllä|Käytetään seuraavasti: Elementti `SvcrId/FinInstnId/Othr/SchmeNm/Cd` sisältää arvon "Y" ja elementti `SvcrId/FinInstnId/Othr/Id` sisältää lähettäjän Y-tunnuksen.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SdBoxAndPties|[0..*]|SafetyDepositBoxAndParties|kyllä|Tallelokero ja osalliset ks. [SafetyDepositBoxAndParties käyttö](#SafetyDepositBoxAndParties)|
 
-#### <a name="SafetyDepositBoxAndParties"></a> SafetyDepositBoxAndParties käyttö
+#### <a name="safety-deposit-box-and-parties"></a> SafetyDepositBoxAndParties käyttö
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
