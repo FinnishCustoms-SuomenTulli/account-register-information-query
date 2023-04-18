@@ -726,7 +726,7 @@ Vastaussanomaan liitetään kolme kappaletta `InvstgtnSts` elementtiä koodilla 
 
 Taulukossa on kuvattu sanoman tietueiden käyttö.
 
-Jos vastauksessa ei palauteta tilitietoja, supl.027 sanoma palautetaan statuskoodilla NFOU.
+Jos vastauksessa ei palauteta tilitietoja, supl.027 alisanoma saa vastaussanomassa statuskoodin NFOU.
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
@@ -780,7 +780,7 @@ Jos vastauksessa ei palauteta tilitietoja, supl.027 sanoma palautetaan statuskoo
 
 Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijaintiin.
 
-Jos vastauksessa ei palauteta tallelokerotietoja, FIN002 sanoma palautetaan statuskoodilla NFOU.
+Jos vastauksessa ei palauteta tallelokerotietoja, FIN002 alisanoma saa vastaussanomassa statuskoodin NFOU.
 
 |Nimi|[min..max]|Tyyppi|Käytetään|Kuvaus|Liitetään sanomaan|XPath|
 |:---|:---|:---|:---|:---|:---|:---|
@@ -823,7 +823,7 @@ Jos vastauksessa ei palauteta tallelokerotietoja, FIN002 sanoma palautetaan stat
 
 Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijaintiin.
 
-Jos vastauksessa ei palauteta edunsaajuustietoja eikä asiakkuustietoja (asiakkuuden alkamis- ja mahdollinen päättymispäivä), FIN013 sanoma palautetaan statuskoodilla NFOU.
+Jos vastauksessa ei palauteta edunsaajuustietoja eikä asiakkuustietoja (asiakkuuden alkamis- ja mahdollinen päättymispäivä), FIN013 alisanoma saa vastaussanomassa statuskoodin NFOU.
 
 |Nimi|Käytetään|[min..max]|Tyyppi|Kuvaus|Liitetään sanomaan|XPath|
 |:---|:---|:---|:---|:---|:---|:---|
@@ -836,6 +836,8 @@ Jos vastauksessa ei palauteta edunsaajuustietoja eikä asiakkuustietoja (asiakku
 #### <a name="legal-person-info"></a>LegalPersonInfo-elementin käyttö
 
 Muutoin dokumentissa oikeushenkilö viittaa yrityksiin, yhdistyksiin, organisaatioihin ynnä muihin ei-luonnollisiin henkilöihin, mutta LegalPersonInfo-elementti voi tilanteesta riippuen sisältää sekä luonnollisen henkilön että oikeushenkilön tietoja.
+
+Jos palautettavaan vastaussanomaan ei sisälly asiakkuuden päivämäärätietoja (CustomerInfo-elementti) eikä edunsaajuustietoja (Beneficiaries-elementti), ei FIN013 alisanomaa sisällytetä ollenkaan vastaussanomaan. Tällöin vastauksessa FIN013 saa statuskoodin NFOU.
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
@@ -1119,7 +1121,7 @@ Tiedon luovuttajat on jaettu kahteen kategoriaan: asiakaskategoria 1, joka katta
 
 #### <a name="5-1-1"></a> 5.1.1 Henkilöhaku
 
-Jos haettu henkilö on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhaltija, tallelokeron vuokraaja tai tallelokeron käyttöoikeudenhaltija, vastauksena palautetaan haetun henkilön tiedot, sellaisten organisaatioiden tiedot, joissa haettu henkilö on edunsaajana, sekä sellaisten tilien ja tallelokeroiden tiedot, joissa haettu henkilö on omistajana tai käyttöoikeuden haltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita omistajia tai käyttöoikeuden haltijoita ei palauteta. Asiakkuustietoja ei palauteta. Asianajajan asiakasvaratilejä ei palauteta. Jos haetulla henkilöllä ei ole tilejä tai tallelokeroita luottolaitoksessa, palautetaan vastaus "NFOU".
+Jos haettu henkilö on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhaltija, tallelokeron vuokraaja tai tallelokeron käyttöoikeudenhaltija, vastauksena palautetaan sellaisten organisaatioiden tiedot, joissa haettu henkilö on edunsaajana, sekä sellaisten tilien ja tallelokeroiden tiedot, joissa haettu henkilö on omistajana tai käyttöoikeuden haltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita omistajia tai käyttöoikeuden haltijoita ei palauteta. Asiakkuustietoja ei palauteta. Asianajajan asiakasvaratilejä ei palauteta. Jos haetulla henkilöllä ei ole tilejä tai tallelokeroita luottolaitoksessa, palautetaan vastaus "NFOU".
 
 *__Taulukko 5.1.1.1:__ Henkilöhakujen rajaukset. Tähän hakukategoriaan kuuluvat haut henkilötunnuksella ja haut luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä*
 
@@ -1130,7 +1132,7 @@ Jos haettu henkilö on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhal
 |Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Tiliroolin loppupäivämäärää ei palauteta.|
 |Muut tiliin liittyvät oikeushenkilöt tai luonnolliset henkilöt|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|Henkilöhaussa palautettavan tilin mukana ei palauteta muita kuin hakuun liittyvän luonnollisen henkilön rooli.|
 |Muut tallelokeroon liittyvät oikeushenkilöt tai luonnolliset henkilöt|InformationResponseFIN002|/SdBoxAndPties/Role|Henkilöhaussa palautettavan tallelokeron mukana ei palauteta muita kuin hakuun liittyvän luonnollisen henkilön rooli.|
-|Muut organisaatioon liittyvät henkilöt|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Henkilöhaussa palautettavan organisaation mukana ei palauteta muita kuin hakuun liittyvän henkilön rooli.|
+|Muut organisaatioon liittyvät henkilöt|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Henkilöhaussa palautettavan organisaation mukana ei palauteta muiden luonnollisten henkilöiden kuin hakukohteena olevan henkilön tietoja.|
 |Tallelokeroroolin alkupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Tallelokeroroolin alkupäivää ei palauteta.|
 |Tallelokeroroolin loppupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Tallelokeroroolin loppupäivämäärää ei palauteta.|
 |Edunsaajaroolin alkupäivä|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries/Beneficiary/StartDt|Edunsaajaroolin alkupäivää ei palauteta.|
@@ -1139,7 +1141,7 @@ Jos haettu henkilö on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhal
 
 #### <a name="5-1-2"></a> 5.1.2 Organisaatiohaku
 
-Jos haettu organisaatio on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhaltija, tallelokeron vuokraaja tai tallelokeron käyttöoikeudenhaltija, vastauksena palautetaan haetun organisaation tiedot, sellaisten henkilöiden tiedot, jotka ovat haetun organisaation edunsaajia sekä sellaisten tilien ja tallelokeroiden tiedot, joissa haettu organisaatio on omistajana tai käyttöoikeuden haltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita omistajia tai käyttöoikeuden haltijoita ei palauteta. Jos organisaatio on jonkin tilin tilinhaltija tai tallelokeron vuokraaja luottolaitoksessa, palautetaan organisaation asiakkuustieto. Asianajajan asiakasvaratilejä ei palauteta. Jos haetulla organisaatiolla ei ole tilejä tai tallelokeroita luottolaitoksessa, palautetaan vastaus "NFOU".
+Jos haettu organisaatio on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhaltija, tallelokeron vuokraaja tai tallelokeron käyttöoikeudenhaltija, vastauksena palautetaan sellaisten henkilöiden tiedot, jotka ovat haetun organisaation edunsaajia sekä sellaisten tilien ja tallelokeroiden tiedot, joissa haettu organisaatio on omistajana tai käyttöoikeuden haltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita omistajia tai käyttöoikeuden haltijoita ei palauteta. Jos organisaatio on jonkin tilin tilinhaltija tai tallelokeron vuokraaja luottolaitoksessa, palautetaan organisaation asiakkuustieto. Asianajajan asiakasvaratilejä ei palauteta. Jos haetulla organisaatiolla ei ole tilejä tai tallelokeroita luottolaitoksessa, palautetaan vastaus "NFOU".
 
 *__Taulukko 5.1.2.1:__ Organisaatiohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut yrityksen nimellä ja haut oikeushenkilön rekisterinumerolla*
 
@@ -1187,7 +1189,7 @@ Asiakaskategorian 1 tallelokerohaussa vastauksena palautetaan haetun tallelokero
 
 #### <a name="5-2-1"></a> 5.2.1 Henkilöhaku
 
-Asiakaskategorian 2 henkilöhaussa vastauksena palautetaan haetun henkilön tiedot, henkilön asiakkuustieto, sekä sellaisten tilien tiedot, joissa haettu henkilö on omistajana tai käyttöoikeuden haltijana käytetyllä hakuaikavälillä. Tilien mahdollisia muita omistajia tai käyttöoikeuden haltijoita ei palauteta. Edunsaajuustietoja ei palauteta. Asianajajan asiakasvaratilejä ei palauteta.
+Asiakaskategorian 2 henkilöhaussa vastauksena palautetaan haetun henkilön asiakkuustieto sekä sellaisten tilien tiedot, joissa haettu henkilö on omistajana tai käyttöoikeuden haltijana käytetyllä hakuaikavälillä. Tilien mahdollisia muita omistajia tai käyttöoikeuden haltijoita ei palauteta. Edunsaajuustietoja ei palauteta. Asianajajan asiakasvaratilejä ei palauteta.
 
 *__Taulukko 5.2.1.1:__ Henkilöhakujen rajaukset. Tähän hakukategoriaan kuuluvat haut henkilötunnuksella ja haut luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä*
 
@@ -1203,7 +1205,7 @@ Asiakaskategorian 2 henkilöhaussa vastauksena palautetaan haetun henkilön tied
 
 #### <a name="5-2-2"></a> 5.2.2 Organisaatiohaku
 
-Asiakaskategorian 2 organisaatiohaussa vastauksena palautetaan haetun organisaation tiedot, organisaation asiakkuustieto, sekä sellaisten tilien tiedot, joissa haettu organisaatio on omistajana tai käyttöoikeuden haltijana käytetyllä hakuaikavälillä. Tilien mahdollisia muita omistajia tai käyttöoikeuden haltijoita ei palauteta. Edunsaajuustietoja ei palauteta. Asianajajan asiakasvaratilejä ei palauteta.
+Asiakaskategorian 2 organisaatiohaussa vastauksena palautetaan haetun organisaation asiakkuustieto sekä sellaisten tilien tiedot, joissa haettu organisaatio on omistajana tai käyttöoikeuden haltijana käytetyllä hakuaikavälillä. Tilien mahdollisia muita omistajia tai käyttöoikeuden haltijoita ei palauteta. Edunsaajuustietoja ei palauteta. Asianajajan asiakasvaratilejä ei palauteta.
 
 *__Taulukko 5.2.2.1:__ Organisaatiohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut yrityksen nimellä ja haut oikeushenkilön rekisterinumerolla*
 
