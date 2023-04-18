@@ -82,7 +82,7 @@ Versio|Päivämäärä|Kuvaus
   4.8 [InformationResponseSD1V01](#4-8)    
   4.9 [InformationResponseFIN002](#4-9)    
   4.10 [InformationResponseFIN013](#4-10)   
-  4.11 [Id-elementin käyttö](#Id-elementin_kaytto)    
+  4.11 [Id-elementin käyttö](#Id-elementin-kaytto)    
   4.12 [Kyselyrajapinnan WS-sanomaliikenteen skenaariot](#4-12)    
   4.13 [Kiistanalaisten tietojen palauttaminen](#4-13)  
 5. [Kyselyjen palauttamien tietojoukkojen rajaukset asiakaskategorioittain](#luku5)  
@@ -865,7 +865,7 @@ Muutoin dokumentissa oikeushenkilö viittaa yrityksiin, yhdistyksiin, organisaat
 |StartDt|ISODate|Kyllä|[0..1]|Roolin alkamispäivämäärä|
 |EndDt|ISODate|Kyllä|[0..1]|Roolin päättymispäivämäärä|
 
-### <a name="Id-elementin_kaytto"></a> 4.11 Id-elementin käyttö
+### <a name="Id-elementin-kaytto"></a> 4.11 Id-elementin käyttö
 
 Kaikissa sanomissa käytetään vastaavaa oikeushenkilön ja luonnollisen henkilön tunnistamisrakennetta Id-elementin (Party8Choice) alla. Tässä on kuvattu Id-elementin käyttö kyselyrajapinnassa.
 
