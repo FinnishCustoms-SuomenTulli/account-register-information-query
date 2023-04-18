@@ -82,7 +82,7 @@ Versio|Päivämäärä|Kuvaus
   4.8 [InformationResponseSD1V01](#4-8)    
   4.9 [InformationResponseFIN002](#4-9)    
   4.10 [InformationResponseFIN013](#4-10)   
-  4.11 [Id-elementin käyttö](#4-11)    
+  4.11 [Id-elementin käyttö](#id-elementin_kaytto)    
   4.12 [Kyselyrajapinnan WS-sanomaliikenteen skenaariot](#4-12)    
   4.13 [Kiistanalaisten tietojen palauttaminen](#4-13)  
 5. [Kyselyjen palauttamien tietojoukkojen rajaukset asiakaskategorioittain](#luku5)  
@@ -339,21 +339,21 @@ Tarkemmat sanomakuvaukset ovat tämän luvun aliluvuissa 4.4 alkaen.
 |Tieto|Sanoma(t)|Kuvaus|
 |:---|:---|:---|
 |Nimi|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyssä Pty/Nm-elementissä|
-|Rekisterinumero|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
-|Rekisteriviranomainen|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
-|Rekisteröitymispäivä|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
-|Toimijan yksilöivä tunniste|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#Id-elementin_kaytto)|
+|Rekisterinumero|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#id-elementin_kaytto)|
+|Rekisteriviranomainen|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#id-elementin_kaytto)|
+|Rekisteröitymispäivä|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#id-elementin_kaytto)|
+|Toimijan yksilöivä tunniste|fin.002, fin.013, supl.027|Palautetaan rooliin liitetyn Id-elementin osana ks. [Id-elementin käyttö](#id-elementin_kaytto)|
 |Kiistanalainen|auth.002|[disputed-skeeman](schemas/disputed.xsd) mukainen Supplementary Data|
 
 *__Taulukko 4.3.3:__ Pankki- ja  maksutili, tiedot sanomakohtaisesti eriteltynä*
 
 |Tieto|Sanoma(t)|Kuvaus|
 |:---|:---|:---|
-|IBAN-numero|supl.027|Ks. [CustomerAccount-käyttö](#CustomerAccount1)|
+|IBAN-numero|supl.027|Ks. [CustomerAccount-käyttö](#customerAccount1)|
 |Tilin avaamispäivä|supl.027|Palautetaan AddtlInf-kentässä|
-|Tilin sulkemispäivä|supl.027|Ks. [CustomerAccount-käyttö](#CustomerAccount1)|
+|Tilin sulkemispäivä|supl.027|Ks. [CustomerAccount-käyttö](#customerAccount1)|
 |Tilin osalliset|supl.027|Tilin haltijat ja tilin käyttöoikeuden haltijat|
-|Tilin käyttötarkoitus|supl.027|Ks. [CustomerAccount-käyttö](#CustomerAccount1)|
+|Tilin käyttötarkoitus|supl.027|Ks. [CustomerAccount-käyttö](#customerAccount1)|
 |Kiistanalainen|auth.002|[disputed-skeeman](schemas/disputed.xsd) mukainen Supplementary Data|
 
 *__Taulukko 4.3.4:__ Tallelokero, tiedot sanomakohtaisesti eriteltynä*
@@ -745,7 +745,7 @@ Jos vastauksessa ei palauteta tilitietoja, supl.027 sanoma palautetaan statuskoo
 |&nbsp;&nbsp;&nbsp;&nbsp;Role|AccountRole1|kyllä|[1..*]|Tiliin liittyvät roolit ks. toinen taulukko alla. Jokainen rooli on ilmoitettava erikseen, esim. jos luonnollisella henkilöllä on sekä tilin haltijuus että tilin käyttöoikeuden haltijuus tiliin, niin Role-elementtejä on tällöin kaksi kappaletta, joista yhden OwnrTp=OWNE ja toisen OwnrTp=ACCE, ks. AccountRole1 käyttö. Jokaisella roolilla voi olla alkupäivämäärä ja valinnainen loppupäivämäärä. Tämän lisäksi jokaiseen rooliin liittyvä asiakkuus on ilmoitettava fin.013-alisanomassa yhden kerran per osallinen, jos sitä ei rajoitussäännöillä erikseen kielletä. Em. esimerkin henkilölle ilmoitetaan siis yksi asiakkuus tässä tapauksessa.|
 |&nbsp;&nbsp;&nbsp;&nbsp;AddtlInf|Max256Text|kyllä|[0..1]|Tilin avaamispäivämäärä merkkijonona ISODate-formaatissa|
 
-#### <a name="CustomerAccount1"></a> CustomerAccount1 käyttö
+#### <a name="customerAccount1"></a> CustomerAccount1 käyttö
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
