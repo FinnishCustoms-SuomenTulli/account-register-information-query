@@ -76,12 +76,12 @@ Versio|Päivämäärä|Kuvaus
   4.2 [Business Application Header (BAH)](#4-2)    
   4.3 [Kyselyrajapinnan sanomat](#4-3)    
   4.4 [BusinessApplicationHeaderV01](#4-4)    
-  4.5 [InformationRequestOpeningV01](#InformationRequestOpeningV01)    
-  4.6 [InformationRequestFIN012](#InformationRequestFIN012)    
-  4.7 [InformationRequestResponseV01](#InformationRequestResponseV01)    
-  4.8 [InformationResponseSD1V01](#InformationResponseSD1V01)    
-  4.9 [InformationResponseFIN002](#InformationResponseFIN002)    
-  4.10 [InformationResponseFIN013](#InformationResponseFIN013)   
+  4.5 [InformationRequestOpeningV01](#4-5)    
+  4.6 [InformationRequestFIN012](#4-6)    
+  4.7 [InformationRequestResponseV01](#4-7)    
+  4.8 [InformationResponseSD1V01](#4-8)    
+  4.9 [InformationResponseFIN002](#4-9)    
+  4.10 [InformationResponseFIN013](#4-10)   
   4.11 [Id-elementin käyttö](#Id-elementin_kaytto)    
   4.12 [Kyselyrajapinnan WS-sanomaliikenteen skenaariot](#4-12)    
   4.13 [Kiistanalaisten tietojen palauttaminen](#4-13)  
@@ -418,7 +418,7 @@ Seuraavassa taulukossa on esitetty BAH-elementtien käyttö. Elementtien tyypit 
 |Sgntr| |kyllä|Business messagen lähettäjän muodostama XML-allekirjoitus. Ks. [XML-allekirjoituksen muodostaminen](#xml-sig)|
 |Rltd|BusinessApplicationHeader1|kyllä|Käytössä vastaussanomassa, sisältää kyselysanoman sisältämän BAH:in.|
 
-### <a name="InformationRequestOpeningV01"></a> 4.5 InformationRequestOpeningV01
+### <a name="4-5"></a> 4.5 InformationRequestOpeningV01
 
 Taulukossa on kuvattu sanoman tietueiden käyttö.
 
@@ -511,7 +511,7 @@ Varsinainen hakukriteeri, tallelokeron tunniste, asetetaan auth.001.001.01 Suppl
 |:---|:---|:---|:---|
 |\<SafetyDepositBoxId\>|Document/InfReqFin012/AdditionalSearchCriteria/|Tallelokeron tunniste|Täsmällinen osuma 1:1, ml. erikoismerkit. Formaatti on vapaamuotoinen.|
 
-### <a name="InformationRequestFIN012"></a> 4.6 Sanomalaajennus InformationRequestFIN012
+### <a name="4-6"></a> 4.6 Sanomalaajennus InformationRequestFIN012
 
 Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijaintiin.
 
@@ -529,7 +529,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|Max140Text|Kyllä|Aina "Customs_aggr"|
 |&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|Max140Text|Kyllä|Aina "Customs_aggr"|
 
-### <a name="InformationRequestResponseV01"></a> 4.7 InformationRequestResponseV01
+### <a name="4-7"></a> 4.7 InformationRequestResponseV01
 
 Taulukossa on kuvattu sanoman tietueiden käyttö.
 
@@ -722,7 +722,7 @@ Vastaussanomaan liitetään kolme kappaletta `InvstgtnSts` elementtiä koodilla 
 </n1:RtrInd>
 ```
 
-### <a name="InformationResponseSD1V01"></a> 4.8 InformationResponseSD1V01 supl.027.001.01
+### <a name="4-8"></a> 4.8 InformationResponseSD1V01 supl.027.001.01
 
 Taulukossa on kuvattu sanoman tietueiden käyttö.
 
@@ -776,7 +776,7 @@ Jos vastauksessa ei palauteta tilitietoja, supl.027 sanoma palautetaan statuskoo
 |&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|kyllä|[0..1]|Roolin alkamispäivämäärä|
 |&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|kyllä|[0..1]|Roolin päättymispäivämäärä|
 
-### <a name="InformationResponseFIN002"></a> 4.9 InformationResponseFIN002
+### <a name="4-9"></a> 4.9 InformationResponseFIN002
 
 Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijaintiin.
 
@@ -819,7 +819,7 @@ Jos vastauksessa ei palauteta tallelokerotietoja, FIN002 sanoma palautetaan stat
 |&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|kyllä|[0..1]|Roolin alkamispäivämäärä|
 |&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|kyllä|[0..1]|Roolin päättymispäivämäärä|
 
-### <a name="InformationResponseFIN013"></a> 4.10 InformationResponseFIN013
+### <a name="4-10"></a> 4.10 InformationResponseFIN013
 
 Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijaintiin.
 
