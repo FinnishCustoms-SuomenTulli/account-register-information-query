@@ -543,7 +543,7 @@ Taulukossa on kuvattu sanoman tietueiden käyttö.
 |&nbsp;&nbsp;&nbsp;&nbsp;RtrInd|ReturnIndicator1|Kyllä|[0..*]| ks. ReturnIndicator1 käyttö alla. |
 |&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Kyllä|[0..1]|Ks. [Kiistanalaisten tietojen palauttaminen](#4-13)|
 
-#### ReturnIndicator1 käyttö
+#### <a name="return-indicator1"></a> ReturnIndicator1 käyttö
 
 ReturnIndicator1 sisältää yksittäisen hakutulostyypin esiintymän. 
 
@@ -726,7 +726,7 @@ Vastaussanomaan liitetään kolme kappaletta `InvstgtnSts` elementtiä koodilla 
 
 Taulukossa on kuvattu sanoman tietueiden käyttö.
 
-Jos vastauksessa ei palauteta tilitietoja, supl.027 alisanoma saa vastaussanomassa statuskoodin NFOU.
+Jos vastauksessa ei palauteta tilitietoja, supl.027 alisanoma saa vastaussanomassa statuskoodin NFOU, ks. [ReturnIndicator1 käyttö](#return-indicator1).
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
@@ -780,7 +780,7 @@ Jos vastauksessa ei palauteta tilitietoja, supl.027 alisanoma saa vastaussanomas
 
 Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijaintiin.
 
-Jos vastauksessa ei palauteta tallelokerotietoja, FIN002 alisanoma saa vastaussanomassa statuskoodin NFOU.
+Jos vastauksessa ei palauteta tallelokerotietoja, FIN002 alisanoma saa vastaussanomassa statuskoodin NFOU, ks. [ReturnIndicator1 käyttö](#return-indicator1).
 
 |Nimi|[min..max]|Tyyppi|Käytetään|Kuvaus|Liitetään sanomaan|XPath|
 |:---|:---|:---|:---|:---|:---|:---|
@@ -823,7 +823,7 @@ Jos vastauksessa ei palauteta tallelokerotietoja, FIN002 alisanoma saa vastaussa
 
 Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijaintiin.
 
-Jos vastauksessa ei palauteta edunsaajuustietoja eikä asiakkuustietoja (asiakkuuden alkamis- ja mahdollinen päättymispäivä), FIN013 alisanoma saa vastaussanomassa statuskoodin NFOU.
+Jos vastauksessa ei palauteta edunsaajuustietoja eikä asiakkuustietoja (asiakkuuden alkamis- ja mahdollinen päättymispäivä), FIN013 alisanoma saa vastaussanomassa statuskoodin NFOU, ks. [ReturnIndicator1 käyttö](#return-indicator1).
 
 |Nimi|Käytetään|[min..max]|Tyyppi|Kuvaus|Liitetään sanomaan|XPath|
 |:---|:---|:---|:---|:---|:---|:---|
@@ -837,7 +837,7 @@ Jos vastauksessa ei palauteta edunsaajuustietoja eikä asiakkuustietoja (asiakku
 
 Muutoin dokumentissa oikeushenkilö viittaa yrityksiin, yhdistyksiin, organisaatioihin ynnä muihin ei-luonnollisiin henkilöihin, mutta LegalPersonInfo-elementti voi tilanteesta riippuen sisältää sekä luonnollisen henkilön että oikeushenkilön tietoja.
 
-Jos palautettavaan vastaussanomaan ei sisälly asiakkuuden päivämäärätietoja (CustomerInfo-elementti) eikä edunsaajuustietoja (Beneficiaries-elementti), ei FIN013 alisanomaa sisällytetä ollenkaan vastaussanomaan. Tällöin vastauksessa FIN013 saa statuskoodin NFOU.
+Jos palautettavaan vastaussanomaan ei sisälly asiakkuuden päivämäärätietoja (CustomerInfo-elementti) eikä edunsaajuustietoja (Beneficiaries-elementti), ei FIN013 alisanomaa sisällytetä ollenkaan vastaussanomaan. Tällöin vastauksessa FIN013 saa statuskoodin NFOU, ks. [ReturnIndicator1 käyttö](#return-indicator1).
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
