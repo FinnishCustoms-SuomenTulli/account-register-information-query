@@ -884,7 +884,7 @@ If the response message does not contain customership dates (CustomerInfo elemen
 |StartDt|ISODate|Yes|[0..1]|Start date of role|
 |EndDt|ISODate|Yes|[0..1]|End date of role|
 
-### <a name="Id-element_usage"></a> 4.11 Use of Id element
+### <a name="id-element_usage"></a> 4.11 Use of Id element
 
 All messages use the equivalent identification structure for legal persons and natural persons under the Id-element (Party8Choice). Use of the Id element at the query interface is described here.
 
