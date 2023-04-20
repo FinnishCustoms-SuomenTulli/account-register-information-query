@@ -247,7 +247,7 @@ Huom. Jotta tietoliikenteen suojaus täyttää alla viitatut Kyberturvallisuuske
 
 #### <a name="xml-sig"></a> XML-allekirjoituksen muodostaminen
 
-Allekirjoituksen tyyppi on __enveloped signature__. Signature-elementti sijoitetaan [BAHin](#4-2) Sgntr-elementin alle.
+Allekirjoituksen tyyppi on __enveloped signature__. Signature-elementti sijoitetaan [BAHin](#4-4) Sgntr-elementin alle.
 
 Esimerkki 3.1. Esimerkki SignedInfo
 ```
