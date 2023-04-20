@@ -75,14 +75,14 @@ Version|Date|Decription
   4.1 [Message structure of the SOAP operations of the query interface](#4-1)    
   4.2 [Business Application Header (BAH)](#4-2)    
   4.3 [Messages of the query interface](#4-3)    
-  4.4 [BusinessApplicationHeaderV01](#BusinessApplicationHeaderV01)    
-  4.5 [InformationRequestOpeningV01](#InformationRequestOpeningV01)    
-  4.6 [InformationRequestFIN012](#InformationRequestFIN012)    
-  4.7 [InformationRequestResponseV01](#InformationRequestResponseV01)    
-  4.8 [InformationResponseSD1V01](#InformationResponseSD1V01)    
-  4.9 [InformationResponseFIN002](#InformationResponseFIN002)    
-  4.10 [InformationResponseFIN013](#InformationResponseFIN013)   
-  4.11 [Use of Id element](#Id-element_usage)    
+  4.4 [BusinessApplicationHeaderV01](#business-application-header-v01)    
+  4.5 [InformationRequestOpeningV01](#information-request-opening-v01)    
+  4.6 [InformationRequestFIN012](#information-request-fin012)    
+  4.7 [InformationRequestResponseV01](#information-request-response-v01)    
+  4.8 [InformationResponseSD1V01](#information-response-sd1v01)    
+  4.9 [InformationResponseFIN002](#information-response-fin002)    
+  4.10 [InformationResponseFIN013](#information-response-fin013)   
+  4.11 [Use of Id element](#id-element_usage)    
   4.12 [WS message traffic scenarios at the query interface](#4-12)    
   4.13 [Returning disputed details](#4-13)  
 5. [Limitations of data returned by query based on servicer category](#chapter5)   
@@ -260,7 +260,7 @@ Please note: For the protection of data communications to meet the information s
 
 #### <a name="xml-sig"></a> Forming XML signatures
 
-The signature is of the enveloped signature type. The signature element is placed in [BAH](#BusinessApplicationHeaderV01) under the Sgntr element.
+The signature is of the enveloped signature type. The signature element is placed in [BAH](#business-application-header-v01) under the Sgntr element.
 Example 3.1. Example SignedInfo
 
 ```
@@ -331,7 +331,7 @@ The BAH must always be the first element of the SOAP body.
 
 The query interface of the data retrieval system uses the ISO 20022 messages [InformationRequestOpeningV01 (auth.001.001.01)](assets/iso20022org/auth.001.001.01.xsd) and [InformationRequestResponseV01 (auth.002.001.01)](assets/iso20022org/auth.002.001.01.xsd) to which the required submessages ([Supplementary Data](assets/iso20022org/InformationResponse_SupplementaryData.zip)) are appended.
 
-The submessages used at the upper level are divided into three concepts: customership, account and safety-deposit box. The customer and beneficiary details are returned in the message [fin.013.001.04](schemas/fin.013.001.04.xsd), the account details in the message [supl.027.001.01](assets/iso20022org/InformationResponse_SupplementaryData.zip) and the safety-deposit box details in the message [fin.002.001.03](schemas/fin.002.001.03.xsd) (NB. here the same code as in the manual processing in some existing systems). These submessages are appended to [auth.002.001.01](assets/iso20022org/auth.002.001.01.xsd) element `InformationRequestResponseV01/RtrInd`.
+The submessages used at the upper level are divided into three concepts: customership, account and safety deposit box. The customership and beneficiary details are returned in the message [fin.013.001.04](schemas/fin.013.001.04.xsd), the account details in the message [supl.027.001.01](assets/iso20022org/InformationResponse_SupplementaryData.zip) and the safety deposit box details in the message [fin.002.001.03](schemas/fin.002.001.03.xsd) (NB. here the same code as in the manual processing in some existing systems). These submessages are appended to [auth.002.001.01](assets/iso20022org/auth.002.001.01.xsd) element `InformationRequestResponseV01/RtrInd`.
 
 The tables 4.3.1–4.3.5 show the data content of the bank and payment account register as well as the Supplementary Data submessage, as part of which each detail is returned.
 
@@ -345,9 +345,9 @@ The more detailed message descriptions are presented in the subchapters of this 
 |Detail|Message(s)|Description|
 |:---|:---|:---|
 |Complete name|fin.002, fin.013, supl.027|Returned in the Pty/Nm element attached to the role, in source system format. In order to achieve compatibility with existent systems, one name field must be used to express all of the names of a person. The format of this element with regard to first and surnames has not been established in detail in the ISO 20022 message implementations that have been issued as a basis for the specification work (auth.001:Document/InfReqOpng/SchCrit/CstmrId/Pty/Nm). Furthermore, it should be noted that not everyone globally has first names and/or surnames.|
-|Date of birth|fin.002, fin.013, supl.027|Returned as part of the Id element attached to the role, see [Use of Id element](#Id-element_usage)|
-|Personal identity code|fin.002, fin.013, supl.027|Returned as part of the Id element attached to the role, see [Use of Id element](#Id-element_usage)|
-|Nationalities|fin.002, fin.013, supl.027|Returned as part of the Id element attached to the role, see [Use of Id element](#Id-element_usage)|
+|Date of birth|fin.002, fin.013, supl.027|Returned as part of the Id element attached to the role, see [Use of Id element](#id-element_usage)|
+|Personal identity code|fin.002, fin.013, supl.027|Returned as part of the Id element attached to the role, see [Use of Id element](#id-element_usage)|
+|Nationalities|fin.002, fin.013, supl.027|Returned as part of the Id element attached to the role, see [Use of Id element](#id-element_usage)|
 |Beneficiary|fin.013|Organisations in which the natural person is a beneficiary|
 |Disputed|auth.002|Supplementary Data in accordance with [the disputed schema](schemas/disputed.xsd)|
 
@@ -356,30 +356,30 @@ The more detailed message descriptions are presented in the subchapters of this 
 |Detail|Message(s)|Description|
 |:---|:---|:---|
 |Name|fin.002, fin.013, supl.027|Returned in the Pty/Nm element attached to the role.|
-|Registration number|fin.002, fin.013, supl.027|Returned as part of the Id element attached to the role, see [Use of Id element](#Id-element_usage).|
-|Registration authority|fin.002, fin.013, supl.027|Returned as part of the Id element attached to the role, see [Use of Id element](#Id-element_usage)|
-|Registration date|fin.002, fin.013, supl.027|Returned as part of the Id element attached to the role, see [Use of Id element](#Id-element_usage)|
-|Unique identifier of the trader|fin.002, fin.013, supl.027|Returned as part of the Id element attached to the role, see [Use of Id element](#Id-element_usage)|
+|Registration number|fin.002, fin.013, supl.027|Returned as part of the Id element attached to the role, see [Use of Id element](#id-element_usage).|
+|Registration authority|fin.002, fin.013, supl.027|Returned as part of the Id element attached to the role, see [Use of Id element](#id-element_usage)|
+|Registration date|fin.002, fin.013, supl.027|Returned as part of the Id element attached to the role, see [Use of Id element](#id-element_usage)|
+|Unique identifier of the trader|fin.002, fin.013, supl.027|Returned as part of the Id element attached to the role, see [Use of Id element](#id-element_usage)|
 |Disputed|auth.002|Supplementary Data in accordance with [the disputed schema](schemas/disputed.xsd)|
 
 *__Table 4.3.3:__ Bank and payment account, details specified for each message*
 
 |Detail|Message(s)|Description|
 |:---|:---|:---|
-|IBAN|supl.027|See [Use of CustomerAccount](#CustomerAccount1)|
+|IBAN|supl.027|See [Use of CustomerAccount](#customer-account1)|
 |Date of opening the account|supl.027|Returned in the field AddtlInf|
-|Date of closing the account|supl.027|See [Use of CustomerAccount](#CustomerAccount1)|
+|Date of closing the account|supl.027|See [Use of CustomerAccount](#customer-account1)|
 |Persons involved in the account|supl.027|Account holders and account access right holders|
-|Account purpose|supl.027|See [Use of CustomerAccount](#CustomerAccount1)|
+|Account purpose|supl.027|See [Use of CustomerAccount](#customer-account1)|
 |Disputed|auth.002|Supplementary Data in accordance with [the disputed schema](schemas/disputed.xsd)|
 
 *__Table 4.3.4:__ Safety-deposit box, details specified for each message*
 
 |Detail|Message(s)|Description|
 |:---|:---|:---|
-|Identifier|fin.002|See [Use of SafetyDepositBoxAndParties](#SafetyDepositBoxAndParties)|
-|Start date of the rental period|fin.002|See [Use of SafetyDepositBoxAndParties](#SafetyDepositBoxAndParties)|
-|End date of the rental period|fin.002|See [Use of SafetyDepositBoxAndParties](#SafetyDepositBoxAndParties)|
+|Identifier|fin.002|See [Use of SafetyDepositBoxAndParties](#safety-deposit-box-and-parties)|
+|Start date of the rental period|fin.002|See [Use of SafetyDepositBoxAndParties](#safety-deposit-box-and-parties)|
+|End date of the rental period|fin.002|See [Use of SafetyDepositBoxAndParties](#safety-deposit-box-and-parties)|
 |Persons involved in the safety-deposit box|fin.002|Safety-deposit box holders and safety-deposit box access right holders|
 |Disputed|auth.002|Supplementary Data in accordance with [the disputed schema](schemas/disputed.xsd)|
 
@@ -387,9 +387,9 @@ The more detailed message descriptions are presented in the subchapters of this 
 
 |Detail|Message(s)|Description|
 |:---|:---|:---|
-|Customership|fin.013|See [InformationResponseFIN013](#InformationResponseFIN013)|
-|Start date|fin.013|See [InformationResponseFIN013](#InformationResponseFIN013)|
-|End date|fin.013|See [InformationResponseFIN013](#InformationResponseFIN013)|
+|Customership|fin.013|See [InformationResponseFIN013](#information-response-fin013)|
+|Start date|fin.013|See [InformationResponseFIN013](#information-response-fin013)|
+|End date|fin.013|See [InformationResponseFIN013](#information-response-fin013)|
 |Disputed|auth.002|Supplementary Data in accordance with [the disputed schema](schemas/disputed.xsd)|
 
 
@@ -405,7 +405,7 @@ The more detailed message descriptions are presented in the subchapters of this 
 
 |Message id|Name of the message|ID of the extended ISO 20022 message|Purpose and functionality|
 |---|---|---|---|
-|FIN012|InformationRequestFIN012|auth.001.001.01|ISO 20022 message extension The competent authorities of the query interface use this message for querying information from the data retrieval interface. Includes the identifiers of the person making the enquiry and this person’s manager. Allows the use of auth.001.001.01 missing search criteria (for example safety-deposit box)|
+|FIN012|InformationRequestFIN012|auth.001.001.01|ISO 20022 message extension The competent authorities of the query interface use this message for querying information from the data retrieval interface. Includes the identifiers of the person making the enquiry and this person’s manager. Allows the use of auth.001.001.01 missing search criteria (for example safety deposit box)|
 
 *__Table 4.3.8:__ Submessages appended to the query message auth.002*
 
@@ -413,9 +413,9 @@ The more detailed message descriptions are presented in the subchapters of this 
 |---|---|---|---|
 |supl.027.001.01|InformationResponseSD1V01|auth.002.001.01|Includes the account details corresponding to the search parameters|
 |FIN002|InformationResponseFIN002|auth.002.001.01|Includes the details of safe-deposit boxes corresponding to the search parameters|
-|FIN013|InformationResponseFIN013|auth.002.001.01|Includes separately the customer details of account and safe-deposit boxes that correspond to the search parameters|
+|FIN013|InformationResponseFIN013|auth.002.001.01|Includes customership details that correspond to the search parameters separated from account and safety deposit box information|
 
-### <a name="BusinessApplicationHeaderV01"></a> 4.4 BusinessApplicationHeaderV01
+### <a name="business-application-header-v01"></a> 4.4 BusinessApplicationHeaderV01
 
 The use of BAH elements is shown in the table below. The element types are described in the [head.001.001.01 schema](assets/iso20022org/archive_business_area_business_application_header.zip).
 
@@ -435,7 +435,7 @@ The use of BAH elements is shown in the table below. The element types are descr
 |Sgntr| |yes|The XML signature formed by the business message sender. See [Creating XML signatures](#xml-sig)|
 |Rltd|BusinessApplicationHeader1|yes|Used in a response message, includes the BAH included in the query message.|
 
-### <a name="InformationRequestOpeningV01"></a> 4.5 InformationRequestOpeningV01
+### <a name="information-request-opening-v01"></a> 4.5 InformationRequestOpeningV01
 
 The table describes the use of records in the message.
 
@@ -447,10 +447,10 @@ The table describes the use of records in the message.
 |&nbsp;&nbsp;&nbsp;&nbsp;CnfdtltySts|YesNoIndicator|Yes|Always "true"|
 |&nbsp;&nbsp;&nbsp;&nbsp;DueDt|DueDate1|No||
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Yes|Date or date interval that the search concerns. The date interval is always today or in the past. The interval search must be performed in such way that if some interval determined in the data content (all date records in the tables 4.3.1–4.3.5) are included partly or entirely in the given InvstgtnPrd interval, the data row in question must be added to the search result. Only the Dt element is used.|
-|&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Yes|Search criterion. The search criterion used must always be as specific as possible. See [further specifications](#SearchCriteria1Choice) below.|
+|&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Yes|Search criterion. The search criterion used must always be as specific as possible. See [further specifications](#search-criteria1-choice) below.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Yes|Includes message extension [InformationRequestFIN012](#InformationRequestFIN012)|
 
-#### <a name="SearchCriteria1Choice"></a> Limiting submessages in the search result
+#### <a name="search-criteria1-choice"></a> Limiting submessages in the search result
 
 The system only returns the submessages requested in the search criteria (supl.027.001.01, fin.002.001.03, fin.013.001.04). Each submessage is requested in a separate element of the type AuthorityRequestType1, and 1–3 of these elements must be included in the search criteria.
 
@@ -528,17 +528,17 @@ The actual search criterion, the safety-deposit box ID, is set in the SafetyDepo
 |:---|:---|:---|:---|
 |\<SafetyDepositBoxId\>|Document/InfReqFin012/AdditionalSearchCriteria/|Safety-deposit box ID|Exact match 1:1, incl. special characters.<br/>Free-form format.|
 
-### <a name="InformationRequestFIN012"></a> 4.6 Message extension InformationRequestFIN012
+### <a name="information-request-fin012"></a> 4.6 Message extension InformationRequestFIN012
 
 The message extension is appended to the Xpath location of the ISO 20022 message listed in the table.
 
 |Name|[min..max]|Type|Description|Appended to message|XPath|
 |:---|:---|:---|:---|:---|:---|
-|InformationRequestFIN012| | | |[auth.001](#InformationRequestOpeningV01)|`/Document/InfReqOpng/SplmtryData/Envlp`|
-|&nbsp;&nbsp;&nbsp;&nbsp;AuthorityInquiry|[1..1]|[AuthorityInquirySet](#AuthorityInquirySet)|Authority details associated with the query| |
+|InformationRequestFIN012| | | |[auth.001](#information-request-opening-v01)|`/Document/InfReqOpng/SplmtryData/Envlp`|
+|&nbsp;&nbsp;&nbsp;&nbsp;AuthorityInquiry|[1..1]|[AuthorityInquirySet](#authority-inquiry-set)|Authority details associated with the query| |
 |&nbsp;&nbsp;&nbsp;&nbsp;AdditionalSearchCriteria|[0..*]||Used for the search by safety-deposit box ID.||
 
-#### <a name="AuthorityInquirySet"></a> AuthorityInquirySet
+#### <a name="authority-inquiry-set"></a> AuthorityInquirySet
 
 |Name|Type|In use|Description|
 |:---|:---|:---|:---|
@@ -546,7 +546,7 @@ The message extension is appended to the Xpath location of the ISO 20022 message
 |&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|Max140Text|Yes|Always "Customs_aggr"|
 |&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|Max140Text|Yes|Always "Customs_aggr"|
 
-### <a name="InformationRequestResponseV01"></a> 4.7 InformationRequestResponseV01
+### <a name="information-request-response-v01"></a> 4.7 InformationRequestResponseV01
 
 The table describes the use of records in the message.
 
@@ -567,7 +567,7 @@ ReturnIndicator1 includes the presence of a single type of search result.
 |XPath|Type|Description|
 |:---|:---|:---|
 |RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|Includes the message ID of a message extension (supl.027.001.01, fin.013.001.04 or fin.002.001.03)|
-|RtrInd/InvstgtnRslt|InvestigationResult1Choice|`Rslt` element of type SupplementaryDataEnvelope1 is returned, including either [supl.027.001.01](#supl.027.001.01), [InformationResponseFIN002](#InformationResponseFIN002) or [InformationResponseFIN013](#InformationResponseFIN013) or `InvstgtnSts` with code `NFOU`.
+|RtrInd/InvstgtnRslt|InvestigationResult1Choice|`Rslt` element of type SupplementaryDataEnvelope1 is returned, including either [supl.027.001.01](#information-response-sd1v01), [InformationResponseFIN002](#information-response-fin002) or [InformationResponseFIN013](#information-response-fin013) or `InvstgtnSts` with code `NFOU`.
 
 One search result sub-message (supl.027.001.01, fin.013.001.04 or fin.002.001.03) is returned per Business ID for each search result type.
 
@@ -762,7 +762,7 @@ If the response does not contain any account information, supl.027 submessage is
 |&nbsp;&nbsp;&nbsp;&nbsp;Role|AccountRole1|Yes|[1..*]|For the account-related roles, see the second table below. Every role must be provided separately. For example, if a natural person is both the account holder and has access right to the account, there are two Role elements, one of which has OwnrTp=OWNE and the other OwnrTp=ACCE, see Use of AccountRole1. Every role can have a start date and optional end date. In addition to this, the customership connected to each role must be indicated in the fin.013 submessage once per party, if this is not forbidden by the data limitations rules. For example, in this case one customership is indicated for the person in the example.|
 |&nbsp;&nbsp;&nbsp;&nbsp;AddtlInf|Max256Text|Yes|[0..1]|The date of opening the account, as a string of characters in ISODate format.|
 
-#### <a name="CustomerAccount1"></a> Use of CustomerAccount1
+#### <a name="customer-account1"></a> Use of CustomerAccount1
 
 |Name|Type|In use|[min..max]|Description|
 |:---|:---|:---|:---|:---|
@@ -788,12 +788,12 @@ If the response does not contain any account information, supl.027 submessage is
 |Name|Type|In use|[min..max]|Description|
 |:---|:---|:---|:---|:---|
 |AccountRole1| | | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|Yes|[1..*]|See [Use of Id element](#Id-element_usage)|
+|&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|Yes|[1..*]|See [Use of Id element](#id-element_usage)|
 |&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|Yes|[1..1]|“RLTP” is set as the content of `OwnrTp/Prtry/SchmeNm`, and “OWNE” (account holder, “owner”) or “ACCE” (holder of access right to the account, “access right”) is set as the content of `OwnrTp/Prtry/Id`. In `OwnrTp/Tp`, enter value “TRUS”, which doesn’t mean anything here.|
 |&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|Yes|[0..1]|Start date of the role|
 |&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|Yes|[0..1]|End date of the role|
 
-### <a name="InformationResponseFIN002"></a> 4.9 InformationResponseFIN002
+### <a name="information-response-fin002"></a> 4.9 InformationResponseFIN002
 
 The message extension is appended to the Xpath location of the ISO 20022 message listed in the table.
 
@@ -805,9 +805,9 @@ If the response does not contain any safety deposit box information, FIN002 subm
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|[1..1]|Max35Text|Yes|Case id of the investigation|
 |&nbsp;&nbsp;&nbsp;&nbsp;CreDtTm|[1..1]|ISODateTime|Yes|Time of creating the message|
 |&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|[1..1]|BranchAndFinancialInstitutionIdentification4|Yes|Used as follows: Element `SvcrId/FinInstnId/Othr/SchmeNm/Cd` includes the value “Y”, and element `SvcrId/FinInstnId/Othr/Id` includes the sender's Business ID.|
-|&nbsp;&nbsp;&nbsp;&nbsp;SdBoxAndPties|[0..*]|SafetyDepositBoxAndParties|Yes|Safety-deposit box and parties, see [Use of SafetyDepositBoxAndParties](#SafetyDepositBoxAndParties)|
+|&nbsp;&nbsp;&nbsp;&nbsp;SdBoxAndPties|[0..*]|SafetyDepositBoxAndParties|Yes|Safety-deposit box and parties, see [Use of SafetyDepositBoxAndParties](#safety-deposit-box-and-parties)|
 
-#### <a name="SafetyDepositBoxAndParties"></a> Use of SafetyDepositBoxAndParties
+#### <a name="safety-deposit-box-and-parties"></a> Use of SafetyDepositBoxAndParties
 
 |Name|Type|In use|[min..max]|Description|
 |:---|:---|:---|:---|:---|
@@ -815,7 +815,7 @@ If the response does not contain any safety deposit box information, FIN002 subm
 |&nbsp;&nbsp;&nbsp;&nbsp;SdBox|SdBox|Yes|[1..1]|Account details see Use of SdBox| 
 |&nbsp;&nbsp;&nbsp;&nbsp;Role|SdBoxRole|Yes|[1..*]|For the safety-deposit box-related roles, see the second table below. Every role must be indicated separately for the code OwnrTp=OWNE. In addition to this, the customership connected to each role must be indicated in the fin.013 submessage once per party.|
 
-#### <a name="SdBox"></a> Use of SdBox
+#### <a name="sd-box"></a> Use of SdBox
 
 |Name|Type|In use|[min..max]|Description|
 |:---|:---|:---|:---|:---|
@@ -831,12 +831,12 @@ If the response does not contain any safety deposit box information, FIN002 subm
 |Name|Type|In use|[min..max]|Description|
 |:---|:---|:---|:---|:---|
 |AccountRole1| | | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|Yes|[1..*]|See [Use of Id element](#Id-element_usage)|
+|&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|Yes|[1..*]|See [Use of Id element](#id-element_usage)|
 |&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|Yes|[1..1]|Use `OwnrTp/Prtry/SchmeNm` with value "RLTP", as well as `OwnrTp/Prtry/Id`, in which the values “OWNE” (safety-deposit box holder, “owner”) or “ACCE” (holder of access right to the safety-deposit box, “access right”).|
 |&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|Yes|[0..1]|Start date of role|
 |&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|Yes|[0..1]|End date of role|
 
-### <a name="InformationResponseFIN013"></a> 4.10 InformationResponseFIN013
+### <a name="information-response-fin013"></a> 4.10 InformationResponseFIN013
 
 The message extension is appended to the Xpath location of the ISO 20022 message listed in the table.
 
@@ -844,13 +844,13 @@ If the response does not contain any beneficiary information or customership inf
 
 |Name|In use|[min..max]|Type|Description|Appended to message|XPath|
 |:---|:---|:---|:---|:---|:---|:---|
-|InformationResponseFIN013| | | | |[auth.002](#InformationRequestResponseV01)|/Document/InfReqRspn/RtrInd/InvstgtnRslt/Rslt|
+|InformationResponseFIN013| | | | |[auth.002](#information-request-response-v01)|/Document/InfReqRspn/RtrInd/InvstgtnRslt/Rslt|
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Yes|[1..1]|Max35Text|Case id of the investigation|
 |&nbsp;&nbsp;&nbsp;&nbsp;CreDtTm|Yes|[1..1]|ISODateTime|Time of creating the message|
 |&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|Yes|[1..1]|BranchAndFinancialInstitutionIdentification4|Used as follows: Element `SvcrId/FinInstnId/Othr/SchmeNm/Cd` includes the value “Y”, and element `SvcrId/FinInstnId/Othr/Id` includes the sender's Business ID.|
-|&nbsp;&nbsp;&nbsp;&nbsp;LegalPersonInfo|Yes|[1..*]|LegalPersonInfo|Legal person or natural person. See [Use of LegalPersonInfoelement](#LegalPersonInfo) table below|
+|&nbsp;&nbsp;&nbsp;&nbsp;LegalPersonInfo|Yes|[1..*]|LegalPersonInfo|Legal person or natural person. See [Use of LegalPersonInfoelement](#legal-person-info) table below|
 
-#### <a name="LegalPersonInfo"></a>Use of LegalPersonInfo element
+#### <a name="legal-person-info"></a>Use of LegalPersonInfo element
 
 Otherwise in this document, the term legal person refers to companies, associations, organisations and other not natural persons, but the LegalPersonInfo element can contain information about both a natural person and a legal person depending on the situation.
 
@@ -862,25 +862,25 @@ If the response message does not contain customership dates (CustomerInfo elemen
 |CustomerInfo|CustomerInfo|Yes|[0..1]|Customership information i.e. the start date and possible end date of the customership. See [Use of CustomerInfo element](#customer-info)|
 |Beneficiaries|Beneficiaries|Yes|[0..1]|Information on beneficiaries. See [Use of Beneficiaries](#beneficiaries_usage)|
 
-#### <a name="CustomerInfo"></a> Use of CustomerInfo element
+#### <a name="customer-info"></a> Use of CustomerInfo element
 
 |Name|Type|In use|[min..max]|Description|
 |:---|:---|:---|:---|:---|
 |OpngDt|ISODate|Yes|[1..1]|Customership start date|
 |ClsgDt|ISODate|Yes|[0..1]|Customership end date|
 
-#### <a name="Beneficiaries_usage"></a> Use of Beneficiaries
+#### <a name="beneficiaries_usage"></a> Use of Beneficiaries
 
 |Name|Type|In use|[min..max]|Description|
 |:---|:---|:---|:---|:---|
-|Id|Beneficiary|Yes|[1..*]|See [Use of Beneficiary element](#Beneficiary)|
+|Id|Beneficiary|Yes|[1..*]|See [Use of Beneficiary element](#beneficiary)|
 
-#### <a name="Beneficiary"></a> Use of Beneficiary element
+#### <a name="beneficiary"></a> Use of Beneficiary element
 
 |Name|Type|In use|[min..max]|Description|
 |:---|:---|:---|:---|:---|
 |Nm|Max140Text|Yes|[1..1]|Beneficiary’s name. Free-form format.|
-|PrvtId|PersonIdentification5b|Yes|[1..1]|Natural person. See [Use of PersonIdentification5b element](#PersonIdentification)|
+|PrvtId|PersonIdentification5b|Yes|[1..1]|Natural person. See [Use of PersonIdentification5b element](#person-identification)|
 |StartDt|ISODate|Yes|[0..1]|Start date of role|
 |EndDt|ISODate|Yes|[0..1]|End date of role|
 
@@ -899,9 +899,9 @@ All messages use the equivalent identification structure for legal persons and n
 |:---|:---|:---|:---|
 |Party8Choice| | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;OrgId|OrganisationIdentification6|[0..1]|Used as follows: Element `OrgId/Othr/SchmeNm/Cd` includes the type code of the organisation identifier and element `OrgId/Othr/Id` includes the identifier. For codes, see the table below. Furthermore, the date of registration of a legal person can be returned in connection with the query response, see the [Example](#rgdt) below.|
-|&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|PersonIdentification5|[0..1]|See [Use of PersonIdentification5 element](#PersonIdentification)|
+|&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|PersonIdentification5|[0..1]|See [Use of PersonIdentification5 element](#person-identification)|
 
-#### <a name="PersonIdentification"></a> Use of PersonIdentification5 and PersonIdentification5b elements
+#### <a name="person-identification"></a> Use of PersonIdentification5 and PersonIdentification5b elements
 
 PersonIdentification5 element is used with InformationResponseSD1V01 supl.027.001.01 and InformationResponseFIN002 submessages.
 
@@ -1184,8 +1184,8 @@ In customer category 1 account query the response includes the information of th
 |:---|:---|:---|:---|
 |Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Account role start date is not returned.|
 |Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Account role end date is not returned.|
-|Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
-|Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
+|Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#customer-account1).|
+|Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#customer-account1).|
 |Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is not returned about a natural person.|
 |Beneficiaries|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Beneficiaries related to a legal person are not returned.|
 
@@ -1248,5 +1248,5 @@ In customer category 2 account query the response includes the information of th
 |Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Account role end date is not returned.|
 |Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned.|
 |Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned.|
-|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#CustomerAccount1).|
+|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#customer-account1).|
 |Beneficiaries|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Beneficiaries related to a legal person are not returned.|
