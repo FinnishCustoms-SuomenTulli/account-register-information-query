@@ -1141,7 +1141,7 @@ Jos haettu henkilö on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhal
 
 #### <a name="5-1-2"></a> 5.1.2 Organisaatiohaku
 
-Jos haettu organisaatio on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhaltija, tallelokeron vuokraaja tai tallelokeron käyttöoikeudenhaltija, vastauksena palautetaan sellaisten henkilöiden tiedot, jotka ovat haetun organisaation edunsaajia sekä sellaisten tilien ja tallelokeroiden tiedot, joissa haettu organisaatio on haltijana tai käyttöoikeudenhaltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita haltijoita tai käyttöoikeudenhaltijoita ei palauteta. Jos organisaatio on jonkin tilin tilinhaltija tai tallelokeron vuokraaja luottolaitoksessa, palautetaan organisaation asiakkuustieto. Asianajajan asiakasvaratilejä ei palauteta. Jos haetulla organisaatiolla ei ole tilejä tai tallelokeroita luottolaitoksessa, palautetaan vastaus "NFOU".
+Jos haettu organisaatio on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhaltija, tallelokeron vuokraaja tai tallelokeron käyttöoikeudenhaltija, vastauksena palautetaan sellaisten henkilöiden tiedot, jotka ovat haetun organisaation edunsaajia sekä sellaisten tilien ja tallelokeroiden tiedot, joissa haettu organisaatio on haltijana tai käyttöoikeudenhaltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita haltijoita tai käyttöoikeudenhaltijoita ei palauteta. Jos organisaatio on jonkin tilin tilinhaltija tai tallelokeron vuokraaja luottolaitoksessa, palautetaan organisaation asiakkuustieto. Jos organisaatio on vain jonkin tilin tai tallelokeron käyttöoikeudenhaltija, asiakkuustieota ei palauteta. Asianajajan asiakasvaratilejä ei palauteta. Jos haetulla organisaatiolla ei ole tilejä tai tallelokeroita luottolaitoksessa, palautetaan vastaus "NFOU".
 
 *__Taulukko 5.1.2.1:__ Organisaatiohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut yrityksen nimellä ja haut oikeushenkilön rekisterinumerolla*
 
@@ -1159,7 +1159,7 @@ Jos haettu organisaatio on luottolaitoksessa tilinhaltija, tilin käyttöoikeude
 
 #### <a name="5-1-3"></a> 5.1.3 Tilihaku
 
-Asiakaskategorian 1 tilihaussa vastauksena palautetaan haetun tilin tiedot sekä sellaisten oikeushenkilöiden ja luonnollisten henkilöiden tiedot, jotka ovat tilinhaltijoita tai tilin käyttöoikeuden haltijoita käytetyllä hakuaikavälillä. Asiakkuustieto palautetaan sellaisista tilinhaltijoista, jotka ovat organisaatioita. Organisaatioiden edunsaajatietoja ei palauteta.
+Asiakaskategorian 1 tilihaussa vastauksena palautetaan haetun tilin tiedot sekä sellaisten oikeushenkilöiden ja luonnollisten henkilöiden tiedot, jotka ovat tilinhaltijoita tai tilin käyttöoikeudenhaltijoita käytetyllä hakuaikavälillä. Asiakkuustieto palautetaan sellaisista tilinhaltijoista, jotka ovat organisaatioita. Asiakkuustietoa ei palauteta organisaatioista, jotka ovat ainoastaan tilin käyttöoikeudenhaltijoita. Organisaatioiden edunsaajatietoja ei palauteta.
 
 *__Taulukko 5.1.3.1:__ Tilihakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tilin IBAN-numerolla ja haut muulla tilin yksilöintitunnuksella*
 
@@ -1174,7 +1174,7 @@ Asiakaskategorian 1 tilihaussa vastauksena palautetaan haetun tilin tiedot sekä
 
 #### <a name="5-1-4"></a> 5.1.4 Tallelokerohaku
 
-Asiakaskategorian 1 tallelokerohaussa vastauksena palautetaan haetun tallelokeron tiedot sekä sellaisten oikeushenkilöiden ja luonnollisten henkilöiden tiedot, jotka ovat tallelokeron vuokraajia tai käyttöoikeuden haltijoita käytetyllä hakuaikavälillä. Asiakkuustieto palautetaan sellaisista tallelokeron vuokraajista, jotka ovat organisaatioita. Organisaatioiden edunsaajatietoja ei palauteta.
+Asiakaskategorian 1 tallelokerohaussa vastauksena palautetaan haetun tallelokeron tiedot sekä sellaisten oikeushenkilöiden ja luonnollisten henkilöiden tiedot, jotka ovat tallelokeron vuokraajia tai käyttöoikeuden haltijoita käytetyllä hakuaikavälillä. Asiakkuustieto palautetaan sellaisista tallelokeron vuokraajista, jotka ovat organisaatioita. Asiakkuustietoa ei palauteta organisaatioista, jotka ovat ainoastaan tallelokeron käyttöoikeudenhaltijoita. Organisaatioiden edunsaajatietoja ei palauteta.
 
 *__Taulukko 5.1.4.1:__ Tallelokerohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tallelokeron yksilöintitunnuksella*
 
