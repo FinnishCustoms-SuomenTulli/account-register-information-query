@@ -1158,7 +1158,7 @@ If person who is the object of the query owns or has access right to an account 
 
 #### <a name="5-1-2"></a> 5.1.2 Organisation query
 
-If organisation who is the object of the query owns or has access right to an account or a safety deposit box in the credit institution, the response includes the information of persons who are beneficiaries of the organisation and information of accounts and safety deposit boxes the organisation owns or has access right to during the investigation period. Other natural or legal persons who own or have access right to these accounts or safety deposit boxes are not returned. If the organisation owns any accounts or safety deposit boxes in the credit institution, organisation's customership data is returned. Lawyer's customer asset accounts are not returned. If the organisation has no accounts or safety deposit boxes in the credit institution, response "NFOU" is returned.
+If organisation who is the object of the query owns or has access right to an account or a safety deposit box in the credit institution, the response includes the information of persons who are beneficiaries of the organisation and information of accounts and safety deposit boxes the organisation owns or has access right to during the investigation period. Other natural or legal persons who own or have access right to these accounts or safety deposit boxes are not returned. If the organisation owns any accounts or safety deposit boxes in the credit institution, organisation's customership information is returned. If the organisation has only access right to an account or a safety deposit box, customership information is not returned. Lawyer's customer asset accounts are not returned. If the organisation has no accounts or safety deposit boxes in the credit institution, response "NFOU" is returned.
 
 *__Table 5.1.2.1:__ Limitations to queries for an organisation. This query category contains queries with a company's name and queries with legal person's registration number*
 
@@ -1176,7 +1176,7 @@ If organisation who is the object of the query owns or has access right to an ac
 
 #### <a name="5-1-3"></a> 5.1.3 Account query
 
-In customer category 1 account query the response includes the information of the account that was the object of the query and information of the legal and natural persons who are account owners or have access right to the account during the investigation period. Customership information is returned for account's owners who are organisations. Organisation's beneficiary information is not returned.
+In customer category 1 account query the response includes the information of the account that was the object of the query and information of the legal and natural persons who are account owners or have access right to the account during the investigation period. Customership information is returned for account's owners who are organisations. Customership information is not returned for organisations that have only access right to the account. Organisation's beneficiary information is not returned.
 
 *__Table 5.1.3.1:__ Limitations to queries for an account. This query category contains queries with an account's IBAN number and queries with other account identifications*
 
@@ -1191,7 +1191,7 @@ In customer category 1 account query the response includes the information of th
 
 #### <a name="5-1-4"></a> 5.1.4 Safety deposit box query
 
-In customer category 1 safety deposit box query the response includes the information of the safety deposit box that was the object of the query and information of the legal and natural persons who are own or have access right to the safety deposit box during the investigation period. Customership information is returned for safety deposit box's owners who are organisations. Organisation's beneficiary information is not returned.
+In customer category 1 safety deposit box query the response includes the information of the safety deposit box that was the object of the query and information of the legal and natural persons who are own or have access right to the safety deposit box during the investigation period. Customership information is returned for safety deposit box's owners who are organisations. Customership information is not returned for organisations that have only access right to the safety deposit box. Organisation's beneficiary information is not returned.
 
 *__Table 5.1.4.1:__ Limitations to queries for a safety deposit box. This query category contains queries with a safety deposit box's identification*
 
