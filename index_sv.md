@@ -728,7 +728,7 @@ Till svarsmeddelandet kopplas tre `InvstgtnSts`-element med koden `NFOU`.
 </n1:RtrInd>
 ```
 
-### <a name="InformationResponseSD1V01"></a> 4.8 InformationResponseSD1V01 supl.027.001.01
+### <a name="4-8"></a> 4.8 InformationResponseSD1V01 supl.027.001.01
 
 I tabellen beskrivs användningen av meddelandets poster.
 
@@ -749,7 +749,7 @@ I tabellen beskrivs användningen av meddelandets poster.
 |&nbsp;&nbsp;&nbsp;&nbsp;Role|AccountRole1|Ja|[1..*]|Roller med anknytning till kontot, se den andra tabellen nedan. Varje roll ska anges separat, dvs. om en fysisk person är både kontoinnehavare och den som har dispositionsrätt till kontot, finns det då två Role-element: OwnrTp=OWNE och OwnrTp=ACCE, se Användning av AccountRole1. Varje roll kan ha ett startdatum och ett valfritt slutdatum. Därtill ska kundrelationen med anknytning till varje roll anges i undermeddelandet fin.013 en gång per part, om det inte förbjuds separat med begränsningsregler. För personen enligt exemplet ovan anges således en kundrelation i detta fall.|
 |&nbsp;&nbsp;&nbsp;&nbsp;AddtlInf|Max256Text|Ja|[0..1]|Kontots öppningsdatum som teckensträng i ISODate-format|
 
-#### <a name="CustomerAccount1"></a> Användning av CustomerAccount1
+#### <a name="customer-account1"></a> Användning av CustomerAccount1
 
 |Namn|Typ|Används|[min..max]|Beskrivning|
 |:---|:---|:---|:---|:---|
@@ -775,24 +775,24 @@ I tabellen beskrivs användningen av meddelandets poster.
 |Namn|Typ|Används|[min..max]|Beskrivning|
 |:---|:---|:---|:---|:---|
 |AccountRole1| | | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|Ja|[1..*]|Se [Användning av Id-element](#Anvandning_av_Id-element)|
+|&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|Ja|[1..*]|Se [Användning av Id-element](#anvandning_av_id-element)|
 |&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|Ja|[1..1]|Används `OwnrTp/Prtry/SchmeNm` med värdet “RLTP”, samt `OwnrTp/Prtry/Id` med värdena “OWNE” (kontoinnehavare, “ägare”) eller “ACCE” (den som har dispositionsrätt till kontot, “dispositionsrätt”). Till punkten `OwnrTp/Tp` läggs värdet “TRUS”, som inte betyder någonting här.|
 |&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|Ja|[0..1]|Startdatum för rollen|
 |&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|Ja|[0..1]|Slutdatum för rollen|
 
-### <a name="InformationResponseFIN002"></a> 4.9 InformationResponseFIN002
+### <a name="4-9"></a> 4.9 InformationResponseFIN002
 
 Det utvidgade meddelandet kopplas till ISO 20022-meddelandets XPath-läge som anges i tabellen.
 
 |Namn|[min..max]|Typ|Används|Beskrivning|Kopplas till meddelandet|XPath|
 |:---|:---|:---|:---|:---|:---|:---|
-|InformationResponseFIN002| | | | |[auth.002](#InformationRequestResponseV01)|/Document/InfReqRspn/RtrInd/InvstgtnRslt/Rslt|
+|InformationResponseFIN002| | | | |[auth.002](#4-7)|/Document/InfReqRspn/RtrInd/InvstgtnRslt/Rslt|
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|[1..1]|Max35Text|Ja|Case-id för undersökningen|
 |&nbsp;&nbsp;&nbsp;&nbsp;CreDtTm|[1..1]|ISODateTime|Ja|Tid då meddelandet skapades|
 |&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|[1..1]|BranchAndFinancialInstitutionIdentification4|Ja|Används på följande sätt: Elementet `SvcrId/FinInstnId/Othr/SchmeNm/Cd` innehåller värdet "Y" och elementet `SvcrId/FinInstnId/Othr/Id` innehåller mottagarens FO-nummer.|
-|&nbsp;&nbsp;&nbsp;&nbsp;SdBoxAndPties|[0..*]|SafetyDepositBoxAndParties|Ja|Användning av bankfack och parter se  [Användning av SafetyDepositBoxAndParties](#SafetyDepositBoxAndParties)|
+|&nbsp;&nbsp;&nbsp;&nbsp;SdBoxAndPties|[0..*]|SafetyDepositBoxAndParties|Ja|Användning av bankfack och parter se  [Användning av SafetyDepositBoxAndParties](#safety-deposit-box-and-parties)|
 
-#### <a name="SafetyDepositBoxAndParties"></a> Användning av SafetyDepositBoxAndParties
+#### <a name="safety-deposit-box-and-parties"></a> Användning av SafetyDepositBoxAndParties
 
 |Namn|Typ|Används|[min..max]|Beskrivning|
 |:---|:---|:---|:---|:---|
@@ -800,7 +800,7 @@ Det utvidgade meddelandet kopplas till ISO 20022-meddelandets XPath-läge som an
 |&nbsp;&nbsp;&nbsp;&nbsp;SdBox|SdBox|Ja|[1..1]|Kontots uppgifter se Användning av SdBox | 
 |&nbsp;&nbsp;&nbsp;&nbsp;Role|SdBoxRole|Ja|[1..*]|Roller med anknytning till bankfacket, se andra tabellen nedan. Varje roll ska anges separat för koden OwnrTp=OWNE. Därtill ska kundrelationen med anknytning till varje roll anges i undermeddelandet fin.013 en gång per part.|
 
-#### <a name="SdBox"></a> Användning av SdBox
+#### <a name="sd-box"></a> Användning av SdBox
 
 |Namn|Typ|Används|[min..max]|Beskrivning|
 |:---|:---|:---|:---|:---|
@@ -816,52 +816,52 @@ Det utvidgade meddelandet kopplas till ISO 20022-meddelandets XPath-läge som an
 |Namn|Typ|Används|[min..max]|Beskrivning|
 |:---|:---|:---|:---|:---|
 |AccountRole1| | | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|Ja|[1..*]|Se [Användning av Id-element](#Anvandning_av_Id-element)|
+|&nbsp;&nbsp;&nbsp;&nbsp;Pty|PartyIdentification41|Ja|[1..*]|Se [Användning av Id-element](#anvandning_av_id-element)|
 |&nbsp;&nbsp;&nbsp;&nbsp;OwnrTp|OwnerType1|Ja|[1..1]|`OwnrTp/Prtry/SchmeNm` används med värdet “RLTP”, samt `OwnrTp/Prtry/Id` med värdet “OWNE” (kontoinnehavare, “ägare”) eller “ACCE” (den som har dispositionsrätt till kontot, “dispositionsrätt”).|
 |&nbsp;&nbsp;&nbsp;&nbsp;StartDt|ISODate|Ja|[0..1]|Startdatum för rollen|
 |&nbsp;&nbsp;&nbsp;&nbsp;EndDt|ISODate|Ja|[0..1]|Slutdatum för rollen|
 
-### <a name="InformationResponseFIN013"></a> 4.10 InformationResponseFIN013
+### <a name="4-10"></a> 4.10 InformationResponseFIN013
 
 Det utvidgade meddelandet kopplas till ISO 20022-meddelandets XPath-läge som anges i tabellen.
 
 |Namn|Används|[min..max]|Typ|Beskrivning|Kopplas till meddelandet|XPath|
 |:---|:---|:---|:---|:---|:---|:---|
-|InformationResponseFIN013| | | | |[auth.002](#InformationRequestResponseV01)|/Document/InfReqRspn/RtrInd/InvstgtnRslt/Rslt|
+|InformationResponseFIN013| | | | |[auth.002](#4-7)|/Document/InfReqRspn/RtrInd/InvstgtnRslt/Rslt|
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|Ja|[1..1]|Max35Text|Case-id för undersökningen|
 |&nbsp;&nbsp;&nbsp;&nbsp;CreDtTm|Ja|[1..1]|ISODateTime|Tid då meddelandet skapades|
 |&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|Ja|[1..1]|BranchAndFinancialInstitutionIdentification4|Används på följande sätt: Elementet `SvcrId/FinInstnId/Othr/SchmeNm/Cd` innehåller värdet "Y" och elementet `SvcrId/FinInstnId/Othr/Id` innehåller mottagarens FO-nummer.|
-|&nbsp;&nbsp;&nbsp;&nbsp;LegalPersonInfo|Ja|[1..*]|LegalPersonInfo|Juridisk eller fysisk person. Se tabellen [Användning av LegalPersonInfo-elementet](#LegalPersonInfo)  nedan.|
+|&nbsp;&nbsp;&nbsp;&nbsp;LegalPersonInfo|Ja|[1..*]|LegalPersonInfo|Juridisk eller fysisk person. Se tabellen [Användning av LegalPersonInfo-elementet](#legal-person-info) nedan.|
 
-#### <a name="LegalPersonInfo"></a> Användning av LegalPersonInfo-elementet
+#### <a name="legal-person-info"></a> Användning av LegalPersonInfo-elementet
 
 Annars i dokumentet termen juridisk person refererar till företag, föreningar, organisationer och andra som inte är fysiska personer, men LegalPersonInfo elementet kan innehålla både fysisk persons uppgifter och juridisk persons uppgifter berående på situationen.
 
 |Namn|Typ|Används|[min..max]|Beskrivning|
 |:---|:---|:---|:---|:---|
-|Id|PartyIdentification41b|Ja|[1..1]|Se [Användning av Id-element](#Anvandning_av_Id-element)|
-|CustomerInfo|CustomerInfo|Ja|[0..1]|Uppgifter om kundrelation. Se [Användning av CustomerInfo-elementet](#CustomerInfo)|
-|Beneficiaries|Beneficiaries|Ja|[0..1]|Uppgifter om förmånstagare. Se [Användning av Beneficiaries-elementet](#Beneficiaries_anvandning)|
+|Id|PartyIdentification41b|Ja|[1..1]|Se [Användning av Id-element](#anvandning_av_id-element)|
+|CustomerInfo|CustomerInfo|Ja|[0..1]|Uppgifter om kundrelation. Se [Användning av CustomerInfo-elementet](#customer-info)|
+|Beneficiaries|Beneficiaries|Ja|[0..1]|Uppgifter om förmånstagare. Se [Användning av Beneficiaries-elementet](#beneficiaries_anvandning)|
 
-#### <a name="CustomerInfo"></a> Användning av CustomerInfo-elementet
+#### <a name="customer-info"></a> Användning av CustomerInfo-elementet
 
 |Namn|Typ|Används|[min..max]|Beskrivning|
 |:---|:---|:---|:---|:---|
 |OpngDt|ISODate|Ja|[1..1]|Startdatum för kundrelation|
 |ClsgDt|ISODate|Ja|[0..1]|Slutdatum för kundrelation|
 
-#### <a name="Beneficiaries_anvandning"></a> Användning av Beneficiaries
+#### <a name="beneficiaries_anvandning"></a> Användning av Beneficiaries
 
 |Namn|Typ|Används|[min..max]|Beskrivning|
 |:---|:---|:---|:---|:---|
-|Id|Beneficiary|Ja|[1..*]|Se [Användning av Beneficiary-elementet](#Beneficiary)|
+|Id|Beneficiary|Ja|[1..*]|Se [Användning av Beneficiary-elementet](#beneficiary)|
 
-#### <a name="Beneficiary"></a> Användning av Beneficiary-elementet
+#### <a name="beneficiary"></a> Användning av Beneficiary-elementet
 
 |Namn|Typ|Används|[min..max]|Beskrivning|
 |:---|:---|:---|:---|:---|
 |Nm|Max140Text|Ja|[1..1]|Förmånstagarens namn. Formatet är fritt.|
-|PrvtId|PersonIdentification5b|Ja|[1..1]|Fysisk person. Se [Användning av PersonIdentification5b-elementet](#PersonIdentification)|
+|PrvtId|PersonIdentification5b|Ja|[1..1]|Fysisk person. Se [Användning av PersonIdentification5b-elementet](#person-identification)|
 |StartDt|ISODate|Ja|[0..1]|Startdatum för rollen|
 |EndDt|ISODate|Ja|[0..1]|Slutdatum för rollen|
 
@@ -879,10 +879,10 @@ I alla meddelanden används motsvarande identifieringsstruktur för en juridisk 
 |Namn|Typ|[min..max]|Beskrivning|
 |:---|:---|:---|:---|
 |Party8Choice| | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;OrgId|OrganisationIdentification6|[0..1]|Används på följande sätt: Elementet `OrgId/Othr/SchmeNm/Cd` innehåller typkoden för organisationsnumret och elementet `OrgId/Othr/Id` innehåller koden. Se tabellen nedan. Dessutom kan man i samband med svaret på förfrågan returnera den juridiska personens registreringsdatum, se exemplet nedan.|
-|&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|PersonIdentification5|[0..1]|Se [Användning av PersonIdentification5-elementet](#PersonIdentification)|
+|&nbsp;&nbsp;&nbsp;&nbsp;OrgId|OrganisationIdentification6|[0..1]|Används på följande sätt: Elementet `OrgId/Othr/SchmeNm/Cd` innehåller typkoden för organisationsnumret och elementet `OrgId/Othr/Id` innehåller koden. Se tabellen nedan. Dessutom kan man i samband med svaret på förfrågan returnera den juridiska personens registreringsdatum, se [exemplet](#rgdt) nedan.|
+|&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|PersonIdentification5|[0..1]|Se [Användning av PersonIdentification5-elementet](#person-identification)|
 
-#### <a name="PersonIdentification"></a> Användning av PersonIdentification5- och PersonIdentification5b-elementen
+#### <a name="person-identification"></a> Användning av PersonIdentification5- och PersonIdentification5b-elementen
 
 PersonIdentification5-elementet används med InformationResponseSD1V01 supl.027.001.01 och InformationResponseFIN002 undermeddelanden.
 
@@ -1163,8 +1163,8 @@ I sökningen på konto i kundkategori 1, returneras som svar det sökta kontots 
 |:---|:---|:---|:---|
 |Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Kontorollens startdatum returneras inte.|
 |Kontorollens slutdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Kontorollens slutdatum returneras inte.|
-|Kontots öppningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|AKontots öppningsdatum returneras inte, om det är fråga om ett gemensamt konto som förvaltas av en advokat. Se [användning av CustomerAccount](#CustomerAccount1).|
-|Kontots avslutningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Kontots avslutningsdatum returneras inte, om det är fråga om ett gemensamt konto som förvaltas av en advokat. Se [användning av CustomerAccount](#CustomerAccount1).|
+|Kontots öppningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|AKontots öppningsdatum returneras inte, om det är fråga om ett gemensamt konto som förvaltas av en advokat. Se [användning av CustomerAccount](#customer-account1).|
+|Kontots avslutningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Kontots avslutningsdatum returneras inte, om det är fråga om ett gemensamt konto som förvaltas av en advokat. Se [användning av CustomerAccount](#customer-account1).|
 |Kundrelationsuppgift|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|Fältet CustomerInfo returneras inte om fysiska personer.|
 |Uppgifter om förmånstagare|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Uppgifter om förmånstagare returneras inte för en juridisk person.|
 
@@ -1227,5 +1227,5 @@ I sökningen på konto i kundkategori 2, returneras som svar det sökta kontots 
 |Kontorollens slutdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Kontorollens slutdatum returneras inte.|
 |Kontots öppningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Kontots öppningsdatum returneras inte.|
 |Kontots avslutningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Kontots avslutningsdatum returneras inte.|
-|Kundrelationsuppgift|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|Fältet CustomerInfo returneras inte, om kontot som är kopplat till den ifrågavarande fysiska personen är ett gemensamt konto. Se [användning av CustomerAccount](#CustomerAccount1).|
+|Kundrelationsuppgift|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|Fältet CustomerInfo returneras inte, om kontot som är kopplat till den ifrågavarande fysiska personen är ett gemensamt konto. Se [användning av CustomerAccount](#customer-account1).|
 |Uppgifter om förmånstagare|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Uppgifter om förmånstagare returneras inte för en juridisk person.|
