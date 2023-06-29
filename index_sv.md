@@ -75,14 +75,14 @@ Version|Datum|Beskrivning
   4.1 [Meddelandestruktur för frågegränssnittets SOAP-operationer](#4-1)    
   4.2 [Business Application Header (BAH)](#4-2)    
   4.3 [Meddelanden i frågegränssnittet](#4-3)    
-  4.4 [BusinessApplicationHeaderV01](#BusinessApplicationHeaderV01)    
-  4.5 [InformationRequestOpeningV01](#InformationRequestOpeningV01)    
-  4.6 [InformationRequestFIN012](#InformationRequestFIN012)    
-  4.7 [InformationRequestResponseV01](#InformationRequestResponseV01)    
-  4.8 [InformationResponseSD1V01](#InformationResponseSD1V01)    
-  4.9 [InformationResponseFIN002](#InformationResponseFIN002)    
-  4.10 [InformationResponseFIN013](#InformationResponseFIN013)   
-  4.11 [Användning av id-element](#Anvandning_av_Id-element)    
+  4.4 [BusinessApplicationHeaderV01](#4-4)    
+  4.5 [InformationRequestOpeningV01](#4-5)    
+  4.6 [InformationRequestFIN012](#4-6)    
+  4.7 [InformationRequestResponseV01](#4-7)    
+  4.8 [InformationResponseSD1V01](#4-8)    
+  4.9 [InformationResponseFIN002](#4-9)    
+  4.10 [InformationResponseFIN013](#4-10)   
+  4.11 [Användning av id-element](#anvandning_av_id-element)    
   4.12 [Scenarier för frågegränssnittets WS-meddelandetrafik](#4-12)    
   4.13 [Returnering av omtvistade uppgifter](#4-13)  
 5. [Begränsningar av datamängder för returnerade förfrågningar enligt kundkategori](#paragraf5)    
@@ -335,9 +335,9 @@ Närmare meddelandebeskrivningar finns i detta kapitel fr.o.m. punkt 4.4 nedan.
 |Uppgift|Meddelande(n)|Beskrivning|
 |:---|:---|:---|
 |Fullständigt namn|fin.002, fin.013, supl.027|Returneras i Pty/Nm-elementet som kopplats till rollen, i samma format som i källsystemet. För att åstadkomma kompatibilitet med befintliga system ska ett enda namnfält användas för att ange personens samtliga namn. Detta elements format i fråga om för- och efternamn är inte exakt bestämt i ISO 20022-meddelandeimplementeringar, som använts som underlag i specifikationsarbetet för datasökgränssnittet  (auth.001: Document/InfReqOpng/SchCrit/CstmrId/Pty/Nm) Därtill ska det beaktas att alla personer inte har för- och efternamn globalt sett.|
-|Födelsedatum|fin.002, fin.013, supl.027|Returneras som en del av Id-elementet som kopplats till rollen, se [Användning av Id-element](#Anvandning_av_Id-element)|
-|Personbeteckning|fin.002, fin.013, supl.027|Returneras som en del av Id-elementet som kopplats till rollen, se [Användning av Id-element](#Anvandning_av_Id-element)|
-|Medborgarskap|fin.002, fin.013, supl.027|Returneras som en del av Id-elementet som kopplats till rollen, se [Användning av Id-element](#Anvandning_av_Id-element)|
+|Födelsedatum|fin.002, fin.013, supl.027|Returneras som en del av Id-elementet som kopplats till rollen, se [Användning av Id-element](#anvandning_av_id-element)|
+|Personbeteckning|fin.002, fin.013, supl.027|Returneras som en del av Id-elementet som kopplats till rollen, se [Användning av Id-element](#anvandning_av_id-element)|
+|Medborgarskap|fin.002, fin.013, supl.027|Returneras som en del av Id-elementet som kopplats till rollen, se [Användning av Id-element](#anvandning_av_id-element)|
 |Förmånstagare|fin.013|Organisationer där en fysisk person är förmånstagare|
 |Omtvistad|auth.002|Supplementary Data enligt [disputed-schemat](schemas/disputed.xsd)|
 
@@ -346,19 +346,19 @@ Närmare meddelandebeskrivningar finns i detta kapitel fr.o.m. punkt 4.4 nedan.
 |Uppgift|Meddelande(n)|Beskrivning|
 |:---|:---|:---|
 |Namn|fin.002, fin.013, supl.027|Returneras i Pty/Nm-elementet som kopplats till rollen|
-|Registreringsnummer|fin.002, fin.013, supl.027|Returneras som en del av Id-elementet som kopplats till rollen, se [Användning av Id-element](#Anvandning_av_Id-element)|
-|Registreringsmyndighet|fin.002, fin.013, supl.027|Returneras som en del av Id-elementet som kopplats till rollen, se [Användning av Id-element](#Anvandning_av_Id-element)|
-|Registreringsdag|fin.002, fin.013, supl.027|Returneras som en del av Id-elementet som kopplats till rollen, se [Användning av Id-element](#Anvandning_av_Id-element)|
-|Aktörens identifieringsuppgift|fin.002, fin.013, supl.027|Returneras som en del av Id-elementet som kopplats till rollen, se [Användning av Id-element](#Anvandning_av_Id-element)|
+|Registreringsnummer|fin.002, fin.013, supl.027|Returneras som en del av Id-elementet som kopplats till rollen, se [Användning av Id-element](#anvandning_av_id-element)|
+|Registreringsmyndighet|fin.002, fin.013, supl.027|Returneras som en del av Id-elementet som kopplats till rollen, se [Användning av Id-element](#anvandning_av_id-element)|
+|Registreringsdag|fin.002, fin.013, supl.027|Returneras som en del av Id-elementet som kopplats till rollen, se [Användning av Id-element](#anvandning_av_id-element)|
+|Aktörens identifieringsuppgift|fin.002, fin.013, supl.027|Returneras som en del av Id-elementet som kopplats till rollen, se [Användning av Id-element](#anvandning_av_id-element)|
 |Omtvistad|auth.002|Supplementary Data enligt [disputed-schemat](schemas/disputed.xsd)|
 
 *__Tabell 4.3.3:__ Bank- och betalkonto, uppgifterna per meddelande*
 
 |Uppgift|Meddelande(n)|Beskrivning|
 |:---|:---|:---|
-|IBAN-nummer|supl.027|Se [Användning av CustomerAccount](#CustomerAccount1)|
+|IBAN-nummer|supl.027|Se [Användning av CustomerAccount](#customer-account1)|
 |Kontots öppningsdatum|supl.027|Returneras i AddtlInf-fältet|
-|Kontots avslutningsdatum|supl.027|Se [Användning av CustomerAccount](#CustomerAccount1)|
+|Kontots avslutningsdatum|supl.027|Se [Användning av CustomerAccount](#customer-account1)|
 |Kontots parter|supl.027|Kontoinnehavare och de som har dispositionsrätt till kontot|
 |Omtvistad|auth.002|Supplementary Data enligt [disputed-schemat](schemas/disputed.xsd)|
 
@@ -366,9 +366,9 @@ Närmare meddelandebeskrivningar finns i detta kapitel fr.o.m. punkt 4.4 nedan.
 
 |Uppgift|Meddelande(n)|Beskrivning|
 |:---|:---|:---|
-|Identifieringsuppgift|fin.002|Se [Användning av SafetyDepositBoxAndParties](#SafetyDepositBoxAndParties)|
-|Startdatum för hyrestid|fin.002|Se [Användning av SafetyDepositBoxAndParties](#SafetyDepositBoxAndParties)|
-|Slutdatum för hyrestid|fin.002|Se [Användning av SafetyDepositBoxAndParties](#SafetyDepositBoxAndParties)|
+|Identifieringsuppgift|fin.002|Se [Användning av SafetyDepositBoxAndParties](#safety-deposit-box-and-parties)|
+|Startdatum för hyrestid|fin.002|Se [Användning av SafetyDepositBoxAndParties](#safety-deposit-box-and-parties)|
+|Slutdatum för hyrestid|fin.002|Se [Användning av SafetyDepositBoxAndParties](#safety-deposit-box-and-parties)|
 |Bankfackets parter|fin.002|Innehavare av bankfacket och de som har dispositionsrätt till bankfacket|
 |Omtvistad|auth.002|Supplementary Data enligt [disputed-schemat](schemas/disputed.xsd)|
 
@@ -376,9 +376,9 @@ Närmare meddelandebeskrivningar finns i detta kapitel fr.o.m. punkt 4.4 nedan.
 
 |Uppgift|Meddelande(n)|Beskrivning|
 |:---|:---|:---|
-|Kundrelation|fin.013|Se [InformationResponseFIN013](#InformationResponseFIN013)|
-|Startdatum|fin.013|Se [InformationResponseFIN013](#InformationResponseFIN013)|
-|Slutdatum|fin.013|Se [InformationResponseFIN013](#InformationResponseFIN013)|
+|Kundrelation|fin.013|Se [InformationResponseFIN013](#4-10)|
+|Startdatum|fin.013|Se [InformationResponseFIN013](#4-10)|
+|Slutdatum|fin.013|Se [InformationResponseFIN013](#4-10)|
 |Omtvistad|auth.002|Supplementary Data enligt [disputed-schemat](schemas/disputed.xsd)|
 
 
@@ -404,7 +404,7 @@ Närmare meddelandebeskrivningar finns i detta kapitel fr.o.m. punkt 4.4 nedan.
 |FIN002|InformationResponseFIN002|auth.002.001.01|Innehåller bankfacksuppgifter som motsvarar sökparametrarna|
 |FIN013|InformationResponseFIN013|auth.002.001.01|nnehåller kundrelationsuppgifter som motsvarar sökparametrarna, separat från uppgifterna om konton och bankfack.|
 
-### <a name="BusinessApplicationHeaderV01"></a> 4.4 BusinessApplicationHeaderV01
+### <a name="4-4"></a> 4.4 BusinessApplicationHeaderV01
 
 I tabellen nedan visas användningen av BAH-element. Elementtyperna beskrivs i [head.001.001.01-schemat](assets/iso20022org/archive_business_area_business_application_header.zip).
 
@@ -424,7 +424,7 @@ I tabellen nedan visas användningen av BAH-element. Elementtyperna beskrivs i [
 |Sgntr| |Ja|XML-signatur som bildas av avsändare av Business message. Se [Bildande av XML-signatur](#xml-sig)|
 |Rltd|BusinessApplicationHeader1|Ja|Används i svarsmeddelandet, innehåller frågemeddelandets BAH.|
 
-### <a name="InformationRequestOpeningV01"></a> 4.5 InformationRequestOpeningV01
+### <a name="4-5"></a> 4.5 InformationRequestOpeningV01
 
 I tabellen beskrivs användningen av meddelandets poster.
 
@@ -436,10 +436,10 @@ I tabellen beskrivs användningen av meddelandets poster.
 |&nbsp;&nbsp;&nbsp;&nbsp;CnfdtltySts|YesNoIndicator|Ja|Alltid "true"|
 |&nbsp;&nbsp;&nbsp;&nbsp;DueDt|DueDate1|Nej||
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnPrd|DateOrDateTimePeriodChoice|Ja|Datum eller datumintervall som sökningen riktar sig till. Datumintervallet är alltid i dag eller i det förflutna. Sökning med tidsintervall ska göras så att om tidsintervallet i någon uppgift (alla datumposter i tabellerna 4.3.1-4.3.5) ingår delvis eller helt i det angivna InvstgtnPrd-tidsintervallet, ska uppgiftsraden i fråga läggas till i sökresultatet. Endast Dt elementet används.|
-|&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Ja|Sökkriterium. Ett så exakt sökkriterium som möjligt ska alltid användas. Se [närmare specificering](#SearchCriteria1Choice) nedan.|
-|&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Ja|Innehåller det utvidgade meddelandet [InformationRequestFIN012](#InformationRequestFIN012).|
+|&nbsp;&nbsp;&nbsp;&nbsp;SchCrit|SearchCriteria1Choice|Ja|Sökkriterium. Ett så exakt sökkriterium som möjligt ska alltid användas. Se [närmare specificering](#search-criteria1choice) nedan.|
+|&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Ja|Innehåller det utvidgade meddelandet [InformationRequestFIN012](#4-6).|
 
-#### <a name="SearchCriteria1Choice"></a> Begränsning av undermeddelanden i sökresultatet
+#### <a name="search-criteria1choice"></a> Begränsning av undermeddelanden i sökresultatet
 
 Systemet returnerar endast de undermeddelanden som begärs i sökkriterierna (supl.027.001.01, fin.002.001.03, fin.013.001.04). Varje undermeddelande begärs i ett separat element av typen AuthorityRequestType1, som det alltså ska finnas 1–3 av i sökkriterierna.
 
@@ -517,17 +517,17 @@ Det egentliga sökkriteriet, dvs. bankfackets identifieringsuppgift, anges i Saf
 |:---|:---|:---|:---|
 |\<SafetyDepositBoxId\>|Document/InfReqFin012/AdditionalSearchCriteria/|Bankfackets identifieringsuppgift|Exakt träff 1:1 inkl. specialtecken. Formatet är fritt.|
 
-### <a name="InformationRequestFIN012"></a> 4.6 Utvidgat meddelande InformationRequestFIN012
+### <a name="4-6"></a> 4.6 Utvidgat meddelande InformationRequestFIN012
 
 Det utvidgade meddelandet kopplas till ISO 20022-meddelandets XPath-läge som anges i tabellen.
 
 |Namn|[min..max]|Typ|Beskrivning|Kopplas till meddelandet|XPath|
 |:---|:---|:---|:---|:---|:---|
-|InformationRequestFIN012| | | |[auth.001](#InformationRequestOpeningV01)|`/Document/InfReqOpng/SplmtryData/Envlp`|
-|&nbsp;&nbsp;&nbsp;&nbsp;AuthorityInquiry|[1..1]|[AuthorityInquirySet](#AuthorityInquirySet)|Myndighetsuppgifter i anknytning till förfrågan.| |
+|InformationRequestFIN012| | | |[auth.001](#4-5)|`/Document/InfReqOpng/SplmtryData/Envlp`|
+|&nbsp;&nbsp;&nbsp;&nbsp;AuthorityInquiry|[1..1]|[AuthorityInquirySet](#authority-inquiry-set)|Myndighetsuppgifter i anknytning till förfrågan.| |
 |&nbsp;&nbsp;&nbsp;&nbsp;AdditionalSearchCriteria|[0..*]||Används för att söka med bankfackets identifieringsuppgift.||
 
-#### <a name="AuthorityInquirySet"></a> AuthorityInquirySet
+#### <a name="authority-inquiry-set"></a> AuthorityInquirySet
 
 |Namn|Typ|Används|Beskrivning|
 |:---|:---|:---|:---|
@@ -535,7 +535,7 @@ Det utvidgade meddelandet kopplas till ISO 20022-meddelandets XPath-läge som an
 |&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|Max140Text|Ja|Alltid "Customs_aggr"|
 |&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|Max140Text|Ja|Alltid "Customs_aggr"|
 
-### <a name="InformationRequestResponseV01"></a> 4.7 InformationRequestResponseV01
+### <a name="4-7"></a> 4.7 InformationRequestResponseV01
 
 I tabellen beskrivs användningen av meddelandets poster.
 
@@ -549,14 +549,14 @@ I tabellen beskrivs användningen av meddelandets poster.
 |&nbsp;&nbsp;&nbsp;&nbsp;RtrInd|ReturnIndicator1|Ja|[0..*]| Se användning av ReturnIndicator1 nedan.|
 |&nbsp;&nbsp;&nbsp;&nbsp;SplmtryData|SupplementaryData1|Ja|[0..1]|Se [Returnering av omtvistade uppgifter](#4-13)|
 
-#### Användning av ReturnIndicator1
+#### <a name="return-indicator1"></a> Användning av ReturnIndicator1
 
 ReturnIndicator1 innehåller en enskild typ av sökresultat.
 
 |XPath|Typ|Beskrivning|
 |:---|:---|:---|
 |RtrInd/AuthrtyReqTp/MsgNmId|Max35Text|innehåller det utvidgade meddelandets meddelande-id (supl.027.001.01, fin.013.001.04 eller fin.002.001.03)|
-|RtrInd/InvstgtnRslt|InvestigationResult1Choice|Returneras `Rslt`-elementet av typen SupplementaryDataEnvelope1, som innehåller antingen [supl.027.001.01](#InformationResponseSD1V01), [InformationResponseFIN002](#InformationResponseFIN002) eller [InformationResponseFIN013](#InformationResponseFIN013) eller `InvstgtnSts` med koden `NFOU`.
+|RtrInd/InvstgtnRslt|InvestigationResult1Choice|Returneras `Rslt`-elementet av typen SupplementaryDataEnvelope1, som innehåller antingen [supl.027.001.01](#4-8), [InformationResponseFIN002](#4-9) eller [InformationResponseFIN013](#4-10) eller `InvstgtnSts` med koden `NFOU`.
 
 För varje typ av sökresultat returneras ett undermeddelande med sökresultat (supl.027.001.01, fin.013.001.04 eller fin.002.001.03) per FO-nummer.
 
