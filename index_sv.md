@@ -103,8 +103,8 @@ Version|Datum|Beskrivning
 
 Förkortning eller term|Förklaring
 ---|---
-Gränssnitt|Standardenlig praxis eller kontaktyta som möjliggör överföring av information mellan enheter, programvaror eller användare. 
-WS (Web Service)|Webbaserat datorprogram som med hjälp av standardiserade internetprotokoll ställer tjänster till förfogande för applikationerna. Tjänsten som datasöksystemet tillhandahåller är förfrågan om uppgifter.
+Gränssnitt|Standardenlig praxis eller kontaktyta som möjliggör överföring av information mellan enheter, programvara eller användare. 
+WS (Web Service)|Webbaserat datorprogram som med hjälp av standardiserade internetprotokoll ställer tjänster till förfogande för applikationerna. Den tjänst som datasöksystemet tillhandahåller är förfrågan om uppgifter.
 Endpoint|Gränssnittstjänst som finns tillgänglig på en viss webbadress.
 WSDL|(Web Service Description Language) Strukturellt beskrivningsspråk som används för att beskriva funktioner som en webbtjänst erbjuder.
 
@@ -146,7 +146,7 @@ Myndigheters system har begränsningar för storleken på enstaka meddelanden.
 
 Aktörerna kan i samband med ibruktagandet komma överens om hur stora meddelandena får vara samt hur enstaka meddelandens storlek vid behov kan minskas eller hur sporadiska överstora meddelanden kan levereras.
 
-På bild 2.1 visas en förfrågan om bank- och betalkontouppgifter ur Kontoregistret i form av ett flödesschema.
+På bild 2.1 visas en förfrågan om bank- och betalkontouppgifter från datasöksystemet i form av ett flödesschema.
 
 ![Förfrågan om bank- och betalkontouppgifter](diagrams/flowchart_query.png "Förfrågan om bank- och betalkontouppgifter")  
 *__Bild 2.1.__ Förfrågan om bank- och betalkontouppgifter*  
@@ -302,7 +302,7 @@ Version 1.1 av SOAP-protokollet används.
 
 I meddelandena används hänvisningar till koduppsättningen i ISO 20022-standarden. Hänvisningarna till koduppsättningen finns på ISO 20022-sidan [External Code Sets](assets/iso20022org/ExternalCodeSets_2Q2020_August2020_v1.xlsx).
 
-I frågegränssnittet finns en endpoint, vars fråge- och svarsmeddelandestruktur beskrivs i detta kapitel.
+I frågegränssnittet finns en endpoint, vars fråge- och svarsmeddelandestruktur beskrivs i detta avsnitt.
 
 ### <a name="4-1"></a> 4.1 Meddelandestruktur för frågegränssnittets SOAP-operationer
 
@@ -412,7 +412,7 @@ I tabellen nedan visas användningen av BAH-element. Elementtyperna beskrivs i [
 |:---|:---|:---|:---|
 |BusinessApplicationHeaderV01| | | |
 |CharSet|UnicodeChartsCode|Ja|"UTF-8"|
-|Fr|Party9Choice|Ja|Används på följande sätt:  Elementet `Fr/OrgId/Id/OrgId/Othr/SchmeNm/Cd` innehåller värdet ”Y” och elementet `Fr/OrgId/Id/OrgId/Othr/Id` innehåller avsändarens FO-nummer. När man jämför FO-nummer med ID som finns i signeringscertifikatet, måste det noteras att ID:t i certifikatet kan vara antingen i formatet FO-nummer eller momsnummerformat.|
+|Fr|Party9Choice|Ja|Används på följande sätt:  Elementet `Fr/OrgId/Id/OrgId/Othr/SchmeNm/Cd` innehåller värdet ”Y” och elementet `Fr/OrgId/Id/OrgId/Othr/Id` innehåller sändarens FO-nummer. När man jämför FO-nummer med ID i signeringscertifikatet, ska det noteras att beteckningen i certifikatet kan vara antingen i FO-nummerformat eller i momsnummerformat.|
 |To|Party9Choice|Ja|Används på följande sätt:  Elementet `To/OrgId/Id/OrgId/Othr/SchmeNm/Cd` innehåller värdet ”Y” och elementet `To/OrgId/Id/OrgId/Othr/Id` innehåller mottagarens FO-nummer (T.ex. i datasöksystemet FO-nummer 0245442-8)|
 |BizMsgIdr|Max35Text|Ja|Används enligt standarden.|
 |MsgDefIdr|Max35Text|Ja|Innehåller meddelande-id. I frågemeddelandet används ”auth.001.001.01”, medan ”auth.002.001.01” används i svarsmeddelandet.|
@@ -732,6 +732,8 @@ Till svarsmeddelandet kopplas tre `InvstgtnSts`-element med koden `NFOU`.
 
 I tabellen beskrivs användningen av meddelandets poster.
 
+Om kontouppgifter inte returneras i svaret, får undermeddelandet supl.027 i svarsmeddelandet statuskoden NFOU, se användning av [ReturnIndicator1](#return-indicator1).
+
 |Namn|Typ|Används|[min..max]|Beskrivning|
 |:---|:---|:---|:---|:---|
 |InformationResponseSD1V01 supl.027.001.01| | | | |
@@ -784,6 +786,8 @@ I tabellen beskrivs användningen av meddelandets poster.
 
 Det utvidgade meddelandet kopplas till ISO 20022-meddelandets XPath-läge som anges i tabellen.
 
+Om bankfacksuppgifter inte returneras i svaret, får undermeddelandet FIN002 i svarsmeddelandet statuskoden NFOU, se användning av [ReturnIndicator1](#return-indicator1).
+
 |Namn|[min..max]|Typ|Används|Beskrivning|Kopplas till meddelandet|XPath|
 |:---|:---|:---|:---|:---|:---|:---|
 |InformationResponseFIN002| | | | |[auth.002](#4-7)|/Document/InfReqRspn/RtrInd/InvstgtnRslt/Rslt|
@@ -825,6 +829,8 @@ Det utvidgade meddelandet kopplas till ISO 20022-meddelandets XPath-läge som an
 
 Det utvidgade meddelandet kopplas till ISO 20022-meddelandets XPath-läge som anges i tabellen.
 
+Om uppgifter om förmånstagare och inte heller uppgifter om kundrelationen (start- och eventuellt slutdatum för kundrelationen) inte returneras i svaret, får undermeddelandet FIN013 i svarsmeddelandet statuskoden NFOU, se användning av [ReturnIndicator1](#return-indicator1).
+
 |Namn|Används|[min..max]|Typ|Beskrivning|Kopplas till meddelandet|XPath|
 |:---|:---|:---|:---|:---|:---|:---|
 |InformationResponseFIN013| | | | |[auth.002](#4-7)|/Document/InfReqRspn/RtrInd/InvstgtnRslt/Rslt|
@@ -835,13 +841,15 @@ Det utvidgade meddelandet kopplas till ISO 20022-meddelandets XPath-läge som an
 
 #### <a name="legal-person-info"></a> Användning av LegalPersonInfo-elementet
 
-Annars i dokumentet termen juridisk person refererar till företag, föreningar, organisationer och andra som inte är fysiska personer, men LegalPersonInfo elementet kan innehålla både fysisk persons uppgifter och juridisk persons uppgifter berående på situationen.
+I övrigt i dokumentet hänvisar termen juridisk person till företag, föreningar, organisationer och andra icke-fysiska personer, men LegalPersonInfo-elementet kan innehålla uppgifter om både fysiska personer och juridiska personer berående på situationen.
+
+Om det svarsmeddelande som returneras inte innehåller datumuppgifter om kundrelationen (CustomerInfo-elementet) och inte heller uppgifter om förmånstagarna (Beneficiaries-elementet), inkluderas undermeddelandet FIN013 inte alls i svarsmeddelandet. I så fall får FIN013 i svaret statuskod NFOU, se användning av [ReturnIndicator1](#return-indicator1).
 
 |Namn|Typ|Används|[min..max]|Beskrivning|
 |:---|:---|:---|:---|:---|
-|Id|PartyIdentification41b|Ja|[1..1]|Se [Användning av Id-element](#anvandning_av_id-element)|
-|CustomerInfo|CustomerInfo|Ja|[0..1]|Uppgifter om kundrelation. Se [Användning av CustomerInfo-elementet](#customer-info)|
-|Beneficiaries|Beneficiaries|Ja|[0..1]|Uppgifter om förmånstagare. Se [Användning av Beneficiaries-elementet](#beneficiaries_anvandning)|
+|Id|PartyIdentification41b|Ja|[1..1]|Kreditinstitutet returnerar i fältet uppgifter om den juridiska person som anknyter till den kundrelationsuppgift som fogas till meddelandet (CustomerInfo-elementet) eller till uppgiften om förmånstagare (Beneficiaries-elementet). Övriga uppgiftsleverantörer returnerar i fältet uppgifterna om den juridiska person eller fysiska person som anknyter till uppgiften om kundrelationen (CusomerInfo-elementet). Se [användning av Id-element](#anvandning_av_id-element)|
+|CustomerInfo|CustomerInfo|Ja|[0..1]|Kundrelationsuppgifter, det vill säga start- och eventuellt slutdatum. Se [användning av CustomerInfo-elementet](#customer-info)|
+|Beneficiaries|Beneficiaries|Ja|[0..1]|Uppgifter om förmånstagare. Se [användning av Beneficiaries-elementet](#beneficiaries_anvandning)|
 
 #### <a name="customer-info"></a> Användning av CustomerInfo-elementet
 
@@ -879,8 +887,8 @@ I alla meddelanden används motsvarande identifieringsstruktur för en juridisk 
 |Namn|Typ|[min..max]|Beskrivning|
 |:---|:---|:---|:---|
 |Party8Choice| | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;OrgId|OrganisationIdentification6|[0..1]|Används på följande sätt: Elementet `OrgId/Othr/SchmeNm/Cd` innehåller typkoden för organisationsnumret och elementet `OrgId/Othr/Id` innehåller koden. Se tabellen nedan. Dessutom kan man i samband med svaret på förfrågan returnera den juridiska personens registreringsdatum, se [exemplet](#rgdt) nedan.|
-|&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|PersonIdentification5|[0..1]|Se [Användning av PersonIdentification5-elementet](#person-identification)|
+|&nbsp;&nbsp;&nbsp;&nbsp;OrgId|OrganisationIdentification6|[0..1]|Används på följande sätt: Elementet `OrgId/Othr/SchmeNm/Cd` innehåller typkoden för organisationsnumret och elementet `OrgId/Othr/Id` innehåller koden. Se koderna i tabellen nedan. Dessutom är det möjligt att i samband med svaret på förfrågan returnera den juridiska personens registreringsdatum, se [exemplet](#rgdt) nedan.|
+|&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|PersonIdentification5|[0..1]|Se [användning av PersonIdentification5-elementet](#person-identification)|
 
 #### <a name="person-identification"></a> Användning av PersonIdentification5- och PersonIdentification5b-elementen
 
@@ -912,7 +920,7 @@ PrvtId koodit
 
 |Kod|Beskrivning|
 |:---|:---|
-|PIC|Finsk personbeteckning|
+|PIC|Finländsk personbeteckning|
 |NATI|Medborgarskap|
 
 Födelsedatum
