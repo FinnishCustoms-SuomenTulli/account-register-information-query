@@ -6,7 +6,7 @@
 
 # Query interface description of the data retrieval system
 
-*Document version 2.0.7*
+*Document version 2.0.8*
 
 ## Vesion history
 
@@ -65,6 +65,7 @@ Version|Date|Decription
 2.0.5|7.2.2023|Clarifications to chapter 4.12: Validation error can be used in case of incorrect investigation period. Maximum size for response message is 5 Mb. In chapter 3.1 replaced Population Register Centre with Digital and Population Data Services Agency.|
 2.0.6|15.2.2023|Updated 'In use' and 'Description' in tables 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) and 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId). Updated example files.|
 2.0.7|24.4.2023|Updated 'Use of PersonIdentification5 and PersonIdentification5b elements' description regarding different sub messages in chapter 4.11. Added SHA512 to allowed algorithms in chapter 3.1. Added a clarification of the ID format in Fr-element in chapter 4.4. Unified use of terminology regarding legal person and access right, legal person refers to organisations. Added instructions about returning NFOU for each submessage. Clarifications for using fields in LegalPersonInfo element. Clarifications in chapter 5.1 to rules for credit institutions on returning beneficiary and customership information: Beneficiary information can only be returned if the person/organisation who is the object of the query owns or has access right to an account or safety deposit box. Customership information can only be returned, if organisation who is the object of the query is the owner of an account or a safety deposit box in the credit institution.|
+2.0.8|4.7.2023|Example response messages added.|
 
 ## Table of contents
 
