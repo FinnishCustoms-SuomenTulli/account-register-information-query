@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 2.0.7*
+*Dokumentin versio 2.0.8*
 
 ## Versiohistoria
 
@@ -65,6 +65,7 @@ Versio|Päivämäärä|Kuvaus
 2.0.5|7.2.2023|Tarkennuksia lukuun 4.12: Validointivirhettä voi käyttää virheellisen investigation periodin tapauksessa. Vastaussanoman maksimikoko on 5 Mb. Luvussa 3.1 VRK korvattu DVV:llä.|
 2.0.6|15.2.2023|Päivitetty 'Käytössä' ja 'Kuvaus' taulukoissa 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) ja 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId). Päivitetty esimerkkitiedostoja.|
 2.0.7|24.4.2023|Päivitetty 'PersonIdentification5- ja PersonIdentification5b-elementtien käyttö' kuvausta alisanomien eroavaisuuksien osalta luvussa 4.11. Lisätty SHA512 sallittuihin algoritmeihin luvussa 3.1. Lisätty tarkennus tunnuksen formaatista luvun 4.4 Fr-elementtiin. Yhtenäistetty terminologiaa oikeushenkilön ja käyttöoikeuden haltijan osalta, oikeushenkilö tarkoittaa organisaatiota. Lisätty jokaisen alisanoman kohdalle ohjeistus milloin palautetaan NFOU. Tarkennuksia sanoman kenttien käyttöön LegalPersonInfo-elementissä. Tarkennuksia luottolaitosten edunsaajuus- ja asiakkuustietojen palautussääntöihin luvussa 5.1: Edunsaajuustiedot voidaan palauttaa vain, jos hakukohteena oleva henkilö/organisaatio on jonkin tilin tai tallelokeron haltija tai käyttöoikeudenhaltija. Asiakkuustieto voidaan palauttaa vain, jos hakukohteena oleva organisaatio on jonkin tilin tai tallelokeron haltija luottolaitoksessa.|
+2.0.8|4.7.2023|Lisätty esimerkkivastaussanomia.|
 
 ## Sisällysluettelo
 
