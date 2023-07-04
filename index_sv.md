@@ -1235,5 +1235,5 @@ Vid sökningen på konto i kundkategori 2, returneras som svar uppgifter om det 
 |Kontorollens slutdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Kontorollens slutdatum returneras inte.|
 |Kontots öppningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Kontots öppningsdatum returneras inte.|
 |Kontots avslutningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Kontots avslutningsdatum returneras inte.|
-|Kundrelationsuppgift|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo-fältet returneras inte, om kontot som är kopplat till den ifrågavarande fysiska personen är ett gemensamt konto. Se [användning av CustomerAccount](#customer-account1).|
+|Kundrelationsuppgift|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo-fältet returneras inte, om fet konto som anknyter till den fysiska personen i fråga är ett gemensamt konto som förvaltas av en advokat. Se [användning av CustomerAccount](#customer-account1).|
 |Uppgifter om förmånstagare|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Uppgifter om förmånstagare returneras inte för en juridisk person.|
