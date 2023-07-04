@@ -273,7 +273,7 @@ Exempel 3.1 Exempel SignedInfo
 </SignedInfo>
 ```
 
-Signeringsalgoritmen är således RSA-SHA256 eller RSA-SHA512 och C14N är Exclusive XML Canonicalization. Reference URI är antingen "#applicationRequest" eller "#applicationResponse", beroende på om det är frågan om ett fråge- eller svarsmeddelande. Dvs. endast "ApplicationRequest" eller "ApplicationResponse" elementet signeras. Då signaturen bildas ska man för bildandet av de kondensat som ska beräknas (Digest) använda algoritmen SHA256 eller SHA512.
+Signeringsalgoritmen är således RSA-SHA256 och C14N är Exclusive XML Canonicalization. Reference URI är antingen "#applicationRequest" eller "#applicationResponse", beroende på om det är frågan om ett fråge- eller svarsmeddelande. Dvs. endast "ApplicationRequest" eller "ApplicationResponse" elementet signeras. Då signaturen bildas ska man för bildandet av de kondensat som ska beräknas (Digest) använda algoritmen SHA256.
 
 De kryptografiska algoritmer som används i signaturen ska till sin kryptografiska styrka motsvara minst Transport- och kommunikationsverkets krav på kryptografisk styrka för den nationella skyddsnivån ST IV. De nuvarande kraven gällande styrkan beskrivs på finska i dokumentet https://www.kyberturvallisuuskeskus.fi/sites/default/files/media/regulation/ohje-kryptografiset-vahvuusvaatimukset-kansalliset-suojaustasot.pdf (Dnro: 190/651/2015).
 
@@ -446,7 +446,7 @@ Systemet returnerar endast de undermeddelanden som begärs i sökkriterierna (su
 
 |Tagg|Schemats sökväg InfReqOpng/SchCrit/|Beskrivning|Regel|
 |:---|:---|:---|:---|
-|\<MsgNmId\>|Sökning med naturlig persons personbeteckning, med kombinationen naturlig persons namn, medborgarskap och födelsedatum, med juridisk persons registreringsnummer, med juridisk persons namn eller med bankfackets identifieringsuppgift:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Sökning med IBAN eller annan kontospecifikation:<br/>Acct/AuthrtyReqTp|"supl.027.001.01", "fin.002.001.03" eller "fin.013.001.04"||
+|\<MsgNmId\>|Sökning med personbeteckning, med kombinationen naturlig persons namn, medborgarskap och födelsedatum, med juridisk persons registreringsnummer, med företagets namn eller med bankfackets identifieringsuppgift:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Sökning med IBAN eller annan kontospecifikation:<br/>Acct/AuthrtyReqTp|"supl.027.001.01", "fin.002.001.03" eller "fin.013.001.04"||
 
 #### <a name=""></a> Sökning med personbeteckning
 
@@ -893,21 +893,11 @@ I alla meddelanden används motsvarande identifieringsstruktur för en juridisk 
 
 #### <a name="person-identification"></a> Användning av PersonIdentification5- och PersonIdentification5b-elementen
 
-PersonIdentification5-elementet används med InformationResponseSD1V01 supl.027.001.01 och InformationResponseFIN002 undermeddelanden.
-
 |XPath|Typ|Beskrivning|
 |:---|:---|:---|
 |Othr/SchmeNm/Cd|ExternalPersonIdentification1Code|Innehåller en typkod för personbeteckningen, eller en kod för medborgarskap om personen inte har en personbeteckning.|
 |Othr/Id|Max35Text|Innehåller beteckning eller landskod. Se koderna i tabellen nedan.|
 |DtAndPlcOfBirth|DateAndPlaceOfBirth|Se tabellen nedan.|
-
-PersonIdentification5b-elementet används med undermeddelandet InformationResponseFIN013.
-
-|XPath|Typ|Beskrivning|
-|:---|:---|:---|
-|Othr/SchmeNm/Cd|ExternalPersonIdentification1Code|Innehåller en typkod för personbeteckningen, eller en kod för medborgarskap om personen inte har en personbeteckning.|
-|Othr/Id|Max35Text|Innehåller beteckning eller landskod. Se koderna i tabellen nedan.|
-|DtAndPlcOfBirth|DateAndPlaceOfBirth2|Se tabellen nedan.|
 
 OrgId koder
 
@@ -928,15 +918,10 @@ Födelsedatum
 
 |Namn|Typ|Beskrivning|
 |:---|:---|:---|
-|DtAndPlcOfBirth|DateAndPlaceOfBirth| |
+|DtAndPlcOfBirth| | |
 |BirthDt|ISODate|Födelsedatum|
 |CityOfBirth|Max35Text|CityOfBirth ges värdet ”not in use”.|
 |CtryOfBirth|CountryCode|CtryOfBirth ges värdet "XX".|
-
-|Namn|Typ|Beskrivning|
-|:---|:---|:---|
-|DtAndPlcOfBirth|DateAndPlaceOfBirth2| |
-|BirthDt|ISODate|Födelsedatum|
 
 #### <a name="rgdt"></a> Exempel på returnering av en juridisk persons registreringsdatum
 
