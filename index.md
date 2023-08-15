@@ -66,6 +66,7 @@ Versio|Päivämäärä|Kuvaus
 2.0.6|15.2.2023|Päivitetty 'Käytössä' ja 'Kuvaus' taulukoissa 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) ja 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId). Päivitetty esimerkkitiedostoja.|
 2.0.7|24.4.2023|Päivitetty 'PersonIdentification5- ja PersonIdentification5b-elementtien käyttö' kuvausta alisanomien eroavaisuuksien osalta luvussa 4.11. Lisätty SHA512 sallittuihin algoritmeihin luvussa 3.1. Lisätty tarkennus tunnuksen formaatista luvun 4.4 Fr-elementtiin. Yhtenäistetty terminologiaa oikeushenkilön ja käyttöoikeuden haltijan osalta, oikeushenkilö tarkoittaa organisaatiota. Lisätty jokaisen alisanoman kohdalle ohjeistus milloin palautetaan NFOU. Tarkennuksia sanoman kenttien käyttöön LegalPersonInfo-elementissä. Tarkennuksia luottolaitosten edunsaajuus- ja asiakkuustietojen palautussääntöihin luvussa 5.1: Edunsaajuustiedot voidaan palauttaa vain, jos hakukohteena oleva henkilö/organisaatio on jonkin tilin tai tallelokeron haltija tai käyttöoikeudenhaltija. Asiakkuustieto voidaan palauttaa vain, jos hakukohteena oleva organisaatio on jonkin tilin tai tallelokeron haltija luottolaitoksessa.|
 2.0.8|4.7.2023|Lisätty uusia esimerkkivastaussanomia.|
+2.0.9|15.8.2023|Lisätty uusia SoapFault esimerkkejä lukuun 4.12.|
 
 ## Sisällysluettelo
 
@@ -1053,6 +1054,41 @@ Seuraamus|Palautetaan SOAP Fault ks. taulukko alla|
   </tbody>
 </table>
 
+*__Listaus 4.12.1:__ Esimerkki palautettavasta SoapFaultista virhekoodilla 7*
+
+```
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <SOAP-ENV:Fault>
+            <faultcode>SOAP-ENV:Client</faultcode>
+            <faultstring xml:lang="en">Query response has multiple hits. Please refine the query.</faultstring>
+            <detail>
+                <errorcode>7</errorcode>
+            </detail>
+        </SOAP-ENV:Fault>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+*__Listaus 4.12.2:__ Esimerkki palautettavasta SoapFaultista virhekoodilla 4, kun validaationvirheitä on useampi*
+
+```
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <SOAP-ENV:Fault>
+            <faultcode>SOAP-ENV:Client</faultcode>
+            <faultstring xml:lang="en">Bad Request</faultstring>
+            <detail>
+                <errorcode>4</errorcode>
+                <ValidationError>Validation error 1 description</ValidationError>
+                <ValidationError>Validation error 2 description</ValidationError>
+            </detail>
+        </SOAP-ENV:Fault>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
 
 ### <a name="4-13"></a> 4.13 Kiistanalaisten tietojen palauttaminen
 
