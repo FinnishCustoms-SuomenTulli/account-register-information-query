@@ -66,6 +66,7 @@ Version|Datum|Beskrivning
 2.0.6|15.2.2023|Uppdaterade 'Används' och 'Beskrivning' i tabeller 4.5 InformationRequestOpeningV01 (InvstgtnId, LglMndtBsis) och 4.6 AuthorityInquirySet (OfficialId, OfficialSuperiorId). Uppdaterade exempelfiler.|
 2.0.7|4.7.2023|Översättning av denna version till svenska har lagts till senare än andra språk. Beskrivningen av 'Användning av PersonIdentification5- och PersonIdentification5b-elementen' har uppdaterats avseende avvikelserna i undermeddelandena i avsnitt 4.11. SHA512 har lagts till i de tillåtna algoritmerna i avsnitt 3.1. Ett förtydligande av ID-formatet i Fr-element har lagts till i avsnitt 4.4. Terminologin för juridisk person och innehavare av användningsrätt har harmoniserats, juridisk person avser organisation. Anvisningar om när NFOU returneras har lagts till för varje undermeddelande. Preciseringar har gjorts om användningen av fälten i meddelandet i LegalPersonInfo-elementet. Preciseringar har gjorts i reglerna om returnering av uppgifter om förmånstagare och kundrelationer för kreditinstitut i avsnitt 5.1: Uppgifter om förmånstagare kan returneras enbart om den person eller organisation som är föremål för sökning är innehavare av eller har rätt att använda ett konto eller ett bankfack i kreditinstitutet. Uppgifter om kundrelation kan returneras enbart om den organisation som är föremål för sökning är innehavare av ett konto eller ett bankfack i kreditinstitutet.|
 2.0.8|4.7.2022|Nya exempelfiler för svarsmeddelande har lagts till.|
+2.0.9|15.8.2023|Nya SoapFault-exempel har lagts till i kapitel 4.12.|
 
 ## Innehåll
 
@@ -1044,6 +1045,41 @@ Påföljd|SOAP Fault returneras, se tabellen nedan|
   </tbody>
 </table>
 
+*__Lista 4.12.1:__ Exempel på ett returnerat SoapFault med felkod 7*
+
+```
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <SOAP-ENV:Fault>
+            <faultcode>SOAP-ENV:Client</faultcode>
+            <faultstring xml:lang="en">Query response has multiple hits. Please refine the query.</faultstring>
+            <detail>
+                <errorcode>7</errorcode>
+            </detail>
+        </SOAP-ENV:Fault>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
+
+*__Lista 4.12.2:__ Exempel på ett returnerat SoapFault med felkod 4, när det finns flera valideringsfel*
+
+```
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <SOAP-ENV:Fault>
+            <faultcode>SOAP-ENV:Client</faultcode>
+            <faultstring xml:lang="en">Bad Request</faultstring>
+            <detail>
+                <errorcode>4</errorcode>
+                <ValidationError>Validation error 1 description</ValidationError>
+                <ValidationError>Validation error 2 description</ValidationError>
+            </detail>
+        </SOAP-ENV:Fault>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+```
 
 ### <a name="4-13"></a> 4.13 Returnering av omtvistade uppgifter
 
