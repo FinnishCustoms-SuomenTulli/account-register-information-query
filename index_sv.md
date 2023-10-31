@@ -238,7 +238,7 @@ b) certifikatet är i kraft och finns inte på MDB:s spärrlista,
 
 c) objektet för certifikatet har som serialNumber-attribut FO-numret för den behöriga myndigheten eller den statliga servicecentral som agerar på myndighetens vägnar, eller det nummer som bildas av bokstäverna ”FI” och sifferdelen i myndighetens eller servicecentralens FO-nummer utan bindestreck (identifikation med momsnummerformat).
 
-Obs. För att meddelandenas signaturer ska uppfylla de datasäkerhetskrav från Cybersäkerhetscentret som det hänvisas till nedan ska den öppna nyckeln (RSA public key) för certifikatet som används för signaturer ha minst 3072 bitar. Användningssyftena för ett certifikat som används för signaturer ska också omfatta ”digital signatur”. Dessutom måste servercertifikatet vara av typen QWAC (Qualified Website Authentication Certificate), som innehåller tillägg (X509v3 Extended Key Usage: TLS Web Client Authentication, TLS Web Server Authentication). Man ska beakta dessa omständigheter när man beställer ett certifikat.
+Obs. För att skyddet av datakommunikationen ska uppfylla de datasäkerhetskrav från Cybersäkerhetscentret som det hänvisas till nedan ska den öppna nyckeln (RSA public key) för certifikatet som används ha minst 3072 bitar. Dessutom måste servercertifikatet vara av typen QWAC (Qualified Website Authentication Certificate), som innehåller tillägg (X509v3 Extended Key Usage: TLS Web Client Authentication, TLS Web Server Authentication). Man ska beakta dessa omständigheter när man beställer ett certifikat.
 
 #### Servercertifikat för uppgiftsleverantören eller en aktör som befullmäktigats av uppgiftsleverantören
 
@@ -253,7 +253,7 @@ eller
 b) servercertifikatet är ett eIDAS-godkänt identifieringscertifikat för webbplatser, är i kraft och inte finns på certifikatutfärdarens uppdaterade spärrlista och attributet organizationIdentifier för objektet för certifikatet är FO-numret eller momsnumret för leverantören av uppgifter eller en aktör som befullmäktigats av denne.
 Om uppgiftsleverantörens datakommunikationscertifikat och signeringscertifikat för utgående meddelanden har samma FO-nummer eller momsnummer, kan samma certifikat användas för båda ändamålen.
 
-Obs. För att meddelandenas signaturer ska uppfylla de datasäkerhetskrav från Cybersäkerhetscentret som det hänvisas till nedan ska den öppna nyckeln (RSA public key) för certifikatet som används för signaturer ha minst 3072 bitar. Användningssyftena för ett certifikat som används för signaturer ska också omfatta ”digital signatur”. Dessutom måste servercertifikatet vara av typen QWAC (Qualified Website Authentication Certificate), som innehåller tillägg (X509v3 Extended Key Usage: TLS Web Client Authentication, TLS Web Server Authentication). Man ska beakta dessa omständigheter när man beställer ett certifikat.
+Obs. För att skyddet av datakommunikationen ska uppfylla de datasäkerhetskrav från Cybersäkerhetscentret som det hänvisas till nedan ska den öppna nyckeln (RSA public key) för certifikatet som används ha minst 3072 bitar. Dessutom måste servercertifikatet vara av typen QWAC (Qualified Website Authentication Certificate), som innehåller tillägg (X509v3 Extended Key Usage: TLS Web Client Authentication, TLS Web Server Authentication). Man ska beakta dessa omständigheter när man beställer ett certifikat.
 
 #### <a name="xml-sig"></a> Bildande av XML-signatur
 
