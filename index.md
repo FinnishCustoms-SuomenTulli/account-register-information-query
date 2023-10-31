@@ -67,7 +67,7 @@ Versio|Päivämäärä|Kuvaus
 2.0.7|24.4.2023|Päivitetty 'PersonIdentification5- ja PersonIdentification5b-elementtien käyttö' kuvausta alisanomien eroavaisuuksien osalta luvussa 4.11. Lisätty SHA512 sallittuihin algoritmeihin luvussa 3.1. Lisätty tarkennus tunnuksen formaatista luvun 4.4 Fr-elementtiin. Yhtenäistetty terminologiaa oikeushenkilön ja käyttöoikeuden haltijan osalta, oikeushenkilö tarkoittaa organisaatiota. Lisätty jokaisen alisanoman kohdalle ohjeistus milloin palautetaan NFOU. Tarkennuksia sanoman kenttien käyttöön LegalPersonInfo-elementissä. Tarkennuksia luottolaitosten edunsaajuus- ja asiakkuustietojen palautussääntöihin luvussa 5.1: Edunsaajuustiedot voidaan palauttaa vain, jos hakukohteena oleva henkilö/organisaatio on jonkin tilin tai tallelokeron haltija tai käyttöoikeudenhaltija. Asiakkuustieto voidaan palauttaa vain, jos hakukohteena oleva organisaatio on jonkin tilin tai tallelokeron haltija luottolaitoksessa.|
 2.0.8|4.7.2023|Lisätty uusia esimerkkivastaussanomia.|
 2.0.9|15.8.2023|Lisätty uusia SoapFault esimerkkejä lukuun 4.12.|
-2.0.10|1.11.2023|Tarkennettu ohjeistusta tietoliikennevarmenteista tiedon luovuttajalle ja yhteydenottajalle.|
+2.0.10|1.11.2023|Luvussa 3 tarkennettu ohjeistusta tietoliikennevarmenteista tiedon luovuttajalle ja yhteydenottajalle.|
 
 ## Sisällysluettelo
 
