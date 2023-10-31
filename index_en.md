@@ -67,7 +67,7 @@ Version|Date|Decription
 2.0.7|24.4.2023|Updated 'Use of PersonIdentification5 and PersonIdentification5b elements' description regarding different sub messages in chapter 4.11. Added SHA512 to allowed algorithms in chapter 3.1. Added a clarification of the ID format in Fr-element in chapter 4.4. Unified use of terminology regarding legal person and access right, legal person refers to organisations. Added instructions about returning NFOU for each submessage. Clarifications for using fields in LegalPersonInfo element. Clarifications in chapter 5.1 to rules for credit institutions on returning beneficiary and customership information: Beneficiary information can only be returned if the person/organisation who is the object of the query owns or has access right to an account or safety deposit box. Customership information can only be returned, if organisation who is the object of the query is the owner of an account or a safety deposit box in the credit institution.|
 2.0.8|4.7.2023|New example response messages added.|
 2.0.9|15.8.2023|New SoapFault examples added to chapter 4.12.|
-2.0.10|1.11.2023|Clarified instructions about the data traffic certificate to data suppliers and parties making the contact.|
+2.0.10|1.11.2023|In chapter 3 clarified instructions about the data traffic certificate to data suppliers and parties making the contact.|
 
 ## Table of contents
 
