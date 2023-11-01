@@ -6,7 +6,7 @@
 
 # Beskrivning av datasöksystemets frågegränssnitt
 
-*Dokumentversion 2.0.8*
+*Dokumentversion 2.0.10*
 
 ## Versionshistorik
 
@@ -67,6 +67,7 @@ Version|Datum|Beskrivning
 2.0.7|4.7.2023|Översättning av denna version till svenska har lagts till senare än andra språk. Beskrivningen av 'Användning av PersonIdentification5- och PersonIdentification5b-elementen' har uppdaterats avseende avvikelserna i undermeddelandena i avsnitt 4.11. SHA512 har lagts till i de tillåtna algoritmerna i avsnitt 3.1. Ett förtydligande av ID-formatet i Fr-element har lagts till i avsnitt 4.4. Terminologin för juridisk person och innehavare av användningsrätt har harmoniserats, juridisk person avser organisation. Anvisningar om när NFOU returneras har lagts till för varje undermeddelande. Preciseringar har gjorts om användningen av fälten i meddelandet i LegalPersonInfo-elementet. Preciseringar har gjorts i reglerna om returnering av uppgifter om förmånstagare och kundrelationer för kreditinstitut i avsnitt 5.1: Uppgifter om förmånstagare kan returneras enbart om den person eller organisation som är föremål för sökning är innehavare av eller har rätt att använda ett konto eller ett bankfack i kreditinstitutet. Uppgifter om kundrelation kan returneras enbart om den organisation som är föremål för sökning är innehavare av ett konto eller ett bankfack i kreditinstitutet.|
 2.0.8|4.7.2022|Nya exempelfiler för svarsmeddelande har lagts till.|
 2.0.9|15.8.2023|Nya SoapFault-exempel har lagts till i kapitel 4.12.|
+2.0.10|1.11.2023|Preciseringar i avsnitt 3 i anvisningar om datakommunikationscertifikat för uppgiftsleverantören och den som tar kontakt.|
 
 ## Innehåll
 
@@ -227,7 +228,6 @@ a) certifikatet har utfärdats av MDB, är i kraft och inte finns på MDB:s spä
 
 b) objektet för certifikatet har som serialNumber-attribut FO-numret för den behöriga myndighet som skickat meddelandet, eller det nummer som bildas av bokstäverna ”FI” och sifferdelen i myndighetens FO-nummer utan bindestreck (identifikation med momsnummerformat).
 
-
 #### Datakommunikationscertifikat för den som tar kontakt
 
 Uppgiftsleverantören eller den som uppgiftsleverantören befullmäktigat identifierar med hjälp av servercertifikatet den behöriga myndighet som tar kontakt med datasöksystemets frågegränssnitt. En behörig myndighets kontakt godkänns enligt följande förutsättningar: 
@@ -238,6 +238,7 @@ b) certifikatet är i kraft och finns inte på MDB:s spärrlista,
 
 c) objektet för certifikatet har som serialNumber-attribut FO-numret för den behöriga myndigheten eller den statliga servicecentral som agerar på myndighetens vägnar, eller det nummer som bildas av bokstäverna ”FI” och sifferdelen i myndighetens eller servicecentralens FO-nummer utan bindestreck (identifikation med momsnummerformat).
 
+Obs. För att skyddet av datakommunikationen ska uppfylla de datasäkerhetskrav från Cybersäkerhetscentret som det hänvisas till nedan ska den öppna nyckeln (RSA public key) för certifikatet som används ha minst 3072 bitar. Dessutom måste servercertifikatet vara av typen QWAC (Qualified Website Authentication Certificate), som innehåller tillägg (X509v3 Extended Key Usage: TLS Web Client Authentication, TLS Web Server Authentication). Man ska beakta dessa omständigheter när man beställer ett certifikat.
 
 #### Servercertifikat för uppgiftsleverantören eller en aktör som befullmäktigats av uppgiftsleverantören
 
@@ -252,7 +253,7 @@ eller
 b) servercertifikatet är ett eIDAS-godkänt identifieringscertifikat för webbplatser, är i kraft och inte finns på certifikatutfärdarens uppdaterade spärrlista och attributet organizationIdentifier för objektet för certifikatet är FO-numret eller momsnumret för leverantören av uppgifter eller en aktör som befullmäktigats av denne.
 Om uppgiftsleverantörens datakommunikationscertifikat och signeringscertifikat för utgående meddelanden har samma FO-nummer eller momsnummer, kan samma certifikat användas för båda ändamålen.
 
-Obs. För att skyddet av datakommunikationen ska uppfylla de datasäkerhetskrav från Cybersäkerhetscentret som det hänvisas till nedan ska den öppna nyckeln (RSA public key) för certifikatet som används ha minst 3072 bitar. Man ska beakta detta när man beställer ett certifikat.
+Obs. För att skyddet av datakommunikationen ska uppfylla de datasäkerhetskrav från Cybersäkerhetscentret som det hänvisas till nedan ska den öppna nyckeln (RSA public key) för certifikatet som används ha minst 3072 bitar. Dessutom måste servercertifikatet vara av typen QWAC (Qualified Website Authentication Certificate), som innehåller tillägg (X509v3 Extended Key Usage: TLS Web Client Authentication, TLS Web Server Authentication). Man ska beakta dessa omständigheter när man beställer ett certifikat.
 
 #### <a name="xml-sig"></a> Bildande av XML-signatur
 
