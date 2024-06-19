@@ -68,7 +68,7 @@ Versio|Päivämäärä|Kuvaus
 2.0.8|4.7.2023|Lisätty uusia esimerkkivastaussanomia.|
 2.0.9|15.8.2023|Lisätty uusia SoapFault esimerkkejä lukuun 4.12.|
 2.0.10|1.11.2023|Luvussa 3 tarkennettu ohjeistusta tietoliikennevarmenteista tiedon luovuttajalle ja yhteydenottajalle.|  
-2.0.11|20.6.2024|Luvussa 4.5 kuvattu hakusanomassa käytettävä muoto henkilön nimestä.|
+2.0.11|20.6.2024|Luvussa 4.5 kuvattu hakusanomassa käytettävä muoto luonnollisen henkilön nimestä.|
 
 ## Sisällysluettelo
 
