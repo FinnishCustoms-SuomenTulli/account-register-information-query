@@ -6,7 +6,7 @@
 
 # Query interface description of the data retrieval system
 
-*Document version 2.0.10*
+*Document version 2.0.11*
 
 ## Vesion history
 
@@ -67,7 +67,8 @@ Version|Date|Decription
 2.0.7|24.4.2023|Updated 'Use of PersonIdentification5 and PersonIdentification5b elements' description regarding different sub messages in chapter 4.11. Added SHA512 to allowed algorithms in chapter 3.1. Added a clarification of the ID format in Fr-element in chapter 4.4. Unified use of terminology regarding legal person and access right, legal person refers to organisations. Added instructions about returning NFOU for each submessage. Clarifications for using fields in LegalPersonInfo element. Clarifications in chapter 5.1 to rules for credit institutions on returning beneficiary and customership information: Beneficiary information can only be returned if the person/organisation who is the object of the query owns or has access right to an account or safety deposit box. Customership information can only be returned, if organisation who is the object of the query is the owner of an account or a safety deposit box in the credit institution.|
 2.0.8|4.7.2023|New example response messages added.|
 2.0.9|15.8.2023|New SoapFault examples added to chapter 4.12.|
-2.0.10|1.11.2023|In chapter 3 clarified instructions about the data traffic certificate to data suppliers and parties making the contact.|
+2.0.10|1.11.2023|In chapter 3 clarified instructions about the data traffic certificate to data suppliers and parties making the contact.|  
+2.0.11|20.6.2024|In chapter 4.5, added the format for the natural person's name used in the query message.|
 
 ## Table of contents
 
@@ -508,7 +509,7 @@ If the given search criteria results in more than one matching company, fault co
 
 |Tag|Scheme path InfReqOpng/SchCrit/|Description|Rule|
 |:---|:---|:---|:---|
-|\<Nm\>|CstmrId/Pty|Name|Exact match 1:1, incl. special characters.<br/>Not case sensitive.<br/>Free-form format.|
+|\<Nm\>|CstmrId/Pty|Name|Exact match 1:1, incl. special characters.<br/>Not case sensitive.<br/>Format is "Lastname, Firstname Middlenames".|
 |\<Id\>|CstmrId/Pty/Id/PrvtId/Othr|Country code|
 |\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchmeNm|"NATI"|
 |\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth|Date of birth. “XX” is set as the value of `CtryOfBirth`, and “not in use” is set as the value of `CityOfBirth`|
@@ -1276,7 +1277,7 @@ In customer category 2 organisation query, the response includes the customershi
 
 #### <a name="5-2-3"></a> 5.2.3 Account query
 
-In customer category 2 account query the response includes the information of the account that was the object of the query and information of the legal and natural persons who are account owners or have access right to the account during the investigation period. Customership information is returned for all natural and legal persons who are account owners or have access right to the account. Organisation's beneficiary information is not returned.
+In customer category 2 account query the response includes the information of the account that was the object of the query and information of the legal and natural persons who are account owners or have access right to the account during the investigation period. If the account in question is a lawyer's customer asset account, customership information is not returned for natural persons. Otherwise customership information is returned for all natural and legal persons who are account owners or have access right to the account. Organisation's beneficiary information is not returned.
 
 *__Table 5.2.3.1:__ Limitations to queries for an account. This query category contains queries with an account's IBAN number and queries with other account identifications*
 
@@ -1286,5 +1287,5 @@ In customer category 2 account query the response includes the information of th
 |Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Account role end date is not returned.|
 |Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned.|
 |Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned.|
-|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#customer-account1).|
+|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is not returned for natural persons if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#customer-account1).|
 |Beneficiaries|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Beneficiaries related to a legal person are not returned.|

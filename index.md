@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 2.0.10*
+*Dokumentin versio 2.0.11*
 
 ## Versiohistoria
 
@@ -67,7 +67,8 @@ Versio|Päivämäärä|Kuvaus
 2.0.7|24.4.2023|Päivitetty 'PersonIdentification5- ja PersonIdentification5b-elementtien käyttö' kuvausta alisanomien eroavaisuuksien osalta luvussa 4.11. Lisätty SHA512 sallittuihin algoritmeihin luvussa 3.1. Lisätty tarkennus tunnuksen formaatista luvun 4.4 Fr-elementtiin. Yhtenäistetty terminologiaa oikeushenkilön ja käyttöoikeuden haltijan osalta, oikeushenkilö tarkoittaa organisaatiota. Lisätty jokaisen alisanoman kohdalle ohjeistus milloin palautetaan NFOU. Tarkennuksia sanoman kenttien käyttöön LegalPersonInfo-elementissä. Tarkennuksia luottolaitosten edunsaajuus- ja asiakkuustietojen palautussääntöihin luvussa 5.1: Edunsaajuustiedot voidaan palauttaa vain, jos hakukohteena oleva henkilö/organisaatio on jonkin tilin tai tallelokeron haltija tai käyttöoikeudenhaltija. Asiakkuustieto voidaan palauttaa vain, jos hakukohteena oleva organisaatio on jonkin tilin tai tallelokeron haltija luottolaitoksessa.|
 2.0.8|4.7.2023|Lisätty uusia esimerkkivastaussanomia.|
 2.0.9|15.8.2023|Lisätty uusia SoapFault esimerkkejä lukuun 4.12.|
-2.0.10|1.11.2023|Luvussa 3 tarkennettu ohjeistusta tietoliikennevarmenteista tiedon luovuttajalle ja yhteydenottajalle.|
+2.0.10|1.11.2023|Luvussa 3 tarkennettu ohjeistusta tietoliikennevarmenteista tiedon luovuttajalle ja yhteydenottajalle.|  
+2.0.11|20.6.2024|Luvussa 4.5 kuvattu hakusanomassa käytettävä muoto luonnollisen henkilön nimestä.|
 
 ## Sisällysluettelo
 
@@ -493,7 +494,7 @@ Jos annetuilla hakukriteereillä löytyy useampi kuin yksi niitä vastaava yrity
 
 |Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
 |:---|:---|:---|:---|
-|\<Nm\>|CstmrId/Pty|Nimi|Täsmällinen osuma 1:1, ml. erikoismerkit. Aakkoskoosta riippumaton. Formaatti on vapaamuotoinen.|
+|\<Nm\>|CstmrId/Pty|Nimi|Täsmällinen osuma 1:1, ml. erikoismerkit. Aakkoskoosta riippumaton. Muodossa "Sukunimi, Etunimi Toisetnimet".|
 |\<Id\>|CstmrId/Pty/Id/PrvtId/Othr|Maakoodi|
 |\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchmeNm|"NATI"|
 |\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth|Syntymäaika. `CtryOfBirth` arvoksi asetetaan "XX" ja `CityOfBirth` arvoksi asetetaan ”not in use”|
@@ -1261,7 +1262,7 @@ Asiakaskategorian 2 organisaatiohaussa vastauksena palautetaan haetun organisaat
 
 #### <a name="5-2-3"></a> 5.2.3 Tilihaku
 
-Asiakaskategorian 2 tilihaussa vastauksena palautetaan haetun tilin tiedot, sekä sellaisten oikeushenkilöiden ja luonnollisten henkilöiden tiedot, jotka ovat tilinhaltijoita tai tilin käyttöoikeudenhaltijoita käytetyllä hakuaikavälillä. Asiakkuustieto palautetaan kaikista tilinhaltijoista ja käyttöoikeuden haltijoista. Organisaatioiden edunsaajatietoja ei palauteta.
+Asiakaskategorian 2 tilihaussa vastauksena palautetaan haetun tilin tiedot, sekä sellaisten oikeushenkilöiden ja luonnollisten henkilöiden tiedot, jotka ovat tilinhaltijoita tai tilin käyttöoikeudenhaltijoita käytetyllä hakuaikavälillä. Jos kyseinen tili on asianajajan asiakasvaratili, asiakkuustietoa ei palauteta luonnollisista henkilöistä. Muutoin asiakkuustieto palautetaan kaikista tilinhaltijoista ja käyttöoikeuden haltijoista. Organisaatioiden edunsaajatietoja ei palauteta.
 
 *__Taulukko 5.2.3.1:__ Tilihakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tilin IBAN-numerolla ja haut muulla tilin yksilöintitunnuksella*
 

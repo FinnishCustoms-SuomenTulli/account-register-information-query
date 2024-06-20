@@ -6,7 +6,7 @@
 
 # Beskrivning av datasöksystemets frågegränssnitt
 
-*Dokumentversion 2.0.10*
+*Dokumentversion 2.0.11*
 
 ## Versionshistorik
 
@@ -67,7 +67,8 @@ Version|Datum|Beskrivning
 2.0.7|4.7.2023|Översättning av denna version till svenska har lagts till senare än andra språk. Beskrivningen av 'Användning av PersonIdentification5- och PersonIdentification5b-elementen' har uppdaterats avseende avvikelserna i undermeddelandena i avsnitt 4.11. SHA512 har lagts till i de tillåtna algoritmerna i avsnitt 3.1. Ett förtydligande av ID-formatet i Fr-element har lagts till i avsnitt 4.4. Terminologin för juridisk person och innehavare av användningsrätt har harmoniserats, juridisk person avser organisation. Anvisningar om när NFOU returneras har lagts till för varje undermeddelande. Preciseringar har gjorts om användningen av fälten i meddelandet i LegalPersonInfo-elementet. Preciseringar har gjorts i reglerna om returnering av uppgifter om förmånstagare och kundrelationer för kreditinstitut i avsnitt 5.1: Uppgifter om förmånstagare kan returneras enbart om den person eller organisation som är föremål för sökning är innehavare av eller har rätt att använda ett konto eller ett bankfack i kreditinstitutet. Uppgifter om kundrelation kan returneras enbart om den organisation som är föremål för sökning är innehavare av ett konto eller ett bankfack i kreditinstitutet.|
 2.0.8|4.7.2022|Nya exempelfiler för svarsmeddelande har lagts till.|
 2.0.9|15.8.2023|Nya SoapFault-exempel har lagts till i kapitel 4.12.|
-2.0.10|1.11.2023|Preciseringar i avsnitt 3 i anvisningar om datakommunikationscertifikat för uppgiftsleverantören och den som tar kontakt.|
+2.0.10|1.11.2023|Preciseringar i avsnitt 3 i anvisningar om datakommunikationscertifikat för uppgiftsleverantören och den som tar kontakt.|  
+2.0.11|20.6.2024|Format för fysisk persons namn i frågemeddelandet har lagts till i avsnitt 4.5.|
 
 ## Innehåll
 
@@ -448,7 +449,7 @@ Systemet returnerar endast de undermeddelanden som begärs i sökkriterierna (su
 
 |Tagg|Schemats sökväg InfReqOpng/SchCrit/|Beskrivning|Regel|
 |:---|:---|:---|:---|
-|\<MsgNmId\>|Sökning med personbeteckning, med kombinationen naturlig persons namn, medborgarskap och födelsedatum, med juridisk persons registreringsnummer, med företagets namn eller med bankfackets identifieringsuppgift:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Sökning med IBAN eller annan kontospecifikation:<br/>Acct/AuthrtyReqTp|"supl.027.001.01", "fin.002.001.03" eller "fin.013.001.04"||
+|\<MsgNmId\>|Sökning med personbeteckning, med kombinationen fysisk persons namn, medborgarskap och födelsedatum, med juridisk persons registreringsnummer, med företagets namn eller med bankfackets identifieringsuppgift:<br/>CstmrId/AuthrtyReq/Tp<br/><br/>Sökning med IBAN eller annan kontospecifikation:<br/>Acct/AuthrtyReqTp|"supl.027.001.01", "fin.002.001.03" eller "fin.013.001.04"||
 
 #### <a name=""></a> Sökning med personbeteckning
 
@@ -497,7 +498,7 @@ Om sökkriterier producerar mer än ett motsvarande företag, felkod 7 returnera
 
 |Tagg|Schemats sökväg InfReqOpng/SchCrit/|Beskrivning|Regel|
 |:---|:---|:---|:---|
-|\<Nm\>|CstmrId/Pty|Nimi|Exakt träff 1:1 inkl. specialtecken. Inte skiftlägeskänsligt. Formatet är fritt.|
+|\<Nm\>|CstmrId/Pty|Nimi|Exakt träff 1:1 inkl. specialtecken. Inte skiftlägeskänsligt. Formatet är "Efternamn, Förnamn Andranamn".|
 |\<Id\>|CstmrId/Pty/Id/PrvtId/Othr|Landskod|
 |\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchmeNm|"NATI"|
 |\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth|Födelsetid. `CtryOfBirth` ges värdet "XX" och `CityOfBirth` ges värdet ”not in use”|
@@ -1150,7 +1151,7 @@ Leverantörer av uppgifter är delade i två kategorier: kundkategori 1, som omf
 
 Om den sökta personen är kontoinnehavare, innehavare av användningsrätt till ett konto, hyrare av bankfack eller innehavare av användningsrätt till ett bankfack i ett kreditinstitut, returneras som svar uppgifter om sådana organisationer för vilka den sökta personen är förmånstagare, och uppgifter om sådana konton och bankfack för vilka den sökta personen är innehavare eller innehavare av användningsrätt under den använda sökintervallen. Övriga eventuella innehavare eller innehavare av användningsrättigheter till kontona eller bankfacken returneras inte. Inga uppgifter om kundrelation returneras. Uppgifter om gemensamma konton som förvaltas av en advokat returneras inte. Om den sökta personen inte har konton eller bankfack i kreditinstituten, returneras svaret "NFOU".
 
-*__Tabell 5.1.1.1:__ Begränsningar för sökningar på person. Till denna sökkategori hör sökningar med personbeteckning och sökningar med kombinationen av namn, medborgarskap och födelsedatum för naturlig person*
+*__Tabell 5.1.1.1:__ Begränsningar för sökningar på person. Till denna sökkategori hör sökningar med personbeteckning och sökningar med kombinationen av namn, medborgarskap och födelsedatum för fysisk person*
 
 |Begränsning|Undermeddelande|Element|Beskrivning|
 |:---|:---|:---|:---|
@@ -1218,7 +1219,7 @@ I sökningen på bankfack i kundkategori 1, returneras som svar uppgifter om det
 
 I sökningen på person i kundkategori 2 returneras som svar den sökta personens kundrelation och uppgifter om sådana konton för vilka den sökta personen är innehavare eller innehavare av användningsrätt under sökintervallet.  Övriga eventuella innehavare eller innehavare av användningsrätt till kontona returneras inte. Uppgifter om förmånstagare returneras inte. Uppgifter om gemensamma konton som förvaltas av en advokat returneras inte.
 
-*__Tabell 5.2.1.1:__ Begränsningar för sökningar på person. Till denna sökkategori hör sökningar med personbeteckning och sökningar med kombinationen av namn, medborgarskap och födelsedatum för naturlig person*
+*__Tabell 5.2.1.1:__ Begränsningar för sökningar på person. Till denna sökkategori hör sökningar med personbeteckning och sökningar med kombinationen av namn, medborgarskap och födelsedatum för fysisk person*
 
 |Begränsning|Undermeddelande|Element|Beskrivning|
 |:---|:---|:---|:---|
@@ -1248,7 +1249,7 @@ I sökningen på organisation i kundkategori 2, returneras kundrelationsuppgifte
 
 #### <a name="5-2-3"></a> 5.2.3 Sökning på konto
 
-Vid sökningen på konto i kundkategori 2, returneras som svar uppgifter om det sökta kontot och uppgifter om juridiska och fysiska personer som är kontoinnehavare eller innehavare av användningsrätt under sökintervallet. Uppgifter om kundrelation returneras för alla innehavare av eller innehavare av användningsrätt till kontot. Uppgifter om organisationens förmånstagare returneras inte.
+Vid sökningen på konto i kundkategori 2, returneras som svar uppgifter om det sökta kontot och uppgifter om juridiska och fysiska personer som är kontoinnehavare eller innehavare av användningsrätt under sökintervallet. Uppgifter om kundrelation returneras inte för fysiska personer om kontot är ett gemensamt konto som förvaltas av en advokat. Annars returneras uppgifter om kundrelation för alla innehavare av eller innehavare av användningsrätt till kontot. Uppgifter om organisationens förmånstagare returneras inte.
 
 *__Tabell 5.2.3.1:__ Begränsningar för sökningar på konto. Till denna sökkategori hör sökning med kontots IBAN och sökningar med en annan kontospecifikation*
 
