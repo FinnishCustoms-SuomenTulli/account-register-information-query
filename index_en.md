@@ -509,7 +509,7 @@ If the given search criteria results in more than one matching company, fault co
 
 |Tag|Scheme path InfReqOpng/SchCrit/|Description|Rule|
 |:---|:---|:---|:---|
-|\<Nm\>|CstmrId/Pty|Name|Exact match 1:1, incl. special characters.<br/>Not case sensitive.<br/>Format is "Lastname, Firstname Middlename".|
+|\<Nm\>|CstmrId/Pty|Name|Exact match 1:1, incl. special characters.<br/>Not case sensitive.<br/>Format is "Lastname, Firstname Middlenames".|
 |\<Id\>|CstmrId/Pty/Id/PrvtId/Othr|Country code|
 |\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchmeNm|"NATI"|
 |\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth|Date of birth. “XX” is set as the value of `CtryOfBirth`, and “not in use” is set as the value of `CityOfBirth`|
@@ -1277,7 +1277,7 @@ In customer category 2 organisation query, the response includes the customershi
 
 #### <a name="5-2-3"></a> 5.2.3 Account query
 
-In customer category 2 account query the response includes the information of the account that was the object of the query and information of the legal and natural persons who are account owners or have access right to the account during the investigation period. Customership information is returned for all natural and legal persons who are account owners or have access right to the account, except when the account in question is a lawyer's customer asset account. Organisation's beneficiary information is not returned.
+In customer category 2 account query the response includes the information of the account that was the object of the query and information of the legal and natural persons who are account owners or have access right to the account during the investigation period. If the account in question is a lawyer's customer asset account, customership information is not returned for natural persons. Otherwise customership information is returned for all natural and legal persons who are account owners or have access right to the account. Organisation's beneficiary information is not returned.
 
 *__Table 5.2.3.1:__ Limitations to queries for an account. This query category contains queries with an account's IBAN number and queries with other account identifications*
 
@@ -1287,5 +1287,5 @@ In customer category 2 account query the response includes the information of th
 |Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Account role end date is not returned.|
 |Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned.|
 |Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned.|
-|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#customer-account1).|
+|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is not returned for natural persons if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#customer-account1).|
 |Beneficiaries|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Beneficiaries related to a legal person are not returned.|
