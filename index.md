@@ -494,7 +494,7 @@ Jos annetuilla hakukriteereillä löytyy useampi kuin yksi niitä vastaava yrity
 
 |Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|Sääntö|
 |:---|:---|:---|:---|
-|\<Nm\>|CstmrId/Pty|Nimi|Täsmällinen osuma 1:1, ml. erikoismerkit. Aakkoskoosta riippumaton. Muodossa "Sukunimi, Etunimi Toinennimi".|
+|\<Nm\>|CstmrId/Pty|Nimi|Täsmällinen osuma 1:1, ml. erikoismerkit. Aakkoskoosta riippumaton. Muodossa "Sukunimi, Etunimi Toisetnimet".|
 |\<Id\>|CstmrId/Pty/Id/PrvtId/Othr|Maakoodi|
 |\<Cd\>|CstmrId/Pty/Id/PrvtId/Othr/SchmeNm|"NATI"|
 |\<BirthDt\>|CstmrId/Pty/Id/PrvtId/DtAndPlcOfBirth|Syntymäaika. `CtryOfBirth` arvoksi asetetaan "XX" ja `CityOfBirth` arvoksi asetetaan ”not in use”|
@@ -1262,7 +1262,7 @@ Asiakaskategorian 2 organisaatiohaussa vastauksena palautetaan haetun organisaat
 
 #### <a name="5-2-3"></a> 5.2.3 Tilihaku
 
-Asiakaskategorian 2 tilihaussa vastauksena palautetaan haetun tilin tiedot, sekä sellaisten oikeushenkilöiden ja luonnollisten henkilöiden tiedot, jotka ovat tilinhaltijoita tai tilin käyttöoikeudenhaltijoita käytetyllä hakuaikavälillä. Asiakkuustieto palautetaan kaikista tilinhaltijoista ja käyttöoikeuden haltijoista, paitsi jos kyseinen tili on asianajajan asiakasvaratili. Organisaatioiden edunsaajatietoja ei palauteta.
+Asiakaskategorian 2 tilihaussa vastauksena palautetaan haetun tilin tiedot, sekä sellaisten oikeushenkilöiden ja luonnollisten henkilöiden tiedot, jotka ovat tilinhaltijoita tai tilin käyttöoikeudenhaltijoita käytetyllä hakuaikavälillä. Jos kyseinen tili on asianajajan asiakasvaratili, asiakkuustietoa ei palauteta luonnollisista henkilöistä. Muutoin asiakkuustieto palautetaan kaikista tilinhaltijoista ja käyttöoikeuden haltijoista. Organisaatioiden edunsaajatietoja ei palauteta.
 
 *__Taulukko 5.2.3.1:__ Tilihakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tilin IBAN-numerolla ja haut muulla tilin yksilöintitunnuksella*
 
