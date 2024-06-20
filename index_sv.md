@@ -1249,7 +1249,7 @@ I sökningen på organisation i kundkategori 2, returneras kundrelationsuppgifte
 
 #### <a name="5-2-3"></a> 5.2.3 Sökning på konto
 
-Vid sökningen på konto i kundkategori 2, returneras som svar uppgifter om det sökta kontot och uppgifter om juridiska och fysiska personer som är kontoinnehavare eller innehavare av användningsrätt under sökintervallet. Uppgifter om kundrelation returneras för alla innehavare av eller innehavare av användningsrätt till kontot, förutom om kontot är ett gemensamt konto som förvaltas av en advokat. Uppgifter om organisationens förmånstagare returneras inte.
+Vid sökningen på konto i kundkategori 2, returneras som svar uppgifter om det sökta kontot och uppgifter om juridiska och fysiska personer som är kontoinnehavare eller innehavare av användningsrätt under sökintervallet. Uppgifter om kundrelation returneras inte för fysiska personer om kontot är ett gemensamt konto som förvaltas av en advokat. Annars returneras uppgifter om kundrelation för alla innehavare av eller innehavare av användningsrätt till kontot. Uppgifter om organisationens förmånstagare returneras inte.
 
 *__Tabell 5.2.3.1:__ Begränsningar för sökningar på konto. Till denna sökkategori hör sökning med kontots IBAN och sökningar med en annan kontospecifikation*
 
