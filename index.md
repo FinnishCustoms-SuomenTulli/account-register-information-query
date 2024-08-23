@@ -887,7 +887,7 @@ Kaikissa sanomissa käytetään vastaavaa oikeushenkilön ja luonnollisen henkil
 |Nimi|Tyyppi|[min..max]|Kuvaus|
 |:---|:---|:---|:---|
 |Party8Choice| | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;OrgId|OrganisationIdentification6|[0..1]|Käytetään seuraavasti: Elementti `OrgId/Othr/SchmeNm/Cd` sisältää organisaatiotunnuksen tyyppikoodin ja elementti `OrgId/Othr/Id` sisältää tunnuksen. Ks. koodit taulukko alla. Lisäksi voidaan kyselyvastauksen yhteydessä palauttaa oikeushenkilön rekisteröitysmispäivämäärä ks. [esimerkki](#rgdt) alla|
+|&nbsp;&nbsp;&nbsp;&nbsp;OrgId|OrganisationIdentification6|[0..1]|Käytetään seuraavasti: Elementti `OrgId/Othr/SchmeNm/Cd` sisältää organisaatiotunnuksen tyyppikoodin ja elementti `OrgId/Othr/Id` sisältää tunnuksen. Ks. koodit taulukko alla. Lisäksi voidaan kyselyvastauksen yhteydessä palauttaa oikeushenkilön rekisteröitysmispäivämäärä ks. [esimerkki](#rgdt) alla. Jos kyseessä on yleinen edunvalvoja jolla on järjestysnumero, numero palautetaan omassa `OrgId/Othr/Id` elementissään jonka mukana palautetaan myös järjestysnumeron koodi `OrgId/Othr/SchmeNm/Cd` elementissä ks. [esimerkki](#ordn) alla.|
 |&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|PersonIdentification5|[0..1]|Ks. [PersonIdentification5-elementin käyttö](#person-identification)|
 
 #### <a name="person-identification"></a> PersonIdentification5- ja PersonIdentification5b-elementtien käyttö
@@ -915,6 +915,7 @@ OrgId koodit
 |Y|Y-tunnus|
 |PRH|Yhdistysrekisterinumero|
 |COID|Muu yritystunnus, tyyppi ei ole tiedossa|
+|ORDN|Yleisen edunvalvojan järjestysnumero|
 
 PrvtId koodit  
 
@@ -957,6 +958,36 @@ Id-elementissä palautetaan rekisteröitymispäivämäärä. SchmeNm/Cd-elementi
       <Cd>RGDT</Cd>
     </SchmeNm>
     <Issr>Verohallinto</Issr>
+  </Othr>
+</OrgId>
+```
+
+#### <a name="ordn"></a> Esimerkki yleisen edunvalvojan järjestysnumeron palauttamisesta
+
+Yleisen edunvalvojan järjestysnumero palautetaan tunniste-elementin (esim. Y-tunnus) ja mahdollisen rekisteröitymispäivä-elementin rinnakkaisena Othr-elementtinä:
+
+Id-elementissä palautetaan järjestysnumero. SchmeNm/Cd-elementissä palautetaan koodi ORDN.
+
+```
+<OrgId>
+  <Othr>
+    <Id>1234567-8</Id>
+    <SchmeNm>
+      <Cd>Y</Cd>
+    </SchmeNm>
+  </Othr>
+  <Othr>
+    <Id>2000-01-01</Id>
+    <SchmeNm>
+      <Cd>RGDT</Cd>
+    </SchmeNm>
+    <Issr>Verohallinto</Issr>
+  </Othr>
+  <Othr>
+    <Id>1</Id>
+    <SchmeNm>
+      <Cd>ORDN</Cd>
+    </SchmeNm>
   </Othr>
 </OrgId>
 ```

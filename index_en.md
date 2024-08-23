@@ -902,7 +902,7 @@ All messages use the equivalent identification structure for legal persons and n
 |Name|Type|[min..max]|Description|
 |:---|:---|:---|:---|
 |Party8Choice| | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;OrgId|OrganisationIdentification6|[0..1]|Used as follows: Element `OrgId/Othr/SchmeNm/Cd` includes the type code of the organisation identifier and element `OrgId/Othr/Id` includes the identifier. For codes, see the table below. Furthermore, the date of registration of a legal person can be returned in connection with the query response, see the [Example](#rgdt) below.|
+|&nbsp;&nbsp;&nbsp;&nbsp;OrgId|OrganisationIdentification6|[0..1]|Used as follows: Element `OrgId/Othr/SchmeNm/Cd` includes the type code of the organisation identifier and element `OrgId/Othr/Id` includes the identifier. For codes, see the table below. Furthermore, the date of registration of a legal person can be returned in connection with the query response, see the [Example](#rgdt) below. If the organisation in question is a public guardian with a sequence number, the number is returned in its own `OrgId/Othr/Id` element along with sequence number code in `OrgId/Othr/SchmeNm/Cd` element, see the [Example](#ordn) below.|
 |&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|PersonIdentification5|[0..1]|See [Use of PersonIdentification5 element](#person-identification)|
 
 #### <a name="person-identification"></a> Use of PersonIdentification5 and PersonIdentification5b elements
@@ -930,6 +930,7 @@ OrgId codes
 |Y|Business ID|
 |PRH|Association register number|
 |COID|Other business identifier, type not known|
+|ORDN|Public guardian sequence number|
 
 PrvtId codes  
 
@@ -972,6 +973,36 @@ The date of registration is returned in the Id element. Code RGDT is returned in
       <Cd>RGDT</Cd>
     </SchmeNm>
     <Issr>Verohallinto</Issr>
+  </Othr>
+</OrgId>
+```
+
+#### <a name="ordn"></a> An example of returning the public guardian sequence number of a legal person
+
+The guardian sequence number of a legal person is returned as an Othr element parallel to the identification element (for example Business ID) and possible date of registration element:
+
+The sequence number is returned in the Id element. Code ORDN is returned in the SchmeNm/Cd element.
+
+```
+<OrgId>
+  <Othr>
+    <Id>1234567-8</Id>
+    <SchmeNm>
+      <Cd>Y</Cd>
+    </SchmeNm>
+  </Othr>
+  <Othr>
+    <Id>2000-01-01</Id>
+    <SchmeNm>
+      <Cd>RGDT</Cd>
+    </SchmeNm>
+    <Issr>Verohallinto</Issr>
+  </Othr>
+  <Othr>
+    <Id>1</Id>
+    <SchmeNm>
+      <Cd>ORDN</Cd>
+    </SchmeNm>
   </Othr>
 </OrgId>
 ```
