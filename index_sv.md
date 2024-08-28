@@ -69,7 +69,7 @@ Version|Datum|Beskrivning
 2.0.9|15.8.2023|Nya SoapFault-exempel har lagts till i kapitel 4.12.|
 2.0.10|1.11.2023|Preciseringar i avsnitt 3 i anvisningar om datakommunikationscertifikat för uppgiftsleverantören och den som tar kontakt.|  
 2.0.11|20.6.2024|Format för fysisk persons namn i frågemeddelandet har lagts till i avsnitt 4.5.| 
-2.0.12|28.8.2024|Information gällande ordningsnumret för allmänna intressebevakare har lagts till i kaptilet 4.11.|
+2.0.12|28.8.2024|Information gällande ordningsnumret för allmänna intressebevakare har lagts till i kapitlet 4.11.|
 
 ## Innehåll
 
