@@ -6,7 +6,7 @@
 
 # Query interface description of the data retrieval system
 
-*Document version 2.0.11*
+*Document version 2.0.12*
 
 ## Vesion history
 
@@ -68,7 +68,8 @@ Version|Date|Decription
 2.0.8|4.7.2023|New example response messages added.|
 2.0.9|15.8.2023|New SoapFault examples added to chapter 4.12.|
 2.0.10|1.11.2023|In chapter 3 clarified instructions about the data traffic certificate to data suppliers and parties making the contact.|  
-2.0.11|20.6.2024|In chapter 4.5, added the format for the natural person's name used in the query message.|
+2.0.11|20.6.2024|In chapter 4.5, added the format for the natural person's name used in the query message.| 
+2.0.12|X.8.2024|Instructions for returning public guardian's sequence number have been added to chapter 4.11.|
 
 ## Table of contents
 
