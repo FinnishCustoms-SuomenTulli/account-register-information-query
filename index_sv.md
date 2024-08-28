@@ -68,7 +68,8 @@ Version|Datum|Beskrivning
 2.0.8|4.7.2022|Nya exempelfiler för svarsmeddelande har lagts till.|
 2.0.9|15.8.2023|Nya SoapFault-exempel har lagts till i kapitel 4.12.|
 2.0.10|1.11.2023|Preciseringar i avsnitt 3 i anvisningar om datakommunikationscertifikat för uppgiftsleverantören och den som tar kontakt.|  
-2.0.11|20.6.2024|Format för fysisk persons namn i frågemeddelandet har lagts till i avsnitt 4.5.|
+2.0.11|20.6.2024|Format för fysisk persons namn i frågemeddelandet har lagts till i avsnitt 4.5.| 
+2.0.12|28.8.2024|Information gällande ordningsnumret för allmänna intressebevakare har lagts till i kaptilet 4.11.|
 
 ## Innehåll
 
@@ -891,7 +892,7 @@ I alla meddelanden används motsvarande identifieringsstruktur för en juridisk 
 |Namn|Typ|[min..max]|Beskrivning|
 |:---|:---|:---|:---|
 |Party8Choice| | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;OrgId|OrganisationIdentification6|[0..1]|Används på följande sätt: Elementet `OrgId/Othr/SchmeNm/Cd` innehåller typkoden för organisationsnumret och elementet `OrgId/Othr/Id` innehåller koden. Se koderna i tabellen nedan. Dessutom är det möjligt att i samband med svaret på förfrågan returnera den juridiska personens registreringsdatum, se [exemplet](#rgdt) nedan. Jos kyseessä on yleinen edunvalvoja jolla on järjestysnumero, numero palautetaan omassa `OrgId/Othr/Id` elementissään jonka mukana palautetaan myös järjestysnumeron koodi `OrgId/Othr/SchmeNm/Cd` elementissä ks. [esimerkki](#ordn) alla.|
+|&nbsp;&nbsp;&nbsp;&nbsp;OrgId|OrganisationIdentification6|[0..1]|Används på följande sätt: Elementet `OrgId/Othr/SchmeNm/Cd` innehåller typkoden för organisationsnumret och elementet `OrgId/Othr/Id` innehåller koden. Se koderna i tabellen nedan. Dessutom är det möjligt att i samband med svaret på förfrågan returnera den juridiska personens registreringsdatum, se [exemplet](#rgdt) nedan. Om allmänna intressebevakaren i fråga har ett ordningsnummer, fås ordningsnumret som svar i ett eget element: `OrgId/Othr/Id` och ordningsnumrets kod i elementet `OrgId/Othr/SchmeNm/Cd`, se [exempel](#ordn) nedan.|
 |&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|PersonIdentification5|[0..1]|Se [användning av PersonIdentification5-elementet](#person-identification)|
 
 #### <a name="person-identification"></a> Användning av PersonIdentification5- och PersonIdentification5b-elementen
@@ -926,11 +927,11 @@ Födelsedatum
 |CityOfBirth|Max35Text|CityOfBirth ges värdet ”not in use”.|
 |CtryOfBirth|CountryCode|CtryOfBirth ges värdet "XX".|
 
-#### <a name="ordn"></a> Esimerkki yleisen edunvalvojan järjestysnumeron palauttamisesta
+#### <a name="ordn"></a> Exempel på svar gällande ordningsnumret för en allmän intressebevakare
 
-Yleisen edunvalvojan järjestysnumero palautetaan tunniste-elementin (esim. Y-tunnus) ja mahdollisen rekisteröitymispäivä-elementin rinnakkaisena Othr-elementtinä:
+Ordningsnumret för allmänna intressebevakare hittas i taggen Othr som ges vid sidan om taggen som beskriver identifiering(ex. FO-nummer) och vid sidan om den eventuella taggen som beskriver registreringsdagen:
 
-Id-elementissä palautetaan järjestysnumero. SchmeNm/Cd-elementissä palautetaan koodi ORDN.
+Id-taggen innehåller ordningsnumret. SchmeNm/Cd taggen innehåller koden ORDN.
 
 ```
 <OrgId>
