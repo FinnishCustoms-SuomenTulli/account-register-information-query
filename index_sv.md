@@ -877,7 +877,7 @@ Om det svarsmeddelande som returneras inte innehåller datumuppgifter om kundrel
 |StartDt|ISODate|Ja|[0..1]|Startdatum för rollen|
 |EndDt|ISODate|Ja|[0..1]|Slutdatum för rollen|
 
-### <a name="Anvandning_av_Id-element"></a> 4.11 Användning av Id-element
+### <a name="anvandning_av_id-element"></a> 4.11 Användning av Id-element
 
 I alla meddelanden används motsvarande identifieringsstruktur för en juridisk och en fysisk person under Id-element (Party8Choice). Här beskrivs användningen av Id-elementet i frågegränssnittet.
 
