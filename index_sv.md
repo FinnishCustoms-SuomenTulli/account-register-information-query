@@ -891,7 +891,7 @@ I alla meddelanden används motsvarande identifieringsstruktur för en juridisk 
 |Namn|Typ|[min..max]|Beskrivning|
 |:---|:---|:---|:---|
 |Party8Choice| | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;OrgId|OrganisationIdentification6|[0..1]|Används på följande sätt: Elementet `OrgId/Othr/SchmeNm/Cd` innehåller typkoden för organisationsnumret och elementet `OrgId/Othr/Id` innehåller koden. Se koderna i tabellen nedan. Dessutom är det möjligt att i samband med svaret på förfrågan returnera den juridiska personens registreringsdatum, se [exemplet](#rgdt) nedan.|
+|&nbsp;&nbsp;&nbsp;&nbsp;OrgId|OrganisationIdentification6|[0..1]|Används på följande sätt: Elementet `OrgId/Othr/SchmeNm/Cd` innehåller typkoden för organisationsnumret och elementet `OrgId/Othr/Id` innehåller koden. Se koderna i tabellen nedan. Dessutom är det möjligt att i samband med svaret på förfrågan returnera den juridiska personens registreringsdatum, se [exemplet](#rgdt) nedan. Jos kyseessä on yleinen edunvalvoja jolla on järjestysnumero, numero palautetaan omassa `OrgId/Othr/Id` elementissään jonka mukana palautetaan myös järjestysnumeron koodi `OrgId/Othr/SchmeNm/Cd` elementissä ks. [esimerkki](#ordn) alla.|
 |&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|PersonIdentification5|[0..1]|Se [användning av PersonIdentification5-elementet](#person-identification)|
 
 #### <a name="person-identification"></a> Användning av PersonIdentification5- och PersonIdentification5b-elementen
@@ -910,7 +910,7 @@ OrgId koder
 |PRH|Föreningsregisternummer|
 |COID|Annat företagsnummer, typen är inte känd|
 
-PrvtId koodit  
+PrvtId koder  
 
 |Kod|Beskrivning|
 |:---|:---|
@@ -925,6 +925,36 @@ Födelsedatum
 |BirthDt|ISODate|Födelsedatum|
 |CityOfBirth|Max35Text|CityOfBirth ges värdet ”not in use”.|
 |CtryOfBirth|CountryCode|CtryOfBirth ges värdet "XX".|
+
+#### <a name="ordn"></a> Esimerkki yleisen edunvalvojan järjestysnumeron palauttamisesta
+
+Yleisen edunvalvojan järjestysnumero palautetaan tunniste-elementin (esim. Y-tunnus) ja mahdollisen rekisteröitymispäivä-elementin rinnakkaisena Othr-elementtinä:
+
+Id-elementissä palautetaan järjestysnumero. SchmeNm/Cd-elementissä palautetaan koodi ORDN.
+
+```
+<OrgId>
+  <Othr>
+    <Id>1234567-8</Id>
+    <SchmeNm>
+      <Cd>Y</Cd>
+    </SchmeNm>
+  </Othr>
+  <Othr>
+    <Id>2000-01-01</Id>
+    <SchmeNm>
+      <Cd>RGDT</Cd>
+    </SchmeNm>
+    <Issr>Verohallinto</Issr>
+  </Othr>
+  <Othr>
+    <Id>1</Id>
+    <SchmeNm>
+      <Cd>ORDN</Cd>
+    </SchmeNm>
+  </Othr>
+</OrgId>
+```
 
 #### <a name="rgdt"></a> Exempel på returnering av en juridisk persons registreringsdatum
 
