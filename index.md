@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 2.0.11*
+*Dokumentin versio 2.0.12*
 
 ## Versiohistoria
 
@@ -68,7 +68,8 @@ Versio|Päivämäärä|Kuvaus
 2.0.8|4.7.2023|Lisätty uusia esimerkkivastaussanomia.|
 2.0.9|15.8.2023|Lisätty uusia SoapFault esimerkkejä lukuun 4.12.|
 2.0.10|1.11.2023|Luvussa 3 tarkennettu ohjeistusta tietoliikennevarmenteista tiedon luovuttajalle ja yhteydenottajalle.|  
-2.0.11|20.6.2024|Luvussa 4.5 kuvattu hakusanomassa käytettävä muoto luonnollisen henkilön nimestä.|
+2.0.11|20.6.2024|Luvussa 4.5 kuvattu hakusanomassa käytettävä muoto luonnollisen henkilön nimestä.| 
+2.0.12|28.8.2024|Lisätty ohjeet yleisen edunvalvojan järjestysnumeron palauttamisesta lukuun 4.11.|
 
 ## Sisällysluettelo
 
@@ -887,7 +888,7 @@ Kaikissa sanomissa käytetään vastaavaa oikeushenkilön ja luonnollisen henkil
 |Nimi|Tyyppi|[min..max]|Kuvaus|
 |:---|:---|:---|:---|
 |Party8Choice| | | |
-|&nbsp;&nbsp;&nbsp;&nbsp;OrgId|OrganisationIdentification6|[0..1]|Käytetään seuraavasti: Elementti `OrgId/Othr/SchmeNm/Cd` sisältää organisaatiotunnuksen tyyppikoodin ja elementti `OrgId/Othr/Id` sisältää tunnuksen. Ks. koodit taulukko alla. Lisäksi voidaan kyselyvastauksen yhteydessä palauttaa oikeushenkilön rekisteröitysmispäivämäärä ks. [esimerkki](#rgdt) alla|
+|&nbsp;&nbsp;&nbsp;&nbsp;OrgId|OrganisationIdentification6|[0..1]|Käytetään seuraavasti: Elementti `OrgId/Othr/SchmeNm/Cd` sisältää organisaatiotunnuksen tyyppikoodin ja elementti `OrgId/Othr/Id` sisältää tunnuksen. Ks. koodit taulukko alla. Lisäksi voidaan kyselyvastauksen yhteydessä palauttaa oikeushenkilön rekisteröitysmispäivämäärä ks. [esimerkki](#rgdt) alla. Jos kyseessä on yleinen edunvalvoja jolla on järjestysnumero, numero palautetaan omassa `OrgId/Othr/Id` elementissään jonka mukana palautetaan myös järjestysnumeron koodi `OrgId/Othr/SchmeNm/Cd` elementissä ks. [esimerkki](#ordn) alla.|
 |&nbsp;&nbsp;&nbsp;&nbsp;PrvtId|PersonIdentification5|[0..1]|Ks. [PersonIdentification5-elementin käyttö](#person-identification)|
 
 #### <a name="person-identification"></a> PersonIdentification5- ja PersonIdentification5b-elementtien käyttö
@@ -915,6 +916,7 @@ OrgId koodit
 |Y|Y-tunnus|
 |PRH|Yhdistysrekisterinumero|
 |COID|Muu yritystunnus, tyyppi ei ole tiedossa|
+|ORDN|Yleisen edunvalvojan järjestysnumero|
 
 PrvtId koodit  
 
@@ -957,6 +959,36 @@ Id-elementissä palautetaan rekisteröitymispäivämäärä. SchmeNm/Cd-elementi
       <Cd>RGDT</Cd>
     </SchmeNm>
     <Issr>Verohallinto</Issr>
+  </Othr>
+</OrgId>
+```
+
+#### <a name="ordn"></a> Esimerkki yleisen edunvalvojan järjestysnumeron palauttamisesta
+
+Yleisen edunvalvojan järjestysnumero palautetaan tunniste-elementin (esim. Y-tunnus) ja mahdollisen rekisteröitymispäivä-elementin rinnakkaisena Othr-elementtinä:
+
+Id-elementissä palautetaan järjestysnumero. SchmeNm/Cd-elementissä palautetaan koodi ORDN.
+
+```
+<OrgId>
+  <Othr>
+    <Id>1234567-8</Id>
+    <SchmeNm>
+      <Cd>Y</Cd>
+    </SchmeNm>
+  </Othr>
+  <Othr>
+    <Id>2000-01-01</Id>
+    <SchmeNm>
+      <Cd>RGDT</Cd>
+    </SchmeNm>
+    <Issr>Verohallinto</Issr>
+  </Othr>
+  <Othr>
+    <Id>1</Id>
+    <SchmeNm>
+      <Cd>ORDN</Cd>
+    </SchmeNm>
   </Othr>
 </OrgId>
 ```
