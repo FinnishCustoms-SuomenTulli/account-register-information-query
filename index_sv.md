@@ -910,6 +910,7 @@ OrgId koder
 |Y|FO-nummer|
 |PRH|Föreningsregisternummer|
 |COID|Annat företagsnummer, typen är inte känd|
+|ORDN|Allmänna intressebevakarens ordningsnummer|
 
 PrvtId koder  
 
