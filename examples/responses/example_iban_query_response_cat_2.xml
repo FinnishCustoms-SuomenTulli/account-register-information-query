@@ -401,7 +401,6 @@
                                                     </supl027:Prtry>
                                                 </supl027:OwnrTp>
                                                 <supl027:StartDt>2019-03-24</supl027:StartDt>
-                                                <supl027:EndDt></supl027:EndDt>
                                             </supl027:Role>
                                             <supl027:Role>
                                                 <supl027:Pty>
@@ -461,7 +460,6 @@
                                                     </supl027:Prtry>
                                                 </supl027:OwnrTp>
                                                 <supl027:StartDt>2017-01-01</supl027:StartDt>
-                                                <supl027:EndDt></supl027:EndDt>
                                             </supl027:Role>
                                             <supl027:Role>
                                                 <supl027:Pty>
@@ -492,7 +490,6 @@
                                                     </supl027:Prtry>
                                                 </supl027:OwnrTp>
                                                 <supl027:StartDt>2017-01-01</supl027:StartDt>
-                                                <supl027:EndDt></supl027:EndDt>
                                             </supl027:Role>
                                         </supl027:AcctAndPties>
                                     </supl027:InfRspnSD1>
