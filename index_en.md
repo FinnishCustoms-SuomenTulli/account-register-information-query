@@ -70,7 +70,7 @@ Version|Date|Decription
 2.0.10|1.11.2023|In chapter 3 clarified instructions about the data traffic certificate to data suppliers and parties making the contact.|  
 2.0.11|20.6.2024|In chapter 4.5, added the format for the natural person's name used in the query message.| 
 2.0.12|28.8.2024|Instructions for returning public guardian's sequence number have been added to chapter 4.11.|
-2.0.13|.2025|Käännä:Lisätty esimerkkivastaussanomiin tiliroolien alkamis- ja päättämispäivän palautus. Lisätty lukuun 5: 1.12.2025 alkaen tulee palauttaa tiliin liittyvän roolin alkamis- ja päättymispäivämäärä.|
+2.0.13|.2025|Returning of start date and end date of the account roles added to the example messages. Added to the chapter 5: From 1.12.2025 onwards the start and end date of a role related to an account need to be returned.|
 
 ## Table of contents
 
@@ -1212,7 +1212,7 @@ Data providers have been divided into two categories: customer category 1 that r
 
 If person who is the object of the query owns or has access right to an account or a safety deposit box in the credit institution, the response includes the information of organisations where the person is a beneficiary, and information of accounts and safety deposit boxes the person owns or has access right to during the investigation period. Other natural or legal persons who own or have access right to these accounts or safety deposit boxes are not returned. Customership information is not returned. Lawyer's customer asset accounts are not returned. If the person has no accounts or safety deposit boxes in the credit institution, response "NFOU" is returned.
 
-Käännä:1.12.2025 alkaen tilitiedoissa tulee palauttaa henkilön tileihin liittyvien roolien alkamis- ja päättymispäivät.
+From 1.12.2025 onwards, the start and end dates of the roles related to natural person’s accounts need to be returned in the account information.
 
 *__Table 5.1.1.1:__ Limitations to queries for a person. This query category contains queries with a personal ID and queries with a natural person's name, nationality and birth date combination*
 
@@ -1234,7 +1234,7 @@ Käännä:1.12.2025 alkaen tilitiedoissa tulee palauttaa henkilön tileihin liit
 
 If organisation who is the object of the query owns or has access right to an account or a safety deposit box in the credit institution, the response includes the information of persons who are beneficiaries of the organisation and information of accounts and safety deposit boxes the organisation owns or has access right to during the investigation period. Other natural or legal persons who own or have access right to these accounts or safety deposit boxes are not returned. If the organisation owns any accounts or safety deposit boxes in the credit institution, organisation's customership information is returned. If the organisation has only access right to an account or a safety deposit box, customership information is not returned. Lawyer's customer asset accounts are not returned. If the organisation has no accounts or safety deposit boxes in the credit institution, response "NFOU" is returned.
 
-Käännä: 1.12.2025 alkaen tilitiedoissa tulee palauttaa organisaation tileihin liittyvien roolien alkamis- ja päättymispäivät.
+From 1.12.2025 onwards, the start and end dates of the roles related to organisation’s accounts need to be returned in the account information.
 
 *__Table 5.1.2.1:__ Limitations to queries for an organisation. This query category contains queries with a company's name and queries with legal person's registration number*
 
@@ -1254,7 +1254,7 @@ Käännä: 1.12.2025 alkaen tilitiedoissa tulee palauttaa organisaation tileihin
 
 In customer category 1 account query the response includes the information of the account that was the object of the query and information of the legal and natural persons who are account owners or have access right to the account during the investigation period. Customership information is returned for account's owners who are organisations. Customership information is not returned for organisations that have only access right to the account. Organisation's beneficiary information is not returned.
 
-Käännä: 1.12.2025 alkaen tilitiedoissa tulee palauttaa tiliin liittyvien roolien alkamis- ja päättymispäivä.
+From 1.12.2025 onwards, the start and end dates of the roles related to an account need to be returned in the account information.
 
 *__Table 5.1.3.1:__ Limitations to queries for an account. This query category contains queries with an account's IBAN number and queries with other account identifications*
 
@@ -1286,7 +1286,7 @@ In customer category 1 safety deposit box query the response includes the inform
 
 In customer category 2 natural person query, the response includes the customership information of the person who was the object of the query and information of accounts the person owns or has access right to during the investigation period. Other natural or legal persons who own or have access right to these accounts are not returned. Organisation's beneficiary information is not returned. Lawyer's customer asset accounts are not returned.
 
-Käännä: 1.12.2025 alkaen tilitiedoissa tulee palauttaa henkilön tileihin liittyvien roolien alkamis- ja päättymispäivät.
+From 1.12.2025 onwards, the start and end dates of the roles related to natural person’s accounts need to be returned in the account information.
 
 *__Table 5.2.1.1:__ Limitations to queries for a person. This query category contains queries with a personal ID and queries with a natural person's name, nationality and birth date combination*
 
@@ -1304,7 +1304,7 @@ Käännä: 1.12.2025 alkaen tilitiedoissa tulee palauttaa henkilön tileihin lii
 
 In customer category 2 organisation query, the response includes the customership information of the organisation that was the object of the query and information of accounts the organisation owns or has access right to during the investigation period. Other natural or legal persons who own or have access right to these accounts are not returned. Organisation's beneficiary information is not returned. Lawyer's customer asset accounts are not returned.
 
-Käännä: 1.12.2025 alkaen tilitiedoissa tulee palauttaa organisaation tileihin liittyvien roolien alkamis- ja päättymispäivät.
+From 1.12.2025 onwards, the start and end dates of the roles related to organisation’s accounts need to be returned in the account information.
 
 *__Table 5.2.2.1:__ Limitations to queries for an organisation. This query category contains queries with a company's name and queries with legal person's registration number*
 
@@ -1322,7 +1322,7 @@ Käännä: 1.12.2025 alkaen tilitiedoissa tulee palauttaa organisaation tileihin
 
 In customer category 2 account query the response includes the information of the account that was the object of the query and information of the legal and natural persons who are account owners or have access right to the account during the investigation period. If the account in question is a lawyer's customer asset account, customership information is not returned for natural persons. Otherwise customership information is returned for all natural and legal persons who are account owners or have access right to the account. Organisation's beneficiary information is not returned.
 
-Käännä:1.12.2025 alkaen tilitiedoissa tulee palauttaa tiliin liittyvien roolien alkamis- ja päättymispäivä.
+From 1.12.2025 onwards, the start and end dates of the roles related to an account need to be returned in the account information.
 
 *__Table 5.2.3.1:__ Limitations to queries for an account. This query category contains queries with an account's IBAN number and queries with other account identifications*
 
