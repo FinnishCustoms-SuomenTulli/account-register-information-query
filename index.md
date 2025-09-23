@@ -1197,7 +1197,7 @@ Tiedon luovuttajat on jaettu kahteen kategoriaan: asiakaskategoria 1, joka katta
 
 Jos haettu henkilö on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhaltija, tallelokeron vuokraaja tai tallelokeron käyttöoikeudenhaltija, vastauksena palautetaan sellaisten organisaatioiden tiedot, joissa haettu henkilö on edunsaajana, sekä sellaisten tilien ja tallelokeroiden tiedot, joissa haettu henkilö on haltijana tai käyttöoikeudenhaltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita haltijoita tai käyttöoikeudenhaltijoita ei palauteta. Asiakkuustietoja ei palauteta. Asianajajan asiakasvaratilejä ei palauteta. Jos haetulla henkilöllä ei ole tilejä tai tallelokeroita luottolaitoksessa, palautetaan vastaus "NFOU".
 
-1.12.2025 alkaen tilitiedoissa tulee palauttaa henkilön tileihin liittyvien roolien alkamis- ja päättymispäivät.
+1.12.2025 alkaen tilitiedoissa tulee palauttaa henkilön tileihin liittyvien roolien alkamispäivät ja sekä mahdolliset päättymispäivät.
 
 *__Taulukko 5.1.1.1:__ Henkilöhakujen rajaukset. Tähän hakukategoriaan kuuluvat haut henkilötunnuksella ja haut luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä*
 
@@ -1205,7 +1205,7 @@ Jos haettu henkilö on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhal
 |:---|:---|:---|:---|
 |Asiakkuustieto|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo kenttää ei palauteta|
 |Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Tiliroolin alkupäivämäärä palautetaan 1.12.2025 alkaen.|
-|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Tiliroolin loppupäivämäärä palautetaan 1.12.2025 alkaen.|
+|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Tiliroolin loppupäivämäärä palautetaan 1.12.2025 alkaen, mikäli sellainen on.|
 |Muut tiliin liittyvät oikeushenkilöt tai luonnolliset henkilöt|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|Henkilöhaussa palautettavan tilin mukana ei palauteta muita kuin hakuun liittyvän luonnollisen henkilön rooli.|
 |Muut tallelokeroon liittyvät oikeushenkilöt tai luonnolliset henkilöt|InformationResponseFIN002|/SdBoxAndPties/Role|Henkilöhaussa palautettavan tallelokeron mukana ei palauteta muita kuin hakuun liittyvän luonnollisen henkilön rooli.|
 |Muut organisaatioon liittyvät henkilöt|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Henkilöhaussa palautettavan organisaation mukana ei palauteta muiden luonnollisten henkilöiden kuin hakukohteena olevan henkilön tietoja.|
@@ -1219,14 +1219,14 @@ Jos haettu henkilö on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhal
 
 Jos haettu organisaatio on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhaltija, tallelokeron vuokraaja tai tallelokeron käyttöoikeudenhaltija, vastauksena palautetaan sellaisten henkilöiden tiedot, jotka ovat haetun organisaation edunsaajia sekä sellaisten tilien ja tallelokeroiden tiedot, joissa haettu organisaatio on haltijana tai käyttöoikeudenhaltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita haltijoita tai käyttöoikeudenhaltijoita ei palauteta. Jos organisaatio on jonkin tilin tilinhaltija tai tallelokeron vuokraaja luottolaitoksessa, palautetaan organisaation asiakkuustieto. Jos organisaatio on vain jonkin tilin tai tallelokeron käyttöoikeudenhaltija, asiakkuustieota ei palauteta. Asianajajan asiakasvaratilejä ei palauteta. Jos haetulla organisaatiolla ei ole tilejä tai tallelokeroita luottolaitoksessa, palautetaan vastaus "NFOU".
 
-1.12.2025 alkaen tilitiedoissa tulee palauttaa organisaation tileihin liittyvien roolien alkamis- ja päättymispäivät.
+1.12.2025 alkaen tilitiedoissa tulee palauttaa organisaation tileihin liittyvien roolien alkamispäivät ja sekä mahdolliset päättymispäivät.
 
 *__Taulukko 5.1.2.1:__ Organisaatiohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut yrityksen nimellä ja haut oikeushenkilön rekisterinumerolla*
 
 |Rajaus|Alisanoma|Elementti|Kuvaus|
 |:---|:---|:---|:---|
 |Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Tiliroolin alkupäivämäärä palautetaan 1.12.2025 alkaen.|
-|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Tiliroolin loppupäivämäärä palautetaan 1.12.2025 alkaen.|
+|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Tiliroolin loppupäivämäärä palautetaan 1.12.2025 alkaen, mikäli sellainen on.|
 |Muut tiliin liittyvät oikeushenkilöt tai luonnolliset henkilöt|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|Organisaatiohaussa palautettavan tilin mukana ei palauteta muita kuin hakuun liittyvän oikeushenkilön rooli.|
 |Muut tallelokeroon liittyvät oikeushenkilöt tai luonnolliset henkilöt|InformationResponseFIN002|/SdBoxAndPties/Role|Organisaatiohaussa palautettavan tallelokeron mukana ei palauteta muita kuin hakuun liittyvän oikeushenkilön rooli.|
 |Tallelokeroroolin alkupäivä|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Tallelokeroroolin alkupäivää ei palauteta.|
@@ -1239,14 +1239,14 @@ Jos haettu organisaatio on luottolaitoksessa tilinhaltija, tilin käyttöoikeude
 
 Asiakaskategorian 1 tilihaussa vastauksena palautetaan haetun tilin tiedot sekä sellaisten oikeushenkilöiden ja luonnollisten henkilöiden tiedot, jotka ovat tilinhaltijoita tai tilin käyttöoikeudenhaltijoita käytetyllä hakuaikavälillä. Asiakkuustieto palautetaan sellaisista tilinhaltijoista, jotka ovat organisaatioita. Asiakkuustietoa ei palauteta organisaatioista, jotka ovat ainoastaan tilin käyttöoikeudenhaltijoita. Organisaatioiden edunsaajatietoja ei palauteta.
 
-1.12.2025 alkaen tilitiedoissa tulee palauttaa tiliin liittyvien roolien alkamis- ja päättymispäivä.
+1.12.2025 alkaen tilitiedoissa tulee palauttaa tiliin liittyvien roolien alkamispäivät ja sekä mahdolliset päättymispäivät.
 
 *__Taulukko 5.1.3.1:__ Tilihakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tilin IBAN-numerolla ja haut muulla tilin yksilöintitunnuksella*
 
 |Rajaus|Alisanoma|Elementti|Kuvaus|
 |:---|:---|:---|:---|
 |Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Tiliroolin alkupäivämäärä palautetaan 1.12.2025 alkaen.|
-|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Tiliroolin loppupäivämäärä palautetaan 1.12.2025 alkaen.|
+|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Tiliroolin loppupäivämäärä palautetaan 1.12.2025 alkaen, mikäli sellainen on.|
 |Tilin avaamispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Tilin avaamispäivämäärää ei palauteta, jos kyseessä on asianajajan asiakasvaratili. Ks. [CustomerAccount-käyttö](#customer-account1).|
 |Tilin sulkemispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Tilin sulkemispäivämäärää ei palauteta, jos kyseessä on asianajajan asiakasvaratili. Ks. [CustomerAccount-käyttö](#customer-account1).|
 |Asiakkuustieto|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo kenttää ei palauteta luonnollisista henkilöistä.|
@@ -1271,14 +1271,14 @@ Asiakaskategorian 1 tallelokerohaussa vastauksena palautetaan haetun tallelokero
 
 Asiakaskategorian 2 henkilöhaussa vastauksena palautetaan haetun henkilön asiakkuustieto sekä sellaisten tilien tiedot, joissa haettu henkilö on haltijana tai käyttöoikeudenhaltijana käytetyllä hakuaikavälillä. Tilien mahdollisia muita haltijoita tai käyttöoikeudenhaltijoita ei palauteta. Edunsaajuustietoja ei palauteta. Asianajajan asiakasvaratilejä ei palauteta.
 
-1.12.2025 alkaen tilitiedoissa tulee palauttaa henkilön tileihin liittyvien roolien alkamis- ja päättymispäivät.
+1.12.2025 alkaen tilitiedoissa tulee palauttaa henkilön tileihin liittyvien roolien alkamispäivät ja sekä mahdolliset päättymispäivät.
 
 *__Taulukko 5.2.1.1:__ Henkilöhakujen rajaukset. Tähän hakukategoriaan kuuluvat haut henkilötunnuksella ja haut luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä*
 
 |Rajaus|Alisanoma|Elementti|Kuvaus|
 |:---|:---|:---|:---|
 |Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Tiliroolin alkupäivämäärä palautetaan 1.12.2025 alkaen.|
-|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Tiliroolin loppupäivämäärä palautetaan 1.12.2025 alkaen.|
+|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Tiliroolin loppupäivämäärä palautetaan 1.12.2025 alkaen, mikäli sellainen on.|
 |Tilin avaamispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Tilin avaamispäivämäärää ei palauteta.|
 |Tilin sulkemispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Tilin sulkemispäivämäärää ei palauteta.|
 |Organisaatiot edunsaajaroolin perusteella|InformationResponseFIN013|/LegalPersonInfo|Ei palauteta haettuun luonnolliseen henkilöön liittyviä organisaation oikeushenkilötietoja InformationResponseFIN013 alisanomalla, joissa haettu luonnollinen henkilö on edunsaajana.|
@@ -1289,14 +1289,14 @@ Asiakaskategorian 2 henkilöhaussa vastauksena palautetaan haetun henkilön asia
 
 Asiakaskategorian 2 organisaatiohaussa vastauksena palautetaan haetun organisaation asiakkuustieto sekä sellaisten tilien tiedot, joissa haettu organisaatio on haltijana tai käyttöoikeudenhaltijana käytetyllä hakuaikavälillä. Tilien mahdollisia muita haltijoita tai käyttöoikeudenhaltijoita ei palauteta. Edunsaajuustietoja ei palauteta. Asianajajan asiakasvaratilejä ei palauteta.
 
-1.12.2025 alkaen tilitiedoissa tulee palauttaa organisaation tileihin liittyvien roolien alkamis- ja päättymispäivät.
+1.12.2025 alkaen tilitiedoissa tulee palauttaa organisaation tileihin liittyvien roolien alkamispäivät ja sekä mahdolliset päättymispäivät.
 
 *__Taulukko 5.2.2.1:__ Organisaatiohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut yrityksen nimellä ja haut oikeushenkilön rekisterinumerolla*
 
 |Rajaus|Alisanoma|Elementti|Kuvaus|
 |:---|:---|:---|:---|
 |Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Tiliroolin alkupäivämäärä palautetaan 1.12.2025 alkaen.|
-|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Tiliroolin loppupäivämäärä palautetaan 1.12.2025 alkaen.|
+|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Tiliroolin loppupäivämäärä palautetaan 1.12.2025 alkaen, mikäli sellainen on.|
 |Tilin avaamispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Tilin avaamispäivämäärää ei palauteta.|
 |Tilin sulkemispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Tilin sulkemispäivämäärää ei palauteta.|
 |Edunsaajatiedot|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Ei palauteta oikeushenkilöön liittyviä edunsaajatietoja.|
@@ -1307,14 +1307,14 @@ Asiakaskategorian 2 organisaatiohaussa vastauksena palautetaan haetun organisaat
 
 Asiakaskategorian 2 tilihaussa vastauksena palautetaan haetun tilin tiedot, sekä sellaisten oikeushenkilöiden ja luonnollisten henkilöiden tiedot, jotka ovat tilinhaltijoita tai tilin käyttöoikeudenhaltijoita käytetyllä hakuaikavälillä. Jos kyseinen tili on asianajajan asiakasvaratili, asiakkuustietoa ei palauteta luonnollisista henkilöistä. Muutoin asiakkuustieto palautetaan kaikista tilinhaltijoista ja käyttöoikeuden haltijoista. Organisaatioiden edunsaajatietoja ei palauteta.
 
-1.12.2025 alkaen tilitiedoissa tulee palauttaa tiliin liittyvien roolien alkamis- ja päättymispäivä.
+1.12.2025 alkaen tilitiedoissa tulee palauttaa tiliin liittyvien roolien alkamispäivät ja sekä mahdolliset päättymispäivät.
 
 *__Taulukko 5.2.3.1:__ Tilihakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tilin IBAN-numerolla ja haut muulla tilin yksilöintitunnuksella*
 
 |Rajaus|Alisanoma|Elementti|Kuvaus|
 |:---|:---|:---|:---|
 |Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Tiliroolin alkupäivämäärä palautetaan 1.12.2025 alkaen.|
-|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Tiliroolin loppupäivämäärä palautetaan 1.12.2025 alkaen.|
+|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Tiliroolin loppupäivämäärä palautetaan 1.12.2025 alkaen, mikäli sellainen on.|
 |Tilin avaamispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Tilin avaamispäivämäärää ei palauteta.|
 |Tilin sulkemispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Tilin sulkemispäivämäärää ei palauteta.|
 |Asiakkuustieto|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo kenttää ei palauteta, jos kyseiseen luonnolliseen henkilöön liittyvä tili on asiakasvaratili. Ks. [CustomerAccount-käyttö](#customer-account1).|
