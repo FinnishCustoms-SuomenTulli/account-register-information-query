@@ -70,7 +70,7 @@ Version|Date|Decription
 2.0.10|1.11.2023|In chapter 3 clarified instructions about the data traffic certificate to data suppliers and parties making the contact.|  
 2.0.11|20.6.2024|In chapter 4.5, added the format for the natural person's name used in the query message.| 
 2.0.12|28.8.2024|Instructions for returning public guardian's sequence number have been added to chapter 4.11.|
-2.0.13|.2025|Returning of start date and end date of the account roles added to the example messages. Added to the chapter 5: From 1.12.2025 onwards the start and end date of a role related to an account need to be returned.|
+2.0.13|25.9.2025|Returning of start date and end date of the account roles added to the example messages. Added to the chapter 5: From 1.12.2025 onwards the start and end date of a role related to an account need to be returned.|
 
 ## Table of contents
 
