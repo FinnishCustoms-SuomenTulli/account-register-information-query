@@ -379,6 +379,36 @@
                                                         <supl027:SchmeNm>RLTP</supl027:SchmeNm>
                                                     </supl027:Prtry>
                                                 </supl027:OwnrTp>
+                                                <supl027:StartDt>2000-02-25</supl027:StartDt>
+                                            </supl027:Role>
+                                            <supl027:Role>
+                                                <supl027:Pty>
+                                                    <supl027:Nm>Smith, Sam</supl027:Nm>
+                                                    <supl027:Id>
+                                                        <supl027:PrvtId>
+                                                            <supl027:DtAndPlcOfBirth>
+                                                                <supl027:BirthDt>1946-11-20</supl027:BirthDt>
+                                                                <supl027:CityOfBirth>not in use</supl027:CityOfBirth>
+                                                                <supl027:CtryOfBirth>XX</supl027:CtryOfBirth>
+                                                            </supl027:DtAndPlcOfBirth>
+                                                            <supl027:Othr>
+                                                                <supl027:Id>123456-123A</supl027:Id>
+                                                                <supl027:SchmeNm>
+                                                                    <supl027:Cd>PIC</supl027:Cd>
+                                                                </supl027:SchmeNm>
+                                                            </supl027:Othr>
+                                                        </supl027:PrvtId>
+                                                    </supl027:Id>
+                                                </supl027:Pty>
+                                                <supl027:OwnrTp>
+                                                    <supl027:Tp>TRUS</supl027:Tp>
+                                                    <supl027:Prtry>
+                                                        <supl027:Id>OWNE</supl027:Id>
+                                                        <supl027:SchmeNm>RLTP</supl027:SchmeNm>
+                                                    </supl027:Prtry>
+                                                </supl027:OwnrTp>
+                                                <supl027:StartDt>1998-09-20</supl027:StartDt>
+                                                <supl027:EndDt>2000-03-01</supl027:EndDt>
                                             </supl027:Role>
                                             <supl027:AddtlInf>1998-09-20</supl027:AddtlInf>
                                         </supl027:AcctAndPties>
