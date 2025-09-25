@@ -6,7 +6,7 @@
 
 # Beskrivning av datasöksystemets frågegränssnitt
 
-*Dokumentversion 2.0.12*
+*Dokumentversion 2.0.13*
 
 ## Versionshistorik
 
@@ -69,7 +69,8 @@ Version|Datum|Beskrivning
 2.0.9|15.8.2023|Nya SoapFault-exempel har lagts till i kapitel 4.12.|
 2.0.10|1.11.2023|Preciseringar i avsnitt 3 i anvisningar om datakommunikationscertifikat för uppgiftsleverantören och den som tar kontakt.|  
 2.0.11|20.6.2024|Format för fysisk persons namn i frågemeddelandet har lagts till i avsnitt 4.5.| 
-2.0.12|28.8.2024|Information gällande ordningsnumret för allmänna intressebevakare har lagts till i kaptilet 4.11.|
+2.0.12|28.8.2024|Information gällande ordningsnumret för allmänna intressebevakare har lagts till i kapitlet 4.11.|
+2.0.13|.2025|Returnering av startdatum och slutdatum för kontoroller har lagts till i exempelfiler. Lagts till i kapitlet 5: Från och med 1.12.2025 ska startdatum och slutdatum för den roll som är kopplad till kontot returneras.|
 
 ## Innehåll
 
@@ -1183,13 +1184,15 @@ Leverantörer av uppgifter är delade i två kategorier: kundkategori 1, som omf
 
 Om den sökta personen är kontoinnehavare, innehavare av användningsrätt till ett konto, hyrare av bankfack eller innehavare av användningsrätt till ett bankfack i ett kreditinstitut, returneras som svar uppgifter om sådana organisationer för vilka den sökta personen är förmånstagare, och uppgifter om sådana konton och bankfack för vilka den sökta personen är innehavare eller innehavare av användningsrätt under den använda sökintervallen. Övriga eventuella innehavare eller innehavare av användningsrättigheter till kontona eller bankfacken returneras inte. Inga uppgifter om kundrelation returneras. Uppgifter om gemensamma konton som förvaltas av en advokat returneras inte. Om den sökta personen inte har konton eller bankfack i kreditinstituten, returneras svaret "NFOU".
 
+Från och med den 1.12.2025 ska startdatum och eventuella slutdatum för roller relaterade till en persons konton returneras i kontoinformationen.
+
 *__Tabell 5.1.1.1:__ Begränsningar för sökningar på person. Till denna sökkategori hör sökningar med personbeteckning och sökningar med kombinationen av namn, medborgarskap och födelsedatum för fysisk person*
 
 |Begränsning|Undermeddelande|Element|Beskrivning|
 |:---|:---|:---|:---|
 |Kundrelationsuppgift|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|Fältet CustomerInfo returneras inte|
-|Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Kontorollens startdatum returneras inte.|
-|Kontorollens slutdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Kontorollens slutdatum returneras inte.|
+|Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Kontorollens startdatum returneras från och med 1.12.2025.|
+|Kontorollens slutdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Kontorollens slutdatum returneras från och med 1.12.2025, om det finns ett.|
 |Andra juridiska eller fysiska personer kopplade till kontot|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|Vid sökning på person returneras med kontot inga andra roller än rollen för den fysiska person som är kopplad till sökningen.|
 |Andra juridiska eller fysiska personer kopplade till bankfacket|InformationResponseFIN002|/SdBoxAndPties/Role|Vid sökning på person returneras med bankfacket inga andra roller än rollen för den fysiska person som är kopplad till sökningen.|
 |Andra personer som är kopplade till organisationen|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Vid sökning på person returneras med en organisation som returneras inte uppgifter om andra fysiska personer än den person som är föremål för sökningen.|
@@ -1203,12 +1206,14 @@ Om den sökta personen är kontoinnehavare, innehavare av användningsrätt till
 
 Om den sökta organisationen är kontoinnehavare, innehavare av användningsrätt till ett konto, hyrare av ett bankfack eller innehavare av användningsrätt till ett bankfack i ett kreditinstitut, returneras som svar uppgifter om sådana personer som är förmånstagare för den sökta organisationen, och uppgifter om sådana konton och bankfack för vilka den sökta organisationen är innehavare eller innehavare av användningsrätt under den använda sökintervallen. Övriga eventuella innehavare eller innehavare av användningsrättigheter till kontona eller bankfacken returneras inte. Om den sökta organisationen är kontoinnehavare eller hyr ett bankfack i kreditinstituten, returneras kundrelationsuppgifter om organisationen. Om organisationen är enbart innehavare av användningsrätt till ett konto eller ett bankfack, returneras inte kundrelationsuppgifter. Uppgifter om gemensamma konton som förvaltas av en advokat returneras inte. Om den sökta organisationen inte har konton eller bankfack i kreditinstituten, returneras svaret "NFOU".
 
+Från och med den 1.12.2025 ska startdatum och eventuella slutdatum för roller relaterade till en organisationens konton returneras i kontoinformationen.
+
 *__Tabell 5.1.2.1:__ Begränsningar för sökning på organisation. Till denna sökkategori hör sökningar med organisationens namn och sökningar med den juridiska personens registernummer*
 
 |Begränsning|Undermeddelande|Element|Beskrivning|
 |:---|:---|:---|:---|
-|Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Kontorollens startdatum returneras inte.|
-|Kontorollens slutdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Kontorollens slutdatum returneras inte.|
+|Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Kontorollens startdatum returneras från och med 1.12.2025.|
+|Kontorollens slutdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Kontorollens slutdatum returneras från och med 1.12.2025, om det finns ett.|
 |Andra juridiska eller fysiska personer kopplade till kontot|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|Vid sökning på organisation returneras med kontot inga andra roller än rollen för den juridiska person som är kopplad till sökningen.|
 |Andra juridiska eller fysiska personer kopplade till bankfacket|InformationResponseFIN002|/SdBoxAndPties/Role|Vid sökning på organisation returneras med bankfacket inga andra roller än rollen för den juridiska person som är kopplad till sökningen. |
 |Bankfackrollens startdatum|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Bankfackrollens startdatum returneras inte.|
@@ -1221,12 +1226,14 @@ Om den sökta organisationen är kontoinnehavare, innehavare av användningsrät
 
 I sökningen på konto i kundkategori 1, returneras som svar uppgifter om det sökta kontot och uppgifter om juridiska och fysiska personer som är innehavare av kontot eller som är innehavare av användningsrätt till det under sökintervallet. Kundrelationsuppgifter returneras för sådana kontoinnehavare, som är organisationer. Kundrelationsuppgifter returneras inte för organisationer som enbart är innehavare av användningsrätt till kontot. Uppgifter om organisationens förmånstagare returneras inte.
 
+Från och med den 1.12.2025 ska startdatum och eventuella slutdatum för roller relaterade till en konton returneras i kontoinformationen.
+
 *__Tabell 5.1.3.1:__ Begränsningar för sökningar på konto. Till denna sökkategori hör sökning med kontots IBAN och sökningar med en annan kontospecifikation*
 
 |Begränsning|Undermeddelande|Element|Beskrivning|
 |:---|:---|:---|:---|
-|Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Kontorollens startdatum returneras inte.|
-|Kontorollens slutdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Kontorollens slutdatum returneras inte.|
+|Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Kontorollens startdatum returneras från och med 1.12.2025.|
+|Kontorollens slutdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Kontorollens slutdatum returneras från och med 1.12.2025, om det finns ett.|
 |Kontots öppningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Öppningsdatum för kontot returneras inte, om det är fråga om ett gemensamt konto som förvaltas av en advokat. Se [användning av CustomerAccount](#customer-account1).|
 |Kontots avslutningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Avslutningsdatum för kontot returneras inte, om det är fråga om ett gemensamt konto som förvaltas av en advokat. Se [användning av CustomerAccount](#customer-account1).|
 |Kundrelationsuppgift|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|Fältet CustomerInfo returneras inte för fysiska personer.|
@@ -1251,12 +1258,14 @@ I sökningen på bankfack i kundkategori 1, returneras som svar uppgifter om det
 
 I sökningen på person i kundkategori 2 returneras som svar den sökta personens kundrelation och uppgifter om sådana konton för vilka den sökta personen är innehavare eller innehavare av användningsrätt under sökintervallet.  Övriga eventuella innehavare eller innehavare av användningsrätt till kontona returneras inte. Uppgifter om förmånstagare returneras inte. Uppgifter om gemensamma konton som förvaltas av en advokat returneras inte.
 
+Från och med den 1.12.2025 ska startdatum och eventuella slutdatum för roller relaterade till en persons konton returneras i kontoinformationen.
+
 *__Tabell 5.2.1.1:__ Begränsningar för sökningar på person. Till denna sökkategori hör sökningar med personbeteckning och sökningar med kombinationen av namn, medborgarskap och födelsedatum för fysisk person*
 
 |Begränsning|Undermeddelande|Element|Beskrivning|
 |:---|:---|:---|:---|
-|Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Kontorollens startdatum returneras inte.|
-|Kontorollens slutdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Kontorollens slutdatum returneras inte.|
+|Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Kontorollens startdatum returneras från och med 1.12.2025.|
+|Kontorollens slutdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Kontorollens slutdatum returneras från och med 1.12.2025, om det finns ett.|
 |Kontots öppningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Kontots öppningsdatum returneras inte.|
 |Kontots avslutningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Kontots avslutningsdatum returneras inte.|
 |Organisationer baserat på förmånstagarroll|InformationResponseFIN013|/LegalPersonInfo|Med undermeddelandet InformationResponseFIN013 returneras inte uppgifter om juridiska personer kopplade till organisationen vid sökning av en fysisk person där den sökta fysiska personen är förmånstagare.|
@@ -1267,12 +1276,14 @@ I sökningen på person i kundkategori 2 returneras som svar den sökta personen
 
 I sökningen på organisation i kundkategori 2, returneras kundrelationsuppgifter om den sökta organisationen och uppgifter om sådana konton för vilka den sökta organisationen är innehavare eller innehavare av användningsrätt under sökintervallet. Övriga eventuella innehavare eller innehavare av användningsrätt till kontona returneras inte. Uppgifter om förmånstagare returneras inte. Uppgifter om gemensamma konton som förvaltas av en advokat returneras inte.
 
+Från och med den 1.12.2025 ska startdatum och eventuella slutdatum för roller relaterade till en organisationens konton returneras i kontoinformationen.
+
 *__Tabell 5.2.2.1:__ Begränsningar för sökningar på organisation Till denna sökkategori hör sökningar med organisationens namn och sökningar med den juridiska personens registernummer*
 
 |Begränsning|Undermeddelande|Element|Beskrivning|
 |:---|:---|:---|:---|
-|Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Kontorollens startdatum returneras inte.|
-|Kontorollens slutdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Kontorollens slutdatum returneras inte.|
+|Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Kontorollens startdatum returneras från och med 1.12.2025.|
+|Kontorollens slutdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Kontorollens slutdatum returneras från och med 1.12.2025, om det finns ett.|
 |Kontots öppningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Kontots öppningsdatum returneras inte.|
 |Kontots avslutningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Kontots avslutningsdatum returneras inte.|
 |Uppgifter om förmånstagare|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Uppgifter om förmånstagare returneras inte för en juridisk person.|
@@ -1283,12 +1294,14 @@ I sökningen på organisation i kundkategori 2, returneras kundrelationsuppgifte
 
 Vid sökningen på konto i kundkategori 2, returneras som svar uppgifter om det sökta kontot och uppgifter om juridiska och fysiska personer som är kontoinnehavare eller innehavare av användningsrätt under sökintervallet. Uppgifter om kundrelation returneras inte för fysiska personer om kontot är ett gemensamt konto som förvaltas av en advokat. Annars returneras uppgifter om kundrelation för alla innehavare av eller innehavare av användningsrätt till kontot. Uppgifter om organisationens förmånstagare returneras inte.
 
+Från och med den 1.12.2025 ska startdatum och eventuella slutdatum för roller relaterade till en konton returneras i kontoinformationen.
+
 *__Tabell 5.2.3.1:__ Begränsningar för sökningar på konto. Till denna sökkategori hör sökning med kontots IBAN och sökningar med en annan kontospecifikation*
 
 |Begränsning|Undermeddelande|Element|Beskrivning|
 |:---|:---|:---|:---|
-|Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Kontorollens startdatum returneras inte.|
-|Kontorollens slutdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Kontorollens slutdatum returneras inte.|
+|Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Kontorollens startdatum returneras från och med 1.12.2025.|
+|Kontorollens slutdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Kontorollens slutdatum returneras från och med 1.12.2025, om det finns ett.|
 |Kontots öppningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Kontots öppningsdatum returneras inte.|
 |Kontots avslutningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Kontots avslutningsdatum returneras inte.|
 |Kundrelationsuppgift|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo-fältet returneras inte, om fet konto som anknyter till den fysiska personen i fråga är ett gemensamt konto som förvaltas av en advokat. Se [användning av CustomerAccount](#customer-account1).|
