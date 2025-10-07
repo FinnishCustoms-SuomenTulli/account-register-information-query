@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 2.0.13*
+*Dokumentin versio 2.0.14*
 
 ## Versiohistoria
 
@@ -71,6 +71,7 @@ Versio|Päivämäärä|Kuvaus
 2.0.11|20.6.2024|Luvussa 4.5 kuvattu hakusanomassa käytettävä muoto luonnollisen henkilön nimestä.| 
 2.0.12|28.8.2024|Lisätty ohjeet yleisen edunvalvojan järjestysnumeron palauttamisesta lukuun 4.11.|
 2.0.13|25.9.2025|Lisätty esimerkkivastaussanomiin tiliroolien alkamis- ja päättämispäivän palautus. Lisätty lukuun 5: 1.12.2025 alkaen tulee palauttaa tiliin liittyvän roolin alkamis- ja päättymispäivämäärä.|
+2.0.14|X.10.2025|Lisätty esimerkkivastaussanomiin tiliroolien alkamis- ja päättämispäivän palautus. Lisätty lukuun 5: 1.12.2025 alkaen luottolaitosten tulee palauttaa myös henkilöasiakkaan asiakkuuden alkamis- ja päättymispäivämäärä.|
 
 ## Sisällysluettelo
 
@@ -1189,7 +1190,7 @@ Kyselyvastauksessa esitetyistä tiedoista osa voi olla kiistanalaisia. Tällöin
 
 Erilaiset hakukriteerit tuottavat vastauksena erilaiset tietojoukot. Tässä kappaleessa kuvataan kuhunkin hakuun vastauksena palautettava tietojoukko, joka riippuu käytetyn hakukriteerin lisäksi tiedon luovuttajan asiakaskategoriasta.
 
-Tiedon luovuttajat on jaettu kahteen kategoriaan: asiakaskategoria 1, joka kattaa luottolaitokset, sekä asiakaskategoria 2, johon kuuluvat maksulaitokset, sähkörahayhteisöt ja virtuaalivaluutan tarjoajat.
+Tiedon luovuttajat on jaettu kahteen kategoriaan: asiakaskategoria 1, joka kattaa luottolaitokset, sekä asiakaskategoria 2, johon kuuluvat maksulaitokset, sähkörahayhteisöt ja kryptovarapalvelujen tarjoajat.
 
 ### <a name="5-1"></a> 5.1 Asiakaskategoria 1
 
