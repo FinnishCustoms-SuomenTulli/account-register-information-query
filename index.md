@@ -71,7 +71,7 @@ Versio|Päivämäärä|Kuvaus
 2.0.11|20.6.2024|Luvussa 4.5 kuvattu hakusanomassa käytettävä muoto luonnollisen henkilön nimestä.| 
 2.0.12|28.8.2024|Lisätty ohjeet yleisen edunvalvojan järjestysnumeron palauttamisesta lukuun 4.11.|
 2.0.13|25.9.2025|Lisätty esimerkkivastaussanomiin tiliroolien alkamis- ja päättämispäivän palautus. Lisätty lukuun 5: 1.12.2025 alkaen tulee palauttaa tiliin liittyvän roolin alkamis- ja päättymispäivämäärä.|
-2.0.14|X.10.2025|Lisätty esimerkkivastaussanomiin ... Lisätty lukuun 5: 1.12.2025 alkaen luottolaitosten tulee palauttaa myös tilinhaltijan ja tilin käyttöoikeudenhaltijan asiakkuuden alkamis- ja päättymispäivämäärä sekä luonnollisille henkilöille että organisaatioille.|
+2.0.14|X.10.2025|Lisätty lukuun 5: 1.12.2025 alkaen luottolaitosten tulee palauttaa myös tilinhaltijan ja tilin käyttöoikeudenhaltijan asiakkuuden alkamis- ja päättymispäivämäärä sekä luonnollisille henkilöille että organisaatioille. Tehty vastaavat päivitykset esimerkkivastaussanomiin.|
 
 ## Sisällysluettelo
 
