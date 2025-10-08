@@ -1198,7 +1198,7 @@ Tiedon luovuttajat on jaettu kahteen kategoriaan: asiakaskategoria 1, joka katta
 
 Jos haettu henkilö on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhaltija, tallelokeron vuokraaja tai tallelokeron käyttöoikeudenhaltija, vastauksena palautetaan sellaisten organisaatioiden tiedot, joissa haettu henkilö on edunsaajana. Jos haettu henkilö on luottolaitoksessa tilin haltija tai käyttöoikeudenhaltija, palautetaan haetun henkilön asiakkuustieto. Lisäksi palautetaan sellaisten tilien ja tallelokeroiden tiedot, joissa haettu henkilö on haltijana tai käyttöoikeudenhaltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita haltijoita tai käyttöoikeudenhaltijoita ei palauteta. Asianajajan asiakasvaratilejä ei palauteta. Jos haetulla henkilöllä ei ole tilejä tai tallelokeroita luottolaitoksessa, palautetaan vastaus "NFOU".
 
-1.12.2025 alkaen tilitiedoissa tulee palauttaa henkilön tileihin liittyvien roolien alkamispäivät ja mahdolliset päättymispäivät, sekä tilinhaltijoista ja tilin käyttöoikeudenhaltijoista asiakkuden alkamispäivä ja mahdollinen päättymispäivä. 
+1.12.2025 alkaen tilitiedoissa tulee palauttaa henkilön tileihin liittyvien roolien alkamispäivät ja mahdolliset päättymispäivät, sekä tilinhaltijoista ja tilin käyttöoikeudenhaltijoista asiakkuuden alkamispäivä ja mahdollinen päättymispäivä. 
 
 *__Taulukko 5.1.1.1:__ Henkilöhakujen rajaukset. Tähän hakukategoriaan kuuluvat haut henkilötunnuksella ja haut luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä*
 
@@ -1220,7 +1220,7 @@ Jos haettu henkilö on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhal
 
 Jos haettu organisaatio on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhaltija, tallelokeron vuokraaja tai tallelokeron käyttöoikeudenhaltija, vastauksena palautetaan sellaisten henkilöiden tiedot, jotka ovat haetun organisaation edunsaajia. Jos haettu organisaatio on luottolaitoksessa tilinhaltija tai tilin käyttöoikeudenhaltija, palautetaan haetun organisaation asiakkuustieto. Lisäksi palautetaan sellaisten tilien ja tallelokeroiden tiedot, joissa haettu organisaatio on haltijana tai käyttöoikeudenhaltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita haltijoita tai käyttöoikeudenhaltijoita ei palauteta. Asianajajan asiakasvaratilejä ei palauteta. Jos haetulla organisaatiolla ei ole tilejä tai tallelokeroita luottolaitoksessa, palautetaan vastaus "NFOU".
 
-1.12.2025 alkaen tilitiedoissa tulee palauttaa organisaation tileihin liittyvien roolien alkamispäivät ja mahdolliset päättymispäivät, sekä tilinhaltijoista ja tilin käyttöoikeudenhaltijoista asiakkuden alkamispäivä ja mahdollinen päättymispäivä.
+1.12.2025 alkaen tilitiedoissa tulee palauttaa organisaation tileihin liittyvien roolien alkamispäivät ja mahdolliset päättymispäivät, sekä tilinhaltijoista ja tilin käyttöoikeudenhaltijoista asiakkuuden alkamispäivä ja mahdollinen päättymispäivä.
 
 *__Taulukko 5.1.2.1:__ Organisaatiohakujen rajaukset. Tähän hakukategoriaan kuuluvat haut yrityksen nimellä ja haut oikeushenkilön rekisterinumerolla*
 
@@ -1241,7 +1241,7 @@ Jos haettu organisaatio on luottolaitoksessa tilinhaltija, tilin käyttöoikeude
 
 Asiakaskategorian 1 tilihaussa vastauksena palautetaan haetun tilin tiedot sekä sellaisten oikeushenkilöiden ja luonnollisten henkilöiden tiedot, jotka ovat tilinhaltijoita tai tilin käyttöoikeudenhaltijoita käytetyllä hakuaikavälillä. Asiakkuustieto palautetaan haetun tilin tilinhaltijoista ja tilin käyttöoikeudenhaltijoista. Organisaatioiden edunsaajatietoja ei palauteta.
 
-1.12.2025 alkaen tilitiedoissa tulee palauttaa tiliin liittyvien roolien alkamispäivät ja mahdolliset päättymispäivät, sekä tilinhaltijoista ja tilin käyttöoikeudenhaltijoista asiakkuden alkamispäivä ja mahdollinen päättymispäivä.
+1.12.2025 alkaen tilitiedoissa tulee palauttaa tiliin liittyvien roolien alkamispäivät ja mahdolliset päättymispäivät, sekä tilinhaltijoista ja tilin käyttöoikeudenhaltijoista asiakkuuden alkamispäivä ja mahdollinen päättymispäivä.
 
 *__Taulukko 5.1.3.1:__ Tilihakujen rajaukset. Tähän hakukategoriaan kuuluvat haut tilin IBAN-numerolla ja haut muulla tilin yksilöintitunnuksella*
 
