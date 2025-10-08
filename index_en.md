@@ -6,7 +6,7 @@
 
 # Query interface description of the data retrieval system
 
-*Document version 2.0.13*
+*Document version 2.0.14*
 
 ## Vesion history
 
@@ -71,6 +71,7 @@ Version|Date|Decription
 2.0.11|20.6.2024|In chapter 4.5, added the format for the natural person's name used in the query message.| 
 2.0.12|28.8.2024|Instructions for returning public guardian's sequence number have been added to chapter 4.11.|
 2.0.13|25.9.2025|Returning of start date and end date of the account roles added to the example messages. Added to the chapter 5: From 1.12.2025 onwards the start and end date of a role related to an account need to be returned.|
+2.0.14|X.10.2025|Added to the chapter 5: From 1.12.2025 onwards credit institutions must return customership start and end dates for both natural persons and organisations who own or have access right to the account. Corresponding updates done to example response messages.|
 
 ## Table of contents
 
