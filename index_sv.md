@@ -71,6 +71,7 @@ Version|Datum|Beskrivning
 2.0.11|20.6.2024|Format för fysisk persons namn i frågemeddelandet har lagts till i avsnitt 4.5.| 
 2.0.12|28.8.2024|Information gällande ordningsnumret för allmänna intressebevakare har lagts till i kapitlet 4.11.|
 2.0.13|25.9.2025|Returnering av startdatum och slutdatum för kontoroller har lagts till i exempelfiler. Lagts till i kapitlet 5: Från och med 1.12.2025 ska startdatum och slutdatum för den roll som är kopplad till kontot returneras.|
+2.0.14|X.10.2025|Lagts till i kapitlet 5: Från och med 1.12.2025 ska kreditinstitut returnera startdatum och slutdatum för kundrelation för kontoinnehavare och innehavare av användningsrätt till ett konto för både personer och organisationer. Motsvarande uppdateringar har gjorts i exempelfiler.|
 
 ## Innehåll
 
