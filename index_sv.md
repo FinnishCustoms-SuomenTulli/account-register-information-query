@@ -854,7 +854,7 @@ Om det svarsmeddelande som returneras inte innehåller datumuppgifter om kundrel
 
 |Namn|Typ|Används|[min..max]|Beskrivning|
 |:---|:---|:---|:---|:---|
-|Id|PartyIdentification41b|Ja|[1..1]|Kreditinstitutet returnerar i fältet uppgifter om den juridiska person som anknyter till den kundrelationsuppgift som fogas till meddelandet (CustomerInfo-elementet) eller till uppgiften om förmånstagare (Beneficiaries-elementet). Övriga uppgiftsleverantörer returnerar i fältet uppgifterna om den juridiska person eller fysiska person som anknyter till uppgiften om kundrelationen (CusomerInfo-elementet). Se [användning av Id-element](#anvandning_av_id-element)|
+|Id|PartyIdentification41b|Ja|[1..1]|Kreditinstitutet returnerar i fältet uppgifter om den juridiska person eller fysiska person som anknyter till den kundrelationsuppgift som fogas till meddelandet (CustomerInfo-elementet) eller till uppgiften om förmånstagare (Beneficiaries-elementet). Övriga uppgiftsleverantörer returnerar i fältet uppgifterna om den juridiska person eller fysiska person som anknyter till uppgiften om kundrelationen (CusomerInfo-elementet). Se [användning av Id-element](#anvandning_av_id-element)|
 |CustomerInfo|CustomerInfo|Ja|[0..1]|Kundrelationsuppgifter, det vill säga start- och eventuellt slutdatum. Se [användning av CustomerInfo-elementet](#customer-info)|
 |Beneficiaries|Beneficiaries|Ja|[0..1]|Uppgifter om förmånstagare. Se [användning av Beneficiaries-elementet](#beneficiaries_anvandning)|
 
@@ -1177,13 +1177,13 @@ n del av de uppgifter som anges i svaren på förfrågningar kan vara omtvistade
 ## <a name="#paragraf5"></a> 5. Begränsningar av datamängder för returnerade förfrågningar enligt kundkategori
 
 Olika sökkriterier producerar olika datamängder som svar. I detta kapitel beskrivs den datamängd som ska returneras som svar på varje sökning. Utöver sökkriteriet beror datamängden också på uppgiftsleverantörens kundkategori.
-Leverantörer av uppgifter är delade i två kategorier: kundkategori 1, som omfattar kreditinstituten, samt kundkategori 2, som omfattar betalningsinstitut, institut för elektroniska pengar och tillhandahållare av virtuella valutor.
+Leverantörer av uppgifter är delade i två kategorier: kundkategori 1, som omfattar kreditinstituten, samt kundkategori 2, som omfattar betalningsinstitut, institut för elektroniska pengar och leverantörer av kryptotillgångstjänster.
 
 ### <a name="5-1"></a> 5.1 Kundkategori 1
 
 #### <a name="5-1-1"></a> 5.1.1 Sökning på person
 
-Om den sökta personen är kontoinnehavare, innehavare av användningsrätt till ett konto, hyrare av bankfack eller innehavare av användningsrätt till ett bankfack i ett kreditinstitut, returneras som svar uppgifter om sådana organisationer för vilka den sökta personen är förmånstagare, och uppgifter om sådana konton och bankfack för vilka den sökta personen är innehavare eller innehavare av användningsrätt under den använda sökintervallen. Övriga eventuella innehavare eller innehavare av användningsrättigheter till kontona eller bankfacken returneras inte. Inga uppgifter om kundrelation returneras. Uppgifter om gemensamma konton som förvaltas av en advokat returneras inte. Om den sökta personen inte har konton eller bankfack i kreditinstituten, returneras svaret "NFOU".
+Om den sökta personen är kontoinnehavare, innehavare av användningsrätt till ett konto, hyrare av bankfack eller innehavare av användningsrätt till ett bankfack i ett kreditinstitut, returneras som svar uppgifter om sådana organisationer för vilka den sökta personen är förmånstagare. Om den sökta personen är kontoinnehavare eller innehavare av användningsrätt till ett konto i ett kreditinstitut, returneras uppgifter om kundrelation för den sökta personen. Dessutom returneras uppgifter om sådana konton och bankfack för vilka den sökta personen är innehavare eller innehavare av användningsrätt under den använda sökintervallen. Övriga eventuella innehavare eller innehavare av användningsrättigheter till kontona eller bankfacken returneras inte. Inga uppgifter om kundrelation returneras. Uppgifter om gemensamma konton som förvaltas av en advokat returneras inte. Om den sökta personen inte har konton eller bankfack i kreditinstituten, returneras svaret "NFOU".
 
 Från och med den 1.12.2025 ska startdatum och eventuella slutdatum för roller relaterade till en persons konton returneras i kontoinformationen.
 
