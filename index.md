@@ -840,7 +840,7 @@ Jos vastauksessa ei palauteta edunsaajuustietoja eikä asiakkuustietoja (asiakku
 |&nbsp;&nbsp;&nbsp;&nbsp;InvstgtnId|kyllä|[1..1]|Max35Text|Tutkinnan case-id|
 |&nbsp;&nbsp;&nbsp;&nbsp;CreDtTm|kyllä|[1..1]|ISODateTime|Sanoman luomisaika|
 |&nbsp;&nbsp;&nbsp;&nbsp;SvcrId|kyllä|[1..1]|BranchAndFinancialInstitutionIdentification4|Käytetään seuraavasti: Elementti `SvcrId/FinInstnId/Othr/SchmeNm/Cd` sisältää arvon "Y" ja elementti `SvcrId/FinInstnId/Othr/Id` sisältää lähettäjän Y-tunnuksen.|
-|&nbsp;&nbsp;&nbsp;&nbsp;LegalPersonInfo|kyllä|[1..*]|LegalPersonInfo|Oikeushenkilö tai luonnollinen henkilö. Ks. [LegalPersonInfo-elementin käyttö](#legal-person-info) taulukko alla|
+|&nbsp;&nbsp;&nbsp;&nbsp;LegalPersonInfo|kyllä|[1..*]|LegalPersonInfo|Oikeushenkilö tai luonnollinen henkilö. Ks. [LegalPersonInfo-elementin käyttö](#legal-person-info) taulukko alla.|
 
 #### <a name="legal-person-info"></a>LegalPersonInfo-elementin käyttö
 
@@ -850,7 +850,7 @@ Jos palautettavaan vastaussanomaan ei sisälly asiakkuuden päivämäärätietoj
 
 |Nimi|Tyyppi|Käytössä|[min..max]|Kuvaus|
 |:---|:---|:---|:---|:---|
-|Id|PartyIdentification41b|Kyllä|[1..1]|Luottolaitokset palauttavat kentässä sen oikeushenkilön tiedot, joka liittyy sanomaan liitettävään asiakkuustietoon (CustomerInfo-elementti) tai edunsaajuustietoon (Beneficiaries-elementti). Muut tiedonluovuttajat palauttavat kentässä asiakkuustietoon (CustomerInfo-elementti) liittyvän oikeushenkilön tai luonnollisen henkilön tiedot. Ks. [Id-elementin käyttö](#id-elementin_kaytto)|
+|Id|PartyIdentification41b|Kyllä|[1..1]|Luottolaitokset palauttavat kentässä sen oikeushenkilön tai luonnollisen henkilön tiedot, joka liittyy sanomaan liitettävään asiakkuustietoon (CustomerInfo-elementti) tai edunsaajuustietoon (Beneficiaries-elementti). Muut tiedonluovuttajat palauttavat kentässä asiakkuustietoon (CustomerInfo-elementti) liittyvän oikeushenkilön tai luonnollisen henkilön tiedot. Ks. [Id-elementin käyttö](#id-elementin_kaytto)|
 |CustomerInfo|CustomerInfo|Kyllä|[0..1]|Asiakkuustiedot eli asiakkuuden alkamis- ja mahdollinen päättymispäivä. Ks. [CustomerInfo-elementin käyttö](#customer-info)|
 |Beneficiaries|Beneficiaries|Kyllä|[0..1]|Edunsaajatiedot. Ks. [Beneficiaries-elementin käyttö](#beneficiaries_kaytto)|
 
