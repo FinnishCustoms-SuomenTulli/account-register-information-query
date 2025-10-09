@@ -71,7 +71,7 @@ Version|Date|Decription
 2.0.11|20.6.2024|In chapter 4.5, added the format for the natural person's name used in the query message.| 
 2.0.12|28.8.2024|Instructions for returning public guardian's sequence number have been added to chapter 4.11.|
 2.0.13|25.9.2025|Returning of start date and end date of the account roles added to the example messages. Added to the chapter 5: From 1.12.2025 onwards the start and end date of a role related to an account need to be returned.|
-2.0.14|X.10.2025|Added to the chapter 5: From 1.12.2025 onwards credit institutions must return customership start and end dates for both natural persons and organisations who own or have access right to the account. Corresponding updates done to the example response messages.|
+2.0.14|9.10.2025|Added to the chapter 5: From 1.12.2025 onwards credit institutions must return customership start and end dates for both natural persons and organisations who own or have access right to the account. Corresponding updates done to the example response messages.|
 
 ## Table of contents
 
@@ -1233,7 +1233,7 @@ From 1.12.2025 onwards, the start dates and possible end dates of the roles rela
 
 #### <a name="5-1-2"></a> 5.1.2 Organisation query
 
-If organisation who is the object of the query owns or has access right to an account or a safety deposit box in the credit institution, the response includes the information of persons who are beneficiaries of the organisation. If the organisation who is the object of the query owns or has access right to an account in the credit institution, their customership information is returned. Also information of accounts and safety deposit boxes the organisation owns or has access right to during the investigation period is returned. Other natural or legal persons who own or have access right to these accounts or safety deposit boxes are not returned. Lawyer's customer asset accounts are not returned. If the organisation has no accounts or safety deposit boxes in the credit institution, response "NFOU" is returned.
+If organisation who is the object of the query owns or has access right to an account or a safety deposit box in the credit institution, the response includes the information of persons who are beneficiaries of the organisation. If the organisation who is the object of the query owns an account, has access right to an account or owns a safety deposit box in the credit institution, their customership information is returned. Also information of accounts and safety deposit boxes the organisation owns or has access right to during the investigation period is returned. Other natural or legal persons who own or have access right to these accounts or safety deposit boxes are not returned. Lawyer's customer asset accounts are not returned. If the organisation has no accounts or safety deposit boxes in the credit institution, response "NFOU" is returned.
 
 From 1.12.2025 onwards, the start dates and possible end dates of the roles related to organisation’s accounts need to be returned in the account information. Also from 1.12.2025 onwards, customership start and possible end dates must be returned for organisations who own or have access right to an account.
 
@@ -1241,7 +1241,7 @@ From 1.12.2025 onwards, the start dates and possible end dates of the roles rela
 
 |Limitation|Submessage|Element|Description|
 |:---|:---|:---|:---|
-|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo element is returned from 1.12.2025 onwards if the organisation owns or has access right to an account.|
+|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo element is returned from 1.12.2025 onwards if the organisation owns an account or has access right to an account.|
 |Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Starting 1.12.2025, account role start date is returned.|
 |Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Starting 1.12.2025, account role end date is returned, if there is one.|
 |Other legal or natural persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In organisation query, only the role related to the legal person defined in the query is returned with the account data.|
