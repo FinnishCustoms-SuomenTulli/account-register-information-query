@@ -1248,8 +1248,8 @@ Asiakaskategorian 1 tilihaussa vastauksena palautetaan haetun tilin tiedot sekä
 
 |Rajaus|Alisanoma|Elementti|Kuvaus|
 |:---|:---|:---|:---|
-|Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Tiliroolin alkupäivämäärä palautetaan 1.12.2025 alkaen.|
-|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Tiliroolin loppupäivämäärä palautetaan 1.12.2025 alkaen, mikäli sellainen on.|
+|Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Jos tili on asianajajan asiakasvaratili, tiliroolin alkupäivää ei palauteta. Muutoin tiliroolin alkupäivämäärä palautetaan 1.12.2025 alkaen.|
+|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Jos tili on asianajajan asiakasvaratili, tiliroolin loppupäivää ei palauteta. Muutoin tiliroolin loppupäivämäärä palautetaan 1.12.2025 alkaen, mikäli sellainen on.|
 |Tilin avaamispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Tilin avaamispäivämäärää ei palauteta, jos kyseessä on asianajajan asiakasvaratili. Ks. [CustomerAccount-käyttö](#customer-account1).|
 |Tilin sulkemispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Tilin sulkemispäivämäärää ei palauteta, jos kyseessä on asianajajan asiakasvaratili. Ks. [CustomerAccount-käyttö](#customer-account1).|
 |Asiakkuustieto|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo kenttää ei palauteta, jos tili on asianajajan asiakasvaratili. Muutoin se palautetaan 1.12.2025 alkaen kaikista tilinhaltijoista ja tilin käyttöoikeudenhaltijoista, jotka ovat luottolaitoksen asiakkaita.|
@@ -1316,8 +1316,8 @@ Asiakaskategorian 2 tilihaussa vastauksena palautetaan haetun tilin tiedot, sek�
 
 |Rajaus|Alisanoma|Elementti|Kuvaus|
 |:---|:---|:---|:---|
-|Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Tiliroolin alkupäivämäärä palautetaan 1.12.2025 alkaen.|
-|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Tiliroolin loppupäivämäärä palautetaan 1.12.2025 alkaen, mikäli sellainen on.|
+|Tiliroolin alkupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Jos tili on asianajajan asiakasvaratili, tiliroolin alkupäivää ei palauteta. Muutoin tiliroolin alkupäivämäärä palautetaan 1.12.2025 alkaen.|
+|Tiliroolin loppupäivä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Jos tili on asianajajan asiakasvaratili, tiliroolin loppupäivää ei palauteta. Muutoin tiliroolin loppupäivämäärä palautetaan 1.12.2025 alkaen, mikäli sellainen on.|
 |Tilin avaamispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Tilin avaamispäivämäärää ei palauteta.|
 |Tilin sulkemispäivämäärä|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Tilin sulkemispäivämäärää ei palauteta.|
 |Asiakkuustieto|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo kenttää ei palauteta, jos tili on asianajajan asiakasvaratili. Muutoin se palautetaan kaikista tilinhaltijoista ja tilin käyttöoikeudenhaltijoista, jotka ovat tiedonluovuttajan asiakkaita. Ks. [CustomerAccount-käyttö](#customer-account1).|
