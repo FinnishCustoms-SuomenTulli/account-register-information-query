@@ -1233,15 +1233,15 @@ From 1.12.2025 onwards, the start dates and possible end dates of the roles rela
 
 #### <a name="5-1-2"></a> 5.1.2 Organisation query
 
-If organisation who is the object of the query owns or has access right to an account or a safety deposit box in the credit institution, the response includes the information of persons who are beneficiaries of the organisation. If the organisation who is the object of the query owns an account, has access right to an account or owns a safety deposit box in the credit institution, their customership information is returned. Also information of accounts and safety deposit boxes the organisation owns or has access right to during the investigation period is returned. Other natural or legal persons who own or have access right to these accounts or safety deposit boxes are not returned. Lawyer's customer asset accounts are not returned. If the organisation has no accounts or safety deposit boxes in the credit institution, response "NFOU" is returned.
+If organisation who is the object of the query owns or has access right to an account or a safety deposit box in the credit institution, the response includes the information of persons who are beneficiaries of the organisation. If the organisation who is the object of the query is a customer of the credit institution, their customership information is returned. Also information of accounts and safety deposit boxes the organisation owns or has access right to during the investigation period is returned. Other natural or legal persons who own or have access right to these accounts or safety deposit boxes are not returned. Lawyer's customer asset accounts are not returned. If the organisation has no accounts or safety deposit boxes in the credit institution, response "NFOU" is returned.
 
-From 1.12.2025 onwards, the start dates and possible end dates of the roles related to organisation’s accounts need to be returned in the account information. Also from 1.12.2025 onwards, customership start and possible end dates must be returned for organisations who own or have access right to an account.
+From 1.12.2025 onwards, the start dates and possible end dates of the roles related to organisation’s accounts need to be returned in the account information. Also from 1.12.2025 onwards, customership start and possible end dates must be returned for organisations who are customers of the credit institution.
 
 *__Table 5.1.2.1:__ Limitations to queries for an organisation. This query category contains queries with a company's name and queries with legal person's registration number*
 
 |Limitation|Submessage|Element|Description|
 |:---|:---|:---|:---|
-|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo element is returned from 1.12.2025 onwards if the organisation owns an account or has access right to an account.|
+|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo element is returned from 1.12.2025 onwards if the organisation is a customer to the credit institution.|
 |Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Starting 1.12.2025, account role start date is returned.|
 |Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Starting 1.12.2025, account role end date is returned, if there is one.|
 |Other legal or natural persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In organisation query, only the role related to the legal person defined in the query is returned with the account data.|
@@ -1254,19 +1254,19 @@ From 1.12.2025 onwards, the start dates and possible end dates of the roles rela
 
 #### <a name="5-1-3"></a> 5.1.3 Account query
 
-In customer category 1 account query the response includes the information of the account that was the object of the query and information of the legal and natural persons who are account owners or have access right to the account during the investigation period. Customership information is returned for account's owners, and natural or legal persons who have access right to the account. Organisation's beneficiary information is not returned.
+In customer category 1 account query the response includes the information of the account that was the object of the query and information of the legal and natural persons who are account owners or have access right to the account during the investigation period. If the searched account is a lawyer's customer asset account customership information is not returned. Otherwise the customership information is returned for all account's owners, and natural or legal persons who have access right to the account that are customers of the credit institution. Organisation's beneficiary information is not returned.
 
-From 1.12.2025 onwards, the start dates and possible end dates of the roles related to an account need to be returned in the account information. Also from 1.12.2025 onwards, customership start and possible end dates must be returned for account owners and those who have access right to the account.
+From 1.12.2025 onwards, the start dates and possible end dates of the roles related to an account need to be returned in the account information. Also from 1.12.2025 onwards, customership start and possible end dates must be returned for customers of the credit institution.
 
 *__Table 5.1.3.1:__ Limitations to queries for an account. This query category contains queries with an account's IBAN number and queries with other account identifications*
 
 |Limitation|Submessage|Element|Description|
 |:---|:---|:---|:---|
-|Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Starting 1.12.2025, account role start date is returned.|
-|Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Starting 1.12.2025, account role end date is returned, if there is one.|
+|Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|If the account is a lawyer's customer asset account the account role start date is not returned. Otherwise, the account role start date is returned 1.12.2025 onwards.|
+|Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|If the account is a lawyer's customer asset account the account role end date is not returned. Otherwise, the account role start date is returned 1.12.2025 onwards if there is one.|
 |Account opening date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Account opening date is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#customer-account1).|
 |Account closing date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Account closing date is not returned if the account in question is lawyer's customer asset account. See [Use of CustomerAccount](#customer-account1).|
-|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is returned about all natural or legal persons who own or have access right to the account.|
+|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|If the account is a lawyer's customer asset account CustomerInfo field is not returned. Otherwise, it is returned 1.12.2025 onwards about all natural or legal persons who own or have access right to the account and are customers of the credit institution.|
 |Beneficiaries|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Beneficiaries related to a legal person are not returned.|
 
 #### <a name="5-1-4"></a> 5.1.4 Safety deposit box query
