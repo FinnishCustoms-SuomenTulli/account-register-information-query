@@ -1271,7 +1271,7 @@ From 1.12.2025 onwards, the start dates and possible end dates of the roles rela
 
 #### <a name="5-1-4"></a> 5.1.4 Safety deposit box query
 
-In customer category 1 safety deposit box query the response includes the information of the safety deposit box that was the object of the query and information of the legal and natural persons who are own or have access right to the safety deposit box during the investigation period. Customership information is returned for safety deposit box's owners who are organisations. Customership information is not returned for organisations that have only access right to the safety deposit box. Organisation's beneficiary information is not returned.
+In customer category 1 safety deposit box query the response includes the information of the safety deposit box that was the object of the query and information of the legal and natural persons who are own or have access right to the safety deposit box during the investigation period. Customership information is returned for safety deposit box's owners and access right holders who are customers of the credit institution. Organisation's beneficiary information is not returned.
 
 *__Table 5.1.4.1:__ Limitations to queries for a safety deposit box. This query category contains queries with a safety deposit box's identification*
 
@@ -1279,7 +1279,7 @@ In customer category 1 safety deposit box query the response includes the inform
 |:---|:---|:---|:---|
 |Safety deposit box role start date|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Safety deposit box role starting date is not returned.|
 |Safety deposit box role end date|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Safety deposit box role ending date is not returned.|
-|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is not returned about a natural person.|
+|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo is returned for safety deposit box's leaseholders and access right holders who are customers of the credit institution.|
 |Beneficiaries|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Beneficiaries related to a legal person are not returned.|
 
 ### <a name="5-2"></a> 5.2 Customer category 2
