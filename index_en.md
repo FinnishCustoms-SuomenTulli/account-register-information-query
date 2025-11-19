@@ -72,6 +72,7 @@ Version|Date|Decription
 2.0.12|28.8.2024|Instructions for returning public guardian's sequence number have been added to chapter 4.11.|
 2.0.13|25.9.2025|Returning of start date and end date of the account roles added to the example messages. Added to the chapter 5: From 1.12.2025 onwards the start and end date of a role related to an account need to be returned.|
 2.0.14|9.10.2025|Added to the chapter 5: From 1.12.2025 onwards credit institutions must return customership start and end dates for both natural persons and organisations who own or have access right to the account. Corresponding updates done to the example response messages.|
+2.0.15|X.11.2025|Specifications to the returning of the customership start and end dates in chapter 5.|
 
 ## Table of contents
 
