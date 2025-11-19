@@ -1219,7 +1219,7 @@ Jos haettu henkilö on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhal
 
 #### <a name="5-1-2"></a> 5.1.2 Organisaatiohaku
 
-Jos haettu organisaatio on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhaltija, tallelokeron vuokraaja tai tallelokeron käyttöoikeudenhaltija, vastauksena palautetaan sellaisten henkilöiden tiedot, jotka ovat haetun organisaation edunsaajia. Jos haettu organisaatio on luottolaitoksen asuiakas, palautetaan haetun organisaation asiakkuustieto. Lisäksi palautetaan sellaisten tilien ja tallelokeroiden tiedot, joissa haettu organisaatio on haltijana tai käyttöoikeudenhaltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita haltijoita tai käyttöoikeudenhaltijoita ei palauteta. Asianajajan asiakasvaratilejä ei palauteta. Jos haetulla organisaatiolla ei ole tilejä tai tallelokeroita luottolaitoksessa, palautetaan vastaus "NFOU".
+Jos haettu organisaatio on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhaltija, tallelokeron vuokraaja tai tallelokeron käyttöoikeudenhaltija, vastauksena palautetaan sellaisten henkilöiden tiedot, jotka ovat haetun organisaation edunsaajia. Jos haettu organisaatio on luottolaitoksen asiakas, palautetaan haetun organisaation asiakkuustieto. Lisäksi palautetaan sellaisten tilien ja tallelokeroiden tiedot, joissa haettu organisaatio on haltijana tai käyttöoikeudenhaltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita haltijoita tai käyttöoikeudenhaltijoita ei palauteta. Asianajajan asiakasvaratilejä ei palauteta. Jos haetulla organisaatiolla ei ole tilejä tai tallelokeroita luottolaitoksessa, palautetaan vastaus "NFOU".
 
 1.12.2025 alkaen tilitiedoissa tulee palauttaa organisaation tileihin liittyvien roolien alkamispäivät ja mahdolliset päättymispäivät, sekä luottolaitoksen asiakkaista asiakkuuden alkamispäivä ja mahdollinen päättymispäivä.
 
@@ -1290,7 +1290,7 @@ Asiakaskategorian 2 henkilöhaussa vastauksena palautetaan haetun henkilön asia
 
 #### <a name="5-2-2"></a> 5.2.2 Organisaatiohaku
 
-Asiakaskategorian 2 organisaatiohaussa vastauksena palautetaan haetun organisaation asiakkuustieto, jos henkilö on tiedonluovuttajan asiakas, sekä sellaisten tilien tiedot, joissa haettu organisaatio on haltijana tai käyttöoikeudenhaltijana käytetyllä hakuaikavälillä. Tilien mahdollisia muita haltijoita tai käyttöoikeudenhaltijoita ei palauteta. Edunsaajuustietoja ei palauteta. Asianajajan asiakasvaratilejä ei palauteta.
+Asiakaskategorian 2 organisaatiohaussa vastauksena palautetaan haetun organisaation asiakkuustieto, jos organisaatio on tiedonluovuttajan asiakas, sekä sellaisten tilien tiedot, joissa haettu organisaatio on haltijana tai käyttöoikeudenhaltijana käytetyllä hakuaikavälillä. Tilien mahdollisia muita haltijoita tai käyttöoikeudenhaltijoita ei palauteta. Edunsaajuustietoja ei palauteta. Asianajajan asiakasvaratilejä ei palauteta.
 
 1.12.2025 alkaen tilitiedoissa tulee palauttaa organisaation tileihin liittyvien roolien alkamispäivät ja sekä mahdolliset päättymispäivät.
 
