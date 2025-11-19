@@ -1211,15 +1211,15 @@ Data providers have been divided into two categories: customer category 1 that r
 
 #### <a name="5-1-1"></a> 5.1.1 Natural person query
 
-If person who is the object of the query owns or has access right to an account or a safety deposit box in the credit institution, the response includes the information of organisations where the person is a beneficiary. If the person who is the object of the query owns or has access right to an account in the credit institution, person's customership information is returned. Also information of accounts and safety deposit boxes the person owns or has access right to during the investigation period is returned. Other natural or legal persons who own or have access right to these accounts or safety deposit boxes are not returned. Lawyer's customer asset accounts are not returned. If the person has no accounts or safety deposit boxes in the credit institution, response "NFOU" is returned.
+If person who is the object of the query owns or has access right to an account or a safety deposit box in the credit institution, the response includes the information of organisations where the person is a beneficiary. If the person who is the object of the query is a customer of the credit institution, person's customership information is returned. Also information of accounts and safety deposit boxes the person owns or has access right to during the investigation period is returned. Other natural or legal persons who own or have access right to these accounts or safety deposit boxes are not returned. Lawyer's customer asset accounts are not returned. If the person has no accounts or safety deposit boxes in the credit institution, response "NFOU" is returned.
 
-From 1.12.2025 onwards, the start dates and possible end dates of the roles related to natural person’s accounts need to be returned in the account information. Also from 1.12.2025 onwards, customership start and possible end dates must be returned for persons who own or have access right to an account.
+From 1.12.2025 onwards, the start dates and possible end dates of the roles related to natural person’s accounts need to be returned in the account information. Also from 1.12.2025 onwards, customership start and possible end dates must be returned for persons who are customers of the credit institution.
 
 *__Table 5.1.1.1:__ Limitations to queries for a person. This query category contains queries with a personal ID and queries with a natural person's name, nationality and birth date combination*
 
 |Limitation|Submessage|Element|Description|
 |:---|:---|:---|:---|
-|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo element is returned from 1.12.2025 onwards if the person owns or has access right to an account.|
+|Customership information|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo element is returned from 1.12.2025 onwards if the person is a customer to the credit institution.|
 |Account role start date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Starting 1.12.2025, account role start date is returned.|
 |Account role end date|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Starting 1.12.2025, account role end date is returned, if there is one.|
 |Other legal or natural persons related to an account|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role|In natural person query, only the role related to the natural person defined in the query is returned with the account data.|
