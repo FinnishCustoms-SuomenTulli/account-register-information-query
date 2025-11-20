@@ -1235,16 +1235,16 @@ Från och med den 1.12.2025 ska startdatum och eventuella slutdatum för roller 
 
 |Begränsning|Undermeddelande|Element|Beskrivning|
 |:---|:---|:---|:---|
-|Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Kontorollens startdatum returneras från och med 1.12.2025.|
-|Kontorollens slutdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Kontorollens slutdatum returneras från och med 1.12.2025, om det finns ett.|
+|Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Om det sökta kontot är ett gemensamt konto som förvaltas av en advokat kontorollens startdatum returneras inte. Annars kontorollens startdatum returneras från och med 1.12.2025.|
+|Kontorollens slutdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndDt|Om det sökta kontot är ett gemensamt konto som förvaltas av en advokat kontorollens slutdatum returneras inte. Annars kontorollens slutdatum returneras från och med 1.12.2025, om det finns ett.|
 |Kontots öppningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Öppningsdatum för kontot returneras inte, om det är fråga om ett gemensamt konto som förvaltas av en advokat. Se [användning av CustomerAccount](#customer-account1).|
 |Kontots avslutningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Avslutningsdatum för kontot returneras inte, om det är fråga om ett gemensamt konto som förvaltas av en advokat. Se [användning av CustomerAccount](#customer-account1).|
-|Kundrelationsuppgift|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|Fältet CustomerInfo returneras från och med 1.12.2025 om alla kontoinnehavare eller innehavare av användningsrätt till ett konto.|
+|Kundrelationsuppgift|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|Om det sökta kontot är ett gemensamt konto som förvaltas av en advokat fältet CustomerInfo returneras inte. Annars CustomerInfo returneras från och med 1.12.2025 om alla fysiska och juridiska personer som är kontoinnehavare eller innehavare av användningsrätt till ett konto och som är kunder hos kreditinstitutet.|
 |Uppgifter om förmånstagare|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Uppgifter om förmånstagare returneras inte för en juridisk person.|
 
 #### <a name="5-1-4"></a> 5.1.4 Sökning på bankfack
 
-I sökningen på bankfack i kundkategori 1, returneras som svar uppgifter om det sökta bankfacket och uppgifter om juridiska och fysiska personer som är hyrare av bankfacket eller som har användningsrätt till det under sökintervallet.  Kundrelationsuppgifter returneras för hyrare av bankfack som är organisationer. Kundrelationsuppgifter returneras inte för organisationer som enbart är innehavare av dispositionsrätt till ett bankfack. Uppgifter om organisationens förmånstagare returneras inte. 
+I sökningen på bankfack i kundkategori 1, returneras som svar uppgifter om det sökta bankfacket och uppgifter om juridiska och fysiska personer som är hyrare av bankfacket eller som har användningsrätt till det under sökintervallet.  Kundrelationsuppgifter returneras för hyrare och de som har användningsrätt till bankfacket som är kunder hos kreditinstitutet. Uppgifter om organisationens förmånstagare returneras inte. 
 
 *__Tabell 5.1.4.1:__ Begränsningar för sökning på bankfack. Till denna sökkategori hör sökningar med bankfackets identifieringsuppgifter*
 
@@ -1252,14 +1252,14 @@ I sökningen på bankfack i kundkategori 1, returneras som svar uppgifter om det
 |:---|:---|:---|:---|
 |Bankfackrollens startdatum|InformationResponseFIN002|/SdBoxAndPties/Role/StartDt|Bankfackrollens startdatum returneras inte.|
 |Bankfackrollens slutdatum|InformationResponseFIN002|/SdBoxAndPties/Role/EndDt|Bankfackrollens slutdatum returneras inte.|
-|Kundrelationsuppgift|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|Fältet CustomerInfo returneras inte för fysiska personer.|
+|Kundrelationsuppgift|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|Fältet CustomerInfo returneras för hyrare av bankfack och de som har användningsrätt till bankfacket som är kunder hos kreditinstitutet.|
 |Uppgifter om förmånstagare|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Uppgifter om förmånstagare returneras inte för en juridisk person.|
 
 ### <a name="5-2"></a> 5.2 Kundkategori 2
 
 #### <a name="5-2-1"></a> 5.2.1 Sökning på person
 
-I sökningen på person i kundkategori 2 returneras som svar den sökta personens kundrelation och uppgifter om sådana konton för vilka den sökta personen är innehavare eller innehavare av användningsrätt under sökintervallet.  Övriga eventuella innehavare eller innehavare av användningsrätt till kontona returneras inte. Uppgifter om förmånstagare returneras inte. Uppgifter om gemensamma konton som förvaltas av en advokat returneras inte.
+I sökningen på person i kundkategori 2 returneras som svar den sökta personens kundrelation om personen är kund hos uppgiftsleverantörer och uppgifter om sådana konton för vilka den sökta personen är innehavare eller innehavare av användningsrätt under sökintervallet.  Övriga eventuella innehavare eller innehavare av användningsrätt till kontona returneras inte. Uppgifter om förmånstagare returneras inte. Uppgifter om gemensamma konton som förvaltas av en advokat returneras inte.
 
 Från och med den 1.12.2025 ska startdatum och eventuella slutdatum för roller relaterade till en persons konton returneras i kontoinformationen.
 
@@ -1277,7 +1277,7 @@ Från och med den 1.12.2025 ska startdatum och eventuella slutdatum för roller 
 
 #### <a name="5-2-2"></a> 5.2.2 Sökning på organisation
 
-I sökningen på organisation i kundkategori 2, returneras kundrelationsuppgifter om den sökta organisationen och uppgifter om sådana konton för vilka den sökta organisationen är innehavare eller innehavare av användningsrätt under sökintervallet. Övriga eventuella innehavare eller innehavare av användningsrätt till kontona returneras inte. Uppgifter om förmånstagare returneras inte. Uppgifter om gemensamma konton som förvaltas av en advokat returneras inte.
+I sökningen på organisation i kundkategori 2, returneras kundrelationsuppgifter om den sökta organisationen om organisationen är kund hos uppgiftsleverantörer och uppgifter om sådana konton för vilka den sökta organisationen är innehavare eller innehavare av användningsrätt under sökintervallet. Övriga eventuella innehavare eller innehavare av användningsrätt till kontona returneras inte. Uppgifter om förmånstagare returneras inte. Uppgifter om gemensamma konton som förvaltas av en advokat returneras inte.
 
 Från och med den 1.12.2025 ska startdatum och eventuella slutdatum för roller relaterade till en organisationens konton returneras i kontoinformationen.
 
@@ -1295,7 +1295,7 @@ Från och med den 1.12.2025 ska startdatum och eventuella slutdatum för roller 
 
 #### <a name="5-2-3"></a> 5.2.3 Sökning på konto
 
-Vid sökningen på konto i kundkategori 2, returneras som svar uppgifter om det sökta kontot och uppgifter om juridiska och fysiska personer som är kontoinnehavare eller innehavare av användningsrätt under sökintervallet. Uppgifter om kundrelation returneras inte för fysiska personer om kontot är ett gemensamt konto som förvaltas av en advokat. Annars returneras uppgifter om kundrelation för alla innehavare av eller innehavare av användningsrätt till kontot. Uppgifter om organisationens förmånstagare returneras inte.
+Vid sökningen på konto i kundkategori 2, returneras som svar uppgifter om det sökta kontot och uppgifter om juridiska och fysiska personer som är kontoinnehavare eller innehavare av användningsrätt under sökintervallet. Uppgifter om kundrelation returneras inte om kontot är ett gemensamt konto som förvaltas av en advokat. Annars returneras uppgifter om kundrelation för alla innehavare av eller innehavare av användningsrätt till kontot. Uppgifter om organisationens förmånstagare returneras inte.
 
 Från och med den 1.12.2025 ska startdatum och eventuella slutdatum för roller relaterade till en konton returneras i kontoinformationen.
 
@@ -1303,9 +1303,9 @@ Från och med den 1.12.2025 ska startdatum och eventuella slutdatum för roller 
 
 |Begränsning|Undermeddelande|Element|Beskrivning|
 |:---|:---|:---|:---|
-|Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Kontorollens startdatum returneras från och med 1.12.2025.|
-|Kontorollens slutdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Kontorollens slutdatum returneras från och med 1.12.2025, om det finns ett.|
+|Kontorollens startdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/StartDt|Om det sökta kontot är ett gemensamt konto som förvaltas av en advokat kontorollens startdatum returneras inte. Annars kontorollens startdatum returneras från och med 1.12.2025.|
+|Kontorollens slutdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Role/EndtDt|Om det sökta kontot är ett gemensamt konto som förvaltas av en advokat kontorollens slutdatum returneras inte. Annars kontorollens slutdatum returneras från och med 1.12.2025, om det finns ett.|
 |Kontots öppningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/AddtlInf|Kontots öppningsdatum returneras inte.|
 |Kontots avslutningsdatum|InformationResponseSD1V01 supl.027.001.01|/AcctAndPties/Acct/ClsgDt|Kontots avslutningsdatum returneras inte.|
-|Kundrelationsuppgift|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo-fältet returneras inte, om fet konto som anknyter till den fysiska personen i fråga är ett gemensamt konto som förvaltas av en advokat. Se [användning av CustomerAccount](#customer-account1).|
+|Kundrelationsuppgift|InformationResponseFIN013|/LegalPersonInfo/CustomerInfo|CustomerInfo-fältet returneras inte om kontot är ett gemensamt konto som förvaltas av en advokat. Annars CustomerInfo returneras om alla fysiska och juridiska personer som är kontoinnehavare eller innehavare av användningsrätt till ett konto och som är kunder hos uppgiftsleverantörer. Se [användning av CustomerAccount](#customer-account1).|
 |Uppgifter om förmånstagare|InformationResponseFIN013|/LegalPersonInfo/Beneficiaries|Uppgifter om förmånstagare returneras inte för en juridisk person.|
