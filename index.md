@@ -72,7 +72,7 @@ Versio|Päivämäärä|Kuvaus
 2.0.12|28.8.2024|Lisätty ohjeet yleisen edunvalvojan järjestysnumeron palauttamisesta lukuun 4.11.|
 2.0.13|25.9.2025|Lisätty esimerkkivastaussanomiin tiliroolien alkamis- ja päättämispäivän palautus. Lisätty lukuun 5: 1.12.2025 alkaen tulee palauttaa tiliin liittyvän roolin alkamis- ja päättymispäivämäärä.|
 2.0.14|9.10.2025|Lisätty lukuun 5: 1.12.2025 alkaen luottolaitosten tulee palauttaa myös tilinhaltijan ja tilin käyttöoikeudenhaltijan asiakkuuden alkamis- ja päättymispäivämäärä sekä luonnollisille henkilöille että organisaatioille. Tehty vastaavat päivitykset esimerkkivastaussanomiin.|  
-2.0.15|X.11.2025|Tarkennuksia asiakkuuden alkamis- ja päättymispäivämäärien ilmoittamiseen lukuun 5.|
+2.0.15|20.11.2025|Tarkennuksia asiakkuuden alkamis- ja päättymispäivämäärien ilmoittamiseen lukuun 5.|
 
 ## Sisällysluettelo
 
@@ -1199,7 +1199,7 @@ Tiedon luovuttajat on jaettu kahteen kategoriaan: asiakaskategoria 1, joka katta
 
 Jos haettu henkilö on luottolaitoksessa tilinhaltija, tilin käyttöoikeudenhaltija, tallelokeron vuokraaja tai tallelokeron käyttöoikeudenhaltija, vastauksena palautetaan sellaisten organisaatioiden tiedot, joissa haettu henkilö on edunsaajana. Jos haettu henkilö on luottolaitoksen asiakas, palautetaan haetun henkilön asiakkuustieto. Lisäksi palautetaan sellaisten tilien ja tallelokeroiden tiedot, joissa haettu henkilö on haltijana tai käyttöoikeudenhaltijana käytetyllä hakuaikavälillä. Tilien tai tallelokeroiden mahdollisia muita haltijoita tai käyttöoikeudenhaltijoita ei palauteta. Asianajajan asiakasvaratilejä ei palauteta. Jos haetulla henkilöllä ei ole tilejä tai tallelokeroita luottolaitoksessa, palautetaan vastaus "NFOU".
 
-1.12.2025 alkaen tilitiedoissa tulee palauttaa henkilön tileihin liittyvien roolien alkamispäivät ja mahdolliset päättymispäivät, sekä luottolaitoksen asiakkaista asiakkuuden alkamis- ja päättymispäivä. 
+1.12.2025 alkaen tilitiedoissa tulee palauttaa henkilön tileihin liittyvien roolien alkamispäivät ja mahdolliset päättymispäivät, sekä luottolaitoksen asiakkaista asiakkuuden alkamis- ja mahdollinen päättymispäivä. 
 
 *__Taulukko 5.1.1.1:__ Henkilöhakujen rajaukset. Tähän hakukategoriaan kuuluvat haut henkilötunnuksella ja haut luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä*
 
