@@ -290,9 +290,6 @@
                                                     </fin013:OrgId>
                                                 </fin013:Id>
                                             </fin013:Id>
-                                            <fin013:CustomerInfo>
-                                                <fin013:OpngDt>1999-12-12</fin013:OpngDt>
-                                            </fin013:CustomerInfo>
                                             <fin013:Beneficiaries>
                                                 <fin013:Id>
                                                     <fin013:Nm>Marttila, Anselmi</fin013:Nm>
