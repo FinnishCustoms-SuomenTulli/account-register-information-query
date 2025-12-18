@@ -290,9 +290,6 @@
                                                     </fin013:OrgId>
                                                 </fin013:Id>
                                             </fin013:Id>
-                                            <fin013:CustomerInfo>
-                                                <fin013:OpngDt>1999-12-12</fin013:OpngDt>
-                                            </fin013:CustomerInfo>
                                             <fin013:Beneficiaries>
                                                 <fin013:Id>
                                                     <fin013:Nm>Marttila, Anselmi</fin013:Nm>
@@ -309,6 +306,27 @@
                                                     </fin013:PrvtId>
                                                 </fin013:Id>
                                             </fin013:Beneficiaries>
+                                        </fin013:LegalPersonInfo>
+                                        <fin013:LegalPersonInfo>
+                                            <fin013:Id>
+                                                <fin013:Nm>Marttila, Anselmi</fin013:Nm>
+                                                <fin013:Id>
+                                                    <fin013:PrvtId>
+                                                        <fin013:DtAndPlcOfBirth>
+                                                            <fin013:BirthDt>1973-03-07</fin013:BirthDt>
+                                                        </fin013:DtAndPlcOfBirth>
+                                                        <fin013:Othr>
+                                                            <fin013:Id>070373-7510</fin013:Id>
+                                                            <fin013:SchmeNm>
+                                                                <fin013:Cd>PIC</fin013:Cd>
+                                                            </fin013:SchmeNm>
+                                                        </fin013:Othr>
+                                                    </fin013:PrvtId>
+                                                </fin013:Id>
+                                            </fin013:Id>
+                                            <fin013:CustomerInfo>
+                                                <fin013:OpngDt>2003-09-01</fin013:OpngDt>
+                                            </fin013:CustomerInfo>
                                         </fin013:LegalPersonInfo>
                                     </fin013:InfRspnFin013>
                                 </fin013:Document>
