@@ -6,7 +6,7 @@
 
 # Beskrivning av datasöksystemets frågegränssnitt
 
-*Dokumentversion 2.0.15*
+*Dokumentversion 2.0.16*
 
 ## Versionshistorik
 
@@ -72,7 +72,8 @@ Version|Datum|Beskrivning
 2.0.12|28.8.2024|Information gällande ordningsnumret för allmänna intressebevakare har lagts till i kapitlet 4.11.|
 2.0.13|25.9.2025|Returnering av startdatum och slutdatum för kontoroller har lagts till i exempelfiler. Lagts till i kapitlet 5: Från och med 1.12.2025 ska startdatum och slutdatum för den roll som är kopplad till kontot returneras.|
 2.0.14|9.10.2025|Lagts till i kapitlet 5: Från och med 1.12.2025 ska kreditinstitut returnera startdatum och slutdatum för kundrelation för både fysiska personer och organisationer som är kontoinnehavare eller innehavare av användningsrätt till ett konto. Motsvarande uppdateringar har gjorts i exempelfiler.|
-2.0.15|20.11.2025|Specifikationer för återlämnande av startdatum och slutdatum för kundrelation i kapitlet 5.|
+2.0.15|20.11.2025|Specifikationer för återlämnande av startdatum och slutdatum för kundrelation i kapitlet 5.|  
+2.0.16|18.12.2025|Uppdaterade exempelfiler example_PIC_query_response_cat_1 och example_safety_deposit_box_query_response_cat_1.|   
 
 ## Innehåll
 
