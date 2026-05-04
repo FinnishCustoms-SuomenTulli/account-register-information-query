@@ -135,7 +135,7 @@ Tämä dokumentti on osa Tullin julkaisemaa määräystä pankki- ja maksutilien
 
 [fin.002.001.03](schemas/fin.002.001.03.xsd)
 
-[fin.012.001.03](schemas/fin.012.001.03.xsd)
+[fin.012.001.04](schemas/fin.012.001.04.xsd)
 
 [fin.013.001.04](schemas/fin.013.001.04.xsd)
 
@@ -517,7 +517,7 @@ ISO-sanoman rajoitusten vuoksi Document/InfReqOpng/SchCrit on täytettävä joki
 |\<Pty\>|CstmrId|Jätetään tyhjäksi|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
-Varsinainen hakukriteeri, tallelokeron tunniste, asetetaan auth.001.001.01 Supplementary Dataan, fin.012.001.03 sanomalaajennuksen SafetyDepositBoxId-elementtiin seuraavassa taulukossa esitetyllä tavalla.
+Varsinainen hakukriteeri, tallelokeron tunniste, asetetaan auth.001.001.01 Supplementary Dataan, fin.012.001.04 sanomalaajennuksen SafetyDepositBoxId-elementtiin seuraavassa taulukossa esitetyllä tavalla.
 
 |Tagi|Skeeman polku InfReqOpng/SplmtryData/Envlp/|Kuvaus|Sääntö|
 |:---|:---|:---|:---|
