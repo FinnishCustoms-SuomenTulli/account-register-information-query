@@ -555,6 +555,7 @@ The message extension is appended to the Xpath location of the ISO 20022 message
 |AuthorityInquirySet| | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|Max140Text|Yes|Always "Customs_aggr"|
 |&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|Max140Text|Yes|Always "Customs_aggr"|
+|&nbsp;&nbsp;&nbsp;&nbsp;OfficialOrgId |Max140Text | Yes |Always "Customs_aggr"|
 
 ### <a name="information-request-response-v01"></a> 4.7 InformationRequestResponseV01
 
