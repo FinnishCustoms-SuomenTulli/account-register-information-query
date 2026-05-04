@@ -6,7 +6,7 @@
 
 # Query interface description of the data retrieval system
 
-*Document version 2.0.16*
+*Document version 2.0.17*
 
 ## Vesion history
 
@@ -74,6 +74,7 @@ Version|Date|Decription
 2.0.14|9.10.2025|Added to the chapter 5: From 1.12.2025 onwards credit institutions must return customership start and end dates for both natural persons and organisations who own or have access right to the account. Corresponding updates done to the example response messages.|
 2.0.15|20.11.2025|Specifications to the returning of the customership start and end dates in chapter 5.|  
 2.0.16|18.12.2025|Updated example files example_PIC_query_response_cat_1 and example_safety_deposit_box_query_response_cat_1.|   
+2.0.17|5.5.2026|Updated message fin.012 to version 04. Updated WSDL references to direct to the new WSDL.|   
 
 ## Table of contents
 
@@ -122,7 +123,7 @@ This document is part of the order issued by Finnish Customs regarding a bank an
 
 ### 1.3 References
 
-[WSDL for the data retrieval system](wsdl/data-retrieval-system-wsdl.xml)
+[WSDL for the data retrieval system](https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/main/wsdl/register.003.wsdl)
 
 [ISO 20022 External Code Sets](assets/iso20022org/ExternalCodeSets_2Q2020_August2020_v1.xlsx)
 
@@ -134,7 +135,7 @@ This document is part of the order issued by Finnish Customs regarding a bank an
 
 [fin.002.001.03](schemas/fin.002.001.03.xsd)
 
-[fin.012.001.03](schemas/fin.012.001.03.xsd)
+[fin.012.001.04](schemas/fin.012.001.04.xsd)
 
 [fin.013.001.04](schemas/fin.013.001.04.xsd)
 
@@ -313,7 +314,7 @@ If the certificates or private key of the competent authority utilising the data
 
 ## <a name="queryinterface"></a> 4. Query interface of the data retrieval system
 
-The query interface will be implemented as a SOAP/XML Web Service, of which a [WSDL](wsdl/data-retrieval-system-wsdl.xml)  will be published.
+The query interface will be implemented as a SOAP/XML Web Service, of which a [WSDL](https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/main/wsdl/register.003.wsdl)  will be published.
 
 SOAP protocol version 1.1 is used.
 
@@ -531,7 +532,7 @@ Due to the ISO message restrictions, some data must be entered in Document/InfRe
 |\<Pty\>|CstmrId|Is left blank|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
-The actual search criterion, the safety-deposit box ID, is set in the SafetyDepositBoxId element of fin.012.001.03 message extension, which is set in the Supplementary Data of auth.001.001.01, as shown in the next table.
+The actual search criterion, the safety-deposit box ID, is set in the SafetyDepositBoxId element of fin.012.001.04 message extension, which is set in the Supplementary Data of auth.001.001.01, as shown in the next table.
 
 |Tag|Scheme path InfReqOpng/SplmtryData/Envlp/|Description|Rule|
 |:---|:---|:---|:---|
