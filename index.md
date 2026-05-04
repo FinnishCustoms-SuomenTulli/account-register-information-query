@@ -540,6 +540,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |AuthorityInquirySet| | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|Max140Text|Kyllä|Aina "Customs_aggr"|
 |&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|Max140Text|Kyllä|Aina "Customs_aggr"|
+|&nbsp;&nbsp;&nbsp;&nbsp;OfficialOrgId  | Max140Text | Kyllä    | Aina "Customs_aggr"     |
 
 ### <a name="4-7"></a> 4.7 InformationRequestResponseV01
 
