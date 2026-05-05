@@ -180,6 +180,7 @@
                                     <urn3:AuthorityInquiry>
                                         <urn3:OfficialId>Customs_aggr</urn3:OfficialId>
                                         <urn3:OfficialSuperiorId>Customs_aggr</urn3:OfficialSuperiorId>
+                                        <urn3:OfficialOrgId>Customs_aggr</urn3:OfficialOrgId>
                                     </urn3:AuthorityInquiry>
                                 </urn3:InfReqFin012>
                             </urn3:Document>
