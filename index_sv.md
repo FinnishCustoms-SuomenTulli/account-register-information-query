@@ -544,6 +544,7 @@ Det utvidgade meddelandet kopplas till ISO 20022-meddelandets XPath-läge som an
 |AuthorityInquirySet| | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|Max140Text|Ja|Alltid "Customs_aggr"|
 |&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|Max140Text|Ja|Alltid "Customs_aggr"|
+|&nbsp;&nbsp;&nbsp;&nbsp;OfficialOrgId|Max140Text|Ja|Alltid "Customs_aggr"|
 
 ### <a name="4-7"></a> 4.7 InformationRequestResponseV01
 
