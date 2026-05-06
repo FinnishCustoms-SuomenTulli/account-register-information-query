@@ -74,7 +74,7 @@ Version|Datum|Beskrivning
 2.0.14|9.10.2025|Lagts till i kapitlet 5: Från och med 1.12.2025 ska kreditinstitut returnera startdatum och slutdatum för kundrelation för både fysiska personer och organisationer som är kontoinnehavare eller innehavare av användningsrätt till ett konto. Motsvarande uppdateringar har gjorts i exempelfiler.|
 2.0.15|20.11.2025|Specifikationer för återlämnande av startdatum och slutdatum för kundrelation i kapitlet 5.|  
 2.0.16|18.12.2025|Uppdaterade exempelfiler example_PIC_query_response_cat_1 och example_safety_deposit_box_query_response_cat_1.|   
-2.0.17|5.5.2026|Fin.012 meddelandet har uppdaterats till versionen 04. Länkar till WSDL har uppdaterats att länka till den nya WSDL.|   
+2.0.17|6.5.2026|Fin.012 meddelandet har uppdaterats till versionen 04. Länkar till WSDL har uppdaterats att länka till den nya WSDL.|   
 
 ## Innehåll
 
