@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="urn:fin.012.001.04" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:fin.012.001.04" elementFormDefault="qualified">
+	<xs:element name="Document" type="Document"/>
+	<xs:complexType name="Document">
+		<xs:sequence>
+			<xs:element name="InfReqFin012" type="InformationRequestFIN012"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="InformationRequestFIN012">
+		<xs:sequence>
+			<xs:element name="AuthorityInquiry" type="AuthorityInquirySet"/>
+			<xs:element name="AdditionalSearchCriteria" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="SafetyDepositBoxId" type="Max140Text"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RequestedDataSources" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="DataSourceOrgId" type="Max35Text" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="InvestigationType" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="InvestigationTypeCode" type="InvestigationTypeCode" maxOccurs="2"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="InternationalRequest" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="AdditionalTransactionInformation" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="TransactionFieldCode" type="TransactionFieldCode" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AuthorityInquirySet">
+		<xs:all>
+			<xs:element name="OfficialId" type="Max140Text"/>
+			<xs:element name="OfficialSuperiorId" type="Max140Text"/>
+			<xs:element name="OfficialOrgId" type="Max140Text"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:simpleType name="Max140Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="140"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max35Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="35"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="InvestigationTypeCode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BALN"/>
+			<xs:enumeration value="TRAN"/>
+		</xs:restriction>
+	</xs:simpleType>
+    <xs:simpleType name="TransactionFieldCode">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="BAL_CDTLINE_INCL"/>
+            <xs:enumeration value="BAL_CDTLINE_AMT"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
