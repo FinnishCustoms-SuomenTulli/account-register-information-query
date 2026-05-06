@@ -74,7 +74,7 @@ Version|Date|Decription
 2.0.14|9.10.2025|Added to the chapter 5: From 1.12.2025 onwards credit institutions must return customership start and end dates for both natural persons and organisations who own or have access right to the account. Corresponding updates done to the example response messages.|
 2.0.15|20.11.2025|Specifications to the returning of the customership start and end dates in chapter 5.|  
 2.0.16|18.12.2025|Updated example files example_PIC_query_response_cat_1 and example_safety_deposit_box_query_response_cat_1.|   
-2.0.17|5.5.2026|Updated message fin.012 to version 04. Updated WSDL references to direct to the new WSDL.|   
+2.0.17|6.5.2026|Updated message fin.012 to version 04. Updated WSDL references to direct to the new WSDL.|   
 
 ## Table of contents
 
