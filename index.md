@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 2.0.16*
+*Dokumentin versio 2.0.17*
 
 ## Versiohistoria
 
@@ -74,6 +74,7 @@ Versio|Päivämäärä|Kuvaus
 2.0.14|9.10.2025|Lisätty lukuun 5: 1.12.2025 alkaen luottolaitosten tulee palauttaa myös tilinhaltijan ja tilin käyttöoikeudenhaltijan asiakkuuden alkamis- ja päättymispäivämäärä sekä luonnollisille henkilöille että organisaatioille. Tehty vastaavat päivitykset esimerkkivastaussanomiin.|  
 2.0.15|20.11.2025|Tarkennuksia asiakkuuden alkamis- ja päättymispäivämäärien ilmoittamiseen lukuun 5.|   
 2.0.16|18.12.2025|Päivitetty esimerkkitiedostot example_PIC_query_response_cat_1 ja example_safety_deposit_box_query_response_cat_1.|   
+2.0.17|6.5.2026|Päivitetty sanoma fin.012 versioon 04. Päivitetty WSDL viittaukset ohjaamaan uuteen WSDL:n.|   
 
 ## Sisällysluettelo
 
@@ -122,7 +123,7 @@ Tämä dokumentti on osa Tullin julkaisemaa määräystä pankki- ja maksutilien
 
 ### 1.3 Viittaukset
 
-[Tiedonhakujärjestelmän WSDL](wsdl/data-retrieval-system-wsdl.xml)
+[Tiedonhakujärjestelmän WSDL](https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/main/wsdl/register.003.wsdl)
 
 [ISO 20022 External Code Sets](assets/iso20022org/ExternalCodeSets_2Q2020_August2020_v1.xlsx)
 
@@ -134,7 +135,7 @@ Tämä dokumentti on osa Tullin julkaisemaa määräystä pankki- ja maksutilien
 
 [fin.002.001.03](schemas/fin.002.001.03.xsd)
 
-[fin.012.001.03](schemas/fin.012.001.03.xsd)
+[fin.012.001.04](schemas/fin.012.001.04.xsd)
 
 [fin.013.001.04](schemas/fin.013.001.04.xsd)
 
@@ -300,7 +301,7 @@ Mikäli tiedonhakujärjestelmää hyödyntävän toimivaltaisen viranomaisen var
 
 ## <a name="kyselyrajapinta"></a> 4. Tiedonhakujärjestelmän kyselyrajapinta
 
-Kyselyrajapinta toteutetaan SOAP/XML Web Servicenä, josta julkaistaan [WSDL](wsdl/data-retrieval-system-wsdl.xml).
+Kyselyrajapinta toteutetaan SOAP/XML Web Servicenä, josta julkaistaan [WSDL](https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/main/wsdl/register.003.wsdl).
 
 SOAP-protokollasta käytetään versiota 1.1.
 
@@ -516,7 +517,7 @@ ISO-sanoman rajoitusten vuoksi Document/InfReqOpng/SchCrit on täytettävä joki
 |\<Pty\>|CstmrId|Jätetään tyhjäksi|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
-Varsinainen hakukriteeri, tallelokeron tunniste, asetetaan auth.001.001.01 Supplementary Dataan, fin.012.001.03 sanomalaajennuksen SafetyDepositBoxId-elementtiin seuraavassa taulukossa esitetyllä tavalla.
+Varsinainen hakukriteeri, tallelokeron tunniste, asetetaan auth.001.001.01 Supplementary Dataan, fin.012.001.04 sanomalaajennuksen SafetyDepositBoxId-elementtiin seuraavassa taulukossa esitetyllä tavalla.
 
 |Tagi|Skeeman polku InfReqOpng/SplmtryData/Envlp/|Kuvaus|Sääntö|
 |:---|:---|:---|:---|
@@ -539,6 +540,7 @@ Sanomalaajennus liitetään taulukossa listattuun ISO 20022 sanoman XPath-sijain
 |AuthorityInquirySet| | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|Max140Text|Kyllä|Aina "Customs_aggr"|
 |&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|Max140Text|Kyllä|Aina "Customs_aggr"|
+|&nbsp;&nbsp;&nbsp;&nbsp;OfficialOrgId  | Max140Text | Kyllä    | Aina "Customs_aggr"     |
 
 ### <a name="4-7"></a> 4.7 InformationRequestResponseV01
 

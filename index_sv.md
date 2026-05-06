@@ -6,7 +6,7 @@
 
 # Beskrivning av datasöksystemets frågegränssnitt
 
-*Dokumentversion 2.0.16*
+*Dokumentversion 2.0.17*
 
 ## Versionshistorik
 
@@ -74,6 +74,7 @@ Version|Datum|Beskrivning
 2.0.14|9.10.2025|Lagts till i kapitlet 5: Från och med 1.12.2025 ska kreditinstitut returnera startdatum och slutdatum för kundrelation för både fysiska personer och organisationer som är kontoinnehavare eller innehavare av användningsrätt till ett konto. Motsvarande uppdateringar har gjorts i exempelfiler.|
 2.0.15|20.11.2025|Specifikationer för återlämnande av startdatum och slutdatum för kundrelation i kapitlet 5.|  
 2.0.16|18.12.2025|Uppdaterade exempelfiler example_PIC_query_response_cat_1 och example_safety_deposit_box_query_response_cat_1.|   
+2.0.17|6.5.2026|Fin.012 meddelandet har uppdaterats till versionen 04. Länkar till WSDL har uppdaterats att länka till den nya WSDL.|   
 
 ## Innehåll
 
@@ -123,7 +124,7 @@ Detta dokument ingår i Tullens publicerade föreskrift om ett övervakningssyst
 
 ### 1.3 Hänvisningar
 
-[WSDL för datasöksystemet](wsdl/data-retrieval-system-wsdl.xml)
+[WSDL för datasöksystemet](https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/main/wsdl/register.003.wsdl)
 
 [ISO 20022 External Code Sets](assets/iso20022org/ExternalCodeSets_2Q2020_August2020_v1.xlsx)
 
@@ -135,7 +136,7 @@ Detta dokument ingår i Tullens publicerade föreskrift om ett övervakningssyst
 
 [fin.002.001.03](schemas/fin.002.001.03.xsd)
 
-[fin.012.001.03](schemas/fin.012.001.03.xsd)
+[fin.012.001.04](schemas/fin.012.001.04.xsd)
 
 [fin.013.001.04](schemas/fin.013.001.04.xsd)
 
@@ -305,7 +306,7 @@ Om certifikaten eller deras krypterade nycklar för den behöriga myndighet som 
 
 ## <a name="fragegranssnitt"></a> 4. Datasöksystemets frågegränssnitt
 
-Frågegränssnittet genomförs med SOAP/XML Web Service, för vilken [WSDL](wsdl/data-retrieval-system-wsdl.xml) publiceras.
+Frågegränssnittet genomförs med SOAP/XML Web Service, för vilken [WSDL](https://github.com/FinnishCustoms-SuomenTulli/account-monitoring-system/blob/main/wsdl/register.003.wsdl) publiceras.
 
 Version 1.1 av SOAP-protokollet används.
 
@@ -520,7 +521,7 @@ På grund av begränsningarna gällande ISO-meddelanden ska Document/InfReqOpng/
 |\<Pty\>|CstmrId|Lämnas tomt|
 |\<Cd\>|CstmrId/AuthrtyReq/InvstgtdRoles|"ALLP"|
 
-Det egentliga sökkriteriet, dvs. bankfackets identifieringsuppgift, anges i SafetyDepositBoxId-elementet i det utvidgade meddelandet fin.012.001.03 som i sin tur anges i Supplementary Data i auth.001.001.01-meddelandet på så sätt som anges i tabellen nedan. 
+Det egentliga sökkriteriet, dvs. bankfackets identifieringsuppgift, anges i SafetyDepositBoxId-elementet i det utvidgade meddelandet fin.012.001.04 som i sin tur anges i Supplementary Data i auth.001.001.01-meddelandet på så sätt som anges i tabellen nedan. 
 
 |Tagg|Schemats sökväg InfReqOpng/SplmtryData/Envlp/|Beskrivning|Regel|
 |:---|:---|:---|:---|
@@ -543,6 +544,7 @@ Det utvidgade meddelandet kopplas till ISO 20022-meddelandets XPath-läge som an
 |AuthorityInquirySet| | | |
 |&nbsp;&nbsp;&nbsp;&nbsp;OfficialId|Max140Text|Ja|Alltid "Customs_aggr"|
 |&nbsp;&nbsp;&nbsp;&nbsp;OfficialSuperiorId|Max140Text|Ja|Alltid "Customs_aggr"|
+|&nbsp;&nbsp;&nbsp;&nbsp;OfficialOrgId|Max140Text|Ja|Alltid "Customs_aggr"|
 
 ### <a name="4-7"></a> 4.7 InformationRequestResponseV01
 
