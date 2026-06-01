@@ -6,7 +6,7 @@
 
 # Query interface description of the data retrieval system
 
-*Document version 2.0.17*
+*Document version 2.0.18*
 
 ## Vesion history
 
@@ -75,6 +75,7 @@ Version|Date|Decription
 2.0.15|20.11.2025|Specifications to the returning of the customership start and end dates in chapter 5.|  
 2.0.16|18.12.2025|Updated example files example_PIC_query_response_cat_1 and example_safety_deposit_box_query_response_cat_1.|   
 2.0.17|6.5.2026|Updated message fin.012 to version 04. Updated WSDL references to direct to the new WSDL.|   
+2.0.18|1.6.2026|Updated new instructions for deployment and maintenance.|   
 
 ## Table of contents
 
