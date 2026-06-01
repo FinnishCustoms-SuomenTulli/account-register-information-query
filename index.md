@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 2.0.17*
+*Dokumentin versio 2.0.18*
 
 ## Versiohistoria
 
@@ -75,6 +75,7 @@ Versio|Päivämäärä|Kuvaus
 2.0.15|20.11.2025|Tarkennuksia asiakkuuden alkamis- ja päättymispäivämäärien ilmoittamiseen lukuun 5.|   
 2.0.16|18.12.2025|Päivitetty esimerkkitiedostot example_PIC_query_response_cat_1 ja example_safety_deposit_box_query_response_cat_1.|   
 2.0.17|6.5.2026|Päivitetty sanoma fin.012 versioon 04. Päivitetty WSDL viittaukset ohjaamaan uuteen WSDL:n.|   
+2.0.18|1.6.2026|Päivitetty uusi käyttöönoton- ja ylläpidon ohje.|  
 
 ## Sisällysluettelo
 
