@@ -6,7 +6,7 @@
 
 # Beskrivning av datasöksystemets frågegränssnitt
 
-*Dokumentversion 2.0.18*
+*Dokumentversion 2.0.19*
 
 ## Versionshistorik
 
@@ -75,7 +75,8 @@ Version|Datum|Beskrivning
 2.0.15|20.11.2025|Specifikationer för återlämnande av startdatum och slutdatum för kundrelation i kapitlet 5.|  
 2.0.16|18.12.2025|Uppdaterade exempelfiler example_PIC_query_response_cat_1 och example_safety_deposit_box_query_response_cat_1.|   
 2.0.17|6.5.2026|Fin.012 meddelandet har uppdaterats till versionen 04. Länkar till WSDL har uppdaterats att länka till den nya WSDL.|   
-2.0.18|1.6.2026|Uppdaterade nya instruktioner för produktionssättning och underhåll.| 
+2.0.18|1.6.2026|Uppdaterade nya instruktioner för produktionssättning och underhåll.|  
+2.0.19|30.9.2026|Uppdaterade instruktioner för hantering av långa kontonummer.| 
 
 ## Innehåll
 
@@ -493,12 +494,13 @@ Om sökkriterier producerar mer än ett motsvarande företag, felkod 7 returnera
 |\<IBAN\>|Acct/Id/Id|IBAN|
 |\<Cd\>|Acct/InvstgtdPties|"ALLP"|
 
-#### <a name=""></a> Sökning med IBAN eller annan kontospecifikation
+#### <a name=""></a> Sökning med en annan kontospecifikation
 
 |Tagg|Schemats sökväg InfReqOpng/SchCrit/|Beskrivning|
 |:---|:---|:---|
-|\<Id\>|Acct/Id/Id/Othr|Annan kontospecifikation|
-|\<Cd\>|Acct/Id/Id/Othr/SchmeNm|OTHR|
+|\<Id\>|Acct/Id/Id/Othr|Annan kontospecifikation. Om kontonumret är över 34 tecken lång värdet är 1 och den verkliga kontonumret ges i fältet Acct/Id/Nm.|
+|\<Cd\>|Acct/Id/Id/Othr/SchmeNm|Används bara när sökobjektet inte är ett IBAN-konto. Värdet är "GLID" om kontonumret är över 34 tecken lång, annars "OTHR".|
+|\<Nm\>|Acct/Id/|Om kontonumret som sökas är över 34 tecken lång, reporteras kontonumret i det här fältet. Annars fältet används inte.|
 |\<Cd\>|Acct/InvstgtdPties|"ALLP"|
 
 #### <a name=""></a> Sökning med kombinationen av namn, medborgarskap och födelsedatum för fysisk person
