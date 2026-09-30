@@ -6,7 +6,7 @@
 
 # Tiedonhakujärjestelmän kyselyrajapintakuvaus
 
-*Dokumentin versio 2.0.18*
+*Dokumentin versio 2.0.19*
 
 ## Versiohistoria
 
@@ -75,7 +75,8 @@ Versio|Päivämäärä|Kuvaus
 2.0.15|20.11.2025|Tarkennuksia asiakkuuden alkamis- ja päättymispäivämäärien ilmoittamiseen lukuun 5.|   
 2.0.16|18.12.2025|Päivitetty esimerkkitiedostot example_PIC_query_response_cat_1 ja example_safety_deposit_box_query_response_cat_1.|   
 2.0.17|6.5.2026|Päivitetty sanoma fin.012 versioon 04. Päivitetty WSDL viittaukset ohjaamaan uuteen WSDL:n.|   
-2.0.18|1.6.2026|Päivitetty uusi käyttöönoton- ja ylläpidon ohje.|  
+2.0.18|1.6.2026|Päivitetty uudet käyttöönoton- ja ylläpidon ohjeet.|  
+2.0.19|30.9.2026|Päivitetty pitkien tilinumeroiden käsittely kyselysanomassa.|  
 
 ## Sisällysluettelo
 
@@ -493,8 +494,9 @@ Jos annetuilla hakukriteereillä löytyy useampi kuin yksi niitä vastaava yrity
 
 |Tagi|Skeeman polku InfReqOpng/SchCrit/|Kuvaus|
 |:---|:---|:---|
-|\<Id\>|Acct/Id/Id/Othr|Tilin muu yksilöintitunnus|
-|\<Cd\>|Acct/Id/Id/Othr/SchmeNm|OTHR|
+|\<Id\>|Acct/Id/Id/Othr|Tilin muu yksilöintitunnus. Jos tilinumero on yli 34 merkkiä pitkä, asetetaan arvoksi 1 ja tilinumero annetaan Acct/Id/Nm kentässä.|
+|\<Cd\>|Acct/Id/Id/Othr/SchmeNm|Käytetään ainoastaan, kun hakukohteena ei ole IBAN-tili. Arvona "GLID", jos tilinumero on yli 34 merkkiä pitkä, muutoin "OTHR".|
+|\<Nm\>|Acct/Id|Jos haettavan tilin tilinumero on yli 34 merkkiä pitkä, ilmoitetaan tilinumero tässä kentässä. Muutoin kenttää ei käytetä.|
 |\<Cd\>|Acct/InvstgtdPties|"ALLP"|
 
 #### <a name=""></a> Haku luonnollisen henkilön nimi, kansalaisuus ja syntymäaika -yhdistelmällä

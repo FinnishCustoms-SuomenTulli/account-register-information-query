@@ -6,7 +6,7 @@
 
 # Query interface description of the data retrieval system
 
-*Document version 2.0.18*
+*Document version 2.0.19*
 
 ## Vesion history
 
@@ -76,6 +76,7 @@ Version|Date|Decription
 2.0.16|18.12.2025|Updated example files example_PIC_query_response_cat_1 and example_safety_deposit_box_query_response_cat_1.|   
 2.0.17|6.5.2026|Updated message fin.012 to version 04. Updated WSDL references to direct to the new WSDL.|   
 2.0.18|1.6.2026|Updated new instructions for deployment and maintenance.|   
+2.0.19|30.9.2026|Updated instructions for handling long account numbers in the query message.|  
 
 ## Table of contents
 
@@ -508,8 +509,9 @@ If the given search criteria results in more than one matching company, fault co
 
 |Tag|Scheme path InfReqOpng/SchCrit/|Description|
 |:---|:---|:---|
-|\<Id\>|Acct/Id/Id/Othr|Other code identifying the account|
-|\<Cd\>|Acct/Id/Id/Othr/SchmeNm|OTHR|
+|\<Id\>|Acct/Id/Id/Othr|Other code identifying the account. If the account number is over 34 characters long, the value is set as 1 and the actual account number is in field Acct/Id/Nm.|
+|\<Cd\>|Acct/Id/Id/Othr/SchmeNm|Only used when the requested account is not an IBAN account. The value is "GLID" if the account number is over 34 characters long, otherwise "OTHR".|
+|\<Nm\>|Acct/Id/|If the requested account number is over 34 characters long, the account number is reported here. Otherwise the field is not used.|
 |\<Cd\>|Acct/InvstgtdPties|"ALLP"|
 
 #### <a name=""></a> Search by a combination of the natural person’s name, nationality and date of birth
